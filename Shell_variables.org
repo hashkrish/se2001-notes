@@ -122,23 +122,11 @@ When working with shell variables, it's essential to follow certain guidelines f
 
 To create a shell variable, use the assignment operator ~=~
 
-#+begin_src shell
+#+begin_src bash
 greeting="Hello, World!"
 echo "Current greeting: $greeting"
+~ Current greeting: Hello World
 #+end_src
-
-#+RESULTS:
-| Microsoft                                            | Windows   | [Version     | 10.0.22621.2861] |        |           |
-| (c)                                                  | Microsoft | Corporation. | All              | rights | reserved. |
-|                                                      |           |              |                  |        |           |
-| c:\Users\parte\Desktop\se2001-notes>greeting="Hello, | World!"   |              |                  |        |           |
-|                                                      |           |              |                  |        |           |
-| c:\Users\parte\Desktop\se2001-notes>echo             | "Current  | greeting:    | $greeting"       |        |           |
-| "Current                                             | greeting: | $greeting"   |                  |        |           |
-|                                                      |           |              |                  |        |           |
-| c:\Users\parte\Desktop\se2001-notes>                 |           |              |                  |        |           |
-
-
 
 Here's an example:
 
