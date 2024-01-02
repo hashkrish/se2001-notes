@@ -85,7 +85,9 @@ echo "Terminal type: $TERM"
 #+RESULTS:
 : Terminal type: xterm-256color
 
-| Special Shell Variable | Example                       | Description                                   |
+* Special Shell variables:
+
+|        Variable        |            Example            |                   Description                 |
 |------------------------|-------------------------------|-----------------------------------------------|
 | $0                     | `echo "Shell name: $0"`       | Name of the shell                             |
 | $$                     | `echo "Shell process ID: $$"` | Process ID of the shell                       |
