@@ -69,8 +69,6 @@ echo "Path: $PATH"
 
 - *$PWD:*
   - *Description:* Represents the current working directory.
-  - *Example:*
-    `echo "Current working directory: $PWD"`
     #+begin_src bash
 echo "Current working directory: $PWD"
     #+end_src
@@ -80,8 +78,6 @@ echo "Current working directory: $PWD"
 
 - *$TERM:*
   - *Description:* Specifies the terminal type being used.
-  - *Example:*
-     `echo "Terminal type: $TERM"`
     #+begin_src bash
 echo "Terminal type: $TERM"
 #+end_src
