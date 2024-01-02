@@ -11,15 +11,14 @@
   - *Description:* Stores the name of the current user.
   - *Example:*
     #+begin_src bash
-    echo $USER
-    #+end_src
-    #+RESULTS:
+echo $USER #+end_src
+    ,#+RESULTS:
     : keetrap
 
 - **$LOGNAME:**
   - *Description:* Holds the login name of the current user.
   - *Example:*
-    #+begin_src bash
+    ,#+begin_src bash
     echo "Login name:" $LOGNAME
     #+end_src
     #+RESULTS:
