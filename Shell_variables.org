@@ -137,3 +137,26 @@ greeting="Hola, Mundo!"
 echo "Updated greeting: $greeting"
 ~ Updated greeting: Hola, Mundo!
 #+end_src
+
+*** Unquoted Variable Assignment
+
+If a variable assigned a value without quotes, it can lead to unexpected results:
+#+begin_src bash
+myvar=hello world
+~ Command 'world' not found
+#+end_src
+
+Variable assigned a value 'hello' and 'world' treated as a command
+
+The exit status ~$?~ will be set to ~127~, indicating a command not found error.
+
+
+*** Command as Value of a Variable
+
+You can store the output of a command in a variable
+
+#+begin_src bash
+myvar=`date`
+echo $myvar
+~ Wed Jan 3 03:10:48 IST 2024
+#+end_src
