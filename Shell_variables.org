@@ -101,33 +101,33 @@ When working with shell variables, it's essential to follow certain guidelines f
 
 1. *Variable Naming:*
    - Variable names can have a mix of alphanumeric characters and underscores.
-   - Valid examples: "myvar", "MyVar", "My10Var", "MyVar_1"
+   - Valid examples: ~myvar~, ~MyVar~, =My10Var=, =MyVar_1=
 
 2. *No Starting with a Number:*
    - Variable names should not start with a number.
-   - Invalid example: :10myvar"
+   - Invalid example: : ~10myvar~
 
 3. *No Spaces Around Assignment:*
-   - Ensure there are no spaces around the assignment operator (`=`).
-   - Invalid example: `myvar = 10`
+   - Ensure there are no spaces around the assignment operator (~=~).
+   - Invalid example: ~myvar = 10~
 
 4. *Value Types:*
    - A value can be a number, string, or a result of command substitution.
    - Safer to enclose string values within double quotes.
 
 5. *String Concatenation:*
-   - Use `${myvar}` for string concatenation rather than `$myvar`. This is more convenient.
+   - Use =${myvar}= for string concatenation rather than ~$myvar~. This is more convenient.
 
 *** Examples:
 
-```bash
-# Valid variable names
+
+Valid variable names
 myvar="value"
 MyVar="another_value"
 My10Var="numeric_value"
 MyVar_1="mixed_value"
 
-# Invalid variable names
+Invalid variable names
 10myvar="invalid"        # Starts with a number
 my var="oops"            # Contains space
 myvar = 10               # Spaces around assignment
