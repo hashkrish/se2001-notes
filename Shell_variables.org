@@ -10,11 +10,9 @@
 - **$USER:**
   - *Description:* Stores the name of the current user.
   - *Example:*
-
     #+begin_src bash
     echo $USER
     #+end_src
-n
     #+RESULTS:
     : keetrap
 
