@@ -1,0 +1,77 @@
+# Created 2024-01-03 Wed 01:54
+#+title: Shell Variables
+n
+- Shell variables, defined in the command line environment, serve as efficient communication tools between processes.
+- $hell variables are a reliable medium for inter-process communication, seamlessly accessible by child processes.
+- They maintain privacy, being exclusive to the shell where they are defined.
+- Useful for storing information in an intermediate form during processes.
+* User-Related Environment Variables
+
+- *$USER:*
+  - *Description:* Stores the name of the current user.
+  - *Example:*
+    #+begin_src bash
+    echo $USER
+    #+end_src
+
+#+results: 
+: keetrap
+
+
+- *$LOGNAME:*
+  - *Description:* Holds the login name of the current user.
+  - *Example:*
+    #+begin_src bash
+    echo "Login name:" $LOGNAME
+    #+end_src
+
+- *$HOME:*
+  - *Description:* Represents the home directory of the current user.
+  - *Example:*
+    `echo "Home directory: $HOME"`
+    #+begin_src bash
+    echo "Home directory:" $HOME
+    #+end_src
+
+- *$UID:*
+  - *Description:* Contains the numeric user ID of the current user.
+  - *Example:*
+    `echo "User ID: $UID"`
+    #+begin_src bash
+    echo "User ID:" $UID
+    #+end_src
+
+- *$SHELL:*
+  - *Description:* Represents the user's default shell.
+  - *Example:*
+    `echo "Default shell: $SHELL"`
+    #+begin_src bash
+    echo "Default shell: $SHELL"
+    #+end_src
+
+- *$PATH:*
+  - *Description:* Specifies the directories to search for executable files. It often includes the user's bin directory.
+  - *Example:*
+    `echo "Path: $PATH"`
+    #+begin_src bash
+    echo "Path: $PATH"
+    #+end_src
+
+- *$PWD:*
+  - *Description:* Represents the current working directory.
+  - *Example:*
+    `echo "Current working directory: $PWD"`
+    #+begin_src bash
+    echo "Current working directory: $PWD"
+    #+end_src
+
+- *$TERM:*
+  - *Description:* Specifies the terminal type being used.
+  - *Example:*
+    `echo "Terminal type: $TERM"`
+    #+begin_src bash
+    echo "Terminal type: $TERM"
+    #+end_src
+
+#+results: 
+: Terminal type: xterm-256color
