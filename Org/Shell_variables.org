@@ -1,0 +1,52 @@
+#+title: Shell Variables
+
+- Shell variables, defined in the command line environment, serve as efficient communication tools between processes.
+- $hell variables are a reliable medium for inter-process communication, seamlessly accessible by child processes.
+- They maintain privacy, being exclusive to the shell where they are defined.
+- Useful for storing information in an intermediate form during processes.
+
+* User-Related Environment Variables
+
+- **$USER:**
+  - *Description:* Stores the name of the current user.
+  - *Example:*
+
+- **$LOGNAME:**
+  - *Description:* Holds the login name of the current user.
+  - *Example:* `echo "Login name: $LOGNAME"`
+
+- **$HOME:**
+  - *Description:* Represents the home directory of the current user.
+  - *Example:* `echo "Home directory: $HOME"`
+
+- **$UID:**
+  - *Description:* Contains the numeric user ID of the current user.
+  - *Example:* `echo "User ID: $UID"`
+
+- **$EUID:**
+  - *Description:* Stores the effective user ID of the current user.
+  - *Example:* `echo "Effective User ID: $EUID"`
+
+- **$SHELL:**
+  - *Description:* Represents the user's default shell.
+  - *Example:* `echo "Default shell: $SHELL"`
+
+- **$PATH:**
+  - *Description:* Specifies the directories to search for executable files. It often includes the user's bin directory.
+  - *Example:* `echo "Path: $PATH"`
+
+- **$IFS:**
+  - *Description:* Stands for Internal Field Separator. Defines the delimiter used for word splitting in variables like $PATH.
+  - *Example:* `echo "Internal Field Separator: $IFS"`
+
+- **$GROUPS:**
+  - *Description:* Lists the group memberships of the current user.
+  - *Example:* `echo "Group memberships: $GROUPS"`
+
+- **$PWD:**
+  - *Description:* Represents the current working directory.
+  - *Example:* `echo "Current working directory: $PWD"`
+
+- **$TERM:**
+  - *Description:* Specifies the terminal type being used.
+  - *Example:* `echo "Terminal type: $TERM"`
