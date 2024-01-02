@@ -10,19 +10,19 @@
 - *$USER:*
   - *Description:* Stores the name of the current user.
   - *Example:*
-#+begin_src bash
+    #+begin_src bash
 echo $USER
-#+end_src
+    #+end_src
 
-#+RESULTS:
-: keetrap
+    #+RESULTS:
+    : keetrap
 
 - *$LOGNAME:*
   - *Description:* Holds the login name of the current user.
   - *Example:*
-#+begin_src bash
+    #+begin_src bash
 echo "Login name:" $LOGNAME
-#+end_src
+    #+end_src
 
 #+RESULTS:
 : Login name: keetrap
@@ -31,9 +31,9 @@ echo "Login name:" $LOGNAME
   - *Description:* Represents the home directory of the current user.
   - *Example:*
     `echo "Home directory: $HOME"`
-#+begin_src bash
+    #+begin_src bash
 echo "Home directory:" $HOME
-#+end_src
+    #+end_src
 
 #+RESULTS:
 : Home directory: /home/keetrap
@@ -43,7 +43,7 @@ echo "Home directory:" $HOME
   - *Example:*
     `echo "User ID: $UID"`
     #+begin_src bash
-    echo "User ID:" $UID
+echo "User ID:" $UID
     #+end_src
 
     #+RESULTS:
@@ -54,7 +54,7 @@ echo "Home directory:" $HOME
   - *Example:*
     `echo "Default shell: $SHELL"`
     #+begin_src bash
-    echo "Default shell: $SHELL"
+echo "Default shell: $SHELL"
     #+end_src
 
     #+RESULTS:
@@ -65,7 +65,7 @@ echo "Home directory:" $HOME
   - *Example:*
     `echo "Path: $PATH"`
     #+begin_src bash
-    echo "Path: $PATH"
+echo "Path: $PATH"
     #+end_src
 
     #+RESULTS:
@@ -76,7 +76,7 @@ echo "Home directory:" $HOME
   - *Example:*
     `echo "Current working directory: $PWD"`
     #+begin_src bash
-    echo "Current working directory: $PWD"
+echo "Current working directory: $PWD"
 
     #+end_src
 
@@ -88,7 +88,7 @@ echo "Home directory:" $HOME
   - *Example:*
      `echo "Terminal type: $TERM"`
      #+begin_src bash
-     echo "Terminal type: $TERM"
+echo "Terminal type: $TERM"
      #+end_src
 
      #+RESULTS:
