@@ -14,18 +14,12 @@
 echo $USER
 #+end_src
 
-    #+RESULTS:
-    : keetrap
-
 - *$LOGNAME:*
   - *Description:* Holds the login name of the current user.
   - *Example:*
     #+begin_src bash
 echo "Login name:" $LOGNAME
     #+end_src
-
-#+RESULTS:
-: Login name: keetrap
 
 - *$HOME:*
   - *Description:* Represents the home directory of the current user.
@@ -35,9 +29,6 @@ echo "Login name:" $LOGNAME
 echo "Home directory:" $HOME
     #+end_src
 
-#+RESULTS:
-: Home directory: /home/keetrap
-
 - *$UID:*
   - *Description:* Contains the numeric user ID of the current user.
   - *Example:*
@@ -45,9 +36,6 @@ echo "Home directory:" $HOME
     #+begin_src bash
 echo "User ID:" $UID
     #+end_src
-
-    #+RESULTS:
-    : User ID: 1000
 
 - *$SHELL:*
   - *Description:* Represents the user's default shell.
@@ -57,9 +45,6 @@ echo "User ID:" $UID
 echo "Default shell: $SHELL"
     #+end_src
 
-    #+RESULTS:
-    : Default shell: /bin/bash
-
 - *$PATH:*
   - *Description:* Specifies the directories to search for executable files. It often includes the user's bin directory.
   - *Example:*
@@ -68,20 +53,13 @@ echo "Default shell: $SHELL"
 echo "Path: $PATH"
     #+end_src
 
-    #+RESULTS:
-    : Path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/parte/AppData/Local/Microsoft/WindowsApps:/mnt/d/fd-v9.0.0-x86_64-pc-windows-gnu:/mnt/d/ripgrep-14.0.3-x86_64-pc-windows-gnu:/mnt/d/Emacs/emacs-29.1/bin
-
 - *$PWD:*
   - *Description:* Represents the current working directory.
   - *Example:*
     `echo "Current working directory: $PWD"`
     #+begin_src bash
 echo "Current working directory: $PWD"
-
     #+end_src
-
-    #+RESULTS:
-    : Current working directory: /mnt/c/Users/parte/Desktop/se2001-notes
 
 - *$TERM:*
   - *Description:* Specifies the terminal type being used.
@@ -90,6 +68,3 @@ echo "Current working directory: $PWD"
      #+begin_src bash
 echo "Terminal type: $TERM"
      #+end_src
-
-     #+RESULTS:
-     : Terminal type: xterm-256color
