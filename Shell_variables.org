@@ -85,11 +85,49 @@ echo "Terminal type: $TERM"
 #+RESULTS:
 : Terminal type: xterm-256color
 
-* Special Shell variables:
+* Special Shell variables
 
 |        Variable        |            Example            |                   Description                 |
 |------------------------|-------------------------------|-----------------------------------------------|
-| $0                     | `echo "Shell name: $0"`       | Name of the shell                             |
-| $$                     | `echo "Shell process ID: $$"` | Process ID of the shell                       |
-| $?                     | `echo "Exit code: $?"`        | Exit code of the previous command/program     |
-| $-                     | `echo "Flags: $-"`            | Flags set in the bash shell                   |
+| $0                     | echo "Shell name: $0"         | Name of the shell                             |
+| $$                     | echo "Shell process ID: $$"   | Process ID of the shell                       |
+| $?                     | echo "Exit code: $?"          | Exit code of the previous command/program     |
+| $-                     | echo "Flags: $-"              | Flags set in the bash shell                   |
+
+
+* Shell Variable Guidelines and Examples
+
+When working with shell variables, it's essential to follow certain guidelines for proper usage. Here are some conventions and examples:
+
+1. *Variable Naming:*
+   - Variable names can have a mix of alphanumeric characters and underscores.
+   - Valid examples: `myvar`, `MyVar`, `My10Var`, `MyVar_1`
+
+2. *No Starting with a Number:*
+   - Variable names should not start with a number.
+   - Invalid example: `10myvar`
+
+3. *No Spaces Around Assignment:*
+   - Ensure there are no spaces around the assignment operator (`=`).
+   - Invalid example: `myvar = 10`
+
+4. *Value Types:*
+   - A value can be a number, string, or a result of command substitution.
+   - Safer to enclose string values within double quotes.
+
+5. *String Concatenation:*
+   - Use `${myvar}` for string concatenation rather than `$myvar`. This is more convenient.
+
+*** Examples:
+
+```bash
+# Valid variable names
+myvar="value"
+MyVar="another_value"
+My10Var="numeric_value"
+MyVar_1="mixed_value"
+
+# Invalid variable names
+10myvar="invalid"        # Starts with a number
+my var="oops"            # Contains space
+myvar = 10               # Spaces around assignment
