@@ -67,5 +67,5 @@ echo "Current working directory: $PWD"
      `echo "Terminal type: $TERM"`
      #+begin_src bash
 echo "Terminal type: $TERM"
-: Terminal type: xterm-256color
+`: Terminal type: xterm-256color`
 #+end_src
