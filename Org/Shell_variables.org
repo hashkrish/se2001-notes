@@ -5,48 +5,166 @@
 - They maintain privacy, being exclusive to the shell where they are defined.
 - Useful for storing information in an intermediate form during processes.
 
-* User-Related Environment Variables
+** User-Related Environment Variables
 
-- **$USER:**
+- *$USER:*
   - *Description:* Stores the name of the current user.
   - *Example:*
+    #+begin_src bash
+echo $USER
+#+end_src
 
-- **$LOGNAME:**
+#+RESULTS:
+: keetrap
+
+- *$LOGNAME:*
   - *Description:* Holds the login name of the current user.
-  - *Example:* `echo "Login name: $LOGNAME"`
+  - *Example:*
+    #+begin_src bash
+echo "Login name:" $LOGNAME
+    #+end_src
 
-- **$HOME:**
+    #+RESULTS:
+    : Login name: keetrap
+
+- *$HOME:*
   - *Description:* Represents the home directory of the current user.
-  - *Example:* `echo "Home directory: $HOME"`
+  - *Example:*
+    #+begin_src bash
+echo "Home directory:" $HOME
+    #+end_src
 
-- **$UID:**
+    #+RESULTS:
+    : Home directory: /home/keetrap
+
+- *$UID:*
   - *Description:* Contains the numeric user ID of the current user.
-  - *Example:* `echo "User ID: $UID"`
+  - *Example:*
+    #+begin_src bash
+echo "User ID:" $UID
+    #+end_src
 
-- **$EUID:**
-  - *Description:* Stores the effective user ID of the current user.
-  - *Example:* `echo "Effective User ID: $EUID"`
+    #+RESULTS:
+    : User ID: 1000
 
-- **$SHELL:**
+- *$SHELL:*
   - *Description:* Represents the user's default shell.
-  - *Example:* `echo "Default shell: $SHELL"`
+  - *Example:*
+    #+begin_src bash
+echo "Default shell: $SHELL"
+    #+end_src
 
-- **$PATH:**
+    #+RESULTS:
+    : Default shell: /bin/bash
+
+- *$PATH:*
   - *Description:* Specifies the directories to search for executable files. It often includes the user's bin directory.
-  - *Example:* `echo "Path: $PATH"`
+  - *Example:*
+    #+begin_src bash
+echo "Path: $PATH"
+    #+end_src
 
-- **$IFS:**
-  - *Description:* Stands for Internal Field Separator. Defines the delimiter used for word splitting in variables like $PATH.
-  - *Example:* `echo "Internal Field Separator: $IFS"`
+    #+RESULTS:
+    : Path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/parte/AppData/Local/Microsoft/WindowsApps:/mnt/d/fd-v9.0.0-x86_64-pc-windows-gnu:/mnt/d/ripgrep-14.0.3-x86_64-pc-windows-gnu:/mnt/d/Emacs/emacs-29.1/bin
 
-- **$GROUPS:**
-  - *Description:* Lists the group memberships of the current user.
-  - *Example:* `echo "Group memberships: $GROUPS"`
-
-- **$PWD:**
+- *$PWD:*
   - *Description:* Represents the current working directory.
-  - *Example:* `echo "Current working directory: $PWD"`
+    #+begin_src bash
+echo "Current working directory: $PWD"
+    #+end_src
 
-- **$TERM:**
+    #+RESULTS:
+    : Current working directory: /mnt/c/Users/parte/Desktop/se2001-notes
+
+- *$TERM:*
   - *Description:* Specifies the terminal type being used.
-  - *Example:* `echo "Terminal type: $TERM"`
+    #+begin_src bash
+echo "Terminal type: $TERM"
+#+end_src
+
+#+RESULTS:
+: Terminal type: xterm-256color
+
+** Special Shell variables
+
+|        Variable        |            Example            |                   Description                 |
+|------------------------|-------------------------------|-----------------------------------------------|
+| $0                     | echo "Shell name: $0"         | Name of the shell                             |
+| $$                     | echo "Shell process ID: $$"   | Process ID of the shell                       |
+| $?                     | echo "Exit code: $?"          | Exit code of the previous command/program     |
+| $-                     | echo "Flags: $-"              | Flags set in the bash shell                   |
+
+
+** Shell Variable Guidelines and Examples
+
+When working with shell variables, it's essential to follow certain guidelines for proper usage. Here are some conventions and examples:
+
+1. *Variable Naming:*
+   - Variable names can have a mix of alphanumeric characters and underscores.
+   - Valid examples: ~myvar~, ~MyVar~, =My10Var=, =MyVar_1=
+
+2. *No Starting with a Number:*
+   - Variable names should not start with a number.
+   - Invalid example: : ~10myvar~
+
+3. *No Spaces Around Assignment:*
+   - Ensure there are no spaces around the assignment operator ~=~.
+   - Invalid example: ~myvar = 10~
+
+4. *Value Types:*
+   - A value can be a number, string, or a result of command substitution.
+   - Safer to enclose string values within double quotes
+
+** Shell Variable Examples
+
+
+*** Creating Shell Variables
+
+To create a shell variable, use the assignment operator ~=~
+
+#+begin_src bash
+greeting="Hello, World!"
+echo "Current greeting: $greeting"
+~ Current greeting: Hello World!
+#+end_src
+
+*** Changing Variable Values
+
+You can change the value of a variable by reassigning it.
+
+#+begin_src bash
+greeting="Hola, Mundo!"
+echo "Updated greeting: $greeting"
+~ Updated greeting: Hola, Mundo!
+#+end_src
+
+*** Unquoted Variable Assignment
+
+If a variable assigned a value without quotes, it can lead to unexpected results:
+#+begin_src bash
+myvar=hello world
+~ Command 'world' not found
+#+end_src
+
+Variable assigned a value 'hello' and 'world' treated as a command
+
+The exit status ~$?~ will be set to ~127~, indicating a command not found error.
+
+
+*** Command as Value of a Variable
+
+You can store the output of a command in a variable
+
+#+begin_src bash
+myvar=`date`
+echo $myvar
+~ Mon Jan 1 01:10:48 IST 2024
+
+myvar=`echo Happy New Year`
+echo $myvar
+~ Happy New Year
+#+end_src
+
+#+RESULTS:
+| Wed   | Jan |      3 | 03:16:41 | IST | 2024 |
+| Happy | New | Year |          |     |        |
