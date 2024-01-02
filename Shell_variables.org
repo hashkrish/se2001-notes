@@ -113,4 +113,31 @@ When working with shell variables, it's essential to follow certain guidelines f
 
 4. *Value Types:*
    - A value can be a number, string, or a result of command substitution.
-   - Safer to enclose string values within double quotes.
+   - Safer to enclose string values within double quotes
+
+** Shell Variable Examples
+
+
+*** Creating Shell Variables
+
+To create a shell variable, use the assignment operator ~=~ Here's an example:
+
+Create a variable named 'greeting' with the value 'Hello, World!'
+~greeting="Hello, World!"~
+
+Display the value of the 'greeting' variable
+~echo "Current greeting: $greeting"~
+
+Then output will be:
+~Current greeting: Hello, World!~
+~
+
+*** Changing Variable Values
+You can change the value of a variable by reassigning it.
+Change the value of 'greeting'
+~greeting="Hola, Mundo!"~
+Display the updated value of 'greeting'
+~echo "Updated greeting: $greeting"~
+
+Then output will be:
+~Updated greeting: Hola, Mundo!~
