@@ -84,3 +84,10 @@ echo "Terminal type: $TERM"
 
 #+RESULTS:
 : Terminal type: xterm-256color
+
+| Special Shell Variable | Example                       | Description                                   |
+|------------------------|-------------------------------|-----------------------------------------------|
+| $0                     | `echo "Shell name: $0"`       | Name of the shell                             |
+| $$                     | `echo "Shell process ID: $$"` | Process ID of the shell                       |
+| $?                     | `echo "Exit code: $?"`        | Exit code of the previous command/program     |
+| $-                     | `echo "Flags: $-"`            | Flags set in the bash shell                   |
