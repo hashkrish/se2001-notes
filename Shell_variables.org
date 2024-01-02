@@ -10,9 +10,10 @@
 - **$USER:**
   - *Description:* Stores the name of the current user.
   - *Example:*
-    #+begin_src bash
-echo $USER #+end_src
-    ,#+RESULTS:
+#+begin_src bash
+echo $USER
+#+end_src
+#+RESULTS:
     : keetrap
 
 - **$LOGNAME:**
@@ -22,7 +23,8 @@ echo $USER #+end_src
     echo "Login name:" $LOGNAME
     #+end_src
     #+RESULTS:
-    : Login name: keetrap
+    | keetrap | i#+end_src |         |
+    | Login   | name:      | keetrap |
 
 - **$HOME:**
   - *Description:* Represents the home directory of the current user.
