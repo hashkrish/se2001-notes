@@ -5,7 +5,7 @@
 - They maintain privacy, being exclusive to the shell where they are defined.
 - Useful for storing information in an intermediate form during processes.
 
-* User-Related Environment Variables
+** User-Related Environment Variables
 
 - *$USER:*
   - *Description:* Stores the name of the current user.
@@ -85,7 +85,7 @@ echo "Terminal type: $TERM"
 #+RESULTS:
 : Terminal type: xterm-256color
 
-* Special Shell variables
+** Special Shell variables
 
 |        Variable        |            Example            |                   Description                 |
 |------------------------|-------------------------------|-----------------------------------------------|
@@ -95,17 +95,17 @@ echo "Terminal type: $TERM"
 | $-                     | echo "Flags: $-"              | Flags set in the bash shell                   |
 
 
-* Shell Variable Guidelines and Examples
+** Shell Variable Guidelines and Examples
 
 When working with shell variables, it's essential to follow certain guidelines for proper usage. Here are some conventions and examples:
 
 1. *Variable Naming:*
    - Variable names can have a mix of alphanumeric characters and underscores.
-   - Valid examples: `myvar`, `MyVar`, `My10Var`, `MyVar_1`
+   - Valid examples: "myvar", "MyVar", "My10Var", "MyVar_1"
 
 2. *No Starting with a Number:*
    - Variable names should not start with a number.
-   - Invalid example: `10myvar`
+   - Invalid example: :10myvar"
 
 3. *No Spaces Around Assignment:*
    - Ensure there are no spaces around the assignment operator (`=`).
