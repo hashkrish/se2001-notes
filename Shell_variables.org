@@ -12,7 +12,7 @@
   - *Example:*
     #+begin_src bash
 echo $USER
-    #+end_src
+#+end_src
 
     #+RESULTS:
     : keetrap
