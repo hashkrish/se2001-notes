@@ -367,7 +367,7 @@ With no FILE, or when FILE is -, read standard input.
 
 A few other correct options are:
 
-````bash
+```bash
 find . -type f -name '*.md' -exec head {} \;       # this is same as xargs -L 1
 find . -type f -name '*.md' | xargs -I {} head {}  # this is same as xargs -L 1
 find . -type f -name '*.md' | xargs -n 1 head      # this will only pass one word to head (if a line has multiple words, this can be used to break that line into multiple executions for each n words)
@@ -974,5 +974,3 @@ done < "data.txt"
 - In Case 5 Even if the IFS is unset, the `read` command will still read line by line as that is how the `read` command works. If we used `for` loop instead then it would read entire file as one iteration.
 
 ---
-````
-

@@ -37,6 +37,14 @@ $ grep '[23]' <(seq 5) # the command output stored in temporary file, and that f
 
 (a), (b), (d)
 
+### Explanation
+
+- `<(sort file1.txt)` gives path to a FD (file descriptor) which contains the sorted content of `file1.txt`.
+- `grep -xF -f <(sort file1.txt) file2.txt` will find the common lines between the sorted content of `file1.txt` and `file2.txt`.
+- Sorting the pattern file (`file1.txt`) has no effect on the output of `grep` as it checks in the order of the `file2`
+- `sort` will sort the output of `grep` and `uniq` will remove the duplicate lines.
+- This command will print the unique lines common in both the files
+
 ---
 
 ## Question 2 (bash) [6]
@@ -81,6 +89,12 @@ By default sort will use string-based sort and not numerical sort.
 
 (e)
 
+### Explanation
+
+- The output is the last element when the file is sorted in lexicographical order.
+- This does not sort by date, so out of April, May, and June, the last month is May (M > J > A).
+- Out of the three dates of May, (4, 14, 24), the last date is 24 numerically, but when sorted lexicographically, 4 comes after 14 and 24 (4 > 2 > 1).
+
 ---
 
 ## Question 3 (regex) [7]
@@ -114,30 +128,38 @@ CompanyA,2021-10-23,3491.17
 (a)
 
 ```
-.*,20[12][01]-[01][0-9]-[0-9]{2},[0-9]{4}\.[0-9]{2}
+.*,20([01][0-9]|2[01])-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]),[1-9][0-9]{,3}\.[0-9]{2}
 ```
 
 (b)
 
 ```
-.*,20[012][01]-[01][0-9]-[0-9]{2},[0-9]{5}\.[0-9]{2}
+.*,20[0-2][0-1]-[01][0-9]-[0-3][0-9],[0-9]{,4}\.[0-9]{2}
 ```
 
 (c)
 
 ```
-.*,20[012][01]-[01][0-9]-[0-9]{2},[0-9]{4}\.[0-9]{2}
+.*,20[00-21]-[01-12]-[01-31],[1-9999]\.[0-9]{2}
 ```
 
 (d)
 
 ```
-.*,202[1-9]-[01][0-9]-[0-9]{2},[0-9]{5}\.[0-9]{2}
+.*,20([01][0-9]|2[01])-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]),[0-9]{1,4}\.[0-9]{2}
 ```
 
 ### Answer
 
-(c)
+(a)
+
+### Explanation
+
+- The year can be from 2000 to 2021, so the first two characters are fixed, third character can be 0, 1, or 2. Fourth character's range depends on third character. So (b) is incorrect, (a) and (d) have the correct year Regex. (c) is invalid as `[00-21]` means 0 or 0 to 2 or 1.
+- Similarly, the month can be 1 to 12, so if first character is 0 then second character cannot be zero.
+- The day can be 1 to 31, so if first character is 0 then second character cannot be zero.
+- `[1-9999]` means 1 to 9 or 9 repeated 3 times, which is incorrect. The amount can be from 1 to 9999, so `[1-9][0-9]{,3}` is correct. (d) is incorrect as it also matches for `0000`.
+- The amount should have two digits after the decimal point, so `[0-9]{2}` is correct.
 
 ---
 
@@ -202,7 +224,16 @@ libnginx-mod-http-xslt-filter:amd64
 
 ### Answer
 
-(d)
+(b), (d)
+
+### Explanation
+
+- `[[:alnum:]-]+` matches one or more alphanumeric characters or hyphen.
+- `:` matches the colon.
+- `[[:alnum:]]+` matches one or more alphanumeric characters.
+- `grep -o` prints only the matched part of the line.
+- Grouping makes no difference since we are not using the backreference.
+- `*` can match zero or more times, so it can match empty strings, which is not required.
 
 ---
 
@@ -254,6 +285,12 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 ### Answer
 
 (e)
+
+### Explanation
+
+- (b) and (c) are the correct way to match phone numbers of that pattern.
+- (d) is not correct but will work for the given input.
+- (a) has unnecessary escaping of the hyphen, which will throw errors, but will still work.
 
 ---
 
@@ -316,6 +353,25 @@ With no FILE, or when FILE is -, read standard input.
 ### Answer
 
 (a), (b)
+
+### Explanation
+
+- `find . -type f -name '*.md'` lists all the files that end with `.md` in the current working directory and its subfolders.
+- `xargs -L 1 head` reads the filenames from the standard input and passes them to the `head` command to print the first 10 lines of each file. `-L 1` will run head for each line of stdin, whereas the default behavior is to run it once and pass all lines as arguments.
+- `head $(find . -type f -name '*.md')` is another way to achieve similar result. The output will be similar to previous option if `-L 1` was not mentioned. This will give all the files to `head` as arguments. `head` by default will add a separator between each file if more than one file is given as argument.
+- `find . -type f -name '*.md*' | xargs -L 1 head` is incorrect as it will search for files having `.md` in anywhere in its name, not just end. (Here we use glob-like patterns, and not Regex).
+- `find . type f | grep md | head` is incorrect as it will list all the files in the current directory and its subfolders, filter the files containing `md` in their names, and print the first 10 lines of the output. This will not filter the files ending with `.md`.
+
+A few other correct options are:
+
+```bash
+find . -type f -name '*.md' -exec head {} \;       # this is same as xargs -L 1
+find . -type f -name '*.md' | xargs -I {} head {}  # this is same as xargs -L 1
+find . -type f -name '*.md' | xargs -n 1 head      # this will only pass one word to head (if a line has multiple words, this can be used to break that line into multiple executions for each n words)
+find . -type f -name '*.md' | xargs head            # this will pass multiple files to head
+find . -type f -name '*.md' -exec head {} +        # this will pass multiple files to head
+find . -type f | grep '\.md$' | xargs head          # this will filter files ending with .md
+```
 
 ---
 
@@ -394,6 +450,11 @@ $ seq 10 | sed '1d;2d'
 
 (a)
 
+### Explanation
+
+- `sed '1d;2d'` deletes the first and second lines.
+- The output will be the lines from 3 to 10.
+
 ---
 
 ## Question 8 (sed) [9]
@@ -468,6 +529,27 @@ $ i }
 
 (c)
 
+### Explanation
+
+- `1 i {` will insert `{` at the beginning of the file.
+- `$! s/^\(.*\),\(.*\)$/"\1":"\2",/` will replace the key-value pair with `"key":"value",` for all lines except the last line.
+- `$ s/^\(.*\),\(.*\)$/"\1":"\2"/` will replace the key-value pair with `"key":"value"` for the last line.
+- `$ a }` will append `}` at the end of the file.
+
+This can also be done as follows:
+
+```sed
+#!/usr/bin/sed -f
+1 i {
+s/,/":"/
+s/$/"/
+s/^/"/
+$! s/$/,/
+$ a }
+```
+
+This will replace `,` with `":"`, add `"` at the beginning and end of the line, add `,` at the end of all lines except the last line, and append `}` at the end of the file and `{` at the beginning of the file.
+
 ---
 
 ## Question 9 (awk) [7]
@@ -499,6 +581,11 @@ ID      Name        Department  Salary
 
 (a)
 
+### Explanation
+
+- `&&` and `||` associate from left to right.
+- Parenthesis is required for the correct logical grouping.
+
 ---
 
 ## Question 10 (awk) [7]
@@ -518,6 +605,13 @@ The following awk command is executed on the terminal. Which of the following is
 ### Answer
 
 (c)
+
+### Explanation
+
+- `/./` matches all the lines with at least one character.
+- `count+=1` increments the count for each line.
+- `END` block will be executed after all the lines are processed.
+- `print count` will print the count of all the non-empty lines.
 
 ---
 
@@ -601,6 +695,21 @@ kill $(
 
 (b)
 
+### Explanation
+
+- `ps aux` lists all the processes.
+- `sed 1d` removes the header line.
+- `sort -k10,10 -rn` sorts the processes based on the CPU time in reverse order.
+- `grep -v '^root\b'` filters out the processes owned by the user `root`.
+- `head -1` selects the process with the maximum CPU time (the first line).
+- `awk '{print $2}'` prints the PID of the process (the second column).
+- The `kill` command is used to kill the process with the given PID.
+
+- The dropping of first line has to be done before sorting, or the real answer may be dropped.
+- The head should only be done after sorting and after removing the root processes, so the correct answer is taken.
+- The head and awk can be combined into one awk command `awk 'NR==1 {print $2}'` to get the PID of the process with the maximum CPU time.
+- Ideally the removal of root processes should be done before sorting, so that the root processes are not considered for sorting, this saves computation resources.
+
 ---
 
 ## Question 12 (diff) [NAT] [6]
@@ -621,6 +730,13 @@ $ diff file1.txt file2.txt
 ### Answer
 
 5
+
+### Explanation
+
+- The `c` in `4c4,5` indicates that the line in file1.txt is changed to the lines in file2.txt.
+- It means that instead of line 4, there are two lines (4 and 5) in file2.
+- File 1 has 4 lines, first three lines are same in both files, and the fourth line is changed to two lines in file2.
+- So, file2 has 5 lines.
 
 ---
 
@@ -684,6 +800,12 @@ Donec et mollis dolor.
 
 (b)
 
+### Explanation
+
+- `dd` deletes the current line and `P` pastes the deleted line above the current line.
+- The first line is deleted and pasted above the second line.
+- The file remains unchanged.
+
 ---
 
 ## Question 14 (bash) [7]
@@ -740,6 +862,15 @@ done < "data.txt"
 
 (g)
 
+### Explanation
+
+- Case 1 does use input redirection to read the file line-by-line. `<` is called input redirection.
+- Case 2 uses a pipe to feed the output of `cat` to the `while` loop. `|` is called a pipe.
+- The pipe redirection used in Case 2 is not inefficient compared to input redirection as another command `cat` has to be run, which takes extra resources.
+- Case 3 uses command substitution with the `for` loop to read the file. `$(cat data.txt)` is command substitution. As `IFS` is not set, the loop will iterate word by word.
+- If multiple variables are given to read it will read first column into first variable, second column into second, and third column into third variable as per the `IFS` set.
+- In Case 5 Even if the IFS is unset, the `read` command will still read line by line as that is how the `read` command works. If we used `for` loop instead then it would read entire file as one iteration.
+
 ---
 
 ## Question 15 (bash) [6]
@@ -774,5 +905,11 @@ done
 ### Answer
 
 (a)
+
+### Explanation
+
+- The `$` before `\n` in the IFS assignment is required, as it is used to expand the escape sequence `\n` to a newline character, without it the '\n' is taken literally.
+- The for loop is correct as the `IFS` is set to a newline character, so the for loop will iterate over each line in the file.
+- The if statement is correct as there should be a space between the `[` and the variable `$line_file1` and `$line_file2`. The correct syntax is `if [ "${line_file1}" == "${line_file2}" ]`. The space is needed as `[` is a command and commands need to be separated from their arguments with a space.
 
 ---
