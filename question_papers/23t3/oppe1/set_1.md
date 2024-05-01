@@ -1,7 +1,7 @@
 # System Commands September 2023 OPPE 1 Set 1
 
-Section 1: 3 problems _ 15 marks
-Section 2: 3 problems _ 20 marks
+Section 1: 3 problems \* 15 marks
+Section 2: 3 problems \* 20 marks
 
 Total: 6 problems, 105 marks
 

@@ -1,7 +1,7 @@
 # System Commands September 2023 OPPE 1 Set 2
 
-Section 1: 3 problems * 15 marks
-Section 2: 3 problems * 20 marks
+Section 1: 3 problems \* 15 marks
+Section 2: 3 problems \* 20 marks
 
 Total: 6 problems, 105 marks
 
@@ -9,11 +9,10 @@ Total: 6 problems, 105 marks
 
 ## Section 1 - Problem 1
 
-
 Define a bash function `Determinant2x2` which calculates the determinant of a 2x2 matrix. An example usage of the function is shown below. Assume that the arguments are only integers.
 
-
 #### Example
+
 ```bash
 #for following Determinant
 #   a =|1  2|
@@ -24,8 +23,6 @@ $ Determinant2x2 1 2 3 4
 ```
 
 ### Solution
-
-  
 
 ```bash
 Determinant2x2() {
@@ -40,7 +37,6 @@ echo "$determinant"
 
 ---
 
-
 ## Section 1 - Problem 2
 
 Write a bash script which accepts an integer input and finds all the numbers from one to the number provided which are divisible by 3 and 5.
@@ -50,7 +46,7 @@ Make sure that the script checks of the number is integer and is not less than o
 
 ```bash
 
-#!/bin/bash 
+#!/bin/bash
 read -p number
 
 if [ $# -eq 0 ]; then
@@ -62,7 +58,7 @@ if ! [[ $number =~ ^[0-9]+$ ]] || [ $number -lt 1 ]; then
 fi
 
 for ((i = 1; i <= number; i++)); do
-  if ((i % 3 == 0 && i % 5 == 0)); then
+  if ((i % 15 == 0)); then
     echo "$i"
   fi
 done
@@ -74,10 +70,12 @@ done
 ## Section 1 - Problem 3
 
 Write a **shell script** which will
+
 - Read usernames.txt text file with usernames and generate passwords for each username using a hash value generated using shasum command.
 - Stores the first ten characters from the output as a password and saves it into a new file `user_passwords.txt`.
 
 Hint:
+
 ```
 $ shasum --help
 Usage: shasum [OPTION]... [FILE]...
@@ -87,8 +85,10 @@ With no FILE, or when FILE is -, read standard input.
   -a, --algorithm   1 (default), 224, 256, 384, 512, 512224, 512256
 ...
 ```
+
 **Sample Input**
-```html
+
+```text
 tisha
 sumedh
 avyan
@@ -112,30 +112,33 @@ navya:57a84ed47c
 input_file="usernames.txt"
 output_file="user_passwords.txt"
 
-generate_password() {
-    username="$1"
-    password_hash=$(echo -n "$username" | shasum -a 256 | cut -d ' ' -f 1)
-    echo "${password_hash:0:10}"
-}
-
-while IFS= read -r username; do
-    password=$(generate_password "$username")
-    echo "$username:$password" >> "$output_file"
-done < "$input_file"
+while read -r username; do
+  echo "$username:$(tr -d '\n' <<< "$username" | shasum -a 256 | cut -c1-10)"
+done < "$input_file" > $output_file
 ```
+
+### Explanation
+
+- `input_file="usernames.txt"`: Assigns the input file name to a variable.
+- `output_file="user_passwords.txt"`: Assigns the output file name to a variable.
+- `while read -r username; do`: Reads each line from the input file.
+- `tr -d '\n' <<< "$username"`: Removes the newline character from the username.
+- `shasum -a 256`: Generates an SHA-256 hash value for the username.
+- `cut -c1-10`: Extracts the first ten characters from the hash value.
+- `done < "$input_file" > $output_file`: Redirects the output to the output file.
+
 ---
-
-
 
 ## Section 2 - Problem 1 (extract rectangle)
 
 Write a script that will remove the inner rectangle and shrink the outer rectangle to the exact size of inner rectangle and the excess space surrounding the rectangle should be removed. After that fill the inner rectangle with 0 'zero'.
 
-Note: 
- - The outer rectangle is always made up of asterisks '*'
- - The inner rectangle is always made up of lowercase X 'x'
- - The output should not have empty lines before or after rectangle.
- - The output should not have spaces to left or right of the rectangle.
+Note:
+
+- The outer rectangle is always made up of asterisks '\*'
+- The inner rectangle is always made up of lowercase X 'x'
+- The output should not have empty lines before or after rectangle.
+- The output should not have spaces to left or right of the rectangle.
 
 **Sample Input**
 
@@ -149,6 +152,7 @@ Note:
 *                              *
 ********************************
 ```
+
 **Sample Output**
 
 ```
@@ -172,10 +176,11 @@ done |
 ---
 
 ## Section 2 - Problem 2 (pipes, redirections)
+
 A text file usually contains puctuations, upper case letters. Write a shell script/command which will remove punctuations, convert uppercase letters to lower case and finally convert the space character to newline character in that order. Finally use concepts of sort and uniq commands to print top 5 most frequent words with its count. The content are in file called `text.txt` in current working directory.
 
-
 Hint:
+
 ```bash
 $ tr --help
 Usage: tr [OPTION]... SET1 [SET2]
@@ -271,23 +276,26 @@ You may want to sort the input first, or use 'sort -u' without 'uniq'.
 ```
 
 ### Solution
+
 ```bash
 cat text.txt|tr '[:upper:]' '[:lower:]'|tr -d '[:punct:]'| tr ' ' '\n' | sort | uniq -c | sort -rn | head -10|tail -5
 
 ```
+
 ---
 
-
 ## Section 2 - Problem 3
+
 Write a grep command which will extract the product name and its price from the following text from file `data.txt`.
 
 **Sample Input**
-```html
-<span class="token punctuation">{</span> <span class="token string">"_id"</span> <span class="token operator">:</span> <span class="token function"><span class="token maybe-class-name">ObjectId</span></span><span class="token punctuation">(</span><span class="token string">"5968dd23fc13ae04d9000002"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"product_name"</span> <span class="token operator">:</span> <span class="token string">"Mountain Juniperus ashei"</span><span class="token punctuation">,</span> <span class="token string">"supplier"</span> <span class="token operator">:</span> <span class="token string">"Keebler-Hilpert"</span><span class="token punctuation">,</span> <span class="token string">"quantity"</span> <span class="token operator">:</span> <span class="token number">292</span><span class="token punctuation">,</span> <span class="token string">"unit_cost"</span> <span class="token operator">:</span> <span class="token string">"$8.74"</span> <span class="token punctuation">}</span>
 
+```
+<span class="token punctuation">{</span> <span class="token string">"_id"</span> <span class="token operator">:</span> <span class="token function" <span class="token maybe-class-name">ObjectId</span></span <span class="token punctuation">(</span <span class="token string">"5968dd23fc13ae04d9000002"</span <span class="token punctuation">)</span <span class="token punctuation">,</span> <span class="token string">"product_name"</span> <span class="token operator">:</span> <span class="token string">"Mountain Juniperus ashei"</span <span class="token punctuation">,</span> <span class="token string">"supplier"</span> <span class="token operator">:</span> <span class="token string">"Keebler-Hilpert"</span <span class="token punctuation">,</span> <span class="token string">"quantity"</span> <span class="token operator">:</span> <span class="token number">292</span <span class="token punctuation">,</span> <span class="token string">"unit_cost"</span> <span class="token operator">:</span> <span class="token string">"$8.74"</span> <span class="token punctuation">}</span>
 ```
 
 **Sample Output**
+
 ```
 Mountain Juniperus ashei:$8.74
 ```
@@ -295,6 +303,5 @@ Mountain Juniperus ashei:$8.74
 ### Solution
 
 ```bash
-egrep '"product_name.*\$[0-9.]+"' data.txt -o |
-    cut -d'"' -f8,42 --output-delimiter=:
+grep -E '"product_name.*\$[0-9.]+"' data.txt -o | cut -d'"' -f8,42 --output-delimiter=:
 ```
