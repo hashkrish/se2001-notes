@@ -1,19 +1,17 @@
 # System Commands September 2023 OPPE 1 Set 1
 
-Section 1: 3 problems * 15 marks
-Section 2: 3 problems * 20 marks
+Section 1: 3 problems _ 15 marks
+Section 2: 3 problems _ 20 marks
 
 Total: 6 problems, 105 marks
 
 ---
 
 ## Section 1 - Problem 1
-  
 
 Error Handling requires one to understand exit status implementation. Write a function which will echo "Success" if there are 3 arguments passed to it and print all the three arguments. The exit status of any more or less arguments passed to the function should end up in exit status of 1.
 
 Hint: Use return keyword
-
 
 ### Solution
 
@@ -33,6 +31,7 @@ fi
 Sanjay is a professional photographer who capture photos of items for various clients. The photos database has thousands of photos collected each year. The photographs are stored in jpg format using YYYYMMDD_HHMMSS.jpg naming convention. For his backup purpose he wants to organise his data by moving the photos to a new directory created using monthYear (Ex: Jan2021) format (thus 12 directory for each year). Write a shell script which will create folders based on the image name and creates and moves it to the respective month directory.
 
 **Hint:**
+
 ```
 $ date --help
 Usage: date [OPTION]... [+FORMAT]
@@ -112,7 +111,7 @@ Show the local time for 9AM next Friday on the west coast of the US
 ```bash
 #!/bin/bash
 
-for picture in `ls *.jpg`
+for picture in $(ls *.jpg)
 do
         dateinfo=${picture%%_*}
         newdir=`date -d $dateinfo +%b%Y`
@@ -121,16 +120,26 @@ do
 done
 ```
 
+### Explanation
+
+- `for picture in $(ls *.jpg)`: This will loop through all the jpg files in the current directory.
+- `dateinfo=${picture%%_*}`: This will extract the date part from the file name.
+  - `${picture%%_*}`: This will remove the part after the first `_` in the file name.
+- `newdir=`date -d $dateinfo +%b%Y``: This will convert the date to the format `MonYYYY`.
+- `mkdir -p $newdir`: This will create the directory if it does not exist, else not give any error.
+- `mv $picture $newdir`: This will move the picture to the new directory.
+
 ---
 
 ## Section 1 - Problem 3
 
-Write a bash script which works on output of `ls -li` to produce an output which will have unique list of files which has no softlinks and has only one file for multiple hardlinks present.
+Write a bash script which works on output of `ls -li` to produce an output which will have unique list of files which are not softlinks and has only one file for multiple hardlinks present.
 
 Note: The final output should be sorted by ascending order of inode number.
 
 Hint: Output of the `ls -li` is given in a file sample.txt.
-** `sample.txt` File  **
+** `sample.txt` File **
+
 ```bash
    12 -rwxr-xr-x 1 root root 1113504 Apr 18  2022 bash
    13 -rwxr-xr-x 1 root root  716464 Mar 13  2018 btrfs
@@ -153,21 +162,36 @@ Hint: Output of the `ls -li` is given in a file sample.txt.
    29 -rwxr-xr-x 1 root root    3642 Jul  4  2019 bzgrep
 ```
 
-
 ### Solution
 
 ```bash
 cat sample.txt|sort -u -k1,1|grep -v "\->"
 ```
-## Section 2 - Problem 1 (extract rectangle)
 
+### Explanation
+
+- `cat sample.txt`: This will print the contents of the file `sample.txt`.
+- `sort -u -k1,1`: This will sort the output by the first column and remove duplicates.
+  - `sort -k1` will sort the output by the first column and the columns after that. Whereas `sort -k1,1` will sort the output by the first column only.
+  - `sort -u` will remove duplicates.
+    - This uses only the first column to remove duplicates, thus removing the duplicates based on the inode number only.
+- `grep -v "\->"`: This will remove the lines which have `->` in them (softlinks).
+
+Another solution:
+
+```bash
+sort | grep -v 'lrwx' | uniq -w 10
+```
+
+## Section 2 - Problem 1 (extract rectangle)
 
 Write a script that will remove the outer rectangle and grow the inner rectangle to the exact size of outer rectangle and the inner rectangle region should be replaced with '0' (zero) including the boundary line.
 
-Note: 
- - The outer rectangle is always made up of asterisks '*'
- - The inner rectangle is always made up of lowercase X 'x'
- - The input should be taken from the standard input
+Note:
+
+- The outer rectangle is always made up of asterisks '\*'
+- The inner rectangle is always made up of lowercase X 'x'
+- The input should be taken from the standard input
 
 **Sample Input**
 
@@ -181,6 +205,7 @@ Note:
 *                              *
 ********************************
 ```
+
 **Sample Output**
 
 ```
@@ -212,6 +237,21 @@ while read -r line; do
 done
 ```
 
+### Explanation
+
+The question asks us to replace the `x` with `0` and replace the `*` with `x` and fill the inner rectangle with `0`.
+
+- `while read -r line; do`: This will read the input line by line.
+- `line=${line//x/0}`: This will replace all the `x` with `0`.
+- `n=$(echo "$line" | grep -oE '0 +0' | wc -m)`: This will count the number of spaces between `0` and `0` in the line.
+  - `grep -oE '0 +0'`: This will match `0` followed by one or more spaces followed by `0`.
+  - `wc -m`: This will count the number of characters.
+- `for ((i = 0; i < (n-3); i++)); do`: This will loop through the number of spaces between `0` and `0`.
+  - `line=${line/0 /00}`: This will replace `0` followed by a space with `00`.
+  - This will fill the inner spaces with `0`.
+- `line=${line//\*/x}`: This will replace all the `*` with `x`.
+- `echo "$line"`: This will print the line.
+
 ---
 
 ## Section 2 - Problem 2 (pipe)
@@ -219,6 +259,7 @@ done
 A text file usually contains puctuations, upper case letters. Write a shell script/command which will remove punctuations, convert uppercase letters to lower case and finally convert the space character to newline character in that order. Finally use concepts of sort and uniq commands to print top number 5 through 10 most frequent words with its count. The content are in file called `text.txt` in current working directory.
 
 Hint:
+
 ```bash
 $ tr --help
 Usage: tr [OPTION]... SET1 [SET2]
@@ -314,35 +355,59 @@ You may want to sort the input first, or use 'sort -u' without 'uniq'.
 ```
 
 ### Solution
+
 ```bash
-cat text.txt |
-    tr '[:upper:]' '[:lower:]' |
-    tr -d '[:punct:]' |
-    tr ' ' '\n' |
-    sort |
-    uniq -c |
-    sort -rn |
-    head -10 |
-    tail -5 | 
-    while read -r line; do
+cat text.txt | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | tr ' ' '\n' | sort | uniq -c | sort -rn | head -10 | tail -5 | while read -r line; do
         echo ${line##* }
     done
 ```
+
+or
+
+```bash
+cat text.txt | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | tr ' ' '\n' | sort | uniq -c | sort -rn | head -10 | tail -5 | tr -s ' ' | cut -d ' ' -f 3
+```
+
+### Explanation
+
+- `cat text.txt`: This will print the contents of the file `text.txt`.
+- `tr '[:upper:]' '[:lower:]'`: This will convert the uppercase letters to lowercase.
+- `tr -d '[:punct:]'`: This will remove the punctuations.
+- `tr ' ' '\n'`: This will convert the space character to newline character.
+- `sort`: This will sort the output.
+- `uniq -c`: This will count the number of occurrences of each word.
+- `sort -rn`: This will sort the output in reverse order of count.
+- `head -10`: This will print the top 10 words.
+- `tail -5`: This will print the last 5 words of those (5-10).
+- `while read -r line; do`: This will read the output line by line.
+- `echo ${line##* }`: This will print the last word of the line.
+- `tr -s ' ' | cut -d ' ' -f 3`: This will remove the extra spaces and print the third word.
 
 ---
 
 ## Section 2 - Problem 3
 
-
 Write a grep command which will extract the values of color and name of color from the following text from file `data.txt`.
 
 ```html
-<span class="token string">"aliceblue"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">240</span><span class="token punctuation">,</span> <span class="token number">248</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token string">"aliceblue"</span
+><span class="token operator">:</span> <span class="token punctuation">[</span
+><span class="token number">240</span><span class="token punctuation">,</span>
+<span class="token number">248</span><span class="token punctuation">,</span>
+<span class="token number">255</span><span class="token punctuation">,</span>
+<span class="token number">1</span><span class="token punctuation">]</span>
 ```
-
 
 ### Solution
 
 ```bash
-grep -o '"[a-z]*"\|:\|[\|[0-9]*\|,\|]' data.txt|tr -d '\n'
+grep -oE '"[a-z]+"|:|\[|[0-9]+|,|\]' | tr -d '\n' | grep -oE '"[a-z]+":\[[0-9]+,[0-9]+,[0-9]+,[0-9]+\]'
 ```
+
+### Explanation
+
+- `grep -oE '"[a-z]+"|:|\[|[0-9]+|,|\]'`: This will extract the values of color and name of color.
+- The values will be printed in separate lines due to the `-o` option.
+- `tr -d '\n'`: This will remove the new line characters.
+  - It will also put multiple such outputs in a single line.
+- The second grep without the `|` with -o will separate each output into separate lines.
