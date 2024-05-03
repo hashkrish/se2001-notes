@@ -612,19 +612,21 @@ done
 
 (a) `echo "$line" | sed "s/.*/\L&/" | sed "s/$m/${month_to_number[$m]}/"`
 (b) `echo "$line" | sed 's/$m/\L&/' | sed "s/$m/${month_to_number[$m]}/"`
-(c) `echo "$line" | sed -i "s/$m/${month_to_number[$m]}/g"`
+(c) `echo "$line" | sed "s/$m/${month_to_number[$m]}/g"`
 (d) `echo "$line" | sed -n "s/$m/${month_to_number[$m]}/g"`
 
 ### Answer
 
-(b)
+(c)
 
 ### Explanation
 
 - (a) converts everything to lowercase, on which then the next sed cannot do the replacement as the keys of the associate array are not completely lowercase, so they never match.
-- (b) Although the logic of the first sed in (b) is incorrect, because it uses single quotes thus the variable does not expand the middle sed does nothing and this option works.
-- (c) `-i` is used to edit the file in place, but we the sed gets input from stdin, so this gives an error.
+- (b) Although the logic of the first sed in (b) is incorrect, but because it uses single quotes the variable does not expand and the first sed does nothing and the second sed substitutes correctly. This option works if there are only one date per line.
+- (c) Here we use `g` to replace all occurrences of months in a line.
 - (d) `-n` suppresses the output, so nothing will be printed.
+
+Note: If a line has multiple dates of same month, then (c) works well, but if it is different months, then none of the options will correctly replace all the months of a line at one time, they will output multiple lines for each line, each line substituting one of the months.
 
 <div style="page-break-after: always;"></div>
 
