@@ -20,6 +20,14 @@ cat $(cat)
 
 (c)
 
+### Explanation
+
+- The inner cat is run without any arguments, so it reads from the standard input.
+- The outer cat is given arguments which are the output of the inner cat command.
+- The cat command takes arguments which are path of files to read and print the contents.
+- The stdin given to inner cat is the output of the inner cat and the arguments of the outer act.
+- The outer cat then prints contents of the files whose path is given in stdin.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 2 [MCQ] [6]
@@ -71,6 +79,12 @@ What does the command `echo <(seq 10) output represent?
 ### Answer
 
 (b)
+
+### Explanation
+
+- `<(command)` will give the path to a temporary FD file.
+- `echo` simply prints what is given to it.
+- (a) would be true if the command was `echo $(seq 10)` or `cat <(seq 10)`.
 
 <div style="page-break-after: always;"></div>
 
@@ -131,6 +145,25 @@ With no FILE, or when FILE is -, read standard input.
 
 (a), (b)
 
+### Explanation
+
+- `find . -type f -name '*.md'` lists all the files that end with `.md` in the current working directory and its subfolders.
+- `xargs -L 1 head` reads the filenames from the standard input and passes them to the `head` command to print the first 10 lines of each file. `-L 1` will run head for each line of stdin, whereas the default behavior is to run it once and pass all lines as arguments.
+- `head $(find . -type f -name '*.md')` is another way to achieve similar result. The output will be similar to previous option if `-L 1` was not mentioned. This will give all the files to `head` as arguments. `head` by default will add a separator between each file if more than one file is given as argument.
+- `find . -type f -name '*.md*' | xargs -L 1 head` is incorrect as it will search for files having `.md` in anywhere in its name, not just end. (Here we use glob-like patterns, and not Regex).
+- `find . type f | grep md | head` is incorrect as it will list all the files in the current directory and its subfolders, filter the files containing `md` in their names, and print the first 10 lines of the output. This will not filter the files ending with `.md`.
+
+A few other correct options are:
+
+```bash
+find . -type f -name '*.md' -exec head {} \;       # this is same as xargs -L 1
+find . -type f -name '*.md' | xargs -I {} head {}  # this is same as xargs -L 1
+find . -type f -name '*.md' | xargs -n 1 head      # this will only pass one word to head (if a line has multiple words, this can be used to break that line into multiple executions for each n words)
+find . -type f -name '*.md' | xargs head            # this will pass multiple files to head
+find . -type f -name '*.md' -exec head {} +        # this will pass multiple files to head
+find . -type f | grep '\.md$' | xargs head          # this will filter files ending with .md
+```
+
 <div style="page-break-after: always;"></div>
 
 ## Question 4 [MCQ] [6]
@@ -189,6 +222,13 @@ gamma
 ### Answer
 
 (d)
+
+### Explanation
+
+- The `awk` command will print the lines starting from the first line containing `alpha` to the line containing `omega`.
+- The first line containing `alpha` is `alphabet`.
+- The `sed` command will delete the first and last lines.
+- So, the output will be the lines between `alphabet` and `omega` excluding the first and last lines.
 
 <div style="page-break-after: always;"></div>
 
@@ -276,11 +316,16 @@ done
 
 (c), (d)
 
+### Explanation
+
+- (c) there are multiple months in the line, this will output two lines, one with `17/2/1888, 7/May/1999` and another with `17/Feb/1888, 7/5/1999`.
+- (d) the month is in lowercase, the sed command is case-sensitive, so it will not match `Jul` with `jul`.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 7 [MCQ] [6]
 
-In a text file named "numbers.txt", multiple lines contain numbers. You want to delete all lines that have a number greater than 100. Which sed command would you use?
+In a text file named "numbers.txt", multiple lines contain numbers. You want to delete all lines that have a number greater than or equal to 100. Which sed command would you use?
 
 Hint: By default, SED uses the Basic Regular Expression Engine (BRE)
 
@@ -292,6 +337,14 @@ Hint: By default, SED uses the Basic Regular Expression Engine (BRE)
 ### Answer
 
 (a)
+
+### Explanation
+
+Numbers greater than or equal to 100 are numbers with 3 or more digits. So, the correct command is `sed '/[0-9]\{3,\}/d' numbers.txt`.
+
+- (a) will match any line that has 3 or more digits and delete it.
+- (b) and (c) will not work as `{}` is not a special character in BRE, so it will match the literal `{}`.
+- (d) will match any line that has 2 or more digits and delete it, which is not the requirement.
 
 <div style="page-break-after: always;"></div>
 
@@ -365,6 +418,13 @@ FILENAME == "name_country.csv" && $3 in family_name_first_countries {
 
 (b), (c)
 
+### Explanation
+
+- If the country is a country that writes names backward then the name should be printed as `last_name, first_name`. ($2 $1)
+- Otherwise print normally ($1 $2)
+- `else` in (a) is always false as the block itself is executed if the condition is true.
+- (d) has opposite logic.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 9 [MSQ] [6]
@@ -420,6 +480,10 @@ What is the output of the **first loop** at the end of the execution of the give
 
 123432112343211234321
 
+### Explanation
+
+- The three executions are done one after another, so the three outputs are one after another.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 11 [NAT] [7]
@@ -429,6 +493,10 @@ What will be the output of the **second loop** after the execution of the given 
 ### Answer (ignore white space, newline)
 
 111222333444333222111
+
+### Explanation
+
+- Here the command is run in background, so the terminal is not blocked and the next iterations are run in parallel, this will interleave the output of the three commands.
 
 <div style="page-break-after: always;"></div>
 
@@ -448,6 +516,12 @@ sed '5~5{s/\b\([a-z]\)/\u\1/g}' sample.txt
 ### Answer
 
 (d)
+
+### Explanation
+
+- `5~5` will match every fifth line starting from the fifth line.
+- `/\b\([a-z]\)/` will match the first character of each word.
+- `\u\1` will capitalize the first character of each word.
 
 <div style="page-break-after: always;"></div>
 
@@ -479,6 +553,10 @@ Assume a Basic Regular Expression Engine (BRE)
 ### Answer
 
 (b),(d)
+
+### Explanation
+
+- We do not allow lowercase alphabets in the PAN card number. (Mentioned in first Note)
 
 <div style="page-break-after: always;"></div>
 
@@ -512,19 +590,21 @@ $ echo 04/21/2002 |xargs -I {} date -d {} +'%B %d,%Y'
 April 21,2002
 ```
 
-(a) `echo {4..6}"/"{4,14,24}"/"{2002,2005}|
-		tr ' ' '\n'|
-		xargs -I {} date -d {} +'%d %B,%Y'`
-(b) `echo {4..6}"/"{4,14,24}"/"{2002,2005}"\n"|
-		xargs -I {} date -d {} +'%B %d,%Y'`
-(c) `echo -e {4..6}" "{June,July,August}","{2004..2005}"\n"| 
-		xargs -I{} date -d {} +'%B %d,%Y'`
-(d) `echo -e {4..6}"/"{4..24..10}"/"{2002,2005}"\n"|
-		xargs -I {} date -d {} +'%d %B,%Y'`
+(a) `echo {4..6}"/"{4,14,24}"/"{2004,2005}| tr ' ' '\n'| xargs -I {} date -d {} +'%d %B,%Y'`
+(b) `echo {4..6}"/"{4,14,24}"/"{2004,2005}"\n"| xargs -I {} date -d {} +'%B %d,%Y'`
+(c) `echo -e {4..6}" "{June,July,August}","{2004..2005}"\n"| xargs -I{} date -d {} +'%B %d,%Y'`
+(d) `echo -e {4..6}"/"{4..24..10}"/"{2004,2005}"\n"| xargs -I {} date -d {} +'%d %B,%Y'`
 
 ### Answer
 
 (a), (d)
+
+### Explanation
+
+- (a) creates all the combinations required using brace expansion, puts them in separate lines, then uses xargs to pass each format to `date` one by one and reformat it.
+- (b) does not put dates in separate lines, so xargs passes entire line to date, which is an invalid date.
+- (c) `date` does not accept literal month names in input.
+- (d) Instead of using `tr`, the brace expansion itself has `\n` in it. We use `{4..24..10}` instead of `{4,14,24}` which is same output.
 
 <div style="page-break-after: always;"></div>
 
