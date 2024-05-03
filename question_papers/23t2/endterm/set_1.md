@@ -1,238 +1,80 @@
-# System Commands Sep 2023 End Term Set-1
-## Question 1 (bash) [6] 
-```
-CUT(1)                       User Commands                       CUT(1)
+# System Commands End Term Set-1
 
-NAME
-       cut - remove sections from each line of files
+## Question 1 [MCQ] [6]
 
-SYNOPSIS
-       cut OPTION... [FILE]...
+Select the correct statement from the options for the following command.
 
-DESCRIPTION
-       Print selected parts of lines from each FILE to standard output.
-
-       With no FILE, or when FILE is -, read standard input.
-
-       Mandatory  arguments to long options are mandatory for short op‐
-       tions too.
-
-       -b, --bytes=LIST
-              select only these bytes
-
-       -c, --characters=LIST
-              select only these characters
-
-       -d, --delimiter=DELIM
-              use DELIM instead of TAB for field delimiter
-
-       -f, --fields=LIST
-              select only these fields;  also print any line that  con‐
-              tains  no  delimiter  character,  unless the -s option is
-              specified
-
-       -n     (ignored)
-
-       --complement
-              complement the  set  of  selected  bytes,  characters  or
-              fields
-
-       -s, --only-delimited
-              do not print lines not containing delimiters
-
-       --output-delimiter=STRING
-              use  STRING as the output delimiter the default is to use
-              the input delimiter
-
-       -z, --zero-terminated
-              line delimiter is NUL, not newline
-
-       --help display this help and exit
-
-       --version
-              output version information and exit
-
-       Use one, and only one of -b, -c or -f.  Each LIST is made up  of
-       one  range,  or many ranges separated by commas.  Selected input
-       is written in the same order that it is read, and is written ex‐
-       actly once.  Each range is one of:
-
-       N      N'th byte, character or field, counted from 1
-
-       N-     from N'th byte, character or field, to end of line
-
-       N-M    from N'th to M'th (included) byte, character or field
-
-       -M     from first to M'th (included) byte, character or field
-
-AUTHOR
-       Written by David M. Ihnat, David MacKenzie, and Jim Meyering.
-
-...
+```bash
+cat $(cat)
 ```
 
-From the context provided choose the **wrong** statement.
+(a) The command opens the file named "cat" in the current working directory.
 
-(a) The command `cut -d: -f1 /etc/passwd` prints the first field of each line in the file `/etc/passwd` using `:` as the delimiter.
+(b) The command takes standard input and prints the received standard input.
 
-(b) The command `echo abcd | cut -c2-3` prints `bc`.
+(c) The command prints the contents of the file names obtained from the standard input
 
-(c) The command `echo abcd | cut -d "ab" -f2` prints `cd`.
-
-(d) The command `echo abcd | cut --complement -c1` prints `bcd`.
+(d) The command throws an error since no argument is given to the command ˋcatˋ in ˋ$(cat)ˋ
 
 ### Answer
 
 (c)
 
----
+<div style="page-break-after: always;"></div>
 
-## Question 2 (bash) [NAT] [8]
-The following command is executed on the Sample Input provided. Please provide the correct output of the command.
+## Question 2 [MCQ] [6]
+
+From `man bash`,
+
+```
+Process Substitution
+    Process  substitution allows a process's input or output to be
+    referred to using a filename.  It takes the form of <(list) or
+    >(list).   The process list is run asynchronously, and its in‐
+    put or output appears as a filename.  This filename is  passed
+    as an argument to the current command as the result of the ex‐
+    pansion.  If the >(list) form is used,  writing  to  the  file
+    will provide input for list.  If the <(list) form is used, the
+    file passed as an argument should be read to obtain the output
+    of  list.   Process  substitution is supported on systems that
+    support named pipes (FIFOs) or the /dev/fd  method  of  naming
+    open files.
+
+    When  available,  process substitution is performed simultane‐
+    ously with parameter and variable expansion, command substitu‐
+    tion, and arithmetic expansion.
+```
+
+Example:
 
 ```bash
-cat tongue_twisters.txt |tr ' ' '\n'|sort|uniq|head -1
+$ seq 2 5
+2
+3
+4
+5
+$ diff <(seq 1 3) <(seq 2 5)
+1d0
+< 1
+3a3,4
+> 4
+> 5
 ```
 
-**Sample Input**
-```
-If you must cross a coarse, cross cow across a crowded cow crossing, cross the cross, coarse cow across the crowded cow crossing carefully.
-```
+What does the command `echo <(seq 10) output represent?
+
+(a) The standard output from the command `seq 10`
+(b) A file
+(c) A directory
+(d) Nothing will be printed
 
 ### Answer
-If
-
----
-
-## Question 3 (regex) [7] 
-
-Select the **regular expression** (ERE) that matches the date where it is on or after 2021-01-01 and the amount is greater than 10000.00. 
-The date is in YYYY-MM-DD format and the amount is in decimal format with two digits after the decimal point.
-
-**Note:** The year is in the range of 2000 to 2023 (both inclusive).
-
-**Sample Input**
-```
-Company,Date,Amount
-CompanyA,2020-04-29,31211.18
-CompanyA,2021-09-20,2366.91
-CompanyA,2021-10-23,3491.17
-CompanyB,2021-04-04,14304.44
-CompanyA,2021-11-01,21679.58
-CompanyA,2022-09-06,16277.49
-CompanyA,2021-12-14,29527.37
-CompanyA,2023-03-01,1447.83
-CompanyA,2020-08-22,30383.23
-```
-
-**Sample Output**
-```
-CompanyB,2021-04-04,14304.44
-CompanyA,2021-11-01,21679.58
-CompanyA,2022-09-06,16277.49
-CompanyA,2021-12-14,29527.37
-```
-
-(a)
-```
-.*,202[12]-[01][0-9]-[0-9]{2},1[0-9]{4}\.[0-9]{2}
-```
 
 (b)
-```
-.*,202[1-3]-[01][0-9]-[0-9]{2},1[0-9]{4}\.[0-9]{2}
-```
 
-(c)
-```
-.*,202[1-9]-[01][0-9]-[0-9]{2},[0-9]{4}\.[0-9]{2}
-```
+<div style="page-break-after: always;"></div>
 
-(d)
-```
-.*,202[1-9]-[01][0-9]-[0-9]{2},[0-9]{5}\.[0-9]{2}
-```
-
-### Answer
-(d)
-
----
-
-## Question 4 (regex) [7]
-
-Which of the following command can be used to select the package name and its version from the following log file. Please refer to the **desired output**.
-
-**Sample log file**
-```bash
-2023-12-09 11:43:46 status installed nginx-common:all 1.18.0-6ubuntu14.4
-2023-12-09 11:43:46 configure libnginx-mod-http-xslt-filter:amd64 1.18.0-6ubuntu14.4 <none>
-2023-12-09 11:43:46 status unpacked libnginx-mod-http-xslt-filter:amd64 1.18.0-6ubuntu14.4
-2023-12-09 11:43:46 status half-configured libnginx-mod-http-xslt-filter:amd64 1.18.0-6ubuntu14.4
-```
-**Desired output**
-```
-nginx-common:all 1.18.0
-libnginx-mod-http-xslt-filter:amd64 1.18.0
-libnginx-mod-http-xslt-filter:amd64 1.18.0
-libnginx-mod-http-xslt-filter:amd64 1.18.0
-```
-**Note:** Your solution should satisfy the sample output given the sample input.
-
-**Hint**
-```bash
-#Relevent section from man grep
-
- -E, --extended-regexp
-              Interpret PATTERNS as extended regular expressions (EREs, see below).
- -o, --only-matching
-              Print only the matched (non-empty) parts of a matching line, with each such part on a separate output line.
- The Backslash Character and Special Expressions
-       The symbols \< and \> respectively match the empty string at the beginning and end of a word.  The symbol \b matches the empty string
-       at the edge of a word, and \B matches the empty string provided it's not at the edge of a word.  The  symbol  \w  is  a  synonym  for
-       [_[:alnum:]] and \W is a synonym for [^_[:alnum:]].
-
-   Repetition
-       A regular expression may be followed by one of several repetition operators:
-       ?      The preceding item is optional and matched at most once.
-       *      The preceding item will be matched zero or more times.
-       +      The preceding item will be matched one or more times.
-       {n}    The preceding item is matched exactly n times.
-       {n,}   The preceding item is matched n or more times.
-       {,m}   The preceding item is matched at most m times.  This is a GNU extension.
-       {n,m}  The preceding item is matched at least n times, but not more than m times.
-```
-
-
-(a) `grep -oE '\b[a-z][a-zA-Z0-9-]+:[a-zA-Z0-9.-]+' dpkg.log`
-
-(b) `grep -oE '\b[a-z][a-zA-Z0-9-]+:[a-zA-Z0-9.-]+[0-9]{7}' dpkg.log`
-
-(c) `grep -oE '\b[a-z][a-zA-Z0-9-]+:[a-zA-Z0-9.-]+.{7}' dpkg.log`
-
-(d) `grep -oE '\b[a-z][a-zA-Z0-9-]+:[a-zA-Z0-9.-]+[0-9.]+' dpkg.log`
-
-### Answer
-(c)
-
----
-
-## Question 5 (sed) [6] 
-Which of the following commands will change the word Alice with Rabbit for the range of lines starting from 5 to 25.
-
-(a) `sed '5~25 s/Alice/Rabbit/' file.txt`
-
-(b) `sed '5-25 s/Alice/Rabbit/' file.txt`
-
-(c) `sed '5,25 s/Alice/Rabbit/' file.txt`
-
-(b) `sed '5 s/Alice/Rabbit/; 25 s/Alice/Rabbit/' file.txt`
-
-### Answer
-(c)
-
----
-
-## Question 6 (find) [MSQ] [8]
+## Question 3 [MSQ] [7]
 
 Select the command(s) that retrieves the first ten lines of all the files that only end with `.md` in the current working directory and its subfolders.
 
@@ -241,7 +83,7 @@ Note: All the directories and files do not have space in their names
 Hint:
 
 - `-type f` option searches only for the files.
-- `-name x*` option searches for the filename with the pattern with wildcard characters (not regex)
+- `-name x*` option searches for the filename with the pattern with wild card characters (not regex)
 
 ```
 $ xargs --help
@@ -281,492 +123,451 @@ With no FILE, or when FILE is -, read standard input.
 ```
 
 (a) `find . -type f -name '*.md' | xargs -L 1 head`
-
 (b) `head $(find . -type f -name '*.md')`
-
 (c) `find . -type f -name '*.md*' | xargs -L 1 head`
-
 (d) `find . type f | grep md | head`
 
 ### Answer
 
 (a), (b)
 
----
+<div style="page-break-after: always;"></div>
 
-## Question 7 (sed) [7]
+## Question 4 [MCQ] [6]
 
-What will be the output of the last command in the following sequence of commands?
+Which of the option is the correct output of the following command? [MCQ]
 
 ```bash
-$ seq 10
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-$ seq 10 | sed 1d | sed 2d 
+echo 'alphabet
+alpha
+beta
+gamma
+omega
+iota
+nu' |
+    awk ' /^alpha/, /^omega/ { print } ' |
+    sed '1d; $d'
 ```
 
 (a)
+
 ```
-3
-4
-5
-6
-7
-8
-9
-10
+alphabet
+alpha
+beta
+gamma
+omega
+iota
+nu
 ```
 
 (b)
+
 ```
-1
-4
-5
-6
-7
-8
-9
-10
+alphabet
+alpha
+beta
+gamma
 ```
 
 (c)
+
 ```
-2
-4
-5
-6
-7
-8
-9
-10
+omega
+iota
+nu
 ```
 
 (d)
-```
-2
-3
-4
-5
-6
-7
-8
-9
-```
 
+```
+alpha
+beta
+gamma
+```
 
 ### Answer
 
+(d)
+
+<div style="page-break-after: always;"></div>
+
+## Question 5 [NAT] [7]
+
+```bash
+#!/bin/bash
+
+directory="$1"
+tarball_name="$2"
+tar -cvf "$tarball_name.tar" "$directory"
+```
+
+```
+$ tar --help
+Usage: tar [OPTION...] [FILE]...
+GNU 'tar' saves many files together into a single tape or disk archive, and can
+restore individual files from the archive.
+
+Examples:
+  tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.
+  tar -tvf archive.tar         # List all files in archive.tar verbosely.
+  tar -xf archive.tar          # Extract all files from archive.tar.
+
+ Main operation mode:
+  -A, --catenate, --concatenate   append tar files to an archive
+  -c, --create               create a new archive
+...
+  -x, --extract, --get       extract files from an archive
+
+...
+ Device selection and switching:
+
+      --force-local          archive file is local even if it has a colon
+  -f, --file=ARCHIVE         use archive file or device ARCHIVE
+...
+ Informative output:
+...
+  -v, --verbose              verbosely list files processed
+...
+```
+
+What will be the output tar file name if no input (null string) is given as the second argument?
+Assume the first argument of input is valid.
+
+Note: Ensure no space before and after your answer
+
+### Answer
+
+.tar
+
+<div style="page-break-after: always;"></div>
+
+## Question 6 [MSQ] [8]
+
+Choose the corner case(s) from stdin that makes this SED command fail to replace all the three-character month names with the corresponding numbers.
+
+```bash
+#!/bin/bash
+
+# Associative array
+declare -A month_to_number
+
+month_to_number=(
+	["Jan"]=1 ["Feb"]=2 ["Mar"]=3 ["Apr"]=4
+	["May"]=5 ["Jun"]=6 ["Jul"]=7 ["Aug"]=8
+	["Sep"]=9 ["Oct"]=10 ["Nov"]=11 ["Dec"]=12
+) # ([key]=value)
+
+read -r line
+for m in "${!month_to_number[@]}"; do
+	# get from stdin
+	[[ "$line" =~ $m ]] || continue
+	echo "$line" | sed "s/$m/${month_to_number[$m]}/"
+done
+```
+
+(a) `12/Jan/2017`
+(b) `22-Aug-1999 Morning`
+(c) `17/Feb/1888, 7/May/1999`
+(d) `18/jul/2047`
+(e) `19 Sep 2023 18:00`
+
+### Answer
+
+(c), (d)
+
+<div style="page-break-after: always;"></div>
+
+## Question 7 [MCQ] [6]
+
+In a text file named "numbers.txt", multiple lines contain numbers. You want to delete all lines that have a number greater than 100. Which sed command would you use?
+
+Hint: By default, SED uses the Basic Regular Expression Engine (BRE)
+
+(a) `sed '/[0-9]\{3,\}/d' numbers.txt`
+(b) `sed '/[0-9]{3,}/d' numbers.txt`
+(c) `sed '/[0-9]{2,}/d' numbers.txt`
+(d) `sed '/[0-9]\{2,\}/d' numbers.txt`
+
+### Answer
+
+(a)
+
+<div style="page-break-after: always;"></div>
+
+## Question 8 [MSQ] [8]
+
+Complete the script to print the name in the order of the given name and family name from the file `name_country.csv`. In some countries, people keep their family name as their first name and their given name as their last name.
+
+Note: `name_country.csv` is a comma-separated file with first name, last name and country as field values. The file `family_name_first_countries.txt` has the country name where the family name is used as the first name.
+
+```bash
+#!/bin/bash
+
+awk '
+BEGIN  {
+    FS=","
+}
+FILENAME == "family_name_first_countries.txt" {
+    family_name_first_countries[$0]++
+}
+# Fill here
+' family_name_first_countries.txt name_country.csv
+```
+
+(a)
+
+```
+FILENAME == "name_country.csv" && $3 in family_name_first_countries {
+    if ($3 in family_name_first_countries) {
+        print $2, $1
+    } else {
+        print $1, $2
+    }
+}
+```
+
+(b)
+
+```
+FILENAME == "name_country.csv" {
+    if ($3 in family_name_first_countries) {
+        print $2, $1
+    } else {
+        print $1, $2
+    }
+}
+```
+
 (c)
 
----
+```
+FILENAME == "name_country.csv" && $3 in family_name_first_countries {
+    print $2, $1
+}
+FILENAME == "name_country.csv" && !($3 in family_name_first_countries) {
+    print $1, $2
+}
+```
 
-## Question 8 (sed) [9]
-Choose the sed script that converts each line of the input file to an element in JSON array. The input file contains one word per line. The output should be a valid JSON array of words.
+(d)
+
+```
+FILENAME == "name_country.csv" && !($3 in family_name_first_countries) {
+    print $2, $1
+}
+FILENAME == "name_country.csv" && $3 in family_name_first_countries {
+    print $1, $2
+}
+```
+
+## Answer
+
+(b), (c)
+
+<div style="page-break-after: always;"></div>
+
+## Question 9 [MSQ] [6]
+
+Choose the incorrect answer to the question. If all the statements are correct, select "None of the above".
+
+1. What is a process in Linux?
+   - Answer: In Linux, a process is an instance of a running program. It represents the execution of a program and consists of the program code, data, and resources.
+2. How can you view the list of running processes in Linux?
+   - Answer: You can use the "ps" command to view the list of running processes in Linux. The "ps" command provides information about active processes, including their process IDs (PIDs), resource usage, and status.
+3. What is the difference between a foreground process and a background process?
+   - Answer: A foreground process is a process that runs in the foreground and interacts directly with the user through the terminal. It receives input from the user and displays output on the terminal. On the other hand, a background process runs in the background without user interaction and does not occupy the terminal.
+4. How can you terminate a running process in Linux?
+   - Answer: You can terminate a running process in Linux using the "kill" command. The "kill" command sends a signal to a process, requesting it to terminate. The most commonly used signal is SIGTERM (signal number 15), which gracefully terminates the process.
+
+(a) 1
+(b) 2
+(c) 3
+(d) 4
+(e) None of the above
+
+### Answer
+
+(e)
+
+<div style="page-break-after: always;"></div>
+
+## Question 10 [NAT] [7]
+
+**Common data for questions 11 and 12**
+
+```bash
+#!/bin/bash
+prn_num(){
+        for c in 1 2 3 4 3 2 1; do
+                sleep 0.5
+                echo -n $c
+        done
+}
+
+for i in {1..3}; do #first loop
+        prn_num
+done
+
+for _ in {1..3}; do #second loop
+        prn_num &
+done
+```
+
+What is the output of the **first loop** at the end of the execution of the given script? [NAT]
+
+### Answer (ignore white space, newline)
+
+123432112343211234321
+
+<div style="page-break-after: always;"></div>
+
+## Question 11 [NAT] [7]
+
+What will be the output of the **second loop** after the execution of the given script? [NAT]
+
+### Answer (ignore white space, newline)
+
+111222333444333222111
+
+<div style="page-break-after: always;"></div>
+
+## Question 12 [MCQ] [6]
+
+Select the correct statement from the options for the following **SED** command.
+
+```bash
+sed '5~5{s/\b\([a-z]\)/\u\1/g}' sample.txt
+```
+
+(a) All characters in every fifth line of the text are capitalized
+(b) Starting character of every fifth line is capitalized
+(c) Starting character of each word is capitalized
+(d) Starting character of each word of every fifth line is capitalized
+
+### Answer
+
+(d)
+
+<div style="page-break-after: always;"></div>
+
+## Question 13 [MSQ] [6]
+
+Which of the following regular expression(s) are the **most appropriate** to capture the PAN card numbers in a file? [MSQ]
 
 Note:
-- A valid JSON array is enclosed in square brackets.
-- Each element of the array is enclosed in double quotes.
-- Each element of the array is separated by a comma.
-- There is no comma after the last element of the array.
 
-**Sample Input**
-```
-apple
-banana
-orange
-```
+- A PAN (Permanent Account Number) typically follows the format of ABCTY1234D (All capital).
 
-**Sample Output**
-```
-[
-"apple",
-"banana",
-"orange"
-]
-```
+- The first three characters, "ABC" in this case, form an alphabetical series ranging from AAA to ZZZ.
 
-(a)
-```sed
-#!/usr/bin/sed -f
-1 i [
-s/^/"/
-s/$/",/
-$ s/$/"/
-$ i ]
-```
+- The fourth character, like 'T', indicates the status of the PAN holder, where 'T' stands for Trust, 'F' for Firm, 'H' for HUF, 'P' for Individual, and 'C' for Company.
 
-(b)
-```sed
-#!/usr/bin/sed -f
-1 a [
-s/^/"/
-$ s/$/",/
-$! s/$/"/
-$ i ]
-```
+- The fifth character, for instance, 'Y', represents the first letter of the PAN holder's last name.
 
-(c)
-```sed
-#!/usr/bin/sed -f
-1 i [
-s/^/"/
-$! s/$/",/
-$ s/$/"/
-$ a ]
-```
+- The subsequent four characters are sequential digits from 0001 to 9999.
 
-(d)
-```sed
-#!/usr/bin/sed -f
-1 i [
-s/^/"/
-$! s/$/",/
-$ s/$/"/
-$ a ]
-```
+- The tenth character, 'D', functions as an alphabetic check digit, ranging from A to Z.
+
+Assume a Basic Regular Expression Engine (BRE)
+
+(a) `[A-Za-z]\{3\}[TFHPIC][A-Za-z][0-9]\{4\}[A-Za-z]`
+(b) `[A-Z]\{3\}[TFHPIC][A-Z][0-9]\{4\}[A-Z]`
+(c) `[[:alpha:]]\{3\}[TFHPIC][[:alpha:]][[:digit:]]\{4\}[[:alpha:]]`
+(d) `[[:upper:]]\{3\}[TFHPIC][[:upper:]][[:digit:]]\{4\}[[:upper:]]`
 
 ### Answer
 
-(d)
+(b),(d)
 
----
+<div style="page-break-after: always;"></div>
 
-## Question 9 (sed/awk) [MSQ] [7]
+## Question 14 [MSQ] [8]
 
-From the following option select the correct command which will remove all the html tags. A sample html file is provided for your reference.
+A file contains data collected starting from 4th April 2004. The data is collected on 4th, 14th and 24th of April, May and June since then.
+The text file, however, does not contain the date information in it. Now it is needed to add a column to this text file with the date format 4 April, 2004.
 
-**Sample Input**
-```html
-A <b>table</b> is an arrangement of <a href="/wiki/Information" title="Information">information</a> or <a href="/wiki/Data" title="Data">data</a>,
+Identify which of the following command (using brace expansion and date command) will create a column to an empty file with the desired format starting from **4 April, 2004 to 24 June, 2005**. [MSQ]
+
+Note:
+
+The output of the command need not produce dates in temporal order.
+
+Hint:
+Use the following information.
+
+```bash
+$ echo {1..4}{b..d}
+1b 1c 1d 2b 2c 2d 3b 3c 3d 4b 4c 4d
+$ echo {1..4}";"{b..d}
+1;b 1;c 1;d 2;b 2;c 2;d 3;b 3;c 3;d 4;b 4;c 4;d
+$ echo 10 20
+10 20
+$ echo 10 20| tr ' ' '\n'
+10
+20
+$ date -d '04/21/2002' +'%B %d,%Y'
+April 21,2002
+$ echo 04/21/2002 |xargs -I {} date -d {} +'%B %d,%Y'
+April 21,2002
 ```
 
-**Sample Output**
-```
-A table is an arrangement of information or data,
-```
-
-(a) `sed 's/<[^>]*>//g' file.html`
-
-(b) `sed 's/<[^>].*//g' file.html`
-
-(c) `awk '{gsub(/<[^>]*>/, ""); print}' file.html`
-
-(d) `awk '{gsub(/<[^>].*>/, ""); print}' file.html`
+(a) `echo {4..6}"/"{4,14,24}"/"{2002,2005}|
+		tr ' ' '\n'|
+		xargs -I {} date -d {} +'%d %B,%Y'`
+(b) `echo {4..6}"/"{4,14,24}"/"{2002,2005}"\n"|
+		xargs -I {} date -d {} +'%B %d,%Y'`
+(c) `echo -e {4..6}" "{June,July,August}","{2004..2005}"\n"| 
+		xargs -I{} date -d {} +'%B %d,%Y'`
+(d) `echo -e {4..6}"/"{4..24..10}"/"{2002,2005}"\n"|
+		xargs -I {} date -d {} +'%d %B,%Y'`
 
 ### Answer
-(a), (c)
 
----
-
-## Question 10 (awk) [MSQ] [8]
-In a large bank they keep track of a file for customer interaction every day. The files `day1.csv` and `day2.csv` hold the data of customer  id, token number and counter for two days. 
-Select the **AWK script** to find all the customers who visited the bank on both the days and print customer id. Refer to the provided sample below. The files `day1.csv` and `day2.csv` will be passed as arguments respectively.
-
-**day1.csv**
-```
-customer_id,token_number,counter
-1,3473,1a
-2,3480,1b
-3,5034,1c
-4,4368,1d
-5,4755,2a
-6,5150,2b
-```
-
-**day2.csv**
-```
-customer_id,token_number,counter
-1,1254218,10z
-3,1245114,11x
-5,1260578,11y
-7,1251738,11z
-```
-
-**Expected output**
-```
-customer_id
-1
-3
-5
-```
-
-(a)
-```awk
-BEGIN {FS=","}
-FNR == NR {a[$1]=$2; next}
-a[$1] {print a[$1]}
-```
-
-(b)
-```awk
-BEGIN {FS=","}
-FNR != NR {a[$1]=$2; next}
-a[$1] {print a[$1]}
-```
-
-(c)
-```awk
-BEGIN {FS=","}
-FNR != NR {a[$1]=$2; next}
-a[$1] {print}
-```
-
-(d)
-```awk
-BEGIN {FS=","}
-FNR != NR {a[$1]++; next}
-a[$1] {print a[$1]}
-```
-
-### Answer
 (a), (d)
 
----
+<div style="page-break-after: always;"></div>
 
-## Question 11 (process) [7]
-Select the command that kills the process that is not owned by the user `root` and consumes the maximum CPU usage now. Assume you have the permission to kill any process.
+## Question 15 [MCQ] [6]
 
-**Hint:**
-- The third column of the output of `ps aux` command (%CPU) contains the percentage of CPU usage by the process.
-- The `ps aux` command can be used to list all the processes owned by all the users.
+Following entry is made to a crontab to run a script which generate system and process logs at designated time. When is the script `/home/Tisha/monitor_management.sh`  scheduled to get executed. [MCQ]
 
 ```bash
-$ ps aux | head -5 # get the first 5 lines
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root           1  0.0  0.1  21416 13004 ?        Ss   11:26   0:00 /sbin/init
-root           2  0.0  0.0      0     0 ?        S    11:26   0:00 [kthreadd]
-root           3  0.0  0.0      0     0 ?        S    11:26   0:00 [pool_workqueue_release]
-priya       2336  0.0  0.0  11396  2744 tty1     S+   11:29   0:00 cat
-$ ps aux | head -5 | sort -k2,2 -rn # sorted by second column in reverse order
-priya       2336  0.0  0.0  11396  2744 tty1     S+   11:29   0:00 cat
-root           3  0.0  0.0      0     0 ?        S    11:26   0:00 [pool_workqueue_release]
-root           2  0.0  0.0      0     0 ?        S    11:26   0:00 [kthreadd]
-root           1  0.0  0.1  21416 13004 ?        Ss   11:26   0:00 /sbin/init
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+
+0 4 4 * * /home/Tisha/log_management.sh
+
 ```
 
-(a)
-```bash
-kill $(
-    ps aux |
-    head -1 |
-    sort -k3,3 -rn |
-    grep -v '^root\b' |
-    sed 1d |
-    awk '{print $2}'
-)
+**Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
+
 ```
+*   *   *   *   *   <Command(s) with argument>
+|   |   |   |   |              |
+|   |   |   |   |      Command or Script to Execute        
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   | Day of the Week(0-6)
+|   |   |   |
+|   |   | Month of the Year(1-12)
+|   |   |
+|   | Day of the Month(1-31)  
+|   |
+| Hour(0-23)  
+|
+Min(0-59)
+```
+
+(a) 4th of each Month at 00:04 am
+
+(b) 4th of each Month at 04:00 am
+
+(c) 4th Month of each year at 04:00 am
+
+(d) 4th Month of each year at 00:04 am
+
+### Answer
 
 (b)
-```bash
-kill $(
-    ps aux |
-    grep -v '^root\b' |
-    sed -n 1p |
-    sort -k3,3 -n |
-    head -1 |
-    awk '{print $2}'
-)
-```
 
-(c)
-```bash
-kill $(
-    ps aux |
-    sed 1d |
-    sort -k3,3 -rn |
-    grep -v '^root\b' |
-    head -1 |
-    awk '{print $2}'
-)
-```
-
-(d)
-```bash
-kill $(
-    ps aux |
-    grep -v '^root\b' |
-    sort -k3,3 -rn |
-    awk '{print $2}' | 
-    sed 1d |
-    head -1
-)
-```
-
-### Answer
-
-(c)
-
----
-
-## Question 12 (diff) [NAT] [6]
-The files `file1.txt` and `file2.txt` are present in the current working directory. The file file1.txt is composed of 4 lines. Based on the diff command output, find out how many lines does file2.txt contain? 
-Note: The lines 2d1 and 4c3 are not relevant to the solution.
-
-```diff
-$ diff file1.txt file2.txt
-2d1
-< efgh
-4c3
-< mnop
----
-> mnpo
-```
-
-### Answer
-3
-
----
-
-## Question 13 (editor) [6]
-
-**Text**
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Donec a diam lectus.
-Sed sit amet ipsum mauris.
-Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-Donec et mollis dolor.
-```
-
-Choose the output after giving the key sequence `ddp` in vi editor. The cursor is at the beginning of the first line.
-The equivalent key sequence in emacs is `C-SPACE C-n C-w C-n C-y`, where `C-SPACE` is the control key and the space bar pressed together.
-
-(a)
-```
-Donec a diam lectus.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Sed sit amet ipsum mauris.
-Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-Donec et mollis dolor.
-```
-
-(b)
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Donec a diam lectus.
-Sed sit amet ipsum mauris.
-Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-Donec et mollis dolor.
-```
-
-(c)
-```
-ipsum Lorem dolor sit amet, consectetur adipiscing elit.
-Donec a diam lectus.
-Sed sit amet ipsum mauris.
-Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-Donec et mollis dolor.
-```
-
-(d)
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Donec a diam lectus.
-Sed sit amet ipsum mauris.
-Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-Donec et mollis dolor.
-```
-
-
-### Answer
-(a)
-
----
-
-## Question 14 (bash) [7]
-Following Shell Script is used to print common lines between two files. Please choose the option to which will correct the script.
-
-```bash
-#!/bin/bash
-FILENAME1="${1}"
-FILENAME2="${2}"
-IFS=$'\n'
-for line1_file1 in $(cat "${FILENAME1}")
-do
-       for line1_file2 in $(cat "${FILENAME2}")
-       do
-              if ["${line_file1}" == "${line_file2}"]
-              then
-                     echo "${line1_file1}"
-              fi
-       done
-done
-```
-
-(a) There should not be a `$` before `\n` in the IFS assignment
-
-(b) The call in for loop `$(cat ${FILENAME1})` is incorrect and, the while loop should have been used to read lines.
-
-(c) The if statement is incorrect as the space between the `[` and `$` is missing.
-
-(d) The code is correct and has no issues.
-
-### Answer
-
-(c)
-
----
-
-## Question 15 (bash) [6]
-The following scripts are using various means to read a file into a script. Please select the incorrect statement from the options.
-
-```bash
-#!/bin/bash
-
-# Case 1
-while read line
-do
-       echo $line
-done < "data.txt"
-
-# Case 2
-cat data.txt|while read line
-do
-       echo $line
-done
-
-# Case 3
-for line in $(cat data.txt)
-do
-       echo $line
-done
-
-# Case 4
-while IFS=':' read -r name age country; do
-    echo "Name: $name, Age: $age, Country: $country"
-done < "data.txt"
-
-# Case 5
-while IFS= read -r line; do
-    echo "Name: $line"
-done < "data.txt"
-```
-
-(a) Case 1 uses the input redirection method to read the file line-by-line.
-
-(b) Case 2 uses the pipe redirection to feed the cat output to the while loop.
-
-(c) The pipe redirection used in Case 2 is inefficient compared to input redirection.
-
-(d) Case 3 uses command substitution with the for loop to read the file.
-
-(e) Case 4 is input redirection, which reads each entry in the data.txt file (assuming the file has three columns) into individual variables.
-
-(f) Case 5 reads the entire line of the data file and assigns it to the line variable.
-
-(g) None of the above options are correct.
-
-### Answer
-(g)
-
----
+<div style="page-break-after: always;"></div>
