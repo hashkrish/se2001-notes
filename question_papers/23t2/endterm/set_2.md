@@ -36,6 +36,13 @@ $ myproject-auth -u pankaj -p $(cat)
 
 (c), (d)
 
+### Explanation
+
+- (a) and (b) give the password in plain text on the command line, this can be seen in the `.bash_history` file.
+- (c) and (d) take the password from stdin (keyboard input) while running, thus ensuring the secrecy of the password.
+
+However, the password is still visible in both cases while typing, ideally one should use `read -s` to hide the password while typing.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 2 [MCQ] [6]
@@ -88,6 +95,11 @@ What does the command `echo <(seq 10)` output represent? [MCQ]
 
 (b)
 
+### Explanation
+
+- `<(command)` will give the path to a temporary FD file.
+- `echo` simply prints what is given to it.
+- (a) would be true if the command was `echo $(seq 10)` or `cat <(seq 10)`.
 <div style="page-break-after: always;"></div>
 
 ## Question 3 [NAT] [7]
@@ -134,6 +146,11 @@ How many new files will be created from the above command for the valid director
 ### Answer
 
 1
+
+### Explanation
+
+The code creates a tarball of the directory and saves it as `tarball_name.tar`.
+Only one file (the tarball) is created which contains all the files from the directory.
 
 <div style="page-break-after: always;"></div>
 
@@ -201,6 +218,11 @@ echo {April,May,June}{4..30..10}","{2004..2010}|
 ### Answer
 
 (a)
+
+### Explanation
+
+- (b) has comma instead of space after month name. (d) has no space between month and date.
+- (c) starts with space after month name, so the `tr` will split one date in two lines.
 
 <div style="page-break-after: always;"></div>
 
@@ -289,6 +311,13 @@ b
 
 (b), (c), (d)
 
+### Explanation
+
+- (a) has one `\b` less before lines 2 and 4. The output shows the lines are printed exactly where the previous line stopped, but one line below.
+- `\v` moves cursor directly one line below without going to the start of line.
+- `\t` is 8 characters wide, `\b\b` will move the cursor back 2 characters. So the line2 and line4 will start at 6th character, which is directly below previous lines' end.
+- We can either use `-n` with `\n` manually, or omit the `-n`.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 7 [MSQ] [6]
@@ -328,7 +357,11 @@ Assume a Basic Regular Expression Engine (BRE)
 
 ### Answer
 
-(a),(d)
+(b),(d)
+
+### Explanation
+
+Lowercase is not allowed, only uppercase characters `[A-Z]` or `[[:upper:]]` should be used.
 
 <div style="page-break-after: always;"></div>
 
@@ -367,6 +400,13 @@ $ wc -l tongue_twisters.txt
 ### Answer
 
 (b), (c)
+
+### Explanation
+
+- `-c` in grep counts the number of lines with matches, not the number of matches (even if `-o` is used). We need to pipe the output of `grep -o` to `wc -l` to count the words.
+- The `-w` is redundant as we are already using word boundaries `\b`.
+- (c) uses `awk` to count the number of words starting with 'c'.
+- (d) will not work as `/p` will print the entire line when substitution is successful, and `wc -w` will count the number of words in the entire line.
 
 <div style="page-break-after: always;"></div>
 
@@ -424,6 +464,13 @@ Line15
 
 (c)
 
+### Explanation
+
+- We use `N` to append the next line to the pattern space.
+- If done 3 times, we will have 4 lines in the pattern space.
+- If we substitute only the first newline with a tab, we will merge the first and second line, whereas third and fourth will be unchanged, and will not be read in the next cycle as well, preserving the required pattern.
+- The file is a TSV, so we should merge lines with tab, and not space.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 10 [MSQ] [6]
@@ -480,6 +527,13 @@ done
 
 (b),(d)
 
+### Explanation
+
+- (a) is incorrect as associative arrays are declared with `declare -A`.
+- (b) is correct as indexed arrays are declared with `declare -a`.
+- (c) is incorrect as the script prints the words in reverse order, not the sentences. To iterate over lines we would need to set `IFS=$'\n'` or `IFS='.'` for sentences.
+- (d) is correct as the script reads the words from the file and prints them in reverse order.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 12 [NAT] [7]
@@ -510,6 +564,10 @@ What is the output of the **first loop** at the end of the execution of the give
 
 987987987
 
+### Explanation
+
+- The first loop calls the function `prn_num` three times in foreground (synchronously), so their outputs are printed one after another.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 13 [NAT] [7]
@@ -519,6 +577,10 @@ What is the output of the **second loop** after the execution of the given scrip
 ### Answer (ignore white space, newline)
 
 998877
+
+### Explanation
+
+- The second loop calls the function `prn_num` two times in the background (asynchronously), so their outputs are interleaved.
 
 <div style="page-break-after: always;"></div>
 
@@ -555,7 +617,14 @@ done
 
 ### Answer
 
-(c)
+(b)
+
+### Explanation
+
+- (a) converts everything to lowercase, on which then the next sed cannot do the replacement as the keys of the associate array are not completely lowercase, so they never match.
+- (b) Although the logic of the first sed in (b) is incorrect, because it uses single quotes thus the variable does not expand the middle sed does nothing and this option works.
+- (c) `-i` is used to edit the file in place, but we the sed gets input from stdin, so this gives an error.
+- (d) `-n` suppresses the output, so nothing will be printed.
 
 <div style="page-break-after: always;"></div>
 
