@@ -291,7 +291,7 @@ Note: All the regular expressions are either BRE or ERE
 (a) `\([0-9A-Fa-f]\{2\}:\)\{5\}[0-9A-Fa-f]\{2\}`
 (b) `[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}`
 (c) `..\(\:..\){5}`
-(d) `([[:xdigit:]]{2}:){5}[[:xdigit:]]{2}`
+(d) `([[:digit:]]{2}:){5}[[:digit:]]{2}`
 
 ### Answer
 
@@ -304,7 +304,8 @@ Note: All the regular expressions are either BRE or ERE
 - `\{2\}` is used in BRE, and `{2}` is used in ERE.
 - `[0-9a-fA-F]{2}` will match exactly 2 hexadecimal digits, which is one group of the address. A MAC Address has 6 such groups separated by colons `:`.
 - `([[::xdigit::]]{2}:){5}[[:xdigit:]]{2}` will match a MAC address in ERE. Here we match two hexadecimal digits followed by a colon, and repeat this 5 times. The last group does not have a colon.
-- `.` matches any character, not just hexadecimal characters.
+- But here we have `[[:digit:]]` instead of `[[:xdigit:]]`, which will match only digits 0-9, and not A-F or a-f.
+- `.` matches any character, not just hexadecimal characters, but it will also work if the input data does not contain any malformed MAC address.
 
 ---
 

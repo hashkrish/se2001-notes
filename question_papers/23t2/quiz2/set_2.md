@@ -19,6 +19,15 @@ Hint: `cd -` will change the current working directory to the previous current w
 
 /home/pinky
 
+### Explanation
+
+- `cd -` changes the current working directory to the previous working directory.
+- When `cd -` is run, the current working directory becomes the new previous working directory.
+- If `cd -` is run twice, the current working directory remains same as initial state.
+- For any even number of runs of `cd -`, the current working directory remains same as initial state.
+- For any odd number of runs of `cd -`, the current working directory becomes the previous working directory.
+- In the given script, `cd -` is run 11 times. So, the current working directory will be the previous working directory (`/home/pinky`)
+
 ---
 
 **Common data for question 2 to 6**
@@ -90,6 +99,14 @@ What will be the output of `echo 6 > ./dir1/file1_s3; cat ./file1` after the exe
 
 6
 
+### Explanation
+
+- Symbolic links depend solely on the path, and if the path is changed, the symbolic link will be broken.
+- If a new file is kept in the original source file's path, that becomes the new parent file for the symbolic link.
+- Relative path if stored in a symbolic link, it will be resolved based on the path of the symbolic link, and not the current working directory.
+- Changing parent of a symbolic link will change the content of the symbolic link, and vice-versa.
+- Hard links, once created, do not care about the path of the source file.
+
 ---
 
 ## Question 7 [6]
@@ -160,6 +177,17 @@ What will be output of last command in the given console command?
 
 (e)
 
+### Explanation
+
+- `NR` is the number of records processed by `awk`.
+- `NR % 2` will be 1 for odd lines and 0 for even lines.
+- `$1 % 2` will be 1 for odd numbers and 0 for even numbers.
+- `arr1[NR % 2] += $1` will add the number to the array `arr1` based on the line number.
+- `arr2[$1 % 2] += $1` will add the number to the array `arr2` based on the number.
+- Output of `seq` has same line number as the line content.
+- `arr1[i] - arr2[i]` will be 0 always.
+- The keys will be 0 and 1, and the values will be 0 for both keys.
+
 ---
 
 ## Question 8 [8]
@@ -179,6 +207,16 @@ Hint:
 ### Answer
 
 90
+
+### Explanation
+
+- `seq 100` will generate numbers from 1 to 100.
+- `sed 's/\([[:digit:]]\)\1/\1/g'` will find numbers that have the same digit repeated and replace it with the digit present only once. Example 11 → 1, 22 → 2, ... 100 → 10
+- There are 10 such numbers (11, 22, 33, 44, 55, 66, 77, 88, 99, 100) which have the same digit repeated.
+- These numbers are changed to 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, which are already present in the sequence.
+- Sorting and removing duplicates will remove those numbers altogether.
+- `wc -l` will count the number of lines
+- 100 - 10 = 90 unique numbers
 
 ---
 
@@ -203,11 +241,21 @@ Hint: FILENAME is a default variable have the value of filename
 (a) The filename and count that includes the lines in the file that starts with numbers
 (b) The filename and count that includes the lines in the file that ends with numbers
 (c) The filename and count that includes the lines in the file that starts and ends with numbers
-(d) The filename and count that includes the lines that has a number in it
+(d) The filename and count that includes the lines that has a number in it but not at start
 
 ### Answer
 
 (b), (d)
+
+### Explanation
+
+- `FILENAME` is a built-in variable in `awk` which contains the name of the file being processed.
+- `/^/` is the start of the line.
+- `[^0-9]` is a negated character class that matches any character except a digit.
+- `.*` matches any character (except for line terminators) zero or more times.
+- `[0-9]*` matches any digit zero or more times.
+- `/$/` is the end of the line.
+- `/^[^0-9].*[0-9]*$/` will match lines that are non-empty and may have numbers in it but not as the first character.
 
 ---
 
@@ -231,6 +279,16 @@ What will be the output from the given script?
 ### Answer
 
 (a)
+
+### Explanation
+
+- `[ a = a ]` will evaluate to true and return exit code 0.
+- `[ 1 -ne 2 ]` will evaluate to true and return exit code 0.
+- `[[ a = a && 1 -ne 2 ]]` will evaluate to true and return exit code 0.
+- `==` and `=` are equivalent in bash.
+- `$?` will contain the exit code of the last command.
+- `v1` will be 0 and `v2` will be 0.
+- `echo $((v1 + v2))` will print 0.
 
 ---
 
@@ -278,6 +336,13 @@ END {
 
 (a)
 
+### Explanation
+
+- In Script 2, the entire file is read into an array, which will consume a lot of memory.
+- In Script 1, only the previous line is stored, which will consume less memory.
+- Script 2 is more optimal in terms of memory.
+- Using three blocks in a script does not affect the efficiency of the script.
+
 ---
 
 ## Question 12 [9]
@@ -295,6 +360,16 @@ Note: All the regular expressions are either BRE or ERE
 
 (a), (c), (d)
 
+### Explanation
+
+- A hexadecimal digit can be represented by `[0-9A-Fa-f]` or `[[:xdigit:]]`. Both are equivalent.
+- `{2}` will match exactly 2 occurrences of the preceding character.
+- `\{2\}` is used in BRE, and `{2}` is used in ERE.
+- `[0-9a-fA-F]{2}` will match exactly 2 hexadecimal digits, which is one group of the address. A MAC Address has 6 such groups separated by colons `:`.
+- `\([0-9A-Fa-f]\{2\}:\)\{6\}` will not match as it also requires a colon after the last group.
+- `([[::xdigit::]]{2}:){5}[[:xdigit:]]{2}` will match a MAC address in ERE. Here we match two hexadecimal digits followed by a colon, and repeat this 5 times. The last group does not have a colon.
+- `.` matches any character, not just hexadecimal characters, but it will also work if the input data does not contain any malformed MAC address.
+
 ---
 
 ## Question 13 [6]
@@ -309,6 +384,15 @@ Which of the following sed commands will show only line 6th and 8th line of a in
 ### Answer
 
 (b), (c)
+
+### Explanation
+
+- `-n` option in `sed` will suppress the default output. It is required, without it, all lines will be printed.
+- `6p` will print the 6th line.
+- `8p` will print the 8th line.
+- `8p;6p` will print the 6th line first and then the 8th line, this is because each line is compared against the commands one by one, in order of the lines, thus first the line 6 will match and print, then line 8 will match and print.
+- `-e` is used to specify multiple commands in `sed`.
+- `6,8p` will print lines from 6 to 8, not just 6th and 8th line.
 
 ---
 
@@ -325,6 +409,13 @@ What will the following command do upon execution.
 ### Answer
 
 (d)
+
+### Explanation
+
+- `find /home/users/Documents/ -name '*.doc'` will find all files with `.doc` extension in the `Documents` folder.
+- `grep -v '102421'` will exclude the lines that contain `102421`.
+- `xargs -I{} mv {} /home/Documents/OfficeFiles` will move the files to the `OfficeFiles` folder.
+- Here the grep acts on the file names, not the content of the files.
 
 ---
 
@@ -376,6 +467,13 @@ The context between PRE tags needs to be Extracted
 
 (b)
 
+### Explanation
+
+- `sed -n "/<PRE>/,/<\/PRE>/p"` will print the lines between `<PRE>` and `</PRE>`, including the lines with the tags.
+- `awk '/<PRE>/,/<\/PRE>/'` will print the lines between `<PRE>` and `</PRE>`, including the lines with the tags.
+- `sed -n "/<PRE>/,/<\/PRE>/{/<PRE>/! {/<\/PRE>/! p}}"` will print the lines between `<PRE>` and `</PRE>`, excluding the lines with the tags.
+- `sed -n "/<PRE>/,/<\/PRE>/{/<PRE>/!,/<\/PRE>/! p}"` is not logically correct for either including, or excluding the tag.
+
 ---
 
 ## Question 16 [6]
@@ -425,6 +523,16 @@ xyz
 
 (c)
 
+### Explanation
+
+- `$` moves the cursor to the end of the line.
+- `j` moves the cursor to the next line.
+- `dd` deletes the entire line.
+- `k` moves the cursor to the previous line.
+- `0` moves the cursor to the start of the line.
+- `dw` deletes the word.
+- The second line will be totally removed, and the first word of first line is removed.
+
 ---
 
 ## Question 17 [6]
@@ -444,5 +552,11 @@ sleep 12 &
 ### Answer
 
 3
+
+### Explanation
+
+- All the sleep processes are run in background, thus they dont block each other and are all started in parallel
+- After 5 seconds the only sleep commands still running in background are those that have sleep values more than 5 seconds, which are `6`, `7`, and `12`.
+- Thus, 3 processes will keep running.
 
 ---
