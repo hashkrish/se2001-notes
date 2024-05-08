@@ -1,9 +1,8 @@
 # System Commands Jan 2023 End Term Set-2
 
+### Total Questions: 15 Max Marks: 100
 
-### Total Questions: 15										Max Marks: 100
-
-#### Marks for each question are given in square brackets 
+#### Marks for each question are given in square brackets
 
 ## Question 1 (echo) [MCQ] [6]
 
@@ -12,7 +11,7 @@ $ help echo
 echo: echo [-neE] [arg ...]
     Write arguments to the standard output.
 
-    Display the ARGs, separated by a single space character and followed 
+    Display the ARGs, separated by a single space character and followed
     by a newline, on the standard output.
 
     Options:
@@ -29,6 +28,7 @@ echo: echo [-neE] [arg ...]
 ```
 
 What will be the output of the following script?
+
 ```bash
 echo -ne "a\tb\n"
 echo -ne " \tc\n"
@@ -36,25 +36,32 @@ echo -ne " \td\n"
 echo -ne " \te\tf\n"
 ```
 
-(a) 
+(a)
+
 ```
 a	b
 	c
  	d
  	e	f
 ```
-(b) 
+
+(b)
+
 ```
 a	b 	c 	d 	e	f
 ```
-(c) 
+
+(c)
+
 ```
 a	b
 c
 d
 e	f
 ```
-(d) 
+
+(d)
+
 ```
 a\tb
  \tc
@@ -63,15 +70,16 @@ a\tb
 ```
 
 ### Answer
-(a)
 
+(a)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 2 (cron) [MCQ] [6]
-Following entry is made to a crontab. When is the script `/home/garima/premodel.sh`  scheduled to get executed. [MCQ]
+
+Following entry is made to a crontab. When is the script `/home/garima/premodel.sh` scheduled to get executed. [MCQ]
 
 ```bash
 0 4 * * 1 /home/garima/premodel.sh
@@ -82,7 +90,7 @@ Following entry is made to a crontab. When is the script `/home/garima/premodel.
 ```
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
-|   |   |   |   |      Command or Script to Execute        
+|   |   |   |   |      Command or Script to Execute
 |   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
@@ -90,22 +98,24 @@ Following entry is made to a crontab. When is the script `/home/garima/premodel.
 |   |   |   |
 |   |   | Month of the Year(1-12)
 |   |   |
-|   | Day of the Month(1-31)  
+|   | Day of the Month(1-31)
 |   |
-| Hour(0-23)  
+| Hour(0-23)
 |
 Min(0-59)
 ```
 
 (a) Every Monday at 00:04
-(b) Every Monday at 04:00 
-(c) Every Sunday at 04:00 
-(d) Every Sunday at 00:04  
+(b) Every Monday at 04:00
+(c) Every Sunday at 04:00
+(d) Every Sunday at 00:04
 
 ### Answer
+
 (b)
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Question 3 (shell variable) (Comprehension) [MCQ] [7]
@@ -226,31 +236,34 @@ Mandatory arguments to long options are mandatory for short options too.
 ...
 ```
 
-Based on the information provided above, select the bash function `cdlmf` that opens the recently modified file in the current directory in vi editor. 
+Based on the information provided above, select the bash function `cdlmf` that opens the recently modified file in the current directory in vi editor.
 
-(a) 
+(a)
+
 ```bash
 cdlmf() {
     ls | head -1 | vi
 }
 ```
 
-(b) 
+(b)
+
 ```bash
 cdlmf() {
     ls -t | xargs vi
 }
 ```
 
-(c) 
+(c)
+
 ```bash
 cdlmf() {
     ls -tF | head -1 | grep -v "\/$" | xargs vi
 }
 ```
 
+(d)
 
-(d) 
 ```bash
 cdlmf() {
     ls -tF | grep -v "\/$" | head -1 | xargs vi
@@ -258,6 +271,7 @@ cdlmf() {
 ```
 
 ### Answer
+
 (d)
 
 ---
@@ -274,6 +288,7 @@ Which of the following command prints all the values present in an bash associat
 (d) `${arr[@]}`
 
 ### Answer
+
 (d)
 
 ---
@@ -283,6 +298,7 @@ Which of the following command prints all the values present in an bash associat
 ## Question 5 (for) [MSQ] [8]
 
 Contents of the current working directory are given below.
+
 ```shell
 $ ls -R
 .:
@@ -314,6 +330,7 @@ done
 (h) file10
 
 ### Answer
+
 (f), (g), (h)
 
 ---
@@ -339,6 +356,7 @@ Select a scenario from the following options such that upon execution of the abo
 (d) file2 containing all the lines that start and end with a number
 
 ### Answer
+
 (c)
 
 ---
@@ -356,6 +374,7 @@ Assume that a paragraph always ends with a full stop (.)
 (d) `grep '\.$' book.txt | wc -l`
 
 ### Answer
+
 (c) and (d)
 
 ---
@@ -366,7 +385,7 @@ Assume that a paragraph always ends with a full stop (.)
 
 For the given regular expression (regex) identify the correct statement(s) from the following options. Note that the Extended Regular Expression (ERE) is used.
 
-**Hint:** 
+**Hint:**
 The group number starts from the outer to inner and left to right respectively.
 **Note:** a word, phrase, or sequence that reads the same backwords as forwards e.g. Noon, Anna
 
@@ -374,12 +393,13 @@ The group number starts from the outer to inner and left to right respectively.
 ^((.)|(.)\3|(.).\4)$
 ```
 
-(a) This regex will match with 1 character palindrome 
-(b) This regex will match with 2 character palindrome 
-(c) This regex will match with 3 character palindrome 
-(d) This regex will match with 4 character palindrome 
+(a) This regex will match with 1 character palindrome
+(b) This regex will match with 2 character palindrome
+(c) This regex will match with 3 character palindrome
+(d) This regex will match with 4 character palindrome
 
 ### Answer
+
 (a), (b), (c)
 
 ---
@@ -388,9 +408,10 @@ The group number starts from the outer to inner and left to right respectively.
 
 ## Question 9 (shell command) (Comprehension) [MSQ] [8]
 
-A student named Meena wrote a shell script `exoc.sh` such that everytime  `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps.
+A student named Meena wrote a shell script `exoc.sh` such that everytime `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps.
 
 **Script: exoc.sh**
+
 ```
 #!/usr/bin/bash
 
@@ -408,6 +429,7 @@ done
 ```
 
 **Execution**
+
 ```bash
 $ ls -l
 total 16K
@@ -419,6 +441,7 @@ $ ./exoc.sh main.py
 ```
 
 Hints
+
 ```
 $ stat --help
 Usage: stat [OPTION]... FILE...
@@ -509,18 +532,19 @@ for details about the options it supports.
 (f) Incorrect execution; The proper python file execution should be `"$1"`
 
 ### Answer
+
 (b), (c), (e)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-
 ## Question 10 (sed) [MSQ] [6]
 
 Which of the following command(s) will print only the lines 4 to 6 (ends-inclusive) and 10 to 15 (ends-inclusive) lines of a text file `test.txt`?
 
 Hint:
+
 ```
 $ sed --help
 Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
@@ -540,6 +564,7 @@ Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 (d) `sed -e '4,6p' -e '10,15p' test.txt`
 
 ### Answer
+
 (a), (c)
 
 ---
@@ -560,11 +585,14 @@ sed 's/.*/&\n&/' a.txt > b.txt
 (d) Total number of lines in b.txt is equal to the twice the number of lines in a.txt
 
 ### Answer
+
 (d)
 
 ---
+
 ## Question 12 (sed) [MSQ] [6]
-Given a file `test.csv` with content shown below, select the sed script(s) that will remove the hyphens (*-*) present in the phone number.
+
+Given a file `test.csv` with content shown below, select the sed script(s) that will remove the hyphens (_-_) present in the phone number.
 
 ```shell
 $ cat test.csv
@@ -595,26 +623,34 @@ Mahajan,15486898736,mahajan@icloud.couk,Bihar
 Rana,15283857783,rana4716@yahoo.org,AN
 ```
 
-(a) 
+(a)
+
 ```
 s/\([0-9]\)-\([0-9]\{3\}\)-\([0-9]\{3\}\)-\([0-9]\{4\}\)/\1\2\3\4/
 s/\([0-9]\{3\}\)-\([0-9]\{4\}\)/\2\1/
 ```
-(b) 
+
+(b)
+
 ```
 s/-//g
 ```
-(c) 
+
+(c)
+
 ```
 s/\([[:digit:]]\)-\([[:digit:]]\{3\}\)-\([[:digit:]]\{3\}\)-\([[:digit:]]\{4\}\)/\1\2\3\4/
 s/\([[:digit:]]\{3\}\)-\([[:digit:]]\{4\}\)/\1/2/
 ```
+
 (d)
+
 ```
 s/\([[:digit:]]\)-\([[:digit:]]\)/\1\2/g
 ```
 
 ### Answer
+
 (c), (d)
 
 ---
@@ -642,6 +678,7 @@ END {
 (d) 55
 
 ### Answer
+
 (a)
 
 ---
@@ -651,6 +688,7 @@ END {
 ## Question 14 (AWK) [MSQ] [6]
 
 **Content file.csv**
+
 ```bash
 Sahni,151-8534,sahni@hotmail.ca,KA
 Mahajan,1-548-689-8736,mahajan@icloud.co.uk,Bihar
@@ -660,6 +698,7 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 Given a CSV file `file.csv` with contents as shown above. Select AWK command(s) which can produce the output as shown below.
 
 **Expected Output**
+
 ```bash
 Sahni:151-8534:sahni@hotmail.ca
 
@@ -669,8 +708,8 @@ Rana:1-528-385-7783:rana4716@yahoo.org
 
 ```
 
-
 Hint:
+
 ```
 $ man awk | cat
 ...
@@ -689,6 +728,7 @@ ORS  The output record separator, by default a newline.
 (d) `awk -F, 'BEGIN{OFS=":"}{print $1,$2,$3"\n"}' file.csv`
 
 ### Answer
+
 (a), (c), (d)
 
 ---
@@ -712,6 +752,7 @@ END {
 ```
 
 Hint:
+
 ```
 $ man awk | cat
 ...
@@ -724,12 +765,13 @@ FNR      The input record number in the current input file.
 ...
 ```
 
-(a) The file name that has the maximum number of lines among the files that  are passed as arguments is printed
+(a) The file name that has the maximum number of lines among the files that are passed as arguments is printed
 (b) The file name that has the minimum number of lines among the files that are passed as arguments is printed
 (c) The file name that is passed as the first file argument is printed
 (d) The file name that is passed as the last file argument is printed
 
 ### Answer
+
 (d)
 
 ---

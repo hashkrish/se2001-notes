@@ -1,9 +1,8 @@
 # System Commands Jan 2023 End Term Set-1
 
+### Total Questions: 15 Max Marks: 100
 
-### Total Questions: 15										Max Marks: 100
-
-#### Marks for each question are given in square brackets 
+#### Marks for each question are given in square brackets
 
 ## Question 1 (echo) [MCQ] [6]
 
@@ -12,7 +11,7 @@ $ help echo
 echo: echo [-neE] [arg ...]
     Write arguments to the standard output.
 
-    Display the ARGs, separated by a single space character and followed 
+    Display the ARGs, separated by a single space character and followed
     by a newline, on the standard output.
 
     Options:
@@ -29,6 +28,7 @@ echo: echo [-neE] [arg ...]
 ```
 
 What will be the output of the following script?
+
 ```bash
 echo -ne "a\tb"
 echo -ne " \tc"
@@ -36,25 +36,32 @@ echo -ne " \td"
 echo -ne " \te\tf"
 ```
 
-(a) 
+(a)
+
 ```
 a	b
 	c
  	d
  	e	f
 ```
-(b) 
+
+(b)
+
 ```
 a	b 	c 	d 	e	f
 ```
-(c) 
+
+(c)
+
 ```
 a	b
 c
 d
 e	f
 ```
-(d) 
+
+(d)
+
 ```
 a\tb
  \tc
@@ -63,14 +70,20 @@ a\tb
 ```
 
 ### Answer
+
 (b)
+
+### Explanation
+
+- There is no `\n` being printed, and all `echo` have `-n`, so all are in same line.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 2 (cron) [MCQ] [6]
-Following entry is made to a crontab. When is the script  `/home/garima/premodel.sh`  scheduled to get executed. [MCQ]
+
+Following entry is made to a crontab. When is the script `/home/garima/premodel.sh` scheduled to get executed. [MCQ]
 
 ```bash
 5 0 * * 1 /home/garima/premodel.sh
@@ -81,7 +94,7 @@ Following entry is made to a crontab. When is the script  `/home/garima/premodel
 ```
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
-|   |   |   |   |      Command or Script to Execute        
+|   |   |   |   |      Command or Script to Execute
 |   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
@@ -89,22 +102,24 @@ Following entry is made to a crontab. When is the script  `/home/garima/premodel
 |   |   |   |
 |   |   | Month of the Year(1-12)
 |   |   |
-|   | Day of the Month(1-31)  
+|   | Day of the Month(1-31)
 |   |
-| Hour(0-23)  
+| Hour(0-23)
 |
 Min(0-59)
 ```
 
 (a) Every Monday at 00:05
-(b) Every Monday at 05:00 
-(c) Everyday at 08:00 
-(d) Everyday at 08:05 in May 
+(b) Every Monday at 05:00
+(c) Everyday at 08:00
+(d) Everyday at 08:05 in May
 
 ### Answer
+
 (a)
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Question 3 (shell variable) (Comprehension) [MCQ] [7]
@@ -225,31 +240,34 @@ Mandatory arguments to long options are mandatory for short options too.
 ...
 ```
 
-Based on the information provided above, select the bash function `cdlmd` that changes the current working directory to the recently modified directory in the current directory. 
+Based on the information provided above, select the bash function `cdlmd` that changes the current working directory to the recently modified directory in the current directory.
 
-(a) 
+(a)
+
 ```bash
 cdlmd() {
     ls | head -1 | cd
 }
 ```
 
-(b) 
+(b)
+
 ```bash
 cdlmd() {
     ls -t -d */ | xargs cd
 }
 ```
 
-(c) 
+(c)
+
 ```bash
 cdlmd() {
     ls -t -d */ | head -1 | xargs cd
 }
 ```
 
+(d)
 
-(d) 
 ```bash
 cdlmd() {
     ls -g | head -1 | xargs cd
@@ -257,7 +275,14 @@ cdlmd() {
 ```
 
 ### Answer
+
 (c)
+
+### Explanation
+
+- `ls -t -d */` lists directories in the current directory sorted by modification time
+- `head -1` selects the first directory
+- `xargs cd` changes the current working directory to the selected directory
 
 ---
 
@@ -273,6 +298,7 @@ Which of the following command prints all the keys present in an bash associativ
 (d) `${arr[@]}`
 
 ### Answer
+
 (c)
 
 ---
@@ -282,6 +308,7 @@ Which of the following command prints all the keys present in an bash associativ
 ## Question 5 (for) [MSQ] [8]
 
 Contents of the current working directory are given below.
+
 ```shell
 $ ls -R
 .:
@@ -313,7 +340,12 @@ done
 (h) file10
 
 ### Answer
+
 (a), (c)
+
+### Explanation
+
+- `file1` regex is matched by file `file10` in directory `b`
 
 ---
 
@@ -330,7 +362,7 @@ done < file1 > file2
 diff file1 file2
 ```
 
-Select a scenario from the following options such that upon execution of the above script, no lines will be printed to the terminal.
+Select a scenario before the execution of the script from the following options such that upon execution of the above script, no lines will be printed to the terminal.
 
 (a) file1 and file2 have the same number of lines
 (b) file2 being the copy of file1
@@ -338,7 +370,17 @@ Select a scenario from the following options such that upon execution of the abo
 (d) file1 contains all the lines that start and end with a number
 
 ### Answer
+
 (d)
+
+### Explanation
+
+- The script reads from `file1` and writes to `file2`
+- Lines that match the regex `^[[:digit:]].*[[:digit:]]$` are written to `file2`
+- The regex matches any line that starts and ends with a digit.
+- `diff file1 file2` will show no output if the files are identical.
+- `file2` is created after the script is run, so its contents earlier is irrelevant.
+- `file1` and `file2` will be identical if all lines in `file1` match the regex.
 
 ---
 
@@ -346,10 +388,11 @@ Select a scenario from the following options such that upon execution of the abo
 
 ## Question 7 (grep) [MSQ] [6]
 
-Which of the following command would print lines with Alice or Rabbit with total count of their occurrences at the end of the output from `alice.txt` file.
-Hint: 
+Which of the following command would print lines with Alice or Rabbit with total count of lines of their occurrences at the end of the output from `alice.txt` file.
+Hint:
+
 - The pipe character do not have special meaning in Basic Regular Expression Engine(BRE) unless escaped with backslash
-- -E option in grep enables Extended Regular Expression Engine(ERE) 
+- -E option in grep enables Extended Regular Expression Engine(ERE)
 - -c option gives the count of the line that have matches
 
 (a) `grep 'Alice|Rabbit' alice.txt | grep -c 'Alice|Rabbit'`
@@ -358,7 +401,29 @@ Hint:
 (d) `grep -E 'Alice|Rabbit' alice.txt; grep -E -c 'Alice|Rabbit'`
 
 ### Answer
+
 (c), (d)
+
+### Explanation
+
+- `|` needs to be escaped in BRE. Only ERE supports unescaped `|`.
+- If we pipe output of one grep into next grep, the output of first grep will be lost.
+
+Alternate solution:
+
+```bash
+grep -E 'Alice|Rabbit' alice.txt | tee >(wc -l)
+```
+
+Here `tee` command writes to the standard output and to the file specified in the argument. In this case, it writes to a temporary FIFO file which is read as standard input for the `wc -l` command.
+
+or
+
+```bash
+grep -E 'Alice|Rabbit' alice.txt | tee /dev/tty | wc -l
+```
+
+Here `tee` writes to `/dev/tty` which is the terminal as well as to standard output. The standard output is then piped to `wc -l` which counts number of lines.
 
 ---
 
@@ -368,7 +433,7 @@ Hint:
 
 For the given regular expression (regex) identify the correct statement(s) from the following options. Note that the Extended Regular Expression (ERE) is used.
 
-Hint: 
+Hint:
 The group number starts from the outer to inner and left to right respectively.
 Note: a word, phrase, or sequence that reads the same backwords as forwards e.g. Noon, Anna
 
@@ -376,22 +441,31 @@ Note: a word, phrase, or sequence that reads the same backwords as forwards e.g.
 ^((.)\2|(.).\3|(.)(.)\5\4)$
 ```
 
-(a) This regex will match with 1 character palindrome 
-(b) This regex will match with 2 character palindrome 
-(c) This regex will match with 3 character palindrome 
-(d) This regex will match with 4 character palindrome 
+(a) This regex will match with 1 character palindrome
+(b) This regex will match with 2 character palindrome
+(c) This regex will match with 3 character palindrome
+(d) This regex will match with 4 character palindrome
 
 ### Answer
+
 (b), (c), (d)
+
+### Explanation
+
+- `(.)\2` matches 2 characters palindrome
+- `(.).\3` matches 3 characters palindrome
+- `(.)(.)\5\4` matches 4 characters palindrome
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 9 (shell command) (Comprehension) [MSQ] [8]
-A student named Meena wrote a shell script `exoc.sh` such that everytime  `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps. 
+
+A student named Meena wrote a shell script `exoc.sh` such that every time `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps.
 
 **Script: exoc.sh**
+
 ```
 #!/usr/bin/python3
 
@@ -409,6 +483,7 @@ done
 ```
 
 **Execution**
+
 ```bash
 $ ls -l
 total 16K
@@ -420,6 +495,7 @@ $ echo main.py | ./exoc.sh
 ```
 
 Hints
+
 ```
 $ stat --help
 Usage: stat [OPTION]... FILE...
@@ -510,11 +586,21 @@ for details about the options it supports.
 (f) Incorrect execution; The proper execution should be `exoc.sh main.py`
 
 ### Answer
+
 (a), (b), (e)
+
+### Explanation
+
+- The shebang should be `#!/bin/bash` instead of `#!/usr/bin/python3`
+- The script should be executed as `./exoc.sh main.py` instead of `echo main.py | ./exoc.sh` as the `stat` command uses `$1` which is the first argument passed to the script.
+- The condition in the if statement should be `!=` instead of `==` to check if the modification time has changed.
+- Assignment of `lmt` and `plmt` are correct.
+- The script cannot be run by name as it is not present in the PATH.
 
 ---
 
 <div style="page-break-after: always;"></div>
+
 ## Question 10 (sed) [MCQ] [6]
 
 What will be the outcome of the command `sed -i '/./,$!d' file.txt`?
@@ -525,16 +611,26 @@ What will be the outcome of the command `sed -i '/./,$!d' file.txt`?
 (d) Delete all empty lines after the last non-empty line in the file `file.txt`
 
 ### Answer
+
 (c)
+
+### Explanation
+
+- `/./` matches non-empty lines.
+- `$` is the last line.
+- `/./,$` matches all lines from the first non-empty line to the last line.
+- `!d` deletes all lines except the range of lines matched by `/./,$`.
+- So, it deletes all empty lines before the first non-empty line.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 11 (sed) [MSQ] [6]
+
 Given the file `test.csv` with content shown below. Select the sed command(s) that will filter lines with abbreviated regions.
 
-```shell
+```bash
 $ cat test.csv
 name,phone,email,region
 Madan,1-158-662-4996,madan-raja@outlook.ca,GA
@@ -563,17 +659,25 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 (d) `sed -n '/[[:upper:]]\{2\}$/ p' test.csv`
 
 ### Answer
+
 (a), (b), (d)
+
+### Explanation
+
+- Matching `{1}` will also match if there are two characters in the region, it will match the last character of the region.
+- `alnum` will match any alphanumeric character, but region code are only uppercase.
 
 ---
 
 <div style="page-break-after: always;"></div>
+
 ## Question 12 (sed) [MSQ] [6]
 
 Which of the following SED command(s) would print lines with Alice or Rabbit from `alice.txt` file.
-Hint: 
+Hint:
+
 - The pipe character do not have special meaning in Basic Regular Expression Engine(BRE) unless escaped with a backslash
-- -E option in grep enables Extended Regular Expression Engine(ERE) 
+- -E option in grep enables Extended Regular Expression Engine(ERE)
 - -n option prevent the default printing in sed
 
 (a) `sed -E 's/Alice\|Rabbit//' alice.txt`
@@ -582,11 +686,17 @@ Hint:
 (d) `sed -En '/Alice|Rabbit/ p' alice.txt`
 
 ### Answer
+
 (c), (d)
+
+### Explanation
+
+- `|` needs to be escaped in BRE. Only ERE supports unescaped `|`.
+- `s` is for substitution, not for searching.
+- We need to use `-n`, so all lines are not printed by default.
 
 ---
 
-<div style="page-break-after: always;"></div>
 <div style="page-break-after: always;"></div>
 
 ## Question 13 (AWK)[MCQ] [8]
@@ -601,12 +711,13 @@ echo {a..c}{1..3} | tr ' ' '\n' | awk '
     count3+=length+1
 }
 END {
-    print count, count2, count3 
+    print count, count2, count3
 }
 '
 ```
 
 Hint:
+
 ```
 $ tr --help
 Usage: tr [OPTION]... SET1 [SET2]
@@ -632,13 +743,23 @@ length([s]) Return  the length of the string s, or
 ...
 ```
 
-(a) 9  45  27
-(b) 9  9  18
-(c) 9  27  27
-(d) 9  27  18
+(a) 9 45 27
+(b) 9 9 18
+(c) 9 27 27
+(d) 9 27 18
 
 ### Answer
+
 (a)
+
+### Explanation
+
+- `{a..c}{1..3}` expands to `a1 a2 a3 b1 b2 b3 c1 c2 c3`
+- `tr ' ' '\n'` replaces space with newline
+- `NF` is the number of fields in the current record, which is always 1 in this case, as each word is in new line due to `tr`
+- $3 \times 3 = 9$ is the number of lines the AWK script runs over, so `count1` is $= 1 \times 9 = 9$
+- `NR` is the number of records read so far, which is the line number, so `count2` is $= 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45$
+- `length` is the length of the current record, which is the number of characters in the line. Each line has exactly two characters always, so `length + 1` $=3$ so `count3` is $= 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 = 27$
 
 ---
 
@@ -647,6 +768,7 @@ length([s]) Return  the length of the string s, or
 ## Question 14 (AWK) [MCQ] [6]
 
 **file.csv**
+
 ```bash
 Sahni,151-8534,sahni@hotmail.ca,KA
 Mahajan,1-548-689-8736,mahajan@icloud.co.uk,Bihar
@@ -656,6 +778,7 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 Given a CSV file `file.csv` with contents as shown above. Select AWK command(s) which can produce the output as shown below.
 
 **Expected Output**
+
 ```bash
 Sahni
 151-8534
@@ -665,8 +788,8 @@ Rana
 1-528-385-7783
 ```
 
-
 Hint:
+
 ```
 $ man awk | cat
 ...
@@ -685,7 +808,15 @@ ORS  The output record separator, by default a newline.
 (d) `awk -F, '{print $1"\n",$2}' file.csv`
 
 ### Answer
+
 (a)
+
+### Explanation
+
+- `-F,` sets the field separator to `,`
+- `print $1"\n"$2` prints the first field followed by a newline and then the second field
+- `OFS` will work if we separate the arguments with `,` in print, not space.
+- `ORS` is output record separator, not field separator.
 
 ---
 
@@ -694,7 +825,8 @@ ORS  The output record separator, by default a newline.
 ## Question 15 (AWK) [MCQ] [6]
 
 In a working directory number of text files are present with varying sizes (varying number of lines). For the following AWK script executed in the working directory, what is true for the output from the following options?
-```
+
+```bash
 #!/usr/bin/awk -f
 
 n < FNR {
@@ -707,6 +839,7 @@ END {
 ```
 
 Hint:
+
 ```
 $ man awk | cat
 ...
@@ -725,6 +858,15 @@ FNR      The input record number in the current input file.
 (d) The file name that is passed as the last file argument is printed
 
 ### Answer
+
 (a)
+
+### Explanation
+
+- `FNR` is the record number in the current file
+- `n < FNR` compares the current record number with the maximum record number seen so far
+- `n = FNR` updates the maximum record number seen so far
+- `nf = FILENAME` updates the file name with the maximum number of lines seen so far
+- `END` block prints the file name with the maximum number of lines seen so far
 
 ---
