@@ -10,19 +10,21 @@ Hint: Use `ls -l` to get the file size information
 
 ```bash
 #!/bin/bash
-
-count=0
-for element in `ls -l *.pdf|cut -d ' ' -f1-4 --complement|cut -d 'J' -f1`
-do
-        count=$((${count}+${element}))
-done
-echo "The total size of the pdf files in directory is: ${count} bytes"
+ls -l *.pdf | tr -s ' ' | cut -d ' ' -f 5 | paste -sd+ | bc
 ```
+
+### Explanation
+
+- `ls -l *.pdf` lists all the pdf files in the current directory with their size information.
+- `tr -s ' '` compresses multiple spaces into a single space.
+- `cut -d ' ' -f 5` extracts the size of the file.
+- `paste -sd+` concatenates the sizes with a `+` sign.
+- `bc` is used to calculate the sum of the sizes.
 
 ## Problem 2
 
 A dpkg.log file contains a record of applications installed, removed, upgrade and purge over a period of time. Write a shell script to report the total number of instances when packages are installed, removed, upgraded and purged. A sample of the log file is as follows.
-Note: Use Installed, update, remove and purge as the keywords for pattern matching. 
+Note: Use Installed, update, remove and purge as the keywords for pattern matching.
 
 ```bash
 2022-05-05 15:55:14 startup packages remove
@@ -61,29 +63,24 @@ Note: Use Installed, update, remove and purge as the keywords for pattern matchi
 2022-05-05 15:55:17 remove grub-legacy-ec2:all 1:1 <none>
 2022-05-05 15:55:17 status half-configured grub-legacy-ec2:all 1:1
 ```
-  
 
 ### Solution
 
-  
-
 ```bash
-
-#!/bin/bash 
-dpkg_log="dpkg.log" 
-installed_pkg=$(grep "\b installed\b" "$dpkg_log" | wc -l) 
-removed_pkg=$(grep -E "[[:digit:]]{2} remove" "$dpkg_log" | wc -l) 
-purged_pkg=$(grep -E "[[:digit:]]{2} purge" "$dpkg_log" | wc -l) 
-updated_pkg=$(grep -E "[[:digit:]]{2} update" "$dpkg_log" | wc -l) 
-echo "Installed packages: $installed_pkg" 
-echo "Removed packges: $removed_pkg" 
-echo "Purged packages: $purged_pkg" 
+#!/bin/bash
+dpkg_log="dpkg.log"
+installed_pkg=$(grep "\b installed\b" "$dpkg_log" -c)
+removed_pkg=$(grep -E "[[:digit:]]{2} remove" "$dpkg_log" -c)
+purged_pkg=$(grep -E "[[:digit:]]{2} purge" "$dpkg_log" -c)
+updated_pkg=$(grep -E "[[:digit:]]{2} update" "$dpkg_log" -c)
+echo "Installed packages: $installed_pkg"
+echo "Removed packges: $removed_pkg"
+echo "Purged packages: $purged_pkg"
 echo "Updated packages: $updated_pkg"
 
 ```
 
 ## Problem 3
-
 
 Create a file structure as shown below; the commands should not output anything.
 
@@ -98,7 +95,7 @@ Create a file structure as shown below; the commands should not output anything.
     └── procedure.txt
 ```
 
-- `potato_recipes` is a directory present in the root directory `/`. 
+- `potato_recipes` is a directory present in the root directory `/`.
 
 - `french_fries` and `potato_wedges` are the directories present inside the directory `potato_recipes`.
 
@@ -107,8 +104,6 @@ Create a file structure as shown below; the commands should not output anything.
 - `ingredients.txt` inside the directory `potato_wedges` is a hard link to the file `ingredients.txt` inside the directory `french_fries`
 
 - `procedure.txt` are the text file present inside `french_fries` and `potato_wedges`
-
-
 
 ### Solution
 
@@ -122,26 +117,24 @@ ln /potato_recipes/french_fries/ingredients.txt /potato_recipes/potato_wedges/in
 ln -s /potato_recipes/french_fries /potato_recipes/frites
 ```
 
-
 ## Problem 4
 
 Find and print the process ID (PID) of the `ps u` command after execution.
 Note: The PID of the last `ps u` command is desired. One may run further processes after this command to get the `ps u` PID.
 Hint: Write commands after the command `ps u |tee output.log`
 
-
 ### Solution
 
 ```bash
-ps u |tee output.log|sed -n "/ps u$/p"|awk '{print $2}'
+ps u |tee output.log|awk '/ps u$/{print $2}'
 ```
 
 ## Problem 5
 
-  
 Define a bash function `file_type` which uses the `file` command to identify the file type and prints it for all the files present in the current working directory. It is important to note that the `file` command prints the actual file type which can be different from the extension provided. An example usage of the function is shown below.
 
 #### Example
+
 ```bash
 #output of the file command
 file index.txt
@@ -157,8 +150,6 @@ index.html: HTML document
 
 ### Solution
 
-  
-
 ```bash
 
 function file_type()
@@ -167,11 +158,8 @@ function file_type()
    echo ${f_type%%,*}
 }
 ```
-  
 
 ## Problem 6
-
-  
 
 An HTML file `sample.html` is present in your current working directory. The relevant part of the html file is shown below. Extract the hex code and corresponding color name present such that the output is formatted as the following.
 

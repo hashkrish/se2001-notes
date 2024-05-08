@@ -10,20 +10,23 @@ Hint: Use `ls -l` get the file size information
 
 ```bash
 #!/bin/bash
-count=0
-for element in `ls -l|cut -d ' ' -f1-4 --complement|cut -d 'J' -f1`
-do
-        count=$((${count}+${element}))
-done
-echo ${count}
-
+ls -l | sed 1d | tr -s ' ' | cut -d ' ' -f 5 | paste -s -d '+' | bc
 ```
+
+### Explanation
+
+- `ls -l` lists the files in the current directory in long format.
+- `sed 1d` removes the first line which does not contain file information.
+- `tr -s ' '` squeezes multiple spaces into a single space.
+- `cut -d ' ' -f 5` extracts the 5th field which is the file size.
+- `paste -s -d '+'` concatenates the file sizes with a `+` delimiter.
+- `bc` calculates the sum of the file sizes.
 
 ## Problem 2
 
 An authlog is copied from the `/var/log/` directory to the current working directory. Generate a report from the authlog file which reports the failed logins, successful logins, invalid users and sudo access attempts.
 
-**Sample data:**  
+**Sample data:**
 
 ```
 Jul 16 14:13:13 vm212 sshd[444802]: Connection closed by authenticating user 2******* 194.***.***.*** port 59232 [preauth]
@@ -43,17 +46,15 @@ Jul 19 11:12:52 vm212 sudo: pam_unix(sudo:auth): authentication failure; logname
 
 ```bash
 #!/bin/bash
-
 auth_log="auth.log"
-failed_logins=$(grep "Failed password" "$auth_log" | wc -l)
-successful_logins=$(grep "Accepted password" "$auth_log" | wc -l)
-invalid_users=$(grep "Invalid user" "$auth_log" | wc -l)
-sudo_access=$(grep "sudo:" "$auth_log" | wc -l)
+failed_logins=$(grep "Failed password" "$auth_log" -c)
+successful_logins=$(grep "Accepted password" "$auth_log" -c)
+invalid_users=$(grep "Invalid user" "$auth_log" -c)
+sudo_access=$(grep "sudo:" "$auth_log" -c)
 echo "Failed Logins: $failed_logins"
 echo "Successful Logins: $successful_logins"
 echo "Invalid Users: $invalid_users"
 echo "Sudo Access Attempts: $sudo_access"
-
 ```
 
 ## Problem 3
@@ -64,13 +65,21 @@ The current directory contains multiple files(no directories) with different ext
 
 ```bash
 #!/usr/bin/bash
-list_ext=`ls | egrep -o "\..*" | sort | uniq | sed "s/.//"`
+list_ext=`ls | grep -o "\..*" | sort | uniq | sed "s/\.//"`
 for i in $list_ext
 do
-  mkdir $i
-  mv *.$i $i
+  mkdir -p $i
+  mv *.$i $i
 done
 ```
+
+### Explanation
+
+- `ls | grep -o "\..*"` lists all the files in the current directory and extracts the file extension.
+- `sort | uniq` sorts and removes duplicates from the list of file extensions.
+- `sed "s/\.//"` removes the `.` from the file extension.
+- `mkdir -p $i` creates a directory with the name of the file extension.
+- `mv *.$i $i` moves all files with the file extension to the corresponding directory.
 
 ## Problem 4
 
@@ -80,6 +89,25 @@ Find and kill all the background sleep processes.
 
 ```bash
 ps | grep 'sleep' | while read -r pid rest; do kill $pid; done
+```
+
+### Explanation
+
+- `ps` lists all the processes.
+- `grep 'sleep'` filters the processes with the name `sleep`.
+- `while read -r pid rest` reads the process id and the rest of the line.
+- `kill $pid` kills the process with the process id.
+
+Alternate Solution #1:
+
+```bash
+ps | grep sleep | cut -d ' ' -f2 | xargs kill
+```
+
+Alternate Solution #2:
+
+```bash
+pkill sleep
 ```
 
 ## Problem 5
