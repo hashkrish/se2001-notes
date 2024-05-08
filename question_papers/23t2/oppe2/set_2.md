@@ -1,16 +1,19 @@
 # System Commands OPPE Set 2
 
 ## Problem 1 (bash) [15 marks]
+
 In a proofreading task, it is usually required that each of the sentences in a manuscript should be numbered along with paragraph number. Write a **bash script** to print each sentence of a paragraph saved in sample.txt to a new line and add sentence number and paragraph number above each of the line.
 
 Hint: One of the possible approaches is to use while loop along with IFS. This approach will need to remove leading and trailing spaces from line and add a fullstop at the end of each line.
 
 **Sample case**
+
 ```
 The plains are as flat as the proverbial pancake—a dead monotony of cultivated alluvium, square mile upon square mile of wheat, rice, vetch, sugar-cane, and other crops, amidst which mango groves, bamboo clumps, palms, and hamlets are scattered promiscuously. In some places the hills rise sheer from this, in others they are separated from the alluvial plains by belts of country known as the Tarai and Bhabar. The Tarai is low-lying, marshy land covered with tall, feathery grass, beautifully monotonous. This is succeeded by a stretch of gently-rising ground, 10 or 20 miles in breadth, known as the Bhabar—a strip of forest composed mainly of tall evergreen sal trees (Shorea robusta). These trees grow so close together that the forest is difficult to penetrate, especially after the rains, when the undergrowth is dense and rank. Very beautiful is the Bhabar, and very stimulating to the imagination. One writer speaks of it as "a jungle rhapsody, an extravagant, impossible botanical tour de force, intensely modern in its Titanic, incoherent magnificence." It is the home of the elephant, the tiger, the panther, the wild boar, several species of deer, and of many strange and beautiful birds.
 ```
 
 **Desired output**
+
 ```
 Paragraph 1, Statement 1:
 The plains are as flat as the proverbial pancake—a dead monotony of cultivated alluvium, square mile upon square mile of wheat, rice, vetch, sugar-cane, and other crops, amidst which mango groves, bamboo clumps, palms, and hamlets are scattered promiscuously.
@@ -59,9 +62,11 @@ done < "$input_file"
 ```
 
 ## Problem 2 (sed) [15 marks]
-A file `mydata.csv` is present in the current working directory. Use sed to swap the fourth column to the first column. 
+
+A file `mydata.csv` is present in the current working directory. Use sed to swap the fourth column to the first column.
 
 **Sample input**
+
 ```
 grep,219,10.95,47961
 ls,208,10.4,43264
@@ -76,6 +81,7 @@ man,67,3.35,4489
 ```
 
 **Sample output**
+
 ```
 47961,219,10.95,grep
 43264,208,10.4,ls
@@ -96,14 +102,18 @@ sed -E 's/^([^,]*),([^,]*),([^,]*),([^,]*)/\4,\2,\3,\1/' mydata.csv
 ```
 
 ## Problem 3 (sed) [15 marks]
+
 A file sample.txt contains multiple paragraphs. As it is a text file, discerning paragraphs could be tricky. To resolve this user wanted to add '---' before and after each paragraph. Write a **sed script** which will accomplish that.
 
 **Sample Input**
+
 ```
 The plains are as flat as the proverbial pancake—a dead monotony of cultivated alluvium, square mile upon square mile of wheat, rice, vetch, sugar-cane, and other crops, amidst which mango groves, bamboo clumps, palms, and hamlets are scattered promiscuously. In some places the hills rise sheer from this, in others they are separated from the alluvial plains by belts of country known as the Tarai and Bhabar. The Tarai is low-lying, marshy land covered with tall, feathery grass, beautifully monotonous.
 This is succeeded by a stretch of gently-rising ground, 10 or 20 miles in breadth, known as the Bhabar—a strip of forest composed mainly of tall evergreen sal trees (Shorea robusta). These trees grow so close together that the forest is difficult to penetrate, especially after the rains, when the undergrowth is dense and rank. Very beautiful is the Bhabar, and very stimulating to the imagination. One writer speaks of it as "a jungle rhapsody, an extravagant, impossible botanical tour de force, intensely modern in its Titanic, incoherent magnificence." It is the home of the elephant, the tiger, the panther, the wild boar, several species of deer, and of many strange and beautiful birds.
 ```
+
 **Sample Output**
+
 ```
 ---
 The plains are as flat as the proverbial pancake—a dead monotony of cultivated alluvium, square mile upon square mile of wheat, rice, vetch, sugar-cane, and other crops, amidst which mango groves, bamboo clumps, palms, and hamlets are scattered promiscuously. In some places the hills rise sheer from this, in others they are separated from the alluvial plains by belts of country known as the Tarai and Bhabar. The Tarai is low-lying, marshy land covered with tall, feathery grass, beautifully monotonous.
@@ -226,9 +236,13 @@ END {
 ```
 
 ## Problem 5 (awk) [15 marks]
+
 Write an AWK script that will print the count of each word appearing in a paragraph. Note that the paragraph may contain punctuation. Use gsub function to remove the punctuations and tolower function to convert a word to lowercase.
 
+**NOTE**: The words should be in ascending order.
+
 **man page of gsub in AWK**
+
 ```
  gsub(r, s [, t])        For each substring matching the  regular
                                expression r in the string t, substitute
@@ -257,50 +271,61 @@ If you must cross a coarse, cross cow across a crowded cow crossing, cross the c
 ```
 
 ** Desired output **
+
 ```
-cross: 4
-you: 1
+a: 2
+across: 2
 carefully: 1
 coarse: 2
-the: 2
-a: 2
-if: 1
-across: 2
-crowded: 2
-must: 1
 cow: 4
+cross: 4
 crossing: 2
+crowded: 2
+if: 1
+must: 1
+the: 2
+you: 1
 ```
 
 ### Solution
 
 ```bash
-#!/usr/bin/awk -f
+#!/usr/bin/gawk -f
 BEGIN {
-OFS=": "
+  OFS=": "
 }
 
 {
-gsub(/[[:punct:]]/, "", $0)
+  gsub(/[[:punct:]]/, "", $0)
 
-for (i=1; i<=NF; i++) {
-        word = tolower($i)
-        count[word]++
-}
+  for (i=1; i<=NF; i++) {
+    word = tolower($i)
+    count[word]++
+  }
 }
 
 END {
-for(word in count) {
-print word, count [word]
+  i=0
+  for(word in count) {
+    words[i++] = word
+  }
+  asort(words)
+  for(i in words) {
+    word = words[i]
+    print word, count[word]
+  }
 }
 ```
+
 ## Problem 6 (bash) [20 marks]
+
 It is often required to run some basic statistics on a file. Write a **bash script** using `getopts` method such that options,
+
 - -t will print the number of columns present in the file, and
 - -u prints unique entries based on the column number provided.
 
-
 **Sample Input**
+
 ```
 Company,Date,Amount
 CompanyA,2020-04-29,31211.18
@@ -313,7 +338,9 @@ CompanyA,2021-12-14,29527.37
 CompanyA,2023-03-01,1447.83
 CompanyA,2020-08-22,30383.23
 ```
+
 **Sample output**
+
 ```
 $ ./script.sh -u1 financial_records.csv
 the unique entries in column 1 is CompanyA CompanyB
@@ -321,8 +348,7 @@ $ ./script.sh -t financial_records.csv
 Number of columns in financial_records.csv is 3
 ```
 
-
-### Solution
+**Sample format**
 
 ```bash
 #!/bin/bash
@@ -341,3 +367,21 @@ while getopts "tu:" options; do
 done
 ```
 
+### Solution
+
+```bash
+#!/bin/bash
+filename=${@: -1}
+
+while getopts "tu:" options; do
+  case "${options}" in
+    t)
+      echo "Number of columns in" $filename is  $(awk -F',' '{print NF; exit}' "$filename")
+     ;;
+    u)
+      str=${OPTARG}
+      echo "the unique entries in column" $str is $(awk -F',' -v col="$str" 'NR>1 {print $col}' "$filename" | sort -u)
+      ;;
+  esac
+done
+```

@@ -45,7 +45,7 @@ also remove note about this from docstring and docs
 #!/bin/sed -f
 
 /# TODO:/! d
-/# TODO:/ s/ *# TODO: //
+s/ *# TODO: //
 ```
 
 ## Problem 2 (sed) [15 marks]
@@ -220,6 +220,11 @@ END {
         }
     }
     asort(total)
+    if (count % 2 == 1) {
+        total_median = total[(count + 1) / 2]
+    } else {
+        total_median = (total[count / 2] + total[count / 2 + 1]) / 2
+    }
 
     print "MEAN", \
         subject_sum[2] / count, \
@@ -237,7 +242,7 @@ END {
         median[5], \
         median[6], \
         "-", \
-        total[(count + 1) / 2]
+        total_median
 }
 ```
 
@@ -411,14 +416,14 @@ ps: 4: 20%
 
 ```bash
 #!/bin/bash
-total=$(wc -l bash_history.txt| cut -d " " -f1)
-cut -d' ' -f1 ~/.bash_history|
+total=$(wc -l < bash_history.txt)
+cut -d' ' -f1 bash_history.txt |
 	sort|
 	uniq -c|
 	sort -nr|
 	sed -e 's/^ *//'|
 	awk -v total=$total 'BEGIN{OFS=": "}{print $2, $1, ($1 / total) * 100 "%"}'|
-	head -n5
+	head -n5 | sort
 ```
 
 ## Problem 6 (bash) [20 marks]
@@ -490,23 +495,11 @@ filename=${@: -1}
 while getopts "lts:u:" options; do
   case "${options}" in
     l)
-      echo "Total lines in"  $(wc -l "$filename"|cut -d " " -f2) is $(wc -l "$filename"|cut -d " " -f1)
-     ;;
-    t)
-      echo "Number of columns in" $filename is  $(awk -F',' '{print NF; exit}' "$filename")
+      echo "Total lines in"  "$filename" is "$(wc -l < "$filename")"
      ;;
     s)
       str=${OPTARG}
-      # Commenting since it is not used in the sample output
-      # echo "The file is sorted as per cololumn" $str is as follows
-      sort -t',' -k"$str"n "$filename"
-      ;;
-    u)
-      str=${OPTARG}
-      echo "the unique entries in column" $str is $(awk -F',' -v col="$str" 'NR>1 {print $col}' "$filename" | sort -u)
-      ;;
-    ?)
-      echo "Provide appropriate input"
+      sort -t',' -k"$str","$str" -n "$filename"
       ;;
   esac
 done
