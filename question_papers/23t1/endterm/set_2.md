@@ -1,4 +1,4 @@
-# System Commands Jan 2023 End Term Set-1
+# System Commands Jan 2023 End Term Set-2
 
 
 ### Total Questions: 15										Max Marks: 100
@@ -30,10 +30,10 @@ echo: echo [-neE] [arg ...]
 
 What will be the output of the following script?
 ```bash
-echo -ne "a\tb"
-echo -ne " \tc"
-echo -ne " \td"
-echo -ne " \te\tf"
+echo -ne "a\tb\n"
+echo -ne " \tc\n"
+echo -ne " \td\n"
+echo -ne " \te\tf\n"
 ```
 
 (a) 
@@ -63,17 +63,18 @@ a\tb
 ```
 
 ### Answer
-(b)
+(a)
+
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 2 (cron) [MCQ] [6]
-Following entry is made to a crontab. When is the script  `/home/garima/premodel.sh`  scheduled to get executed. [MCQ]
+Following entry is made to a crontab. When is the script `/home/garima/premodel.sh`  scheduled to get executed. [MCQ]
 
 ```bash
-5 0 * * 1 /home/garima/premodel.sh
+0 4 * * 1 /home/garima/premodel.sh
 ```
 
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
@@ -96,13 +97,13 @@ Following entry is made to a crontab. When is the script  `/home/garima/premodel
 Min(0-59)
 ```
 
-(a) Every Monday at 00:05
-(b) Every Monday at 05:00 
-(c) Everyday at 08:00 
-(d) Everyday at 08:05 in May 
+(a) Every Monday at 00:04
+(b) Every Monday at 04:00 
+(c) Every Sunday at 04:00 
+(d) Every Sunday at 00:04  
 
 ### Answer
-(a)
+(b)
 
 ---
 <div style="page-break-after: always;"></div>
@@ -225,47 +226,47 @@ Mandatory arguments to long options are mandatory for short options too.
 ...
 ```
 
-Based on the information provided above, select the bash function `cdlmd` that changes the current working directory to the recently modified directory in the current directory. 
+Based on the information provided above, select the bash function `cdlmf` that opens the recently modified file in the current directory in vi editor. 
 
 (a) 
 ```bash
-cdlmd() {
-    ls | head -1 | cd
+cdlmf() {
+    ls | head -1 | vi
 }
 ```
 
 (b) 
 ```bash
-cdlmd() {
-    ls -t -d */ | xargs cd
+cdlmf() {
+    ls -t | xargs vi
 }
 ```
 
 (c) 
 ```bash
-cdlmd() {
-    ls -t -d */ | head -1 | xargs cd
+cdlmf() {
+    ls -tF | head -1 | grep -v "\/$" | xargs vi
 }
 ```
 
 
 (d) 
 ```bash
-cdlmd() {
-    ls -g | head -1 | xargs cd
+cdlmf() {
+    ls -tF | grep -v "\/$" | head -1 | xargs vi
 }
 ```
 
 ### Answer
-(c)
+(d)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 4 (shell variables) [MCQ] [6]
+## Question 4 (shell variable) [MCQ] [6]
 
-Which of the following command prints all the keys present in an bash associative array.
+Which of the following command prints all the values present in an bash associative array.
 
 (a) `$arr`
 (b) `$arr[@]`
@@ -273,7 +274,7 @@ Which of the following command prints all the keys present in an bash associativ
 (d) `${arr[@]}`
 
 ### Answer
-(c)
+(d)
 
 ---
 
@@ -297,9 +298,9 @@ file10  file3  file4  file5  file6
 Select all the file(s) that will be present in the current working directory after the execution of the following script. [MSQ]
 
 ```bash
-cd a
+cd b
 for i in *; do
-    ls ../b | grep $i && mv $i ../b
+    ls ../a | grep $i && mv $i ../a
 done
 ```
 
@@ -313,7 +314,7 @@ done
 (h) file10
 
 ### Answer
-(a), (c)
+(f), (g), (h)
 
 ---
 
@@ -334,11 +335,11 @@ Select a scenario from the following options such that upon execution of the abo
 
 (a) file1 and file2 have the same number of lines
 (b) file2 being the copy of file1
-(c) file2 contains all the lines that start and end with a number
-(d) file1 contains all the lines that start and end with a number
+(c) file1 is empty
+(d) file2 containing all the lines that start and end with a number
 
 ### Answer
-(d)
+(c)
 
 ---
 
@@ -346,19 +347,16 @@ Select a scenario from the following options such that upon execution of the abo
 
 ## Question 7 (grep) [MSQ] [6]
 
-Which of the following command would print lines with Alice or Rabbit with total count of their occurrences at the end of the output from `alice.txt` file.
-Hint: 
-- The pipe character do not have special meaning in Basic Regular Expression Engine(BRE) unless escaped with backslash
-- -E option in grep enables Extended Regular Expression Engine(ERE) 
-- -c option gives the count of the line that have matches
+Which all grep commands from the following option produces count of the paragraphs (i.e. total number of paragraphs) present in a text file `book.txt`.
+Assume that a paragraph always ends with a full stop (.)
 
-(a) `grep 'Alice|Rabbit' alice.txt | grep -c 'Alice|Rabbit'`
-(b) `grep -E 'Alice|Rabbit' alice.txt| grep -E -c 'Alice|Rabbit'`
-(c) `grep 'Alice\|Rabbit' alice.txt; grep -c 'Alice\|Rabbit'`
-(d) `grep -E 'Alice|Rabbit' alice.txt; grep -E -c 'Alice|Rabbit'`
+(a) `grep '^.' book.txt | wc -l`
+(b) `grep '.' book.txt | wc -l`
+(c) `grep '.*\.$' book.txt | wc -l `
+(d) `grep '\.$' book.txt | wc -l`
 
 ### Answer
-(c), (d)
+(c) and (d)
 
 ---
 
@@ -368,12 +366,12 @@ Hint:
 
 For the given regular expression (regex) identify the correct statement(s) from the following options. Note that the Extended Regular Expression (ERE) is used.
 
-Hint: 
+**Hint:** 
 The group number starts from the outer to inner and left to right respectively.
-Note: a word, phrase, or sequence that reads the same backwords as forwards e.g. Noon, Anna
+**Note:** a word, phrase, or sequence that reads the same backwords as forwards e.g. Noon, Anna
 
 ```
-^((.)\2|(.).\3|(.)(.)\5\4)$
+^((.)|(.)\3|(.).\4)$
 ```
 
 (a) This regex will match with 1 character palindrome 
@@ -382,25 +380,26 @@ Note: a word, phrase, or sequence that reads the same backwords as forwards e.g.
 (d) This regex will match with 4 character palindrome 
 
 ### Answer
-(b), (c), (d)
+(a), (b), (c)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 9 (shell command) (Comprehension) [MSQ] [8]
-A student named Meena wrote a shell script `exoc.sh` such that everytime  `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps. 
+
+A student named Meena wrote a shell script `exoc.sh` such that everytime  `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps.
 
 **Script: exoc.sh**
 ```
-#!/usr/bin/python3
+#!/usr/bin/bash
 
 while true; do
-	lmt=$(stat -c %Y "$1")
-	if [[ "$lmt" == "$plmt" ]]; then
+	lmt=$(stat -c %W "$1")
+	if [[ "$lmt" -lt "$plmt" ]]; then
 		clear
 		echo "[$(date +"%H:%M:%S") STARTED]"
-		python3 "$1"
+		python3 "$2"
 		echo "[$(date +"%H:%M:%S") ENDED]"
 	fi
 	plmt="$lmt"
@@ -416,7 +415,7 @@ drwxrwxr-x  2 meena meena 4.0K Apr  9 10:53 ./
 drwxr-xr-x 34 meena meena  12K Apr  9 10:52 ../
 -rwxrwxr-x  1 meena meena   52 Apr  9 10:52 exoc.sh
 -rw-rw-r--  1 meena meena  462 Apr  9 10:53 main.py
-$ echo main.py | ./exoc.sh
+$ ./exoc.sh main.py
 ```
 
 Hints
@@ -506,33 +505,66 @@ for details about the options it supports.
 (b) Incorrect condition in if statement
 (c) Incorrect assignment to the variable `lmt`
 (d) Incorrect assignment to the variable `plmt`
-(e) Incorrect execution; The proper execution should be `./exoc.sh main.py`
-(f) Incorrect execution; The proper execution should be `exoc.sh main.py`
+(e) Incorrect execution; The proper python file execution should be `python3 "$1"`
+(f) Incorrect execution; The proper python file execution should be `"$1"`
 
 ### Answer
-(a), (b), (e)
-
----
-
-<div style="page-break-after: always;"></div>
-## Question 10 (sed) [MCQ] [6]
-
-What will be the outcome of the command `sed -i '/./,$!d' file.txt`?
-
-(a) Delete all empty lines in the file `file.txt`
-(b) Delete all lines with '.' character in the file `file.txt`
-(c) Delete all empty lines before the first non-empty line in the file `file.txt`
-(d) Delete all empty lines after the last non-empty line in the file `file.txt`
-
-### Answer
-(c)
+(b), (c), (e)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 11 (sed) [MSQ] [6]
-Given the file `test.csv` with content shown below. Select the sed command(s) that will filter lines with abbreviated regions.
+
+## Question 10 (sed) [MSQ] [6]
+
+Which of the following command(s) will print only the lines 4 to 6 (ends-inclusive) and 10 to 15 (ends-inclusive) lines of a text file `test.txt`?
+
+Hint:
+```
+$ sed --help
+Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+
+  -n, --quiet, --silent
+                 suppress automatic printing of pattern space
+      --debug
+                 annotate program execution
+  -e script, --expression=script
+                 add the script to the commands to be executed
+...
+```
+
+(a) `sed '1,3d; 7,9d; 16,$d;' test.txt`
+(b) `sed '4,6p; 10,15p' test.txt`
+(c) `sed -n '4,6p; 10,15p' test.txt`
+(d) `sed -e '4,6p' -e '10,15p' test.txt`
+
+### Answer
+(a), (c)
+
+---
+
+<div style="page-break-after: always;"></div>
+
+## Question 11 (sed) [MCQ] [6]
+
+How many lines will the file `b.txt` have after the end of execution of the below command?
+
+```bash
+sed 's/.*/&\n&/' a.txt > b.txt
+```
+
+(a) Total number of lines in b.txt is equal to the total number of lines in a.txt
+(b) Total number of lines in b.txt is equal to the total number of lines in a.txt + 1
+(c) Total number of lines in b.txt is equal to the total number of lines in a.txt + 2
+(d) Total number of lines in b.txt is equal to the twice the number of lines in a.txt
+
+### Answer
+(d)
+
+---
+## Question 12 (sed) [MSQ] [6]
+Given a file `test.csv` with content shown below, select the sed script(s) that will remove the hyphens (*-*) present in the phone number.
 
 ```shell
 $ cat test.csv
@@ -551,35 +583,36 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 **Expected output**
 
 ```bash
-Madan,1-158-662-4996,madan-raja@outlook.ca,GA
-Srivas,1-516-922-8416,k-srivas@icloud.com,HR
-Sahni,151-8534,sahni@hotmail.ca,KA
-Rana,1-528-385-7783,rana4716@yahoo.org,AN
+name,phone,email,region
+Madan,11586624996,madan-raja@outlook.ca,GA
+Persaud,18777045869,persaud@google.edu,Meghalaya
+Srivas,15169228416,k-srivas@icloud.com,HR
+Swami,7611395,swami@google.couk,Haryana
+Subram,9815610,subram3142@yahoo.org,Karnataka
+Nirmal,4747526,nirmal@icloud.org,Madhya Pradesh
+Sahni,1518534,sahni@hotmail.ca,KA
+Mahajan,15486898736,mahajan@icloud.couk,Bihar
+Rana,15283857783,rana4716@yahoo.org,AN
 ```
 
-(a) `sed -n '/[A-Z]\{1\}$/ p' test.csv`
-(b) `sed -n '/,[[:upper:]]\{2\}$/ p' test.csv`
-(c) `sed -n '/[[:alnum:]]\{2\}$/ p' test.csv`
-(d) `sed -n '/[[:upper:]]\{2\}$/ p' test.csv`
-
-### Answer
-(a), (b), (d)
-
----
-
-<div style="page-break-after: always;"></div>
-## Question 12 (sed) [MSQ] [6]
-
-Which of the following SED command(s) would print lines with Alice or Rabbit from `alice.txt` file.
-Hint: 
-- The pipe character do not have special meaning in Basic Regular Expression Engine(BRE) unless escaped with a backslash
-- -E option in grep enables Extended Regular Expression Engine(ERE) 
-- -n option prevent the default printing in sed
-
-(a) `sed -E 's/Alice\|Rabbit//' alice.txt`
-(b) `sed -E -n 's/Alice|Rabbit//' alice.txt`
-(c) `sed -n '/Alice\|Rabbit/ p' alice.txt`
-(d) `sed -En '/Alice|Rabbit/ p' alice.txt`
+(a) 
+```
+s/\([0-9]\)-\([0-9]\{3\}\)-\([0-9]\{3\}\)-\([0-9]\{4\}\)/\1\2\3\4/
+s/\([0-9]\{3\}\)-\([0-9]\{4\}\)/\2\1/
+```
+(b) 
+```
+s/-//g
+```
+(c) 
+```
+s/\([[:digit:]]\)-\([[:digit:]]\{3\}\)-\([[:digit:]]\{3\}\)-\([[:digit:]]\{4\}\)/\1\2\3\4/
+s/\([[:digit:]]\{3\}\)-\([[:digit:]]\{4\}\)/\1/2/
+```
+(d)
+```
+s/\([[:digit:]]\)-\([[:digit:]]\)/\1\2/g
+```
 
 ### Answer
 (c), (d)
@@ -587,55 +620,26 @@ Hint:
 ---
 
 <div style="page-break-after: always;"></div>
-<div style="page-break-after: always;"></div>
 
-## Question 13 (AWK)[MCQ] [8]
+## Question 13 (AWK) [MCQ] [8]
 
 What will be the output of the following command?
 
 ```bash
-echo {a..c}{1..3} | tr ' ' '\n' | awk '
+echo {a,b,c,c}{c,c,e,f} | tr ' ' '\n' | sort | uniq | awk '
 {
-    count+=NF
-    count2+=NR
-    count3+=length+1
+    n += NR
 }
 END {
-    print count, count2, count3 
+    print n
 }
 '
 ```
 
-Hint:
-```
-$ tr --help
-Usage: tr [OPTION]... SET1 [SET2]
-Translate, squeeze, and/or delete characters from standard input,
-writing to standard output.
-...
-
-$ awk --help
-Usage: awk [POSIX or GNU style options] -f progfile [--] file ...
-Usage: awk [POSIX or GNU style options] [--] 'program' file ...
-POSIX options:		GNU long options: (standard)
-	-f progfile		--file=progfile
-	-F fs			--field-separator=fs
-...
-
-$ man awk | cat
-...
-length([s]) Return  the length of the string s, or
-            the length of $0 if s is not supplied.
-            As  a  non-standard extension, with an
-            array argument, length()  returns  the
-            number of elements in the array.
-...
-```
-
-(a) 9  45  27
-(b) 9  9  18
-(c) 9  27  27
-(d) 9  27  18
+(a) 45
+(b) 78
+(c) 136
+(d) 55
 
 ### Answer
 (a)
@@ -644,9 +648,9 @@ length([s]) Return  the length of the string s, or
 
 <div style="page-break-after: always;"></div>
 
-## Question 14 (AWK) [MCQ] [6]
+## Question 14 (AWK) [MSQ] [6]
 
-**file.csv**
+**Content file.csv**
 ```bash
 Sahni,151-8534,sahni@hotmail.ca,KA
 Mahajan,1-548-689-8736,mahajan@icloud.co.uk,Bihar
@@ -657,12 +661,12 @@ Given a CSV file `file.csv` with contents as shown above. Select AWK command(s) 
 
 **Expected Output**
 ```bash
-Sahni
-151-8534
-Mahajan
-1-548-689-8736
-Rana
-1-528-385-7783
+Sahni:151-8534:sahni@hotmail.ca
+
+Mahajan:1-548-689-8736:mahajan@icloud.co.uk
+
+Rana:1-528-385-7783:rana4716@yahoo.org
+
 ```
 
 
@@ -679,13 +683,13 @@ ORS  The output record separator, by default a newline.
 ...
 ```
 
-(a) `awk -F, '{print $1"\n"$2}' file.csv`
-(b) `awk 'BEGIN{FS=",";OFS="\n"}{print $1 $2}' file.csv`
-(c) `awk 'BEGIN{FS=",";ORS="\n"}{print $1,$2}' file.csv`
-(d) `awk -F, '{print $1"\n",$2}' file.csv`
+(a) `awk -F, '{print $1":"$2":"$3"\n"}' file.csv`
+(b) `awk 'BEGIN{FS=",";OFS=":";ORS="\n"}{print $1,$2,$3}' file.csv`
+(c) `awk 'BEGIN{FS=",";OFS=":";ORS="\n\n"}{print $1,$2,$3}' file.csv`
+(d) `awk -F, 'BEGIN{OFS=":"}{print $1,$2,$3"\n"}' file.csv`
 
 ### Answer
-(a)
+(a), (c), (d)
 
 ---
 
@@ -694,6 +698,7 @@ ORS  The output record separator, by default a newline.
 ## Question 15 (AWK) [MCQ] [6]
 
 In a working directory number of text files are present with varying sizes (varying number of lines). For the following AWK script executed in the working directory, what is true for the output from the following options?
+
 ```
 #!/usr/bin/awk -f
 
@@ -702,7 +707,7 @@ n < FNR {
     nf = FILENAME
 }
 END {
-    print nf
+    print FILENAME
 }
 ```
 
@@ -719,12 +724,12 @@ FNR      The input record number in the current input file.
 ...
 ```
 
-(a) The file name with the maximum number of lines among the files that are passed as arguments is printed
+(a) The file name that has the maximum number of lines among the files that  are passed as arguments is printed
 (b) The file name that has the minimum number of lines among the files that are passed as arguments is printed
 (c) The file name that is passed as the first file argument is printed
 (d) The file name that is passed as the last file argument is printed
 
 ### Answer
-(a)
+(d)
 
 ---
