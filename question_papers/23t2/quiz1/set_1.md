@@ -3,8 +3,8 @@
 ## Question 1 (file management) [6]
 
 ```bash
-mkdir mydir 
-touch mydir/file1.txt;touch mydir/file2.txt 
+mkdir mydir
+touch mydir/file1.txt;touch mydir/file2.txt
 mkdir mydir/subdir;touch mydir/subdir/file3.txt
 rmdir mydir/subdir
 ```
@@ -19,6 +19,10 @@ Select the output from the above script. [MCQ]
 ### Answer
 
 (d)
+
+### Explanation
+
+`rmdir` command is used to remove directories. If the directory is not empty, it will not remove the directory and will exit with a non-zero exit code.
 
 ---
 
@@ -59,11 +63,13 @@ What will be the value of `Var42` at the end of execution? [NAT]
 
 (a)
 
+### Explanation
+
+A subshell cannot change the value of parent shell, it can only create a new variable with the same name. The value of the variable in the parent shell remains the same.
+
 ---
 
 <div style="page-break-after: always;"></div>
-
-``
 
 ## Question 3 (shell variables) [6]
 
@@ -82,18 +88,27 @@ $ echo ${date_disp:1:8}the
 | Sr.No | command                    | option | output   |
 | ----- | -------------------------- | ------ | -------- |
 | 1     | `echo $date_disp`          | a      | `onthe`  |
-| 2     | `echo ${date_disp[5]}`     | b      | `mon[5]` |
+| 2     | `echo ${date_disp[5]}`     | b      | `Mon[5]` |
 | 3     | `echo $date_disp[5]`       | c      | `2023`   |
 | 4     | `echo ${date_disp:1:8}the` | d      | `Mon`    |
 
-(a) 1->b,2->a,3->c,4->d
-(b) 1->d, 2->b, 3 ->c, 4->a
-(c) 1->d, 2->c, 3->b, 4->a
+(a) 1→b, 2→a, 3→c, 4→d
+(b) 1→d, 2→b, 3→c, 4→a
+(c) 1→d, 2→c, 3→b, 4→a
 (d) none of the above
 
 ### Answer
 
 (c)
+
+### Explanation
+
+- `echo $date_disp` will print the first element of the array.
+  - Array elements are split by space, so the first word `Mon` will be printed.
+- `echo ${date_disp[5]}` will print the 6th element of the array.
+  - The 6th element is `2023`.
+- `echo $date_disp[5]` will print the first element of the array followed by `[5]`, this not a correct syntax to access the array element, so like command 1, it too will print `Mon` but followed by `[5]`
+- `echo ${date_disp:1:8}the` will print the substring of the first element of the array starting from the 2nd character and 8 characters long, followed by `the`. But if the string ("Mon") does not have enough (9) characters, it will print as much as possible in that string. So, it will print `onthe`.
 
 ---
 
@@ -179,6 +194,16 @@ done
 
 (a)
 
+### Explanation
+
+- `${files[@]}` will expand to all the elements in the array `files`.
+- `for file in "${files[@]}"` will iterate over all the files.
+- `-x` option in `test` command checks if the file is executable.
+- `executable_files+=("$file")` will add the file to the array `executable_files`.
+- `${#executable_files[@]}` will give the number of elements in the array `executable_files`.
+- `executable_files=("$file") + 1` is incorrect syntax. The correct syntax is `executable_files+=("$file")`.
+- `-f` option in `test` command checks if the file exists, not executable.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -233,6 +258,14 @@ name
 
 (a), (b)
 
+### Explanation
+
+- `grep "email" test.json` will print all the lines containing the word "email".
+- `cut -d '"' -f 4` will split the line by `"` and print the 4th field.
+- `-o` option in `grep` will print only the matched regular expression.
+- `-E` option in `grep` will enable extended regular expressions.
+- `[^"]+` will match any character except `"` one or more times.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -266,6 +299,13 @@ Following file contains the information on the websites visited on certain serve
 
 (c)
 
+### Explanation
+
+- `https?` will match `http` or `https`.
+- A domain name can contain numbers and symbols as well, not just `[a-zA-Z]`.
+- `[^/]+` will match any character except `/` one or more times. This will match till end of domain name.
+- The TLD cannot be single character, it can be 2–63 characters long.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -284,6 +324,14 @@ Which of the following command will generate output for both `test.out` and `tes
 ### Answer
 
 (b)
+
+### Explanation
+
+- `&&` will execute the next command only if the previous command is successful.
+- `ech` is not a command, so it will generate an error message.
+- `2>` will redirect the standard error to the file `test.err`.
+- `> test.err 2>&1` will redirect the standard output and standard error, both, to the file `test.err`. The tee gets no standard input in this.
+- `tee >test.out` will redirect the standard output to the file `test.out`.
 
 ---
 
@@ -408,6 +456,12 @@ nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
 
 65534
 
+### Explanation
+
+- `cut -d: -f3` will extract the 3rd field from each line of the input.
+- `sort -rn` will sort the input in reverse numerical order.
+- The first line of the output will be the highest number in the 3rd field of the passwd file.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -458,13 +512,20 @@ $ ls -li
 
 (b), (d)
 
+### Explanation
+
+- (a) is incorrect because `bzegrep` and `bzfgrep` do not have same inode number (27, 29).
+- (b) is correct because `bzegrep` and `bzfgrep` are soft links to `bzgrep`.
+- (c) is incorrect because `bzless` and `bzmore` do not have same inode number, `bzless` is a soft link to `bzmore`.
+- (d) is correct because `bzcat` and `bzip2` have the same inode number (23).
+
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 10 (shell variable) [6]
 
-Following lines are the a part of a shell script for job submission to a server. Assume that the PBS_JOBID stores `123456.pbs` value and $HOME stores `/user` value. What would be the value of `tempdir` variable.
+Following lines are the part of a shell script for job submission to a server. Assume that the PBS_JOBID stores `123456.pbs` value and $HOME stores `/user` value. What would be the value of `tempdir` variable.
 
 ```bash
 tpdir=`echo $PBS_JOBID | cut -f 1 -d .`
@@ -504,13 +565,19 @@ done
 
 5
 
+### Explanation
+
+- The first loop will create 11 background processes.
+- The second loop will kill the last background process created 6 times.
+- So, after the end of the script, 11 - 6 = 5 background processes will be running.
+
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 12 (regex)
 
-Choose the most appropriate regex to match an email address. The regex is provided in Extended Regular Expression Engine (ERE).
+Choose the **most appropriate** regex to match an email address. The regex is provided in Extended Regular Expression Engine (ERE).
 
 (a) `[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}`
 (b) `\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b`
@@ -520,6 +587,11 @@ Choose the most appropriate regex to match an email address. The regex is provid
 ### Answer
 
 (b)
+
+### Explanation
+
+- `\b` will match the word boundary, ensuring there are no other characters before or after the pattern.
+- `@` can be present exactly once, but `@*` will match 0 or more `@` characters, which is incorrect.
 
 ---
 
@@ -595,6 +667,13 @@ Using the above context, choose the command that deletes all occurrences of `a`.
 
 (c)
 
+### Explanation
+
+- `tr 'a' ' '` will replace all occurrences of `a` with space, this is not same as deleting something.
+- `tr ' ' 'a'` will replace all occurrences of space with `a`, this is totally wrong.
+- `tr -d 'a'` will delete all occurrences of `a`.
+- `tr -d '\a'` will delete all occurrences of `\a`, that is the bell character, not the 'a' symbol.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -663,6 +742,12 @@ read: read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars] [-p pr
 ### Answer (Exact, ignore whitespace)
 
 abcdabcd
+
+### Explanation
+
+- `read -n 4 line < <(echo abcdef)` will read the first 4 characters from the output of `echo abcdef` and store it in the variable `line`.
+- `echo $line$line` will print the value of `line` twice.
+- So, the output will be `abcdabcd`.
 
 ---
 
@@ -770,3 +855,11 @@ For the script run.sh, identity the true statement(s) from the following options
 ### Answer
 
 (a), (c), (e), (f)
+
+### Explanation
+
+- `#!/bin/bash` is the shebang line, which tells the system to use the Bash interpreter to run the script.
+- `zip -r -P $password $zip_dest $directory` will create a zip file with password protection.
+- The password is read from the standard input, so it cannot be obtained from the script.
+- A new file `myarchive.zip` is created at the end of the execution.
+- If `zip_dest="myarchive.zip"` is replaced by `read zip_dest` then the output file name is obtained from the first line of standard input, not second line, as the `read password` is after this line.
