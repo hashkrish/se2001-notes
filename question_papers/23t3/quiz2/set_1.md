@@ -245,8 +245,11 @@ What will the given AWK command print?
 Hint: FILENAME is a default variable have the value of filename
 
 (a) The filename and contains all the lines in the file that starts with numbers
+
 (b) The filename and contains all the lines in the file that ends with numbers
+
 (c) The filename and contains all the lines in the file that starts and ends with numbers
+
 (d) The filename and contains all the lines that has a number in it but not at the beginning
 
 ### Answer
@@ -278,8 +281,11 @@ echo $((v1 + v2))
 What will be the output from the above script?
 
 (a) 0
+
 (b) 1
+
 (c) 2
+
 (d) -1
 
 ### Answer
@@ -301,8 +307,11 @@ What will be the output from the above script?
 Which of the following sed commands will show only the 6th and 8th line of a file 'index.txt'.
 
 (a) `sed -e '6p' -e '8p' index.txt`
+
 (b) `sed -n '8p;6p' index.txt`
+
 (c) `sed -n -e '6p' -e '8p' index.txt`
+
 (d) `sed -n '6,8p' index.txt`
 
 ### Answer
@@ -324,8 +333,11 @@ What will the following command do upon execution.
 `find /home/users/Documents/ -name '*.doc' | grep -v '102421' | xargs -I{} mv {} /home/Documents/OfficeFiles`
 
 (a) Move all files with doc extension from `Documents` folder whose content matches with 102421 to `OfficeFiles` folder
+
 (b) Move all files with doc extension from `Documents` folder whose content does not match with 102421 to `OfficeFiles` folder
+
 (c) Move all files with doc extension from `Documents` folder whose name matches with 102421 to `OfficeFiles` folder
+
 (d) Move all files with doc extension from `Documents` folder whose name does not match with 102421 to `OfficeFiles` folder
 
 ### Answer
@@ -396,8 +408,11 @@ END_REGION7
 ```
 
 (a) `sed -n "/<p>/,/<\/p>/p" index.html`
+
 (b) `sed -n "/<p>/,/<\/p>/{/<p>/! {/<\/p>/! p}}" index.html`
+
 (c) `sed -n "/<p>/,/<\/p>/{/<p>/!,/<\/p>/! p}" index.html`
+
 (d) `awk '/<p>/,/<\/p>/' index.html|grep -v "<"`
 
 ### Answer
@@ -468,8 +483,11 @@ END_REGION7
 ```
 
 (a) `sed -n "/<p>/,/<\/p>/p" index.html | sed 's#</?p>##g`
+
 (b) `sed -n "/<p>/,/<\/p>/{/<p>/! {/<\/p>/! p}}" index.html`
+
 (c) `sed -n "/<p>/,/<\/p>/{/<p>/!,/<\/p>/! p}" index.html`
+
 (d) `awk '/<p>/,/<\/p>/' index.html | sed 's#</?p>##g'`
 
 ### Answer
@@ -537,8 +555,11 @@ END_REGION7
 ```
 
 (a) `sed -n "/<p>.*<\/p>/p" index.html | sed 's#</?p>##g`
+
 (b) `sed -n "/<p>/,/<\/p>/{/<p>/! {/<\/p>/! p}}" index.html`
+
 (c) `sed -n "/<p>/,/<\/p>/{/<p>/!,/<\/p>/! p}" index.html`
+
 (d) `awk '/<p>.*<\/p>/' index.html | sed 's#</?p>##g'`
 
 ### Answer
