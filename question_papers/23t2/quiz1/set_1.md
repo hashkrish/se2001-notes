@@ -12,8 +12,11 @@ rmdir mydir/subdir
 Select the output from the above script. [MCQ]
 
 (a) remove directory subdir
+
 (b) remove directory `dir` and `subdir`
+
 (c) remove files from `subdir`
+
 (d) exit with exit code (not 0)
 
 ### Answer
@@ -55,8 +58,11 @@ echo "var42 is: $my_var"
 
 What will be the value of `Var42` at the end of execution? [NAT]
 (a) Sunrise
+
 (b) Sun_rise
+
 (c) Sun@rise
+
 (d) Sun@set
 
 ### Answer
@@ -93,8 +99,11 @@ $ echo ${date_disp:1:8}the
 | 4     | `echo ${date_disp:1:8}the` | d      | `Mon`    |
 
 (a) 1→b, 2→a, 3→c, 4→d
+
 (b) 1→d, 2→b, 3→c, 4→a
+
 (c) 1→d, 2→c, 3→b, 4→a
+
 (d) none of the above
 
 ### Answer
@@ -250,8 +259,11 @@ name
 ```
 
 (a) `grep "email" test.json | cut -d '"' -f 4`
+
 (b) `grep -o -E '"email": "[^"]+"' test.json | cut -d '"' -f 4`
+
 (c) `grep '"email":' test.json | cut -d ' ' -f 2`
+
 (d) `grep 'email: ' test.json | cut -d '"' -f 4`
 
 ### Answer
@@ -291,8 +303,11 @@ Following file contains the information on the websites visited on certain serve
 | http://bode.com/sint-ut-et-possimus-odit-debitis.html                                        | 210.73.162.76   | 6    | BQ              |
 
 (a) `https?://[a-zA-Z]+\.[a-zA-Z]{2,}`
+
 (b) `http?://[a-zA-Z]+\.[a-zA-Z]{1,}`
+
 (c) `https?://[^/]+`
+
 (d) `https?://[a-zA-Z]+\.[a-zA-Z]+\.[a-zA-Z]{2,}`
 
 ### Answer
@@ -317,8 +332,11 @@ Following file contains the information on the websites visited on certain serve
 Which of the following command will generate output for both `test.out` and `test.err` files. Assume that the `ech` is not a command and will generate a error message. [MCQ]
 
 (a) `(echo "test" && ech) > test.err 2>&1 | tee -a test.out`
+
 (b) `(echo "test" && ech) 2> test.err | tee  >test.out`
+
 (c) `(echo "test" && ech) > test.err 2>&1 | tee  >test.out`
+
 (d) `$(echo "test" && ech) > test.err 2>&1 | tee  >test.out`
 
 ### Answer
@@ -504,8 +522,11 @@ $ ls -li
 ```
 
 (a) files `bzegrep` and `bzfgrep` are hard links
+
 (b) files `bzegrep` and `bzfgrep` are soft links
+
 (c) files `bzless` and `bzmore` are hard links
+
 (d) files `bzcat` and `bzip2` are hard links
 
 ### Answer
@@ -535,8 +556,11 @@ cd $tempdir
 ```
 
 (a) `/user/scratch/jobpbs`
+
 (b) `job123456`
+
 (c) `/user/scratch/job123456`
+
 (d) `/scratch/jobpbs`
 
 ### Answer
@@ -580,8 +604,11 @@ done
 Choose the **most appropriate** regex to match an email address. The regex is provided in Extended Regular Expression Engine (ERE).
 
 (a) `[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}`
+
 (b) `\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b`
+
 (c) `[A-Za-z0-9._%+-]+@*[A-Za-z0-9.-]+\.[A-Za-z]{2,}`
+
 (d) `\b[A-Za-z0-9._%+-]*@[A-Za-z0-9.-]*\.[A-Za-z]{2,}\b`
 
 ### Answer
@@ -659,8 +686,11 @@ or available locally via: info '(coreutils) tr invocation'
 Using the above context, choose the command that deletes all occurrences of `a`.
 
 (a) `cat myfile.txt | tr 'a' ' ' # there is space between single quotes`
+
 (b) `cat myfile.txt | tr ' ' 'a' # there is space between single quotes`
+
 (c) `cat myfile.txt | tr -d 'a'`
+
 (d) `cat myfile.txt | tr -d '\a'`
 
 ### Answer
@@ -845,11 +875,17 @@ DESCRIPTION
 For the script run.sh, identity the true statement(s) from the following options.
 
 (a) The Bash interpreter used to run the run.sh file
+
 (b) A new directory is created at the end of the execution
+
 (c) The zip file is password protected
+
 (d) The password for the zip is "password"
+
 (e) The password for the zip cannot be obtained from the above script because it is read from the standard input
+
 (f) A new file, `myarchive.zip` is created at the end of the execution
+
 (g) If `zip_dest="myarchive.zip"` is replaced by `read zip_dest` then output file name is obtained from the second line of standard input
 
 ### Answer
