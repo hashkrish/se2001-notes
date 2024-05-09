@@ -106,8 +106,11 @@ Min(0-59)
 ```
 
 (a) Every Monday at 00:04
+
 (b) Every Monday at 04:00
+
 (c) Every Sunday at 04:00
+
 (d) Every Sunday at 00:04
 
 ### Answer
@@ -283,8 +286,11 @@ cdlmf() {
 Which of the following command prints all the values present in an bash associative array.
 
 (a) `$arr`
+
 (b) `$arr[@]`
+
 (c) `${!arr[@]}`
+
 (d) `${arr[@]}`
 
 ### Answer
@@ -321,12 +327,19 @@ done
 ```
 
 (a) file0
+
 (b) file1
+
 (c) file2
+
 (d) file3
+
 (e) file4
+
 (f) file5
+
 (g) file6
+
 (h) file10
 
 ### Answer
@@ -351,8 +364,11 @@ diff file1 file2
 Select a scenario from the following options such that upon execution of the above script, no lines will be printed to the terminal.
 
 (a) file1 and file2 have the same number of lines
+
 (b) file2 being the copy of file1
+
 (c) file1 is empty
+
 (d) file2 containing all the lines that start and end with a number
 
 ### Answer
@@ -369,8 +385,11 @@ Which all grep commands from the following option produces count of the paragrap
 Assume that a paragraph always ends with a full stop (.)
 
 (a) `grep '^.' book.txt | wc -l`
+
 (b) `grep '.' book.txt | wc -l`
+
 (c) `grep '.*\.$' book.txt | wc -l `
+
 (d) `grep '\.$' book.txt | wc -l`
 
 ### Answer
@@ -394,8 +413,11 @@ The group number starts from the outer to inner and left to right respectively.
 ```
 
 (a) This regex will match with 1 character palindrome
+
 (b) This regex will match with 2 character palindrome
+
 (c) This regex will match with 3 character palindrome
+
 (d) This regex will match with 4 character palindrome
 
 ### Answer
@@ -525,10 +547,15 @@ for details about the options it supports.
 ```
 
 (a) Incorrect interpreter in the first line on `exoc.sh`
+
 (b) Incorrect condition in if statement
+
 (c) Incorrect assignment to the variable `lmt`
+
 (d) Incorrect assignment to the variable `plmt`
+
 (e) Incorrect execution; The proper python file execution should be `python3 "$1"`
+
 (f) Incorrect execution; The proper python file execution should be `"$1"`
 
 ### Answer
@@ -559,8 +586,11 @@ Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 ```
 
 (a) `sed '1,3d; 7,9d; 16,$d;' test.txt`
+
 (b) `sed '4,6p; 10,15p' test.txt`
+
 (c) `sed -n '4,6p; 10,15p' test.txt`
+
 (d) `sed -e '4,6p' -e '10,15p' test.txt`
 
 ### Answer
@@ -580,8 +610,11 @@ sed 's/.*/&\n&/' a.txt > b.txt
 ```
 
 (a) Total number of lines in b.txt is equal to the total number of lines in a.txt
+
 (b) Total number of lines in b.txt is equal to the total number of lines in a.txt + 1
+
 (c) Total number of lines in b.txt is equal to the total number of lines in a.txt + 2
+
 (d) Total number of lines in b.txt is equal to the twice the number of lines in a.txt
 
 ### Answer
@@ -673,8 +706,11 @@ END {
 ```
 
 (a) 45
+
 (b) 78
+
 (c) 136
+
 (d) 55
 
 ### Answer
@@ -723,8 +759,11 @@ ORS  The output record separator, by default a newline.
 ```
 
 (a) `awk -F, '{print $1":"$2":"$3"\n"}' file.csv`
+
 (b) `awk 'BEGIN{FS=",";OFS=":";ORS="\n"}{print $1,$2,$3}' file.csv`
+
 (c) `awk 'BEGIN{FS=",";OFS=":";ORS="\n\n"}{print $1,$2,$3}' file.csv`
+
 (d) `awk -F, 'BEGIN{OFS=":"}{print $1,$2,$3"\n"}' file.csv`
 
 ### Answer
@@ -766,8 +805,11 @@ FNR      The input record number in the current input file.
 ```
 
 (a) The file name that has the maximum number of lines among the files that are passed as arguments is printed
+
 (b) The file name that has the minimum number of lines among the files that are passed as arguments is printed
+
 (c) The file name that is passed as the first file argument is printed
+
 (d) The file name that is passed as the last file argument is printed
 
 ### Answer

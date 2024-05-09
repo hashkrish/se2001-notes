@@ -110,8 +110,11 @@ Min(0-59)
 ```
 
 (a) Every Monday at 00:05
+
 (b) Every Monday at 05:00
+
 (c) Everyday at 08:00
+
 (d) Everyday at 08:05 in May
 
 ### Answer
@@ -293,8 +296,11 @@ cdlmd() {
 Which of the following command prints all the keys present in an bash associative array.
 
 (a) `$arr`
+
 (b) `$arr[@]`
+
 (c) `${!arr[@]}`
+
 (d) `${arr[@]}`
 
 ### Answer
@@ -331,12 +337,19 @@ done
 ```
 
 (a) file0
+
 (b) file1
+
 (c) file2
+
 (d) file3
+
 (e) file4
+
 (f) file5
+
 (g) file6
+
 (h) file10
 
 ### Answer
@@ -365,8 +378,11 @@ diff file1 file2
 Select a scenario before the execution of the script from the following options such that upon execution of the above script, no lines will be printed to the terminal.
 
 (a) file1 and file2 have the same number of lines
+
 (b) file2 being the copy of file1
+
 (c) file2 contains all the lines that start and end with a number
+
 (d) file1 contains all the lines that start and end with a number
 
 ### Answer
@@ -396,8 +412,11 @@ Hint:
 - -c option gives the count of the line that have matches
 
 (a) `grep 'Alice|Rabbit' alice.txt | grep -c 'Alice|Rabbit'`
+
 (b) `grep -E 'Alice|Rabbit' alice.txt| grep -E -c 'Alice|Rabbit'`
+
 (c) `grep 'Alice\|Rabbit' alice.txt; grep -c 'Alice\|Rabbit'`
+
 (d) `grep -E 'Alice|Rabbit' alice.txt; grep -E -c 'Alice|Rabbit'`
 
 ### Answer
@@ -442,8 +461,11 @@ Note: a word, phrase, or sequence that reads the same backwords as forwards e.g.
 ```
 
 (a) This regex will match with 1 character palindrome
+
 (b) This regex will match with 2 character palindrome
+
 (c) This regex will match with 3 character palindrome
+
 (d) This regex will match with 4 character palindrome
 
 ### Answer
@@ -579,10 +601,15 @@ for details about the options it supports.
 ```
 
 (a) Incorrect interpreter in the first line on `exoc.sh`
+
 (b) Incorrect condition in if statement
+
 (c) Incorrect assignment to the variable `lmt`
+
 (d) Incorrect assignment to the variable `plmt`
+
 (e) Incorrect execution; The proper execution should be `./exoc.sh main.py`
+
 (f) Incorrect execution; The proper execution should be `exoc.sh main.py`
 
 ### Answer
@@ -606,8 +633,11 @@ for details about the options it supports.
 What will be the outcome of the command `sed -i '/./,$!d' file.txt`?
 
 (a) Delete all empty lines in the file `file.txt`
+
 (b) Delete all lines with '.' character in the file `file.txt`
+
 (c) Delete all empty lines before the first non-empty line in the file `file.txt`
+
 (d) Delete all empty lines after the last non-empty line in the file `file.txt`
 
 ### Answer
@@ -654,8 +684,11 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 ```
 
 (a) `sed -n '/[A-Z]\{1\}$/ p' test.csv`
+
 (b) `sed -n '/,[[:upper:]]\{2\}$/ p' test.csv`
+
 (c) `sed -n '/[[:alnum:]]\{2\}$/ p' test.csv`
+
 (d) `sed -n '/[[:upper:]]\{2\}$/ p' test.csv`
 
 ### Answer
@@ -681,8 +714,11 @@ Hint:
 - -n option prevent the default printing in sed
 
 (a) `sed -E 's/Alice\|Rabbit//' alice.txt`
+
 (b) `sed -E -n 's/Alice|Rabbit//' alice.txt`
+
 (c) `sed -n '/Alice\|Rabbit/ p' alice.txt`
+
 (d) `sed -En '/Alice|Rabbit/ p' alice.txt`
 
 ### Answer
@@ -744,8 +780,11 @@ length([s]) Return  the length of the string s, or
 ```
 
 (a) 9 45 27
+
 (b) 9 9 18
+
 (c) 9 27 27
+
 (d) 9 27 18
 
 ### Answer
@@ -803,8 +842,11 @@ ORS  The output record separator, by default a newline.
 ```
 
 (a) `awk -F, '{print $1"\n"$2}' file.csv`
+
 (b) `awk 'BEGIN{FS=",";OFS="\n"}{print $1 $2}' file.csv`
+
 (c) `awk 'BEGIN{FS=",";ORS="\n"}{print $1,$2}' file.csv`
+
 (d) `awk -F, '{print $1"\n",$2}' file.csv`
 
 ### Answer
@@ -853,8 +895,11 @@ FNR      The input record number in the current input file.
 ```
 
 (a) The file name with the maximum number of lines among the files that are passed as arguments is printed
+
 (b) The file name that has the minimum number of lines among the files that are passed as arguments is printed
+
 (c) The file name that is passed as the first file argument is printed
+
 (d) The file name that is passed as the last file argument is printed
 
 ### Answer
