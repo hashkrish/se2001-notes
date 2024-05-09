@@ -239,8 +239,11 @@ What does the given AWK command print? [MSQ]
 Hint: FILENAME is a default variable have the value of filename
 
 (a) The filename and count that includes the lines in the file that starts with numbers
+
 (b) The filename and count that includes the lines in the file that ends with numbers
+
 (c) The filename and count that includes the lines in the file that starts and ends with numbers
+
 (d) The filename and count that includes the lines that has a number in it but not at start
 
 ### Answer
@@ -272,8 +275,11 @@ echo $((v1 + v2))
 What will be the output from the given script?
 
 (a) 0
+
 (b) 1
+
 (c) 2
+
 (d) 3
 
 ### Answer
@@ -328,8 +334,11 @@ END {
 ```
 
 (a) The Script 1 is more optimal than Script 2 in terms of memory
+
 (b) The Script 2 is more optimal than Script 1 in terms of memory
+
 (c) The Script 1 and Script 2 do not have difference in terms of memory
+
 (d) The Script 2 is more efficient than Script 1, because it has only two blocks
 
 ### Answer
@@ -352,8 +361,11 @@ Identify the correct extended or basic regular expression from the following whi
 Note: All the regular expressions are either BRE or ERE
 
 (a) `\([0-9A-Fa-f]\{2\}:\)\{5\}[0-9A-Fa-f]\{2\}`
+
 (b) `\([0-9A-Fa-f]\{2\}:\)\{6\}`
+
 (c) `..\(\:..\){5}`
+
 (d) `([[:xdigit:]]{2}:){5}[[:xdigit:]]{2}`
 
 ### Answer
@@ -377,8 +389,11 @@ Note: All the regular expressions are either BRE or ERE
 Which of the following sed commands will show only line 6th and 8th line of a index.txt file.
 
 (a) `sed -e '6p' -e '8p' index.txt`
+
 (b) `sed -n '8p;6p' index.txt`
+
 (c) `sed -n -e '6p' -e '8p' index.txt`
+
 (d) `sed -n '6,8p' index.txt`
 
 ### Answer
@@ -402,8 +417,11 @@ What will the following command do upon execution.
 `find /home/users/Documents/ -name '*.doc' | grep -v '102421' | xargs -I{} mv {} /home/Documents/OfficeFiles`
 
 (a) Move all files with doc extension from `Documents` folder whose content matches with 102421 to `OfficeFiles` folder
+
 (b) Move all files with doc extension from `Documents` folder whose content does not match with 102421 to `OfficeFiles` folder
+
 (c) Move all files with doc extension from `Documents` folder whose name matches with 102421 to `OfficeFiles` folder
+
 (d) Move all files with doc extension from `Documents` folder whose name does not match with 102421 to `OfficeFiles` folder
 
 ### Answer
@@ -459,8 +477,11 @@ The context between PRE tags needs to be Extracted
 ```
 
 (a) `sed -n "/<PRE>/,/<\/PRE>/p" index.html`
+
 (b) `sed -n "/<PRE>/,/<\/PRE>/{/<PRE>/! {/<\/PRE>/! p}}" index.html`
+
 (c) `sed -n "/<PRE>/,/<\/PRE>/{/<PRE>/!,/<\/PRE>/! p}" index.html`
+
 (d) `awk '/<PRE>/,/<\/PRE>/' index.html`
 
 ### Answer

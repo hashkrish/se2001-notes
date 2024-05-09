@@ -114,8 +114,11 @@ What will be the output of `echo 6 > ./dir1/file1_s3; cat ./file1` after the exe
 Which of the following commands will print the environmental variable `HOME`.
 
 (a) `awk 'BEGIN{print $HOME}'`
+
 (b) `awk 'BEGIN{print ENVIRON['HOME']}'`
+
 (c) `awk 'BEGIN{print ENVIRON["HOME"]}'`
+
 (d) `awk 'BEGIN{print ENVIRON[${HOME}]}'`
 
 ### Answer
@@ -180,8 +183,11 @@ What does the given AWK command print? [MSQ]
 Hint: FILENAME is a default variable that has the value of filename
 
 (a) The filename and count that includes the lines in the file that starts with numbers
+
 (b) The filename and count that includes the lines in the file that ends with numbers
+
 (c) The filename and count that includes the lines in the file that starts and ends with numbers
+
 (d) The filename and count that includes the lines that have a number in it
 
 ### Answer
@@ -219,8 +225,11 @@ echo $((v2 - v1))
 What will be the output from the given script?
 
 (a) 0
+
 (b) 1
+
 (c) 2
+
 (d) 3
 
 ### Answer
@@ -265,8 +274,11 @@ END {
 ```
 
 (a) Script 1 is more optimal than Script 2 in terms of memory
+
 (b) Script 2 is more optimal than Script 1 in terms of memory
+
 (c) Script 1 and Script 2 do not have differences in terms of memory
+
 (d) Script 2 is less efficient than Script 1 because it has three blocks
 
 ### Answer
@@ -289,8 +301,11 @@ Identify the correct extended or basic regular expression from the following, wh
 Note: All the regular expressions are either BRE or ERE
 
 (a) `\([0-9A-Fa-f]\{2\}:\)\{5\}[0-9A-Fa-f]\{2\}`
+
 (b) `[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}`
+
 (c) `..\(\:..\){5}`
+
 (d) `([[:digit:]]{2}:){5}[[:digit:]]{2}`
 
 ### Answer
@@ -314,8 +329,11 @@ Note: All the regular expressions are either BRE or ERE
 Which of the following sed commands will remove lines starting with # and empty lines from the index.txt file?
 
 (a) `sed '/^#|^$/d' index.txt`
+
 (b) `sed '/^#\|^$/d' index.txt`
+
 (c) `sed '/^#/ d;/^$/d' index.txt`
+
 (d) None of the above
 
 ### Answer
@@ -338,8 +356,11 @@ Which of the following sed commands will remove lines starting with # and empty 
 Which of the following commands can delete leading and trailing white spaces from each line of file sample.txt?
 
 (a) `sed -e 's/^[ \t]*//' -e 's/ *$//' sample.txt`
+
 (b) `sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' sample.txt`
+
 (c) `awk '{gsub(/^ +| +$/,"")} {print $0}' sample.txt`
+
 (d) `cat sample.txt|xargs`
 
 ### Answer
@@ -397,8 +418,11 @@ The context between PRE tags needs to be Extracted
 ```
 
 (a) `sed -n "/<PRE>/,/<\/PRE>/p" index.html`
+
 (b) `sed -n "/<PRE>/,/<\/PRE>/{/<PRE>/! {/<\/PRE>/! p}}" index.html`
+
 (c) `sed -n "/<PRE>/,/<\/PRE>/{/<PRE>/!,/<\/PRE>/! p}" index.html`
+
 (d) `awk '/<PRE>/,/<\/PRE>/' index.html`
 
 ### Answer
