@@ -72,8 +72,11 @@ $ diff <(seq 1 3) <(seq 2 5)
 What does the command `echo <(seq 10) output represent?
 
 (a) The standard output from the command `seq 10`
+
 (b) A file
+
 (c) A directory
+
 (d) Nothing will be printed
 
 ### Answer
@@ -137,8 +140,11 @@ With no FILE, or when FILE is -, read standard input.
 ```
 
 (a) `find . -type f -name '*.md' | xargs -L 1 head`
+
 (b) `head $(find . -type f -name '*.md')`
+
 (c) `find . -type f -name '*.md*' | xargs -L 1 head`
+
 (d) `find . type f | grep md | head`
 
 ### Answer
@@ -307,9 +313,13 @@ done
 ```
 
 (a) `12/Jan/2017`
+
 (b) `22-Aug-1999 Morning`
+
 (c) `17/Feb/1888, 7/May/1999`
+
 (d) `18/jul/2047`
+
 (e) `19 Sep 2023 18:00`
 
 ### Answer
@@ -330,8 +340,11 @@ In a text file named "numbers.txt", multiple lines contain numbers. You want to 
 Hint: By default, SED uses the Basic Regular Expression Engine (BRE)
 
 (a) `sed '/[0-9]\{3,\}/d' numbers.txt`
+
 (b) `sed '/[0-9]{3,}/d' numbers.txt`
+
 (c) `sed '/[0-9]{2,}/d' numbers.txt`
+
 (d) `sed '/[0-9]\{2,\}/d' numbers.txt`
 
 ### Answer
@@ -441,9 +454,13 @@ Choose the incorrect answer to the question. If all the statements are correct, 
    - Answer: You can terminate a running process in Linux using the "kill" command. The "kill" command sends a signal to a process, requesting it to terminate. The most commonly used signal is SIGTERM (signal number 15), which gracefully terminates the process.
 
 (a) 1
+
 (b) 2
+
 (c) 3
+
 (d) 4
+
 (e) None of the above
 
 ### Answer
@@ -509,8 +526,11 @@ sed '5~5{s/\b\([a-z]\)/\u\1/g}' sample.txt
 ```
 
 (a) All characters in every fifth line of the text are capitalized
+
 (b) Starting character of every fifth line is capitalized
+
 (c) Starting character of each word is capitalized
+
 (d) Starting character of each word of every fifth line is capitalized
 
 ### Answer
@@ -546,8 +566,11 @@ Note:
 Assume a Basic Regular Expression Engine (BRE)
 
 (a) `[A-Za-z]\{3\}[TFHPIC][A-Za-z][0-9]\{4\}[A-Za-z]`
+
 (b) `[A-Z]\{3\}[TFHPIC][A-Z][0-9]\{4\}[A-Z]`
+
 (c) `[[:alpha:]]\{3\}[TFHPIC][[:alpha:]][[:digit:]]\{4\}[[:alpha:]]`
+
 (d) `[[:upper:]]\{3\}[TFHPIC][[:upper:]][[:digit:]]\{4\}[[:upper:]]`
 
 ### Answer
@@ -591,8 +614,11 @@ April 21,2002
 ```
 
 (a) `echo {4..6}"/"{4,14,24}"/"{2004,2005}| tr ' ' '\n'| xargs -I {} date -d {} +'%d %B,%Y'`
+
 (b) `echo {4..6}"/"{4,14,24}"/"{2004,2005}"\n"| xargs -I {} date -d {} +'%B %d,%Y'`
+
 (c) `echo -e {4..6}" "{June,July,August}","{2004..2005}"\n"| xargs -I{} date -d {} +'%B %d,%Y'`
+
 (d) `echo -e {4..6}"/"{4..24..10}"/"{2004,2005}"\n"| xargs -I {} date -d {} +'%d %B,%Y'`
 
 ### Answer

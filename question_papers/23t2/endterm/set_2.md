@@ -87,8 +87,11 @@ $ diff <(seq 1 3) <(seq 2 5)
 What does the command `echo <(seq 10)` output represent? [MCQ]
 
 (a) The standard output from the command `seq 10`
+
 (b) A file
+
 (c) A directory
+
 (d) Nothing will be printed
 
 ### Answer
@@ -231,8 +234,11 @@ echo {April,May,June}{4..30..10}","{2004..2010}|
 Which one of the following commands replaces only the second occurrence of pattern "Alice" with "Rabbit" in each line of the entire file? [MCQ]
 
 (a) `sed 's/Alice/Rabbit/2' wonderland.txt`
+
 (b) `sed 's/Alice/Rabbit/2g' wonderland.txt`
+
 (c) `sed '2 s/Alice/Rabbit/' wonderland.txt`
+
 (d) `sed '1,2 s/Alice/Rabbit' wonderland.txt`
 
 ### Answer
@@ -303,8 +309,11 @@ b
 ```
 
 (a) `echo -e -n "line1\n\t\b\bline2\nline3\n\t\bline4\n"`
+
 (b) `echo -e -n "line1\n\t\b\bline2\nline3\n\t\b\bline4\n"`
+
 (c) `echo -e line1\vline2\nline3\vline4`
+
 (d) `echo -e -n "line1\vline2\nline3\vline4\n"`
 
 ### Answer
@@ -351,8 +360,11 @@ Note:
 Assume a Basic Regular Expression Engine (BRE)
 
 (a) `[0-9]\{2\}[A-Za-z]\{3\}[TFHPIC][A-Za-z][0-9]\{4\}[A-Za-z][0-9][A-Za-Z][0-9]`
+
 (b) `[0-9]\{2\}[A-Z]\{3\}[TFHPIC][A-Z][0-9]\{4\}[A-Z][0-9][A-Z][0-9]`
+
 (c) `[[:digit:]]\{2\}[[:alpha:]]\{3\}[TFHPIC][[:alpha:]][[:digit:]]\{4\}[[:alpha:]][[:digit:]][[:alpha:]][[:digit:]]`
+
 (d) `[[:digit:]]\{2\}[[:upper:]]\{3\}[TFHPIC][[:upper:]][[:digit:]]\{4\}[[:upper:]][[:digit:]][[:upper:]][[:digit:]]`
 
 ### Answer
@@ -393,8 +405,11 @@ $ wc -l tongue_twisters.txt
 ```
 
 (a) `grep -owc '\bc[a-zA-Z]*\b' tongue_twisters.txt`
+
 (b) `grep -ow '\bc[a-zA-Z]*\b' tongue_twisters.txt|wc -l`
+
 (c) `awk 'BEGIN { count=0 } { for(i=1; i<=NF; i++) { if ($i ~ /^c/) count++ } } END { print count }' tongue_twisters.txt`
+
 (d) `sed -n 's/\b[cC][a-zA-Z]*\b/&/gp' tongue_twisters.txt|wc -w`
 
 ### Answer
@@ -456,8 +471,11 @@ Line15
 ```
 
 (a) `sed 'N;N;N;s/\n/ /' pdata.txt`
+
 (b) `sed -i 'N;N;N;N;s/\n/ /' pdata.txt`
+
 (c) `sed -i 'N;N;N;s/\n/\t/' pdata.txt`
+
 (d) `sed -i 'N;N;N;N;s/\n/\t/' pdata.txt`
 
 ## Answer
@@ -487,9 +505,13 @@ The following text shows a set of questions and their answers. Identify which qu
    - Answer: You can monitor the system performance and resource usage of all processes in Linux using tools like "top", "htop", or "ps aux". These commands provide detailed information about CPU usage, memory consumption, and other system metrics for all running processes.
 
 (a) 1
+
 (b) 2
+
 (c) 3
+
 (d) 4
+
 (e) None of the above
 
 ### Answer
@@ -519,8 +541,11 @@ done
 ```
 
 (a) `ELE` is an associative array.
+
 (b) `ELE` is an indexed array.
+
 (c) At the end of the execution of the bash script on a text file, the last sentence is printed first, followed by the next-to-last sentence till the first sentence becomes last.
+
 (d) At the end of the execution of the bash script on a text file, the last word is printed first, followed by the next-to-last word till the first word becomes the last.
 
 ### Answer
@@ -611,8 +636,11 @@ done
 ```
 
 (a) `echo "$line" | sed "s/.*/\L&/" | sed "s/$m/${month_to_number[$m]}/"`
+
 (b) `echo "$line" | sed 's/$m/\L&/' | sed "s/$m/${month_to_number[$m]}/"`
+
 (c) `echo "$line" | sed "s/$m/${month_to_number[$m]}/g"`
+
 (d) `echo "$line" | sed -n "s/$m/${month_to_number[$m]}/g"`
 
 ### Answer
