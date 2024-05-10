@@ -73,6 +73,10 @@ a\tb
 
 (a)
 
+### Explanation
+
+- The `\n` at the end of each `echo` will print a newline as `-e` flag is given.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -261,7 +265,7 @@ cdlmf() {
 
 ```bash
 cdlmf() {
-    ls -tF | head -1 | grep -v "\/$" | xargs vi
+    ls -tF | head -1 | grep -v "/$" | xargs vi
 }
 ```
 
@@ -269,7 +273,7 @@ cdlmf() {
 
 ```bash
 cdlmf() {
-    ls -tF | grep -v "\/$" | head -1 | xargs vi
+    ls -tF | grep -v "/$" | head -1 | xargs vi
 }
 ```
 
@@ -277,13 +281,21 @@ cdlmf() {
 
 (d)
 
+### Explanation
+
+- `ls -tF` will list the files in the current directory sorted by modification time, it will also append `/` to directories, `*` to executables, etc.
+- `grep -v "/$"` will exclude directories from the list.
+- `head -1` will select the first file from the list.
+- `xargs vi` will open the selected file in the vi editor.
+- If the `head` is done before `grep` then it will select the first file from the list which may be directory.
+
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Question 4 (shell variable) [MCQ] [6]
 
-Which of the following command prints all the values present in an bash associative array.
+Which of the following command prints all the values present in a bash associative array.
 
 (a) `$arr`
 
@@ -346,6 +358,11 @@ done
 
 (f), (g), (h)
 
+### Explanation
+
+- Files in `b` that match with a substring of the files in `a` are moved to `a`. So, `file3` and `file4` are moved to `a`.
+- `file5`, `file6`, and `file10` are not moved as they do not match with any substring of the files in `a`.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -375,6 +392,16 @@ Select a scenario from the following options such that upon execution of the abo
 
 (c)
 
+### Explanation
+
+- The script reads from `file1` and writes to `file2`
+- Lines that match the regex `^[[:digit:]].*[[:digit:]]$` are written to `file2`
+- The regex matches any line that starts and ends with a digit.
+- `diff file1 file2` will show no output if the files are identical.
+- `file2` is created after the script is run, so its contents earlier is irrelevant.
+- `file1` and `file2` will be identical if all lines in `file1` match the regex.
+- If `file1` is empty, no lines will be printed to the terminal.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -395,6 +422,12 @@ Assume that a paragraph always ends with a full stop (.)
 ### Answer
 
 (c) and (d)
+
+### Explanation
+
+- `.` is a special character in Regex, so it has to be escaped to match a literal period.
+- `.*\.$` will match any line that ends with a period. The entire line is matched.
+- `\.$` will match any line that ends with a period. Only the period is matched.
 
 ---
 
@@ -423,6 +456,15 @@ The group number starts from the outer to inner and left to right respectively.
 ### Answer
 
 (a), (b), (c)
+
+### Explanation
+
+- `^` and `$` are anchors that match the start and end of the line respectively.
+- `.` matches any character.
+- `\3` and `\4` are backreferences that match the same character as the 3rd and 4th group respectively.
+- `(.)` matches any character and is the 2nd group. This matches single character palindromes.
+- `(.)\3` matches any character followed by the same character. This matches two character palindromes.
+- `(.).\4` matches any character, followed by any character, followed by the same character as the first character. This matches three character palindromes.
 
 ---
 
@@ -562,6 +604,14 @@ for details about the options it supports.
 
 (b), (c), (e)
 
+### Explanation
+
+- The shebang is `#!/usr/bin/bash` which is correct.
+- The condition in the if statement is incorrect. It should be `[[ "$lmt" -gt "$plmt" ]]` to check if the modification time has increased, it can never be less than the previous modification time.
+- The assignment to the variable `lmt` is incorrect. It should be `lmt=$(stat -c %Y "$1")` to get the modification time of the file. `%W` gives the time of creation of the file.
+- Assignment of `plmt` is correct.
+- The python file execution should be `python3 "$1"` to execute the python file passed as an argument, not `python3 "$2"`.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -597,6 +647,11 @@ Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 
 (a), (c)
 
+### Explanation
+
+- `sed '1,3d; 7,9d; 16,$d;' test.txt` will delete lines 1 to 3, 7 to 9, and from line 16 to the end of the file, this is same as printing lines 4 to 6 and 10 to 15. We do not use `-n` here as we want the default printing.
+- `sed -n '4,6p; 10,15p' test.txt` will print lines 4 to 6 and 10 to 15. `-n` suppresses the automatic printing of the pattern space, so we have to explicitly print the lines we want.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -620,6 +675,13 @@ sed 's/.*/&\n&/' a.txt > b.txt
 ### Answer
 
 (d)
+
+### Explanation
+
+- `\n` is a newline character in `sed`.
+- `&` is the matched pattern in `sed`.
+- `s/.*/&\n&/` will duplicate each line in the file `a.txt`.
+- So, the number of lines in `b.txt` will be twice the number of lines in `a.txt`.
 
 ---
 
@@ -686,6 +748,13 @@ s/\([[:digit:]]\)-\([[:digit:]]\)/\1\2/g
 
 (c), (d)
 
+### Explanation
+
+- (a) Statement two has incorrect order of backreferences.
+- (b) Will remove all hyphens from the file, including the ones in email id.
+- (c) Will remove hyphens from the phone numbers only. This is specific pattern matching only those two formats of phone numbers.
+- (d) Will remove hyphens from the phone numbers only. This is a generic pattern matching any two digits separated by a hyphen. This can also remove hyphen from email ids if the email id has two digits separated by a hyphen, however that is not present in the given input.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -716,6 +785,17 @@ END {
 ### Answer
 
 (a)
+
+### Explanation
+
+- `echo {a,b,c,c}{c,c,e,f}` will expand to `ac ac ae af bc bc be bf cc cc ce cf cc cc ce cf`.
+- `tr ' ' '\n'` will replace spaces with newlines. Putting each word in a separate line.
+- `sort` will sort the lines.
+- `uniq` will remove duplicate lines.
+- The `awk` script adds the line number to the variable `n` for each line, then prints the value.
+- There will be $9$ lines after `uniq` and the sum of the first $9$ natural numbers is $45$.
+- To find the number of unique elements, simply remove the intra-brace duplicates and multiply their cardinality.
+- To find the sum of first $n$ natural numbers, use the formula $\frac{n(n+1)}{2}$.
 
 ---
 
@@ -770,6 +850,12 @@ ORS  The output record separator, by default a newline.
 
 (a), (c), (d)
 
+### Explanation
+
+- `FS` needs to be set to `,` for correct field extraction. This can be done using the `-F` option or setting the `FS` variable in the `BEGIN` block.
+- `OFS` needs to be set to `:` for the output field separator if separating the terms in `print` with `,`, or we can concatenate the fields with the string ":" directly without setting and using `OFS`.
+- `ORS` needs to be set to `\n\n`, or we need to explicitly print a `\n` at the end of the `print` statement to separate the records with two newlines.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -815,5 +901,9 @@ FNR      The input record number in the current input file.
 ### Answer
 
 (d)
+
+### Explanation
+
+- Here we print `FILENAME` at the END. Which is always the last file name in the list of files passed as arguments. Everything else is irrelevant.
 
 ---
