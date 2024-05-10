@@ -1,4 +1,4 @@
-# System Commands January 2023  OPPE-1 Set-1
+# System Commands January 2023 OPPE-1 Set-1
 
 **Pattern:**
 Best 3(15) from Section 1
@@ -6,22 +6,26 @@ Best 3(20) from Section 2
 Total mark 105
 
 ## Section-1 Problem 1
-Write a script to create a link named `storage` in the current directory to the directory, its path is stored in the variable `DIR_PATH`.
+
+Write a script to create a link named `storage` in the current directory to a directory whose path is stored in the variable `DIR_PATH`.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -38,12 +42,13 @@ script 2>&1
 
 [[ -h storage ]] || echo ./storage is not an expected link type.
 
-echo $line > "$DIR_PATH/$file" 
-cat "$DIR_PATH/$file"
+echo $line > "$DIR_PATH/$file"
+cat "storage/$file"
 
 ```
 
-### Solution 
+### Solution
+
 ```bash
 ln -s "$DIR_PATH" storage
 ```
@@ -53,6 +58,7 @@ ln -s "$DIR_PATH" storage
 #### Public
 
 ##### Input 1
+
 ```
 file
 info
@@ -60,6 +66,7 @@ dir
 ```
 
 ##### Output 1
+
 ```
 info
 ```
@@ -67,6 +74,7 @@ info
 #### Private
 
 ##### Input 1
+
 ```
 file
 info2
@@ -74,11 +82,13 @@ info2
 ```
 
 ##### Output 1
+
 ```
 info2
 ```
 
 ##### Input 2
+
 ```
 file3
 info3
@@ -86,30 +96,36 @@ newdir
 ```
 
 ##### Output 2
+
 ```
 info3
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 2
+
 Write a function `parent-of-parent` to return the parent of parent directory of the file/directory that is passed as an argument.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -122,7 +138,8 @@ parent-of-parent "$d" 2>&1
 
 ```
 
-### Solution 
+### Solution
+
 ```bash
 function parent-of-parent() {
     echo "$(dirname $(dirname $1))"
@@ -134,21 +151,25 @@ function parent-of-parent() {
 #### Public
 
 ##### Input 1
+
 ```
 /a/b/c/d
 ```
 
 ##### Output 1
+
 ```
 a/b
 ```
 
 ##### Input 2
+
 ```
 /tmp/1/2/3
 ```
 
 ##### Output 2
+
 ```
 /tmp/1
 ```
@@ -156,66 +177,79 @@ a/b
 #### Private
 
 ##### Input 1
+
 ```
 /tmp/a_jungle/tiger_cave/cubs
 ```
 
 ##### Output 1
+
 ```
 /tmp/a_jungle
 ```
 
 ##### Input 2
+
 ```
 p/q/r/s/t/u/v/w/x/y/z
 ```
 
 ##### Output 2
+
 ```
 p/q/r/s/t/u/v/w/x
 ```
 
 ##### Input 3
+
 ```
 /p/q/r/s/t/u/v/w/x/y/z
 ```
 
 ##### Output 3
+
 ```
 /p/q/r/s/t/u/v/w/x
 ```
 
 ##### Input 4
+
 ```
 /
 ```
 
 ##### Output 4
+
 ```
 /
 ```
 
 ##### Input 5
+
 ```
 /tmp/a
 ```
 
 ##### Output 5
+
 ```
 /
 ```
 
 ##### Input 6
+
 ```
 /tmp
 ```
 
 ##### Output 6
+
 ```
 /
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 3
@@ -223,24 +257,28 @@ p/q/r/s/t/u/v/w/x
 A company collected some data from the user and stored it in a CSV file `data.txt` in the current working directory. It contains the fields name, date of birth and location respectively.
 
 Write a script to find all person whose name and location starts with same character.
+
 - Print the entire line if the above condition matches
 - Example: `Kelley McGarrell,1955-08-15,Kotabumi`
-    - Here the "Kelly McGarell" and "Kotabumi" starts with the same letter K
+  - Here the "Kelly McGarell" and "Kotabumi" starts with the same letter K
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -251,9 +289,10 @@ cat > data.csv
 script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
-egrep "^(.)[^,]+,.+,\1[^,]" data.csv
+grep -E "^(.)[^,]+,.+,\1[^,]" data.csv
 ```
 
 ### Test cases
@@ -261,6 +300,7 @@ egrep "^(.)[^,]+,.+,\1[^,]" data.csv
 #### Public
 
 ##### Input 1
+
 ```
 Kelley McGarrell,1955-08-15,Kotabumi
 Lillis Inglesant,1993-08-20,Padre Las Casas
@@ -270,11 +310,13 @@ Darcie Rowbury,1985-09-14,Pocos de Caldas
 ```
 
 ##### Output 1
+
 ```
 Kelley McGarrell,1955-08-15,Kotabumi
 ```
 
 ##### Input 2
+
 ```
 Bran McClelland,2003-09-19,Bongor
 Salome Chasles,1997-03-08,Santarem
@@ -285,6 +327,7 @@ Darcie Rowbury,1985-09-14,Pocos de Caldas
 ```
 
 ##### Output 2
+
 ```
 Bran McClelland,2003-09-19,Bongor
 Salome Chasles,1997-03-08,Santarem
@@ -293,6 +336,7 @@ Salome Chasles,1997-03-08,Santarem
 #### Private
 
 ##### Input 1
+
 ```
 Salome Chasles,1997-03-08,Santarem
 Lillis Inglesant,1993-08-20,Padre Las Casas
@@ -302,12 +346,14 @@ Darcie Rowbury,1985-09-14,Pocos de Caldas
 ```
 
 ##### Output 1
+
 ```
 Salome Chasles,1997-03-08,Santarem
 
 ```
 
 ##### Input 2
+
 ```
 Giorgi Banister,2001-12-09,Qiaozhen
 Camala Woolner,1986-12-25,Krajan Karangwage
@@ -1249,6 +1295,7 @@ Ambrosi Parkman,2005-03-27,Fort Worth
 ```
 
 ##### Output 2
+
 ```
 Phineas Linden,1977-08-04,Przodkowo
 Erin Overil,1959-02-28,Eci
@@ -1298,6 +1345,7 @@ Salome Chasles,1997-03-08,Santarem
 ```
 
 ##### Input 3
+
 ```
 Giorgi Banister,2001-12-09,Qiaozhen
 Camala Woolner,1986-12-25,Krajan Karangwage
@@ -1403,6 +1451,7 @@ Elvis Carwardine,1968-06-25,Velky Tynec
 ```
 
 ##### Output 3
+
 ```
 Phineas Linden,1977-08-04,Przodkowo
 Erin Overil,1959-02-28,Eci
@@ -1413,36 +1462,43 @@ Adriana McCurtin,2000-10-02,Apeldoorn
 ```
 
 ##### Input 4
+
 ```
 Truman Rawet,1972-05-03,Great Neck
 Paulette Stabler,1974-06-12,Xingou
 ```
 
 ##### Output 4
+
 ```
 
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 4
+
 Write a script to execute the bash script `run.sh` and print "SUCCESS" if it exits with status 0, otherwise print "FAIL". Note that the file may not have execute permission.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -1454,7 +1510,8 @@ cat > run.sh
 script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 bash run.sh &> /dev/null && echo SUCCESS || echo FAIL
 ```
@@ -1464,21 +1521,25 @@ bash run.sh &> /dev/null && echo SUCCESS || echo FAIL
 #### Public
 
 ##### Input 1
+
 ```
 echo 1
 ```
 
 ##### Output 1
+
 ```
 SUCCESS
 ```
 
 ##### Input 2
+
 ```
 mkdir
 ```
 
 ##### Output 2
+
 ```
 FAIL
 ```
@@ -1486,45 +1547,54 @@ FAIL
 #### Private
 
 ##### Input 1
+
 ```
 date
 ```
 
 ##### Output 1
+
 ```
 SUCCESS
 ```
 
 ##### Input 2
+
 ```
 data
 ```
 
 ##### Output 2
+
 ```
 FAIL
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 1
-Write a script to verify the exact word "System" or "Commands" (case-sensitive) exist in the file `data.txt` .  If any of the words are present in the file, print `0` else `1`. Do not print anything else. Note that the words may occur on separate lines as well.
+
+Write a script to verify the exact word "System" or "Commands" (case-sensitive) exist in the file `data.txt`. If any of the words are present in the file, print `0` else `1`. Do not print anything else. Note that the words may occur on separate lines as well.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -1536,7 +1606,8 @@ script 2>&1
 
 ```
 
-### Solution 
+### Solution
+
 ```bash
 grep -q -e "\bSystem\b" -e "\bCommands\b" data.txt
 echo $?
@@ -1547,43 +1618,51 @@ echo $?
 #### Public
 
 ##### Input 1
+
 ```
 System
 Commands
 ```
 
 ##### Output 1
+
 ```
 0
 ```
 
 ##### Input 2
+
 ```
 system
 
 ```
 
 ##### Output 2
+
 ```
 1
 ```
 
 ##### Input 3
+
 ```
 commands
 ```
 
 ##### Output 3
+
 ```
 1
 ```
 
 ##### Input 4
+
 ```
 System Commands
 ```
 
 ##### Output 4
+
 ```
 0
 ```
@@ -1591,65 +1670,78 @@ System Commands
 #### Private
 
 ##### Input 1
+
 ```
 System Commands
 ```
 
 ##### Output 1
+
 ```
 0
 ```
 
 ##### Input 2
+
 ```
 Basic Commands
 ```
 
 ##### Output 2
+
 ```
 0
 ```
 
 ##### Input 3
+
 ```
 Systemd
 ```
 
 ##### Output 3
+
 ```
 1
 ```
 
 ##### Input 4
+
 ```
 Commandspack
 ```
 
 ##### Output 4
+
 ```
 1
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 2
+
 Write a script to count and print the number of files (not directory) present in the directory `./data/`
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -1665,9 +1757,10 @@ done
 script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
-ls -l ./data | grep "^-" | wc -l
+ls -l ./data | grep "^-" -c
 ```
 
 ### Test cases
@@ -1675,6 +1768,7 @@ ls -l ./data | grep "^-" | wc -l
 #### Public
 
 ##### Input 1
+
 ```
 file_1
 file_2
@@ -1685,11 +1779,13 @@ directory_2
 ```
 
 ##### Output 1
+
 ```
 3
 ```
 
 ##### Input 2
+
 ```
 file_1
 file_2
@@ -1698,6 +1794,7 @@ directory_1
 ```
 
 ##### Output 2
+
 ```
 2
 ```
@@ -1705,6 +1802,7 @@ directory_1
 #### Private
 
 ##### Input 1
+
 ```
 file_1
 file_2
@@ -1715,11 +1813,13 @@ directory_2
 ```
 
 ##### Output 1
+
 ```
 2
 ```
 
 ##### Input 2
+
 ```
 a
 b
@@ -1729,11 +1829,13 @@ d
 ```
 
 ##### Output 2
+
 ```
 0
 ```
 
 ##### Input 3
+
 ```
 1
 2
@@ -1745,12 +1847,14 @@ file
 ```
 
 ##### Output 3
+
 ```
 1
 
 ```
 
 ##### Input 4
+
 ```
 file
 file
@@ -1760,34 +1864,41 @@ file3
 ```
 
 ##### Output 4
+
 ```
 2
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 3
+
 The current working directory contains a directory named `data` that contains a file named `link`.
 
 Write a script to identify the type of file `link`.
+
 - Print "HARDLINK" if the file has more than 1 hard link.
 - Print "SOFTLINK" if the files is a soft link.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -1807,7 +1918,8 @@ script 2>&1
 
 ```
 
-### Solution 
+### Solution
+
 ```bash
 file_info="$(ls -l ./data/link )"
 temp="${file_info#* }"
@@ -1822,22 +1934,26 @@ hardlink_count="${temp%% *}"
 #### Public
 
 ##### Input 1
+
 ```
 0
 
 ```
 
 ##### Output 1
+
 ```
 SOFTLINK
 ```
 
 ##### Input 2
+
 ```
 1
 ```
 
 ##### Output 2
+
 ```
 HARDLINK
 ```
@@ -1845,28 +1961,33 @@ HARDLINK
 #### Private
 
 ##### Input 1
+
 ```
 17
 
 ```
 
 ##### Output 1
+
 ```
 SOFTLINK
 ```
 
 ##### Input 2
+
 ```
 24
 
 ```
 
 ##### Output 2
+
 ```
 HARDLINK
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 4
@@ -1874,6 +1995,7 @@ HARDLINK
 Write a script to find the largest file by size in the current directory.
 
 Hint:
+
 ```
 $ sort --help
 Usage: sort [OPTION]... [FILE]...
@@ -1905,19 +2027,22 @@ Ordering options:
 ```
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -1927,15 +2052,16 @@ cat | base64 -d > tf.tar
 tar xf tf.tar
 rm tf.tar
 
-script 2>&1 
+script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
-ls -l | 
+ls -l |
     while read line; do
     echo ${line//  / }
-    done | 
+    done |
     sort -t " " -k 5 -rn |
     head -1 |
     cut -d " " -f 9
@@ -1949,6 +2075,7 @@ ls -l | awk '$5 > mx { mx=$5; mv=$9 } END { print mv }'
 #### Public
 
 ##### Input 1
+
 ```
 YQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
@@ -2673,11 +2800,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 ```
 
 ##### Output 1
+
 ```
 a
 ```
 
 ##### Input 2
+
 ```
 YgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
@@ -2863,6 +2992,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 ```
 
 ##### Output 2
+
 ```
 c
 ```
@@ -2870,6 +3000,7 @@ c
 #### Private
 
 ##### Input 1
+
 ```
 YgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
@@ -3594,11 +3725,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 ```
 
 ##### Output 1
+
 ```
 z
 ```
 
 ##### Input 2
+
 ```
 ZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
@@ -3784,11 +3917,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 ```
 
 ##### Output 2
+
 ```
 g
 ```
 
 ##### Input 3
+
 ```
 aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
@@ -3974,6 +4109,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 ```
 
 ##### Output 3
+
 ```
 j
 ```

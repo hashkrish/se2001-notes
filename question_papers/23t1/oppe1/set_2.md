@@ -1,4 +1,4 @@
-# System Commands January 2023  OPPE-1 Set-2
+# System Commands January 2023 OPPE-1 Set-2
 
 **Pattern:**
 Best 3(15) from Section 1
@@ -6,22 +6,26 @@ Best 3(20) from Section 2
 Total marks 105
 
 ## Section-1 Problem 1
+
 Write a script to create a link named `storage` in the current directory to the file, its path is stored in the variable `FILE_PATH` such that the content in the link persists even the source file is deleted.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -37,12 +41,13 @@ script 2>&1
 
 [[ -h storage ]] && echo ./storage is not an expected link type.
 
-echo $line > "$DIR_PATH/$file" 
-cat "$DIR_PATH/$file"
+echo $line > "$DIR_PATH/$file"
+cat "storage/$file"
 
 ```
 
-### Solution 
+### Solution
+
 ```bash
 ln "$FILE_PATH" storage
 ```
@@ -52,6 +57,7 @@ ln "$FILE_PATH" storage
 #### Public
 
 ##### Input 1
+
 ```
 file
 info
@@ -59,6 +65,7 @@ dir
 ```
 
 ##### Output 1
+
 ```
 info
 ```
@@ -66,6 +73,7 @@ info
 #### Private
 
 ##### Input 1
+
 ```
 file
 info2
@@ -73,11 +81,13 @@ info2
 ```
 
 ##### Output 1
+
 ```
 info2
 ```
 
 ##### Input 2
+
 ```
 file3
 info3
@@ -85,35 +95,40 @@ newdir
 ```
 
 ##### Output 2
+
 ```
 info3
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 2
 
-In a school consists of first to twelfth standard, each standard has 5 sections named from `A` to `E`. So, the classroom number is given as standard in number followed by section, for an example `12E`, `3C`, etc.. Each classroom has 40 students. There is a directory for every classroom. All the directories can be located inside the current directory. There is a file for every student named from 1 to 40 in every directory.
+In a school consists of first to twelfth standard, each standard has 5 sections named from `A` to `E`. So, the classroom number is given as standard (in number) followed by section, for an example `12E`, `3C`, etc... Each classroom has 40 students. There is a directory for every classroom. All the directories can be located inside the current directory. There is a file for every student named from 1 to 40 in every directory.
 
-Suddenly, the school experienced a 40% drop in first and sixth standard, so they reduced the number of students in each classroom to 32. 
+Suddenly, the school experienced a 40% drop in first and sixth standard, so they reduced the number of students in each classroom to 32.
 
 Your task is to remove the extra files in the respective directories.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -137,12 +152,15 @@ rm {1,6}{A..E}/{33..40}
 ### Test cases
 
 #### Public
+
 ##### Input 1
+
 ```
 213123
 ```
 
 ##### Output 1
+
 ```
 .
 ./10A
@@ -2528,14 +2546,16 @@ rm {1,6}{A..E}/{33..40}
 
 ```
 
-
 #### Private
+
 ##### Input 1
+
 ```
 12434
 ```
 
 ##### Output 1
+
 ```
 .
 ./10A
@@ -4922,6 +4942,7 @@ rm {1,6}{A..E}/{33..40}
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 3
@@ -4929,24 +4950,28 @@ rm {1,6}{A..E}/{33..40}
 A company collected some data from the user and stored it in a CSV file `data.txt` in the current working directory. It contains the fields name, date of birth (YYYY-MM-DD) and location respectively.
 
 Write a script to find all person whose month and date have the same numerical value.
+
 - Print the entire line if the above condition matches
 - Example: `Aksel Cockell,1972-03-03,Skaryszew`
-    - Here the month `03` and date `03` are the same.
+  - Here the month `03` and date `03` are the same.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -4958,7 +4983,8 @@ cat > data.csv
 script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 egrep "^[^,]+,[0-9]{4}-(..)-\1,[^,]+" data.csv
 ```
@@ -4968,6 +4994,7 @@ egrep "^[^,]+,[0-9]{4}-(..)-\1,[^,]+" data.csv
 #### Public
 
 ##### Input 1
+
 ```
 Giorgi Banister,2001-12-09,Qiaozhen
 Camala Woolner,1986-12-25,Krajan Karangwage
@@ -5038,6 +5065,7 @@ Sauncho Pesic,1968-05-05,Malaba
 ```
 
 ##### Output 1
+
 ```
 Lyndsey Jelly,1985-02-02,Qibu
 Sauncho Pesic,1968-05-05,Malaba
@@ -5045,6 +5073,7 @@ Sauncho Pesic,1968-05-05,Malaba
 ```
 
 ##### Input 2
+
 ```
 Consuela Speakman,1973-07-15,Longchiqiao
 Lyndsey Jelly,1985-02-02,Qibu
@@ -5052,6 +5081,7 @@ Lyndsey Jelly,1985-02-02,Qibu
 ```
 
 ##### Output 2
+
 ```
 Lyndsey Jelly,1985-02-02,Qibu
 
@@ -5060,6 +5090,7 @@ Lyndsey Jelly,1985-02-02,Qibu
 #### Private
 
 ##### Input 1
+
 ```
 Aldrich Batchan,1995-11-14,Koltubanovskiy
 Delcina Froome,1967-05-01,Xingzhen
@@ -5120,6 +5151,7 @@ Cointon Tieman,1989-05-06,Frantiskovy Lazne
 ```
 
 ##### Output 1
+
 ```
 Helsa Schnieder,1963-08-08,Beruniy
 Aksel Cockell,1972-03-03,Skaryszew
@@ -5127,6 +5159,7 @@ Aksel Cockell,1972-03-03,Skaryszew
 ```
 
 ##### Input 2
+
 ```
 Zed Spera,1983-07-26,Simpang
 Fawne Kordova,1984-11-04,Castro
@@ -5323,6 +5356,7 @@ Dari Gregorace,1997-08-28,Olafulihaa
 ```
 
 ##### Output 2
+
 ```
 Ruby Avramow,1995-04-04,Visnjevac
 Anton Schohier,1955-08-08,Jemielno
@@ -5331,6 +5365,7 @@ Nona Wagen,1956-11-11,Lubasz
 ```
 
 ##### Input 3
+
 ```
 Lyndsey Jelly,1985-02-02,Qibu
 Sauncho Pesic,1968-05-05,Malaba
@@ -5364,6 +5399,7 @@ Lind Blagdon,1957-08-08,Oum Hadjer
 ```
 
 ##### Output 3
+
 ```
 Lyndsey Jelly,1985-02-02,Qibu
 Sauncho Pesic,1968-05-05,Malaba
@@ -5396,25 +5432,30 @@ Lind Blagdon,1957-08-08,Oum Hadjer
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 4
+
 Write a script to execute the bash script `run.sh` and print "SUCCESS" if the stdout from the executed script is "OK" otherwise print "FAIL". Note that the file may not have execute permission.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 dir=$RANDOM
-while [ -d "$dir" ]; do 
+while [ -d "$dir" ]; do
   dir=$RANDOM
 done
 mkdir "$dir" &> /dev/null
@@ -5422,10 +5463,11 @@ cd "$dir"
 
 cat > run.sh
 
-script 2>&1 
+script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 [[ "$(bash run.sh 2> /dev/null)" == "OK" ]] && echo SUCCESS || echo FAIL
 ```
@@ -5435,21 +5477,25 @@ script 2>&1
 #### Public
 
 ##### Input 1
+
 ```
 echo SUCC${E}SS
 ```
 
 ##### Output 1
+
 ```
 FAIL
 ```
 
 ##### Input 2
+
 ```
 echo NOT OK | sed 's/NOT //'
 ```
 
 ##### Output 2
+
 ```
 SUCCESS
 ```
@@ -5457,72 +5503,87 @@ SUCCESS
 #### Private
 
 ##### Input 1
+
 ```
 
 ```
 
 ##### Output 1
+
 ```
 FAIL
 ```
 
 ##### Input 2
+
 ```
 echo OK 1>&2
 ```
 
 ##### Output 2
+
 ```
 FAIL
 ```
 
 ##### Input 3
+
 ```
 echo NOT OK
 ```
 
 ##### Output 3
+
 ```
 FAIL
 ```
 
 ##### Input 4
+
 ```
 echo O${K}K
 ```
 
 ##### Output 4
+
 ```
 SUCCESS
 ```
 
 ##### Input 5
+
 ```
 echo OK
 ```
 
 ##### Output 5
+
 ```
 SUCCESS
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 1
+
 Write a script to count and print the number of directories present in the directory `./data/`
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
 while [[ -a $DIR ]]; do DIR=$RANDOM; done
@@ -5535,28 +5596,31 @@ script 2>&1
 
 ```
 
-### Solution 
-```bash
-ls -l ./data | grep "^d" | wc -l
-```
+### Solution
 
+```bash
+ls -l ./data | grep "^d" -c
+```
 
 ### Test cases
 
 #### Public
 
 ##### Input 1
+
 ```
 mkdir -p data/{1..10}
 
 ```
 
 ##### Output 1
+
 ```
 10
 ```
 
 ##### Input 2
+
 ```
 mkdir -p data/{1..10}
 touch data/{1..5}
@@ -5564,6 +5628,7 @@ touch data/{1..5}
 ```
 
 ##### Output 2
+
 ```
 10
 ```
@@ -5571,17 +5636,20 @@ touch data/{1..5}
 #### Private
 
 ##### Input 1
+
 ```
 mdkir {1..10}
 
 ```
 
 ##### Output 1
+
 ```
 0
 ```
 
 ##### Input 2
+
 ```
 touch a b c
 mkdir -p data/{1..10}{1..10}
@@ -5589,11 +5657,13 @@ mkdir -p data/{1..10}{1..10}
 ```
 
 ##### Output 2
+
 ```
 100
 ```
 
 ##### Input 3
+
 ```
 mkdir -p data/{a..z}{1..10}
 touch data/1
@@ -5603,11 +5673,13 @@ touch data/2
 ```
 
 ##### Output 3
+
 ```
 260
 ```
 
 ##### Input 4
+
 ```
 mkdir -p data/{a..z}{1..3}
 touch data/1
@@ -5617,27 +5689,32 @@ touch data/2
 ```
 
 ##### Output 4
+
 ```
 78
 ```
 
 ##### Input 5
+
 ```
 mkdir -p data/data
 
 ```
 
 ##### Output 5
+
 ```
 1
 ```
 
 ##### Input 6
+
 ```
 mkdir -p data/{gui,tui}
 ```
 
 ##### Output 6
+
 ```
 2
 ```
@@ -5645,19 +5722,23 @@ mkdir -p data/{gui,tui}
 ---
 
 ## Section-2 Problem 2
-Write a script to verify the exact words "System" and "Commands" (case-sensitive) exist in the file `data.txt` .  If the words are present in the file, print `0` else `1`. Do not print anything else. Note that the words may occur on separate lines as well.
+
+Write a script to verify the exact words "System" and "Commands" (case-sensitive) exist in the file `data.txt` . If the words are present in the file, print `0` else `1`. Do not print anything else. Note that the words may occur on separate lines as well.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
 while [[ -a $DIR ]]; do DIR=$RANDOM; done
@@ -5669,7 +5750,8 @@ cat > data.txt
 script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 grep -q "\bSystem\b" data.txt &&
     grep -q "\bCommands\b" data.txt
@@ -5681,6 +5763,7 @@ echo $?
 #### Public
 
 ##### Input 1
+
 ```
 System
 Commands
@@ -5688,11 +5771,13 @@ Commands
 ```
 
 ##### Output 1
+
 ```
 0
 ```
 
 ##### Input 2
+
 ```
 system
 command
@@ -5700,17 +5785,20 @@ command
 ```
 
 ##### Output 2
+
 ```
 1
 ```
 
 ##### Input 3
+
 ```
 commands
 
 ```
 
 ##### Output 3
+
 ```
 1
 ```
@@ -5718,71 +5806,85 @@ commands
 #### Private
 
 ##### Input 1
+
 ```
 1
 ```
 
 ##### Output 1
+
 ```
 0
 ```
 
 ##### Input 2
+
 ```
 Basic Commands
 System Introduction
 ```
 
 ##### Output 2
+
 ```
 0
 ```
 
 ##### Input 3
+
 ```
 Systemd
 
 ```
 
 ##### Output 3
+
 ```
 1
 ```
 
 ##### Input 4
+
 ```
 Commandspack
 
 ```
 
 ##### Output 4
+
 ```
 1
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 <div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 3
+
 The current working directory contains a directory named `data` that contains a file named `link`.
 
 Write a script to identify the type of file `link`.
+
 - Print "HARDLINK" if the file have more than 1 hard links.
 - Print "SOFTLINK" if the files is a soft link.
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
 while [[ -a $DIR ]]; do DIR=$RANDOM; done
@@ -5793,7 +5895,7 @@ read line
 touch $line
 mkdir data
 
-[[ $line == *a* ]] && 
+[[ $line == *a* ]] &&
     ln $line data/link ||
     ln -s ../$line data/link
 
@@ -5802,7 +5904,8 @@ script 2>&1
 
 ```
 
-### Solution 
+### Solution
+
 ```bash
 file_info="$(ls -l ./data/link )"
 temp="${file_info#* }"
@@ -5817,23 +5920,27 @@ hardlink_count="${temp%% *}"
 #### Public
 
 ##### Input 1
+
 ```
 red
 
 ```
 
 ##### Output 1
+
 ```
 SOFTLINK
 ```
 
 ##### Input 2
+
 ```
 orange
 
 ```
 
 ##### Output 2
+
 ```
 HARDLINK
 ```
@@ -5841,26 +5948,31 @@ HARDLINK
 #### Private
 
 ##### Input 1
+
 ```
 yellow
 ```
 
 ##### Output 1
+
 ```
 SOFTLINK
 ```
 
 ##### Input 2
+
 ```
 magenta
 ```
 
 ##### Output 2
+
 ```
 HARDLINK
 ```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 4
@@ -5902,16 +6014,19 @@ Ordering options:
 ```
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
 while [[ -a $DIR ]]; do DIR=$RANDOM; done
@@ -5922,13 +6037,14 @@ cat | bash
 script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
-find . -type f | 
+find . -type f |
     while read line; do
     line="$(ls -l $line)"
     echo ${line//  / }
-    done | 
+    done |
     sort -t " " -k 5 -rn |
     head -1 |
     cut -d " " -f 9
@@ -5937,23 +6053,25 @@ find . -type f |
 find -exec ls -l {} \; | awk '$5 > mx { mx=$5; mv=$9 } END { print mv }'
 ```
 
-
 ### Test cases
 
 #### Public
 
 ##### Input 1
+
 ```
 touch a b c
 echo 1234 > b
 ```
 
 ##### Output 1
+
 ```
 ./b
 ```
 
 ##### Input 2
+
 ```
 touch {1..100}
 echo 123456789 > 9
@@ -5965,11 +6083,13 @@ echo 12345 > 5
 ```
 
 ##### Output 2
+
 ```
 ./9
 ```
 
 ##### Input 3
+
 ```
 mkdir {a..c}
 touch {a..c}/0
@@ -5977,6 +6097,7 @@ echo 1234 > b/0
 ```
 
 ##### Output 3
+
 ```
 ./b/0
 ```
@@ -5984,6 +6105,7 @@ echo 1234 > b/0
 #### Private
 
 ##### Input 1
+
 ```
 touch {1..100}
 echo 123456789 > 9
@@ -5995,22 +6117,26 @@ echo 12345 > 5
 ```
 
 ##### Output 1
+
 ```
 ./8
 ```
 
 ##### Input 2
+
 ```
 touch {1..100}
 echo > 15
 ```
 
 ##### Output 2
+
 ```
 ./15
 ```
 
 ##### Input 3
+
 ```
 mkdir {a..c}
 touch {a..c}/0
@@ -6020,11 +6146,13 @@ echo 12345678 >> a/0
 ```
 
 ##### Output 3
+
 ```
 ./a/0
 ```
 
 ##### Input 4
+
 ```
 mkdir -p {a..c}/{a..c}/{a..c}/{a..c}
 touch {a..c}/{a..c}/{a..c}/{a..c}/0
@@ -6034,6 +6162,7 @@ echo 2 > a/b/b/c/0
 ```
 
 ##### Output 4
+
 ```
 ./a/b/c/c/0
 ```
