@@ -415,9 +415,9 @@ Hint:
 
 (b) `grep -E 'Alice|Rabbit' alice.txt| grep -E -c 'Alice|Rabbit'`
 
-(c) `grep 'Alice\|Rabbit' alice.txt; grep -c 'Alice\|Rabbit'`
+(c) `grep 'Alice\|Rabbit' alice.txt; grep -c 'Alice\|Rabbit' alice.txt`
 
-(d) `grep -E 'Alice|Rabbit' alice.txt; grep -E -c 'Alice|Rabbit'`
+(d) `grep -E 'Alice|Rabbit' alice.txt; grep -E -c 'Alice|Rabbit' alice.txt`
 
 ### Answer
 
