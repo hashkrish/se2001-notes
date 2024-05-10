@@ -1,9 +1,11 @@
 ## Problem 1 (SED) (Filter)
+
 Write a SED script to print the domain names of email from the standard input.
 
 Note: Domain name in an email address is anything which comes after '@'. e.g. in ashok@somemail.com the @somemail.com is the domain name.
 
 **Sample input**
+
 ```bash
 Mehta,1-322-248-9102,mehta@yahoo.net,Daman and Diu
 Malik,1-335-746-5592,malik@hotmail.com,Andhra Pradesh
@@ -13,7 +15,9 @@ Joshi,1-869-326-6582,joshi4288@hotmail.com,OR
 Subram,1-172-433-4318,subram@hotmail.edu,MH
 Sehgal,647-1701,sehgal@outlook.co.uk,DD
 ```
+
 **Sample output**
+
 ```bash
 yahoo.net
 hotmail.com
@@ -25,20 +29,23 @@ outlook.co.uk
 ```
 
 ### Prefix
+
 ```bash
 script() { echo '#!/bin/sed -f
 ```
 
 ### Suffix
+
 ```bash
 '
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
-while [ -d "$DIR" ]; do 
+while [ -d "$DIR" ]; do
   DIR=$RANDOM
 done
 mkdir -p "$DIR" &> /dev/null
@@ -48,7 +55,8 @@ script > script.sed
 cat | sed -f script.sed 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 s/.*@//
 s/,.*//
@@ -59,6 +67,7 @@ s/,.*//
 #### Public
 
 ##### Input 1
+
 ```
 Mehta,1-322-248-9102,mehta@yahoo.net,Daman and Diu
 Malik,1-335-746-5592,malik@hotmail.com,Andhra Pradesh
@@ -70,6 +79,7 @@ Sehgal,647-1701,sehgal@outlook.co.uk,DD
 ```
 
 ##### Output 1
+
 ```
 yahoo.net
 hotmail.com
@@ -83,6 +93,7 @@ outlook.co.uk
 #### Private
 
 ##### Input 1
+
 ```
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
 Persaud,268-1152,persaud302@aol.co.uk,Dadra and Nagar Haveli
@@ -91,6 +102,7 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 ```
 
 ##### Output 1
+
 ```
 protonmail.org
 aol.co.uk
@@ -99,29 +111,35 @@ hotmail.edu
 ```
 
 ##### Input 2
+
 ```
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
 ```
 
 ##### Output 2
+
 ```
 protonmail.org
 ```
 
-
 ##### Input 3
+
 ```
+
 ```
 
 ##### Output 3
-```
+
 ```
 
+```
 
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Problem 2 (SED) (logical and)
+
 Write a SED script which will print line with all the lines have the `hotmail` domain except the domain `hotmail.com`
 
 Note: Domain name in an email address is anything which comes after '@'. e.g. in ashok@somemail.com the @somemail.com is the domain name.
@@ -147,20 +165,23 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 ```
 
 ### Prefix
+
 ```bash
 script() { echo '#!/bin/sed -f
 ```
 
 ### Suffix
+
 ```bash
 '
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
-while [ -d "$DIR" ]; do 
+while [ -d "$DIR" ]; do
   DIR=$RANDOM
 done
 mkdir -p "$DIR" &> /dev/null
@@ -170,7 +191,8 @@ script > script.sed
 cat | sed -f script.sed 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 /hotmail/ {/com/d}
 /hotmail/! d
@@ -181,6 +203,7 @@ cat | sed -f script.sed 2>&1
 #### Public
 
 ##### Input 1
+
 ```
 name,phone,email,region
 Sahni,151-8534,sahni@hotmail.ca,KA
@@ -193,6 +216,7 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 ```
 
 ##### Output 1
+
 ```
 Sahni,151-8534,sahni@hotmail.ca,KA
 Subram,1-172-433-4318,subram@hotmail.edu,MH
@@ -201,6 +225,7 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 #### Private
 
 ##### Input 1
+
 ```
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
 Persaud,268-1152,persaud302@aol.co.uk,Dadra and Nagar Haveli
@@ -209,22 +234,26 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 ```
 
 ##### Output 1
+
 ```
 Subram,1-172-433-4318,subram@hotmail.edu,MH
 ```
 
 ##### Input 2
+
 ```
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
 Persaud,268-1152,persaud302@aol.co.uk,Dadra and Nagar Haveli
 ```
 
 ##### Output 2
-```
+
 ```
 
+```
 
 ##### Input 3
+
 ```
 name,phone,email,region
 Madan,1-158-662-4996,madan@outlook.ca,GA
@@ -330,6 +359,7 @@ Neel,762-4746,neel@google.couk,OR
 ```
 
 ##### Output 3
+
 ```
 Sahni,151-8534,sahni@hotmail.ca,KA
 Sara,1-448-731-6473,sara8036@hotmail.ca,Chandigarh
@@ -346,6 +376,7 @@ Chandrasekar,1-240-661-3326,chandrasekar8623@hotmail.ca,MH
 ```
 
 ##### Input 4
+
 ```
 name,phone,email,region
 Chandrasekar,1-240-661-3326,chandrasekar8623@hotmail.ca,MH
@@ -451,6 +482,7 @@ Neel,762-4746,neel@google.couk,OR
 ```
 
 ##### Output 4
+
 ```
 Chandrasekar,1-240-661-3326,chandrasekar8623@hotmail.ca,MH
 Sahni,151-8534,sahni@hotmail.ca,KA
@@ -466,40 +498,44 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 Chauhan,758-5516,chauhan@hotmail.org,Punjab
 ```
 
-
 ---
 
 <div style="page-break-after: always;"></div>
 
-
 ## Problem 3 (SED)
+
 Write a SED script to mask the first 6 digits of the phone numbers with asterisks, such that only last four digits of phone number of ten digits are visible. The phone number could be present anywhere in the text but it will be in the format of continuous ten digits starting with either of 9, 8, 7 and 6.
 
 **Sample Input**
+
 ```
 Yesterday I received a message from 9876543210, it has numerical sequence 1234567890 in it. then soon after I received the same message from 9876543211 as well. Then I called 9876543212 to inquire about it, they gave a reference id AHDISJ12354 and a fallback code 3245112341 as well.
 ```
 
 **Sample Output**
+
 ```
 Yesterday I received a message from ******3210, it has numerical sequence 1234567890 in it. then soon after I received the same message from ******3211 as well. Then I called ******3212 to inquire about it, they gave a reference id AHDISJ12354 and a fallback code 3245112341 as well.
 ```
 
 ### Prefix
+
 ```bash
 script() { echo '#!/bin/sed -f
 ```
 
 ### Suffix
+
 ```bash
 '
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
-while [ -d "$DIR" ]; do 
+while [ -d "$DIR" ]; do
   DIR=$RANDOM
 done
 mkdir -p "$DIR" &> /dev/null
@@ -509,7 +545,8 @@ script > script.sed
 cat | sed -f script.sed 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 s/\b[6789][0-9]\{5\}\([0-9]\{4\}\)\b/******\1/g
 ```
@@ -519,11 +556,13 @@ s/\b[6789][0-9]\{5\}\([0-9]\{4\}\)\b/******\1/g
 #### Public
 
 ##### Input 1
+
 ```
 Yesterday I received a message from 9876543210, it has numerical sequence 1234567890 in it. then soon after I received the same message from 9876543211 as well. Then I called 9876543212 to inquire about it, they gave a reference id AHDISJ12354 and a fallback code 3245112341 as well.
 ```
 
 ##### Output 1
+
 ```
 Yesterday I received a message from ******3210, it has numerical sequence 1234567890 in it. then soon after I received the same message from ******3211 as well. Then I called ******3212 to inquire about it, they gave a reference id AHDISJ12354 and a fallback code 3245112341 as well.
 ```
@@ -531,6 +570,7 @@ Yesterday I received a message from ******3210, it has numerical sequence 123456
 #### Private
 
 ##### Input 1
+
 ```
 9876543216 9876543216
 9876543216 9876543216
@@ -539,6 +579,7 @@ Yesterday I received a message from ******3210, it has numerical sequence 123456
 ```
 
 ##### Output 1
+
 ```
 ******3216 ******3216
 ******3216 ******3216
@@ -547,46 +588,52 @@ Yesterday I received a message from ******3210, it has numerical sequence 123456
 ```
 
 ##### Input 2
+
 ```
 9876543216
 ```
 
 ##### Output 2
+
 ```
 ******3216
 ```
 
-
 ##### Input 3
+
 ```
 1234567898
 ```
 
 ##### Output 3
+
 ```
 1234567898
 ```
 
 ##### Input 4
+
 ```
 fhgiuawohrf eiwjlakhf gviueowahrfoiqwaeyfrhiwqeao ft
 ```
 
 ##### Output 4
+
 ```
 fhgiuawohrf eiwjlakhf gviueowahrfoiqwaeyfrhiwqeao ft
 ```
-
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Problem 4 (AWK)
+
 A data file contains time series data of temperature, pressure and humidity obtained from sensors. The first line contains the headers. When certain sensor does not work it prints "Err" instead of a value.
 Write a AWK script to clean up the data by removing the rows with incomplete data while printing the total number of deleted records(lines) at the end.
 
 **Sample Input**
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
@@ -596,6 +643,7 @@ time,temperature,pressure,humidity
 ```
 
 **Sample Output**
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
@@ -604,20 +652,23 @@ time,temperature,pressure,humidity
 ```
 
 ### Prefix
+
 ```bash
 script() { echo '#!/bin/awk -f
 ```
 
 ### Suffix
+
 ```bash
 '
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
-while [ -d "$DIR" ]; do 
+while [ -d "$DIR" ]; do
   DIR=$RANDOM
 done
 mkdir -p "$DIR" &> /dev/null
@@ -627,7 +678,8 @@ script > script.awk
 cat | awk -f script.awk 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 !/Err/ {
     print
@@ -651,6 +703,7 @@ END {
 #### Public
 
 ##### Input 1
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
@@ -661,6 +714,7 @@ time,temperature,pressure,humidity
 ```
 
 ##### Output 1
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
@@ -671,6 +725,7 @@ time,temperature,pressure,humidity
 #### Private
 
 ##### Input 1
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
@@ -679,6 +734,7 @@ time,temperature,pressure,humidity
 ```
 
 ##### Output 1
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
@@ -687,19 +743,21 @@ time,temperature,pressure,humidity
 ```
 
 ##### Input 2
+
 ```
 time,temperature,pressure,humidity
 2012-10-15 12.00,Err,29.68,80
 ```
 
 ##### Output 2
+
 ```
 time,temperature,pressure,humidity
 1
 ```
 
-
 ##### Input 3
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
@@ -710,6 +768,7 @@ time,temperature,pressure,humidity
 ```
 
 ##### Output 3
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
@@ -720,18 +779,21 @@ time,temperature,pressure,humidity
 ```
 
 ##### Input 4
+
 ```
 time,temperature,pressure,humidity
 
 ```
 
 ##### Output 4
+
 ```
 time,temperature,pressure,humidity
 0
 ```
 
 ##### Input 5
+
 ```
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,Err
@@ -740,21 +802,23 @@ time,temperature,pressure,humidity
 ```
 
 ##### Output 5
+
 ```
 time,temperature,pressure,humidity
 3
 ```
-
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Problem 5 (AWK)
-The student attendance data in school is stored in CSV format. The file contains column for date and for each student and row headers with date. If a student is present it is marked as 1 else 0. 
+
+The student attendance data in school is stored in CSV format. The file contains column for date and for each student and row headers with date. If a student is present it is marked as 1 else 0.
 Write a AWK script which will count number of present days for each student and print the percentage attendance with default formatting by AWK.
 
 **Sample Input**
+
 ```
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,0,1,0,1
@@ -764,6 +828,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 ```
 
 **Sample Output**
+
 ```
 Ajay 75
 Neha 75
@@ -774,20 +839,23 @@ Minami 100
 ```
 
 ### Prefix
+
 ```bash
 script() { echo '#!/bin/awk -f
 ```
 
 ### Suffix
+
 ```bash
 '
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
-while [ -d "$DIR" ]; do 
+while [ -d "$DIR" ]; do
   DIR=$RANDOM
 done
 mkdir -p "$DIR" &> /dev/null
@@ -797,7 +865,8 @@ script > script.awk
 cat | awk -f script.awk 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 BEGIN {
     FS = ","
@@ -805,7 +874,7 @@ BEGIN {
 
 NR == 1 {
     COLUMN_COUNT = NF
-	for (i = 1; i <= NF; i++) {
+	for (i = 2; i <= NF; i++) {
 		header[i] = $i
 	}
 	next
@@ -829,6 +898,7 @@ END {
 #### Public
 
 ##### Input 1
+
 ```
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,0,1,0,1
@@ -839,6 +909,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 ```
 
 ##### Output 1
+
 ```
 Ajay 75
 Neha 75
@@ -849,6 +920,7 @@ Minami 100
 ```
 
 ##### Input 2
+
 ```
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,0,1,0,1
@@ -862,6 +934,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 ```
 
 ##### Output 2
+
 ```
 Ajay 85.7143
 Neha 42.8571
@@ -871,8 +944,8 @@ Nitish 85.7143
 Minami 100
 ```
 
-
 ##### Input 3
+
 ```
 Date,Ajay,Neha,Mayuri
 20/04/2023,1,1,0
@@ -886,6 +959,7 @@ Date,Ajay,Neha,Mayuri
 ```
 
 ##### Output 3
+
 ```
 Ajay 85.7143
 Neha 42.8571
@@ -895,6 +969,7 @@ Mayuri 71.4286
 #### Private
 
 ##### Input 1
+
 ```
 Date,Ajay,Krish,Mayuri
 20/04/2023,1,1,0
@@ -908,6 +983,7 @@ Date,Ajay,Krish,Mayuri
 ```
 
 ##### Output 1
+
 ```
 Ajay 85.7143
 Krish 42.8571
@@ -915,6 +991,7 @@ Mayuri 71.4286
 ```
 
 ##### Input 2
+
 ```
 Date,Ajay,Neha,Mayuri
 20/04/2023,1,1,0
@@ -922,14 +999,15 @@ Date,Ajay,Neha,Mayuri
 ```
 
 ##### Output 2
+
 ```
 Ajay 100
 Neha 100
 Mayuri 0
 ```
 
-
 ##### Input 3
+
 ```
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,0,1,0,1
@@ -944,6 +1022,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 ```
 
 ##### Output 3
+
 ```
 Ajay 87.5
 Neha 50
@@ -954,6 +1033,7 @@ Minami 100
 ```
 
 ##### Input 4
+
 ```
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,1,1,1,1
@@ -968,6 +1048,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 ```
 
 ##### Output 4
+
 ```
 Ajay 100
 Neha 100
@@ -977,16 +1058,17 @@ Nitish 100
 Minami 100
 ```
 
-
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Problem 6 (AWK)
-In a large bank they keep track of a file for customer interaction every day. The files `day1.csv` and `day2.csv` holds the data of customer  id, token number and counter for two days. 
+
+In a large bank they keep track of a file for customer interaction every day. The files `day1.csv` and `day2.csv` holds the data of customer id, token number and counter for two days.
 Write an **AWK script** to find all the customers who visited the bank on both the days and print customer id, token number on day 1, counter on day 1, token number on day 2 and counter on day 2. Refer the provided sample below. The files `day1.csv` and `day2.csv` will be passed as arguments respectively.
 
 **day1.csv**
+
 ```
 customer_id,token_number,counter
 1,3473,1a
@@ -1012,6 +1094,7 @@ customer_id,token_number,counter
 ```
 
 **day2.csv**
+
 ```
 customer_id,token_number,counter
 1,1254218,10z
@@ -1027,6 +1110,7 @@ customer_id,token_number,counter
 ```
 
 **Expected output**
+
 ```
 customer_id,token_number,counter,token_number,counter
 1,3473,1a,1254218,10z
@@ -1042,35 +1126,39 @@ customer_id,token_number,counter,token_number,counter
 ```
 
 ### Prefix
+
 ```bash
 script() { echo '#!/bin/awk -f
 ```
 
 ### Suffix
+
 ```bash
 '
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
-while [ -d "$DIR" ]; do 
+while [ -d "$DIR" ]; do
   DIR=$RANDOM
 done
 mkdir -p "$DIR" &> /dev/null
 cd "$DIR"
 
 script > script.awk
-while read -r line; do 
+while read -r line; do
   [ "$line" == "EOF" ] && break
-  echo $line; 
+  echo $line;
 done > day1.csv
 cat > day2.csv
 awk -f script.awk day1.csv day2.csv 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 BEGIN {
     FS=","
@@ -1091,6 +1179,7 @@ a[$1] {
 #### Public
 
 ##### Input 1
+
 ```
 customer_id,token_number,counter
 1,3473,1a
@@ -1129,6 +1218,7 @@ customer_id,token_number,counter
 ```
 
 ##### Output 1
+
 ```
 customer_id,token_number,counter,token_number,counter
 1,3473,1a,1254218,10z
@@ -1146,6 +1236,7 @@ customer_id,token_number,counter,token_number,counter
 #### Private
 
 ##### Input 1
+
 ```
 customer_id,token_number,counter
 1,3473,1a
@@ -1156,12 +1247,14 @@ customer_id,token_number,counter
 ```
 
 ##### Output 1
+
 ```
 customer_id,token_number,counter,token_number,counter
 1,3473,1a,34173,1z
 ```
 
 ##### Input 2
+
 ```
 customer_id,token_number,counter
 1,3473,1a
@@ -1172,13 +1265,14 @@ customer_id,token_number,counter
 ```
 
 ##### Output 2
+
 ```
 customer_id,token_number,counter,token_number,counter
 
 ```
 
-
 ##### Input 3
+
 ```
 customer_id,token_number,counter
 1,3473,1a
@@ -1188,12 +1282,14 @@ customer_id,token_number,counter
 ```
 
 ##### Output 3
+
 ```
 customer_id,token_number,counter,token_number,counter
 
 ```
 
 ##### Input 4
+
 ```
 customer_id,token_number,counter
 EOF
@@ -1203,13 +1299,14 @@ customer_id,token_number,counter
 ```
 
 ##### Output 4
+
 ```
 customer_id,token_number,counter,token_number,counter
 
 ```
 
-
 ##### Input 5
+
 ```
 customer_id,token_number,counter
 1,3473,1a
@@ -1246,6 +1343,7 @@ customer_id,token_number,counter
 ```
 
 ##### Output 5
+
 ```
 customer_id,token_number,counter,token_number,counter
 1,3473,1a,1254218,10z
@@ -1260,35 +1358,39 @@ customer_id,token_number,counter,token_number,counter
 
 ```
 
-
 ---
+
 <div style="page-break-after: always;"></div>
 
 ## Problem 7 (bash)
+
 Write a bash script to print the number of background processes running after terminating the running sleep processes.
 Hint: use killall command
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
-while [ -d "$DIR" ]; do 
+while [ -d "$DIR" ]; do
   DIR=$RANDOM
 done
 mkdir -p "$DIR" &> /dev/null
 cd "$DIR"
 
 mkdir -p ~/.local/bin
-while read -r line; do 
+while read -r line; do
     echo '#!/bin/sh
     sleep' $RANDOM '&' > ~/.local/bin/$line
     bash ~/.local/bin/$line &
@@ -1299,10 +1401,11 @@ done
 script 2>&1
 ```
 
-### Solution 
+### Solution
+
 ```bash
 {
-    killall sleep 
+    killall sleep
     sleep 2 # wait till all the sleep processes are killed
 } &>/dev/null
 
@@ -1314,6 +1417,7 @@ jobs | wc -l
 #### Public
 
 ##### Input 1
+
 ```
 a
 c
@@ -1322,6 +1426,7 @@ e
 ```
 
 ##### Output 1
+
 ```
 4
 ```
@@ -1329,17 +1434,20 @@ e
 #### Private
 
 ##### Input 1
+
 ```
 a
 
 ```
 
 ##### Output 1
+
 ```
 1
 ```
 
 ##### Input 2
+
 ```
 a2
 a1
@@ -1350,12 +1458,13 @@ u872
 ```
 
 ##### Output 2
+
 ```
 5
 ```
 
-
 ##### Input 3
+
 ```
 a1
 a2
@@ -1379,11 +1488,13 @@ a18
 ```
 
 ##### Output 3
+
 ```
 18
 ```
 
 ##### Input 4
+
 ```
 a6
 a7
@@ -1401,41 +1512,45 @@ a18
 ```
 
 ##### Output 4
+
 ```
 13
 ```
-
 
 ---
 
 <div style="page-break-after: always;"></div>
 
 ## Problem 8 (bash)
+
 Write a bash script to find and print the running user defined processes in the sorted order. The user defined process executable files exists only in the directory `~/.local/bin`
 
 Note: Print only the distinct values (base name) in alphabetical sorted order
 
 ### Prefix
+
 ```bash
 script() {
 ```
 
 ### Suffix
+
 ```bash
 }
 ```
 
 ### Invisible code
+
 ```bash
 DIR=$RANDOM
-while [ -d "$DIR" ]; do 
+while [ -d "$DIR" ]; do
   DIR=$RANDOM
 done
 mkdir -p "$DIR" &> /dev/null
 cd "$DIR"
 
 mkdir -p ~/.local/bin
-while read -r line; do 
+while read -r line; do
     echo '#!/bin/sh
     sleep' $RANDOM > ~/.local/bin/$line
     bash ~/.local/bin/$line &
@@ -1446,21 +1561,10 @@ done
 script 2>&1
 ```
 
-### Solution 
-```bash
-ls ~/.local/bin |
-  awk '{ print "^"$0"$" }' |
-  sort |
-  uniq > uprocs
+### Solution
 
-ps aux |
-  grep "\.local/bin" |
-  rev |
-  sed 's/\/.*//' |
-  rev |
-  grep -f uprocs |
-  sort |
-  uniq
+```bash
+ps aux | grep "\.local/bin" | sed 's/.*\///' grep -Fxf <(ls ~/.local/bin) | sort | uniq
 ```
 
 ### Test cases
@@ -1468,6 +1572,7 @@ ps aux |
 #### Public
 
 ##### Input 1
+
 ```
 a
 b
@@ -1477,6 +1582,7 @@ d
 ```
 
 ##### Output 1
+
 ```
 4
 ```
@@ -1484,6 +1590,7 @@ d
 #### Private
 
 ##### Input 1
+
 ```
 a1
 a2
@@ -1589,6 +1696,7 @@ a100
 ```
 
 ##### Output 1
+
 ```
 100
 ```
