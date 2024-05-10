@@ -33,12 +33,12 @@ for test_type in public private ; do
       echo "Output file for $input_path not found at $output_path"
       continue
     fi
-    # shellcheck disable=1091
     if [[ $test_type == "private" ]]; then
       redir="/dev/null"
     else
       redir="/dev/stdout"
     fi
+    # shellcheck disable=1091
     if diff --color=always <( if [[ -e $ppa_path/env.sh ]] ; then source "$ppa_path"/env.sh; fi ; ./"$executable" < "$input_path" | col) <( col < "$output_path" ) &>"$redir" ; then
       echo "Passed!"
       ((passed++))
