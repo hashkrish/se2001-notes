@@ -34,8 +34,12 @@ for test_type in public private ; do
       continue
     fi
     # shellcheck disable=1091
-    [[ $test_type == "private" ]] && redir="&>/dev/null"
-    if eval "diff --color=always <( if [[ -e $ppa_path/env.sh ]] ; then source $ppa_path/env.sh; fi ; ./$executable < $input_path | col) <( col < $output_path ) $redir" ; then
+    if [[ $test_type == "private" ]]; then
+      redir="/dev/null"
+    else
+      redir="/dev/stdout"
+    fi
+    if diff --color=always <( if [[ -e $ppa_path/env.sh ]] ; then source "$ppa_path"/env.sh; fi ; ./"$executable" < "$input_path" | col) <( col < "$output_path" ) &>"$redir" ; then
       echo "Passed!"
       ((passed++))
     else

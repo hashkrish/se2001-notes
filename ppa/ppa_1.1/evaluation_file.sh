@@ -41,8 +41,12 @@ for test_type in public private ; do
     done < "$input_path"
     mkdir -p level1
     ../script.sh 2>&1 || err "Failed to execute script.sh"
-    [[ $test_type == "private" ]] && redir="&>/dev/null"
-    if eval "diff --color=always <( ls -1 level1 | sort ) <( sort $output_path) $redir"; then
+    if [[ $test_type == "private" ]] ; then
+      redir="/dev/null"
+    else
+      redir="/dev/stdout"
+    fi
+    if diff --color=always <( ls -1 level1 | sort ) <( sort "$output_path" ) &>"$redir"; then
       echo "Passed!"
       ((passed++))
     else

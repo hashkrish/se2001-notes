@@ -40,8 +40,12 @@ for test_type in public private ; do
       touch "$inp"
     done < "$input_path"
     mkdir -p level1
-    [[ $test_type == "private" ]] && redir="&>/dev/null"
-    if eval "diff --color=always <(../script.sh 2>&1 | col) <( col < $output_path ) $redir"; then
+    if [[ $test_type == "private" ]]; then
+      redir="/dev/null"
+    else
+      redir="/dev/stdout"
+    fi
+    if diff --color=always <(../script.sh 2>&1 | col) <( col < "$output_path" ) &>"$redir"; then
       echo "Passed!"
       ((passed++))
     else
