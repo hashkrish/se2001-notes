@@ -10,7 +10,11 @@ Do not move any other files other than `.txt` files anywhere from the current di
 
 Write only a single line bash command to perform the above task.
 
-Your script should not produce any output. Your script will not receive any input from arguments or standard input.
+The script should not produce any output.
+
+The script will not receive any input from arguments or standard input.
+
+The command should be saved in the file `movetext.sh`
 
 ## Sample Input
 
