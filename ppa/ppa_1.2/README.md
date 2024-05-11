@@ -8,7 +8,7 @@ Write a Bash command to print the file types of all the files stored in the curr
 
 The output should be in the format as described below.
 The first column is file/directory name and the second column tells about the file type.
-Your script `script.sh` will not be provided any input as arguments or standard input.
+Your script `filetypes.sh` will not be provided any input as arguments or standard input.
 
 ## Sample Input
 
