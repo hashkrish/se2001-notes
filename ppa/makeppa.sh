@@ -52,6 +52,5 @@ EOF
 
 mkdir -p "$ppa"/{public,private} || err "Failed to create directories"
 
-touch "$ppa"/env.sh || err "Failed to make env.sh file"
+touch "$ppa"/{script.sh,.gitignore}
 
-touch "$ppa/script.sh" || err "Failed to make script.sh file"
