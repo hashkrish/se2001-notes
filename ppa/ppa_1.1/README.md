@@ -33,7 +33,7 @@ Assume the following output of `tree` command in the current directory.
 
 ## Sample Output
 
-After running your `script.sh`, the output of `tree` should be as follows.
+After running your `movetext.sh`, the output of `tree` should be as follows.
 
 ```
 ./
