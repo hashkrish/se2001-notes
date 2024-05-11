@@ -24,7 +24,7 @@ pushd "\$rand_dir" > /dev/null || exit 1
 echo "some text" > abc.txt
 xargs touch
 mkdir -p level1
-bash "\$(dirname "\${BASH_SOURCE[0]}")/../$executable" 2>&1 || exit 1
+bash "\$(dirname "\${BASH_SOURCE[0]}")/../$executable" 2>&1
 popd > /dev/null || exit 1
 [[ -d "\$rand_dir" ]] && rm "\${rand_dir?}" -rf
 EOF
@@ -62,6 +62,9 @@ for test_path in $(find "$ppa_path/$test_type" -type d -name "test_case_*" | sor
     echo "Failed :("
   fi
 done
+if [[ $tc -eq 0 ]]; then
+  err "No $test_type test cases found"
+fi
 if [[ $passed -eq $tc ]]; then
   echo "All $test_type test cases passed!"
 else

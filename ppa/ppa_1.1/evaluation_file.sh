@@ -24,7 +24,7 @@ rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
 xargs touch file_1.txt file_2.deb
 mkdir -p level1
-bash "\$(dirname "\${BASH_SOURCE[0]}")/../$executable" &>/dev/null || exit 1
+bash "\$(dirname "\${BASH_SOURCE[0]}")/../$executable" &>/dev/null
 ls -1 level1 | sort
 popd > /dev/null || exit 1
 [[ -d "\$rand_dir" ]] && rm "\${rand_dir?}" -rf
@@ -64,6 +64,9 @@ for test_path in $(find "$ppa_path/$test_type" -type d -name "test_case_*" | sor
     echo "Failed :("
   fi
 done
+if [[ $tc -eq 0 ]]; then
+  err "No $test_type test cases found"
+fi
 if [[ $passed -eq $tc ]]; then
   echo "All $test_type test cases passed!"
 else
