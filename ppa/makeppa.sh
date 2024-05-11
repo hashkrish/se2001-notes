@@ -54,3 +54,5 @@ mkdir -p "$ppa"/{public,private} || err "Failed to create directories"
 
 touch "$ppa"/{script.sh,.gitignore}
 
+ln -s "$(realpath "$ppa")" /opt/se2001/"$ppa"
+

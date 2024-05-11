@@ -32,6 +32,7 @@ chmod u+x script.sh
 
 test_type="$1"
 test_type=${test_type:-"public"}
+test_type=${test_type%/}
 
 if [[ $test_type == "private" ]]; then
   redir="/dev/null"

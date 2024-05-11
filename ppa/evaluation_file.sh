@@ -16,7 +16,15 @@ ppa_path="/opt/se2001/$ppa"
 
 [[ -d "$ppa_path" ]] || err "PPA not found at $ppa_path"
 
-test_type="public"
+test_type="$1"
+test_type=${test_type:-"public"}
+test_type=${test_type%/}
+
+if [[ $test_type == "private" ]]; then
+  redir="/dev/null"
+else
+  redir="/dev/stdout"
+fi
 echo "${test_type^} Test Cases:"
 if [[ ! -d "$ppa_path/$test_type" ]]; then
   err "No $test_type test cases found"
@@ -33,7 +41,7 @@ for test_path in $(find "$ppa_path/$test_type" -type d -name "test_case_*" | sor
     echo "Output file for $input_path not found at $output_path"
     continue
   fi
-  if diff --color=always <( ./"$executable" < "$input_path" | col) <( col < "$output_path" )  ; then
+  if diff --color=always <( ./"$executable" < "$input_path" | col) <( col < "$output_path" ) &>$redir ; then
     echo "Passed!"
     ((passed++))
   else
