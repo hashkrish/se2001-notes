@@ -17,6 +17,8 @@ for ext in .txt .html .py ; do
   done
 done | shuf | split -n l/10 --additional-suffix=.in -d
 
+rm test_case_* -rf
+
 for input in *.in; do
   number=${input%.in}
   number=${number#x0}

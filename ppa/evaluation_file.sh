@@ -16,40 +16,33 @@ ppa_path="/opt/se2001/$ppa"
 
 [[ -d "$ppa_path" ]] || err "PPA not found at $ppa_path"
 
-for test_type in public private ; do
-  echo "${test_type^} Test Cases:"
-  if [[ ! -d "$ppa_path/$test_type" ]]; then
-    echo "No $test_type test cases found"
+test_type="public"
+echo "${test_type^} Test Cases:"
+if [[ ! -d "$ppa_path/$test_type" ]]; then
+  err "No $test_type test cases found"
+fi
+tc=0
+passed=0
+IFS=$'\n'
+for test_path in $(find "$ppa_path/$test_type" -type d -name "test_case_*" | sort ); do
+  ((tc++))
+  echo -n "Test Case $tc: "
+  input_path="$test_path/input.txt"
+  output_path="$test_path/output.txt"
+  if [[ ! -f "$output_path" ]]; then
+    echo "Output file for $input_path not found at $output_path"
     continue
   fi
-  tc=0
-  passed=0
-  IFS=$'\n'
-  for input_path in $(find "$ppa_path/$test_type" -type f -name "*.in" ); do
-    ((tc++))
-    echo -n "Test Case $tc: "
-    output_path="${input_path%.in}.out"
-    if [[ ! -f "$output_path" ]]; then
-      echo "Output file for $input_path not found at $output_path"
-      continue
-    fi
-    if [[ $test_type == "private" ]]; then
-      redir="/dev/null"
-    else
-      redir="/dev/stdout"
-    fi
-    # shellcheck disable=1091
-    if diff --color=always <( if [[ -e $ppa_path/env.sh ]] ; then source "$ppa_path"/env.sh; fi ; ./"$executable" < "$input_path" | col) <( col < "$output_path" ) &>"$redir" ; then
-      echo "Passed!"
-      ((passed++))
-    else
-      echo "Failed :("
-    fi
-  done
-  if [[ $passed -eq $tc ]]; then
-    echo "All $test_type test cases passed!"
+  if diff --color=always <( ./"$executable" < "$input_path" | col) <( col < "$output_path" )  ; then
+    echo "Passed!"
+    ((passed++))
   else
-    echo "$passed/$tc $test_type test cases passed"
-    exit 1
+    echo "Failed :("
   fi
 done
+if [[ $passed -eq $tc ]]; then
+  echo "All $test_type test cases passed!"
+else
+  echo "$passed/$tc $test_type test cases passed"
+  exit 1
+fi
