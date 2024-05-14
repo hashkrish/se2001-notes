@@ -69,6 +69,12 @@ echo "${A}NN$(echo $A | rev)"
 
 (f)
 
+### Explanation
+
+- `echo $A` → `HA`
+- `echo $A | rev` → `AH`
+- `${A}NN$(echo $A | rev)` → `HA` + `NN` + `AH` → `HANNAH`
+
 ---
 
 Common data for Question 3 to 5
@@ -104,6 +110,10 @@ When will the text `World` be printed if no input is given to stdin in case 1? [
 
 (c)
 
+### Explanation
+
+- The `read` is run in foreground and will busy block the script until the input is given.
+
 ---
 
 ## Question 4 [5]
@@ -122,15 +132,19 @@ When will the text `World` be printed if no input is given to stdin in case 2? [
 
 (a)
 
+### Explanation
+
+- The `read` is run in background and will not block the script. The `echo World` will be printed immediately.
+
 ---
 
 ## Question 5 [5]
 
-Select the correct statement with respect to the above script? [MSQ]
+Select the correct statement with respect to Case 2? [MSQ]
 
 (a) The command `read line` will run in background
 
-(b) The commands `read line` and `echo World` both will run in backgroud
+(b) The commands `read line` and `echo World` both will run in background
 
 (c) The processes sent to background will be killed
 
@@ -194,6 +208,16 @@ echo "-${var2:+Earth}-"
 
 (c)
 
+### Explanation
+
+- `var` is not used in the script, so its initialized value does not affect the output.
+- `var2:=Air` will set the value of the variable `var2` to be `Air` if it is unset. It then returns the value of `var2`.
+- `var2:-Fire` will return `Air` if `var2` is unset, else return the value of `var2`.
+- `var2:+Earth` will return `Earth` if `var2` is set, else return the value of `var2` (empty string).
+- `var2` is not set initially, so the first command sets it to `Air` and prints it.
+- `var2` is set now, so it simply returns its value `Air` again and prints it.
+- `var2` is set, so it returns `Earth` and prints it. (But the value of `var2` remains as Air)
+
 ---
 
 ## Question 7 [7]
@@ -247,6 +271,13 @@ Monday 19 September 2022 03:06:44 PM IST
 ### Answer
 
 (a)
+
+### Explanation
+
+- `date +%H:%M` will give the current time in 24-hour format.
+- You can compare dates by directly doing string comparison if it is in 24-hour format in MSB to LSB order.
+- The command `generate-key --day` will be executed if the current time is greater than 6:00 and less than 18:00, else `generate-key --night` will be executed.
+- `-gt` and `-lt` are used for integer comparison, so it will not work for string comparison.
 
 ---
 
@@ -317,12 +348,18 @@ total 0
 
 (d)
 
+### Explanation
+
+- The third field in the output of `ls -li` command is the number of hardlinks. It shows that `todo.md` has 4 hardlinks.
+- The number of softlinks cannot be determined from the output of `ls -li` command as there can be softlinks to `todo.md` present in other directories as well.
+
 ---
 
 **Consider the below command outputs for question 10 and 11**
+
 Note that in the output of the command `ls -li` the first field is the inode number. Also that /home/ram is the home directory of the user.
 
-```text
+```shell
 $ pwd
 /home/ram/tmp/6177
 
@@ -333,7 +370,7 @@ total 0
 28320713 -rw-rw-r-- 4 ram ram 0 Sep 20 13:24 todo.md
 ```
 
-```text
+```shell
 $ cd /home/ram/tmp/28041
 
 $ pwd
@@ -357,6 +394,12 @@ With respect to the above given data, how many files in `~/tmp/28041` is referri
 
 4
 
+### Explanation
+
+- `todo2.md`, `todo3.md`, and `todo.md` in `~/tmp/28041` are hardlinks to `todo.md` in `~/tmp/6177` as they have the same inode number.
+- `todo5.md` in `~/tmp/28041` is a softlink to `todo.md` in `~/tmp/6177`.
+- So, there are 4 files in `~/tmp/28041` referring to `todo.md` in `~/tmp/6177`.
+
 ---
 
 ## Question 11 [6]
@@ -378,6 +421,11 @@ With respect to the above given data, if the directory name `~/tmp/6177` is chan
 ### Answer
 
 (e), (f)
+
+### Explanation
+
+- `todo5.md` is a softlink to `todo.md` in `~/tmp/6177`. If the directory name is changed to `~/tmp/6178`, then the softlink will be broken.
+- `todo6.md` is a softlink to `notes.md` in `~/tmp/6177`. If the directory name is changed to `~/tmp/6178`, then the softlink will be broken.
 
 ---
 
@@ -436,6 +484,15 @@ xyz
 
 (c)
 
+### Explanation
+
+- `$` moves the cursor to the end of the line.
+- `j` moves the cursor to the next line.
+- `dd` deletes the entire line. (`mnop qrst uvw`)
+- `k` moves the cursor to the previous line.
+- `0` moves the cursor to the beginning of the line.
+- `dw` deletes the word. (`abcd`)
+
 ---
 
 ## Question 13 [6]
@@ -453,6 +510,15 @@ Choose the command that matches a sequence of one or more digits at the end of t
 ### Answer
 
 (c)
+
+### Explanation
+
+- `^` matches the start of the line.
+- `[0-9]*` matches zero or more digits.
+- `[0-9]` matches exactly one digit.
+- `$` matches the end of the line.
+- `[0-9]*[0-9]` matches one or more digits.
+- So, the command `grep '[0-9]*[0-9]$' data.txt` matches a sequence of one or more digits at the end of the lines in the file `data.txt`.
 
 ---
 
@@ -481,6 +547,13 @@ Select the command that prints the output same as the contents of file.txt [MSQ]
 ### Answer
 
 (a), (b)
+
+### Explanation
+
+- `grep .` will print all the non-empty lines in the file. In this file we don't have any empty lines, so it is equivalent to `cat file.txt`.
+- `grep .*` will print all the lines in the file. It is equivalent to `cat file.txt`.
+- `grep [0-9]` will print all the lines that contain a digit in the file. But there are no digits in the file, so it will not print anything.
+- `grep [.]` will print all the lines that contain a dot in the file. So it will print the last two lines.
 
 ---
 
@@ -514,28 +587,38 @@ fi
 
 ```bash
 while read line; do
-	$pat = '[0-3][a-g][123][xyz]'
-	[[ $line =~ $pat ]] && break
+	pat='[0-3][a-g][123][xyz]'
+	[[ "$line" =~ $pat ]] && break
 done
 ```
 
 Select the standard input(s) that break the loop. [MSQ]
 
-(a) 8iadaz
+(a) `8iadaz`
 
-(b) 3g2z
+(b) `3g2z`
 
-(c) jkjkjkjk2j2yjkjk
+(c) `jkjkjkjk2j2yjkjk`
 
-(d) .a.a.a.2.2.1.
+(d) `.a.a.a.2.2.1.`
 
-(e) 00210132a1z01231
+(e) `00210132a1z01231`
 
-(f) 1a2w01231
+(f) `1a2w01231`
 
 ### Answer
 
-(b), (c), (e)
+(b), (e)
+
+### Explanation
+
+- The pattern `[0-3][a-g][123][xyz]` matches the following:
+  - `[0-3]` → Any digit from 0 to 3
+  - `[a-g]` → Any lowercase alphabet from a to g
+  - `[123]` → Any digit from 1 to 3
+  - `[xyz]` → Any character x, y, or z
+- The input `3g2z` matches the pattern.
+- The input `00210132a1z01231` matches the pattern (`2a1z`).
 
 ---
 
@@ -582,3 +665,8 @@ $ stat -c %s temp.hs #
 ### Answer
 
 (a), (c), (d)
+
+### Explanation
+
+- All files that have non-zero size will be copied to `~/anotherdir`.
+- The files `temp.awk`, `temp.hs`, and `temp.o` have non-zero size, so they will be copied to `~/anotherdir`.
