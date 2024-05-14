@@ -1,6 +1,6 @@
-# System Commands, End Term Set-1
+# System Commands, End Term Set-2
 
-## Question 1 (echo) [6]
+## Question 1 (echo) [-e removed in second echo] [6]
 
 ```shell
 $ help echo
@@ -25,7 +25,7 @@ What will be the output of the below script?
 
 ```bash
 echo -n '* ' # There is a space after *
-echo -ne '*\n*\n* '  # There is a space after the last *
+echo -n '*\n*\n* '  # There is a space after the last *
 echo -n '* ' # There is a space after *
 ```
 
@@ -59,13 +59,13 @@ echo -n '* ' # There is a space after *
 
 ### Answer
 
-(d)
+(c)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 2 (link) [6]
+## Question 2 (link) [Same as set-1] [6]
 
 A college student uses a pen drive to store files. The pen drive is always mounted on his system at `/mount` as a separate file system. His pen drive contains lots of files and directories. He wants to create a link to the directory `/mount/bio/phase-2/project-312` inside his home directory. What link can the student use?
 
@@ -75,7 +75,7 @@ A college student uses a pen drive to store files. The pen drive is always mount
 
 (c) either soft link or hard link
 
-(d) links will not work for this requirement
+(d) links will not work this requirement
 
 ### Answer
 
@@ -85,7 +85,7 @@ A college student uses a pen drive to store files. The pen drive is always mount
 
 <div style="page-break-after: always;"></div>
 
-## Question 3 (shell variable) [7]
+## Question 3 (shell variable) [Same as set-1] [7]
 
 Complete the script to rename all the files in the current directory to include the time of creation in the name itself as given in the example below. Assume all the files have creation times.
 Example: The filename `myfile` should be renamed to `myfile_2022-10-20T14:52:58`
@@ -93,7 +93,7 @@ Example: The filename `myfile` should be renamed to `myfile_2022-10-20T14:52:58`
 ```bash
 for file in *; do
     creation_time=$(stat -c '%w' $file)
-    # Sample output from `stat -c %w FILE`
+    # Sample output from `stat -c %w`
     # "2022-10-20 14:52:58.738413991 +0530"
     # ***********************
     # * COMPLETE THE SCRIPT *
@@ -137,9 +137,9 @@ mv "$file" "$temp"
 
 <div style="page-break-after: always;"></div>
 
-## Question 4 (cron) [7]
+## Question 4 (cron) [9pm & 10pm swapped] [7]
 
-Which of the following command will run the script `/home/bill/autoscript/backup.sh` at 10:00 pm every day-of-week from Monday through Friday in every month from January through June and at 9:00 pm every day-of-week from Monday through Friday in every month from July through December. [MCQ]
+Which of the following command will run the script `/home/bill/autoscript/backup.sh` at 9:00 pm every day-of-week from Monday through Friday in every month from January through June and at 10:00 pm every day-of-week from Monday through Friday in every month from July through December. [MCQ]
 
 **Hint**: Below is the description of the sequence in the cron job command.
 
@@ -191,13 +191,13 @@ Min(0-59)
 
 ### Answer
 
-(a)
+(d)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 5 (vi/emacs)[6]
+## Question 5 (vi/emacs) [Same as set-1] [6]
 
 What does the key sequence `G$vgg0yGp` do in vi editor?
 Hint:
@@ -231,7 +231,7 @@ Hint:
 
 <div style="page-break-after: always;"></div>
 
-## Question 6 (shell script) [MSQ] [8]
+## Question 6 (shell script) [MSQ] [Same as set-1] [8]
 
 A student named Varsha has a lot of configuration files in her Linux system. Somehow she lost all the data but fortunately she backed up her configuration files in a specific way such that the back up directory named `backup_config` contains all the configuration files along with one file named `files`.
 The file `files` contains the absolute paths to the config files, one path per line for each config file. Choose the script that restores all the files to their location. Assume the backup directory contains only files not directories.
@@ -277,15 +277,15 @@ done
 
 <div style="page-break-after: always;"></div>
 
-## Question 7 (shell script) [NAT] [6]
+## Question 7 (shell script) [NAT] [second if will execute f is always 1] [6]
 
 How many lines will be printed after executing the below script?
 
 ```bash
 for i in {1..10}; do
-    f=0
+    f=1
     if ((i%3==0)); then
-        f=1
+        f=0
         continue
     fi
     if [[ $f -eq 1 &&  $i -gt 5 ]]; then
@@ -297,42 +297,42 @@ done
 
 ### Answer (exact)
 
-7
+4
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 8 (shell script)[6]
+## Question 8 (shell script) [redirected to stderr] [6]
 
 Select the correct statement(s) based on the below script. Assume that `file1` is not empty.
 Hint: `tee` command takes the stdin and prints it to the terminal and also writes to the file given as argument.
 
 ```bash
 while read line; do
-    echo $line
+    echo $line 1>&2
 done < file1 > file2 | tee file3
 ```
 
-(a) _file2_ will be empty at the end of execution
+(a) **file2** will **NOT** be empty at the end of execution
 
-(b) _file3_ will be empty at the end of execution
+(b) **file3** will **NOT** be empty at the end of execution
 
-(c) The contents of _file1_ will be displayed in the terminal
+(c) The contents of **file1** will be displayed in the terminal
 
-(d) _file3_ will contains the contents of _file1_
+(d) **file3** contains the contents of **file1**
 
 ### Answer
 
-(b)
+(c)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 9 (grep/regex) [6]
+## Question 9 (grep/regex) [Repeated consecutively] [6]
 
-Choose the regular expression to match with a string that contains at least a character repeated three times. Assume that the regular expression is using Extended Regular Expression Engine (ERE).
+Choose the regular expression to match with a string that contains at least a character repeated three times consecutively. Assume the regular expression is using Extended Regular Expression Engine (ERE).
 
 (a) `...`
 
@@ -346,15 +346,15 @@ Choose the regular expression to match with a string that contains at least a ch
 
 ### Answer
 
-(d)
+(c)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 10 (grep/regex) [8]
+## Question 10 (grep/regex) [Same as set-1] [8]
 
-Choose the matching line(s) for any of the following regular expressions. Assume the regular expression is using Extended Regular Expression Engine (ERE). [MSQ]
+Choose the matching line(s) for any of the following regular expressions. Assume that the regular expression is using Extended Regular Expression Engine (ERE). [MSQ]
 
 ```
 ^$
@@ -393,6 +393,7 @@ What does the given sed script do? `N` command in sed appends the next line to t
 ```sed
 N
 N
+N
 s/\n//g
 ```
 
@@ -406,30 +407,30 @@ s/\n//g
 
 ### Answer
 
-(b)
+(c)
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 12 (sed)[6] [NAT]
+## Question 12 (sed) [NAT] [second command does nothing] [6]
 
 The input file to the below sed script named `data` contains 100 characters, among them 47 are numbers `[0-9]`. How many characters will be in the output after executing the below script? Assume that sed is using Extended Regular Expression Engine (ERE). [MSQ]
 
 ```sed
 s/([0-9])/\1\1/g
-s/([0-9])\1/\1/g
+s/([0-9])\1/\1\1/g
 ```
 
 ### Answer
 
-100
+147
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 13 (sed) [8]
+## Question 13 (sed) [Same as set-1] [8]
 
 Consider a file named `data` containing some text located in the current working directory. Select the correct statement(s) for the output printed by the below script.
 
@@ -469,7 +470,7 @@ done
 
 <div style="page-break-after: always;"></div>
 
-## Question 14 (awk) [6]
+## Question 14 (awk) [twice to thrice] [6]
 
 What will the output from the below command represent?
 
@@ -478,7 +479,7 @@ awk '
 {
     arr[$0]++
 }
-arr[$0] == 2 {
+arr[$0] == 3 {
     print
 }
 ' data
@@ -486,11 +487,11 @@ arr[$0] == 2 {
 
 (a) The lines that are distinct
 
-(b) The lines that are repeated exactly twice
+(b) The lines that are repeated exactly thrice
 
-(c) The lines that are repeated twice or more
+(c) The lines that are repeated thrice or more
 
-(d) The lines that are repeated more than twice
+(d) The lines that are repeated more than thrice
 
 ### Answer
 
@@ -500,7 +501,7 @@ arr[$0] == 2 {
 
 <div style="page-break-after: always;"></div>
 
-## Question 15 (awk)[8] [NAT]
+## Question 15 (awk) [NAT] [shuffling the data points] [8]
 
 What will be the output from the below script?
 
@@ -521,9 +522,9 @@ END {
     print num/(denx_2^0.5 * deny_2^0.5)
 }
 ' << EOF
-1 2
-3 4
 5 6
+3 4
+1 2
 7 8
 EOF
 ```
