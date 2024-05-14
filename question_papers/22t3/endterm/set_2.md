@@ -61,6 +61,10 @@ echo -n '* ' # There is a space after *
 
 (c)
 
+### Explanation
+
+- Without `-e` flag in `echo`, the `\n` will be treated as a normal character and not as a newline character.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -80,6 +84,14 @@ A college student uses a pen drive to store files. The pen drive is always mount
 ### Answer
 
 (a)
+
+### Explanation
+
+- A soft link is a pointer to the file or directory. It is a symbolic link to the file or directory.
+- A hard link is a pointer to the inode of the file. It is a direct link to the file.
+- Hard link cannot be created for directories.
+- Hard links cannot be created across file systems.
+- Soft link will work for this requirement as it uses the path to the file or directory.
 
 ---
 
@@ -132,6 +144,12 @@ mv "$file" "$temp"
 ### Answer
 
 (c)
+
+### Explanation
+
+- `${creation_time%%.*}` removes the fractional part of the time.
+- `${temp/ /T}` replaces the space with `T` to make the time format ISO 8601 compliant.
+- `${file}_$temp` renames the file with the time of creation.
 
 ---
 
@@ -193,6 +211,10 @@ Min(0-59)
 
 (d)
 
+### Explanation
+
+- Cron uses 24-hour format for time. So 10pm is 22 hours, and 9pm is 21 hours.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -226,6 +248,18 @@ Hint:
 ### Answer
 
 (d)
+
+### Explanation
+
+- `G` moves the cursor to the last line.
+- `$` moves the cursor to the end of the line.
+- `v` enters visual mode.
+- `gg` moves the cursor to the first line.
+- `0` moves the cursor to the beginning of the line. Entire document is selected.
+- `y` copies the selected text (entire document).
+- `G` moves the cursor to the last line (first character).
+- `p` pastes the copied text (entire document).
+- The pasted document is pasted after the first character of last line, not at the end of the document.
 
 ---
 
@@ -273,6 +307,14 @@ done
 
 (b), (c)
 
+### Explanation
+
+- `${file/*/}` removes everything from the variable `file`, this is not the correct way to get the file name from the path.
+- `./${file##*/}` gets the file name from the path by removing everything from the start till the last `/`.
+- `cp "./${file##*/}" "$file"` copies the file in the current directory with the file name to its original location.
+- `${file//*\//}` removes everything from the variable `file` till the last `/`.
+- `cp "./${file//*\//}" "$file"` copies the file in the current directory with the file name to its original location.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -298,6 +340,16 @@ done
 ### Answer (exact)
 
 4
+
+### Explanation
+
+- The variable `f=1` is set for every iteration.
+- The assignment `f=0` is done only when `i` is divisible by 3, but followed by `continue` statement, thus the value of `f` again resets to `1`.
+- Thus, the first part of the second `if` condition will always be true, and the second part will be true only when `i` is greater than 5.
+- Thus, the first part of the second `if` can be dropped from the script, as it is redundant.
+- The second `if` will be true for all values of `i` greater than 5.
+- Thus for values which are greater than 5, or multiples of 3 the loop will not print the pattern.
+- Only numbers lesser than or equal to 5 and not divisible by 3 (1,2,4,5) will print the pattern.
 
 ---
 
@@ -326,6 +378,14 @@ done < file1 > file2 | tee file3
 
 (c)
 
+### Explanation
+
+- The script reads the contents of `file1` and prints it to the stderr.
+- The stdout (which is empty) is redirected to `file2`, so `file2` will be empty.
+- The empty stdout is piped to `tee` which writes the empty content to `file3`.
+- The un-redirected stderr will be displayed in the terminal.
+- We can redirect `stderr` to tee using `|&` instead of `|`.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -347,6 +407,13 @@ Choose the regular expression to match with a string that contains at least a ch
 ### Answer
 
 (c)
+
+### Explanation
+
+- `(.)` captures any character.
+- `\1` matches the same character as captured by the first group.
+- `(.)\1\1` matches any character repeated three times consecutively.
+- (d) will match any character repeated thrice but not consecutively.
 
 ---
 
@@ -409,6 +476,11 @@ s/\n//g
 
 (c)
 
+### Explanation
+
+- Each `N` reads the next line into pattern space, thus 3 `N` reads 3 next lines into pattern space, having a total of 4 lines in the pattern space.
+- The `s/\n//g` command removes all the newline characters from the pattern space, thus merging all the 4 lines into a single line.
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -425,6 +497,13 @@ s/([0-9])\1/\1\1/g
 ### Answer
 
 147
+
+### Explanation
+
+- The first `s/([0-9])/\1\1/g` command replaces every number with the number repeated twice.
+- The second command is an identity command, as it is trying to replace the number repeated twice with the same number repeated twice, it does nothing.
+- The file has 47 numbers, and each number is replaced with the number repeated twice, thus the output will have $47 \times 2=94$ numbers.
+- The output will have 100+47=147 characters.
 
 ---
 
@@ -464,7 +543,15 @@ done
 
 ### Answer
 
-(c), (d)
+(c)
+
+### Explanation
+
+- The script reads the file line by line.
+- For every occurrence of `~ITER~` in the line, it replaces it with the value of `count`.
+- The value of `count` is incremented for every occurrence of `~ITER~`.
+- The value of `count` at the end of execution and total number of occurrences of `~ITER~` in the file `data` are equal.
+- The later occurrences in a line are also replaced as the for loop iterates over all the occurrences of `~ITER~` in the line.
 
 ---
 
@@ -496,6 +583,14 @@ arr[$0] == 3 {
 ### Answer
 
 (c)
+
+### Explanation
+
+- The script reads the file line by line.
+- It maintains a count of each line in the array `arr`.
+- If the count of the line is 3, it prints the line.
+- Lines present more than thrice will also have its count as 3 at some point when the line is read for the third time.
+- The lines that are repeated thrice or more are printed.
 
 ---
 
@@ -532,5 +627,11 @@ EOF
 ### Answer
 
 1
+
+### Explanation
+
+- The script is finding the Pearson correlation coefficient between two variables.
+- The Pearson correlation coefficient is a measure of the linear relationship between two variables.
+- The given data is clearly linearly related($y=x+1$), so the Pearson correlation coefficient will be 1.
 
 ---
