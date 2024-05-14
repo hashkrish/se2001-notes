@@ -40,6 +40,12 @@ mollit anim id est laborum.
 
 14
 
+### Explanation
+
+- The Regex `/^[a-zA-Z]/` will match the lines starting with an alphabet.
+- The awk script will count the number of lines starting with an alphabet and print the count.
+- In the given input there are 14 lines starting with an alphabet, and 3 empty lines. So the output is 14.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 2 [6]
@@ -87,8 +93,6 @@ done
 * * * * *
 ```
 
-<div style="page-break-after: always;"></div>
-
 (c)
 
 ```text
@@ -121,6 +125,18 @@ done
 
 (a)
 
+### Explanation
+
+- The code has an outer loop that runs 9 times.
+- In the inner loop we have `echo -n` and only in the outer loop we have `echo`,
+- so the outer loop iterations are for each line, whereas the inner loop iterations are for each column of that line.
+- There are two inner loops, one till `5-i` and the other till `i-5`.
+- In `seq` command, if the argument is negative, it will not give any output.
+- For the first 4 lines, the first inner loop runs and prints the stars, whereas the second inner loop is not run.
+- In the last 4 lines, the second inner loop runs and prints the stars, whereas the first inner loop is not run.
+- For the fifth line, both the inner loops do not print anything, thus the fifth line is empty.
+- `5-i` is a decreasing function, and `i-5` is an increasing function, so first half out output will be decreasing stars and the second half will be increasing stars.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 3 [MSQ] [6]
@@ -138,6 +154,14 @@ Select the command(s) that prints only the lines containing the string `TODO` in
 ### Answer
 
 (b) and (d)
+
+### Explanation
+
+- (a) will simply print the text 'TODO' for each line in the file.
+- (b) checks if the line matches the regex `/TODO/` and prints the line if it matches.
+- (c) checks if the first field matches the regex `/TODO/` and prints the line if it matches. This will not work if TODO is present in any other field.
+- (d) checks if the whole line matches the regex `/TODO/` and prints the line if it matches.
+- Both (b) and (d) will print the lines containing the string `TODO` in any part of the line.
 
 <div style="page-break-after: always;"></div>
 
@@ -191,7 +215,11 @@ sed -n '/=*"""/,/"""/ p' myscript.py | grep """"
 
 (a)
 
-<div style="page-break-after: always;"></div>
+### Explanation
+
+- The `sed` command will print the lines between the lines containing `= """` and `"""`.
+- The `grep -v '"""'` will print only the non-matched lines, so the starting and ending `"""` are omitted.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 5 [6]
@@ -218,6 +246,13 @@ $ a ---END---
 
 (c)
 
+### Explanation
+
+- The `1 i ---START---` will insert the text `---START---` before the first line. This increases the total count of lines by one.
+- The `3 c ---THREE---` will replace the third line with `---THREE---`. This does not change the total count of lines.
+- The `$ a ---END---` will append the text `---END---` after the last line. This increases the total count of lines by one.
+- So the total number of lines printed will be the number of lines in _myfile.txt_ + 2.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 6 [6]
@@ -236,14 +271,19 @@ Choose the command that converts comma separated file named _data.csv_ to a tab 
 
 (c)
 
+### Explanation
+
+- The `sed 's/,/\t/g'` command will replace all the commas with tabs in the file.
+- Renaming a file does not automatically change the file type.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 7 [MSQ] [8]
 
-Select the command(s) that list all regular users in the system. UID of regular users is greater than $999$ and their default shell is bash $(/usr/bin/bash)$.
+Select the command(s) that list all regular users in the system. UID of regular users is greater than $999$ and their default shell is bash `/usr/bin/bash`.
 Note: The option `-E` enables the Extended Regular Expression (ERE) in sed.
 
-The file $/etc/passwd$ contains the user information. The format of the file is specified below
+The file `/etc/passwd` contains the user information. The format of the file is specified below
 
 ```
 username:x:UID:GID:Description:Home Directory:Full Path to Shell
@@ -259,7 +299,14 @@ username:x:UID:GID:Description:Home Directory:Full Path to Shell
 
 ### Answer
 
-(a), (c)
+(a), (d)
+
+### Explanation
+
+- (a) will print the lines that have UID greater than $999$ and the shell is bash. Any number bigger than $999$ will have $4$ or more digits.
+- (b) will print the lines that have UID which is exactly $3$ digits. So it will not print the users with UID greater than $999$.
+- (c) does not mention the field separator, so it will not work as expected.
+- (d) will print the lines that have UID greater than $999$ and the shell is bash. The field separator is set to `:`.
 
 <div style="page-break-after: always;"></div>
 
@@ -302,22 +349,29 @@ done
 
 (b), (d), (e)
 
+### Explanation
+
+- The script iterates over all files of folder `a` and sees if the file name _matches_ any file name in folder `b`.
+- If it does match then the file is not moved, otherwise, the file is moved to folder `b`.
+- Here file `file1` will match the file `file10` because regex matches any substring of a string.
+- Thus, the files `file0`, `file3`, `file4`, will remain in folder `a` and the files `file0`, `file2` will be moved to folder `b`.
+
 <div style="page-break-after: always;"></div>
 
 **Common data for question 9, 10 and 11**
-The file $/etc/group$ stores the group information of the system in the format given below
+The file `/etc/group` stores the group information of the system in the format given below
 
 ```
 GroupName:x:GID:Members(separated by comma)
 ```
 
-An example line from $/etc/group$ file is given below
+An example line from `/etc/group` file is given below
 
 ```
 student:x:214:ram,ahmed,robert,seema
 ```
 
-The file $/etc/passwd$ contains the user information. The format of the file is given below
+The file `/etc/passwd` contains the user information. The format of the file is given below
 
 ```
 username:x:UID:GID:Description:Home Directory:Full Path to Shell
@@ -369,7 +423,7 @@ END {
 
 ## Question 9 [6]
 
-What will be the value of `A` when the print statement in line $17$ of the given script is executed?
+What will be the value of `A` when the print statement in line `17` of the given script is executed?
 
 (a) The number of lines in the input file
 
@@ -382,6 +436,14 @@ What will be the value of `A` when the print statement in line $17$ of the given
 ### Answer
 
 (c)
+
+### Explanation
+
+- The script reads the `/etc/group` file and splits the fourth field using the delimiter `,`.
+- The number of fields after splitting is stored in the variable `n`.
+- The script compares the number of fields with the variable `A` and updates the variable `A` if the number of fields is greater than `A`.
+- The variable `A` will store the maximum number of users in any group.
+- The fourth field is the list of users of that group.
 
 <div style="page-break-after: always;"></div>
 
@@ -400,6 +462,11 @@ What will be the value of `B` when the print statement in line $17$ of the given
 ### Answer
 
 (b)
+
+### Explanation
+
+- The `B` holds the first field of the line which has the maximum number of users.
+- The first field is the group name.
 
 ## Question 11 [8]
 
@@ -437,6 +504,13 @@ awk '
 ### Answer
 
 (e)
+
+### Explanation
+
+- `C` holds the list of users in the group with the maximum number of users.
+- The script iterates over each of the users in the group with most users.
+- For each user, their username is `grep`-ed in the `/etc/passwd` file and the 3rd field is printed.
+- The 3rd field is the UID of the user.
 
 <div style="page-break-after: always;"></div>
 
@@ -509,7 +583,7 @@ killall sleep
 (b)
 
 ```bash
-while (ps | grep sleep); do
+while (ps ax | grep sleep); do
 	kill sleep
 done
 ```
@@ -517,22 +591,29 @@ done
 (c)
 
 ```bash
-while (ps | grep sleep); do
-	kill $(ps | grep sleep | head -1 | awk '{print $1}')
+while (ps ax | grep sleep); do
+	kill $(ps ax | grep sleep | head -1 | awk '{print $1}')
 done
 ```
 
 (d)
 
 ```bash
-while (ps | grep sleep); do
-	kill $(ps | head -1 | awk '{print $1}')
+while (ps ax | grep sleep); do
+	kill $(ps ax | head -1 | awk '{print $1}')
 done
 ```
 
 ### Answer
 
 (a), (c)
+
+### Explanation
+
+- (a) `killall sleep` will kill all the processes with the name `sleep`.
+- (b) `kill` takes a PID as an argument, but the script is trying to kill the process name `sleep`.
+- (c) The script will kill the first process with the name `sleep`, and keep on looping, thus killing all the processes with the name `sleep`.
+- (d) The `grep` is missing, so it will try to kill the first process in the list of processes.
 
 <div style="page-break-after: always;"></div>
 
@@ -624,6 +705,16 @@ Identify all the mistakes in the PART-1 of the script.
 
 (b), (d)
 
+### Explanation
+
+- (a) The value of IFS is correct, it is set to `,` to read the fields from the CSV file.
+- (b) The script is missing the standard input, so the script will not read the data from the file.
+- (c) The `git` command is installed in the system, so the command is valid.
+- (d) The script is missing the standard input, so the script will not read the data from the file.
+- This part of the script clones all the repositories to the local system.
+- The second argument of `git clone` is the directory name where the repository will be cloned.
+- This is provided to ensure that the repository is cloned to unique directories, and it is easier to manage the repositories.
+
 ## Question 14 [6]
 
 Read the description given in the comments and identify all the mistakes in the PART-2 of the script. [MCQ]
@@ -644,6 +735,38 @@ Read the description given in the comments and identify all the mistakes in the 
 
 (f)
 
+### Explanation
+
+- (a) The standard input is provided at the end of the while loop, so the script will read the data from the file.
+- (b) The IO redirections are correct, this is taking the input from the `input.txt` file and giving to stdin of the `main.sh` script, and its output is redirected to a temporary file.
+- (c) The `diff` command is used to see the _difference_ between the expected output (`output.txt`) and the actual output (`/tmp/tmp_output`). If there is no difference, the exit status will be `0`. The redirection is to suppress the output of `diff` which also prints what the difference is.
+- (d) The condition is correct, if the exit status of the `diff` command is `0`, then the test case is passed.
+- (e) The IO redirection is correct, the output is appended to the log file.
+- (f) The IO redirection is incorrect, the output is overwritten to the log file. It should be `>>` to append the output to the file.
+- The script evaluates the project using the test cases and generates a log file with the evaluation results.
+- This can be done more succinctly as follows:
+
+```bash
+
+TESTCASE_DIR=~/testcases # Line 2-a
+LOG_FILE=~/log.csv; echo "" > $LOG_FILE
+while read rollno url; do # Line 2-c
+    cd $rollno # Line 2-d
+    for tc in $TESTCASE_DIR/*; do
+        if diff <(bash main.sh < $tc/input.txt) "$tf"/output.txt > /dev/null 2>&1; then
+            echo "$rollno,$tc,PASS" >> $LOG_FILE # Line 2-i
+        else
+            echo "$rollno,$tc,FAIL" >> $LOG_FILE # Line 2-k
+        fi
+    done
+    cd ..
+done < data.csv
+
+```
+
+- Here we do not create a temporary file to store the output of the main.sh script, we directly feed the output to diff.
+- We do not need to use `$?` to check the exit status of the diff command, we can directly use the exit status of the command in `if`.
+
 <div style="page-break-after: always;"></div>
 
 ## Question 15 [6]
@@ -656,7 +779,7 @@ Read the description given in the comments and identify all the mistakes in the 
 
 (c) Line 3-d: Incorrect calculation of the passed test cases, it should be
 
-```
+```bash
 passed_tc=$(grep "^$rollno," $LOG_FILE | grep PASS | wc -l)
 ```
 
@@ -665,5 +788,12 @@ passed_tc=$(grep "^$rollno," $LOG_FILE | grep PASS | wc -l)
 ### Answer
 
 (c)
+
+### Explanation
+
+- (a) The calculation of the total test cases is correct, it counts the number of directories in the `testcases` directory.
+- (b) The standard input is provided at the end of the while loop, so the script will read the data from the file.
+- (c) The calculation of the passed test cases is incorrect, it should be `passed_tc=$(grep "^$rollno," $LOG_FILE | grep PASS | wc -l)` so that only the lines with the roll number and PASS are counted, not all the PASS ones.
+- (d) The variables are defined in the script, so there is no issue with the variables.
 
 <div style="page-break-after: always;"></div>
