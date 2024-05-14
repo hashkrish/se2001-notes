@@ -41,7 +41,7 @@ rm /todo.txt
 touch /todo.txt
 VALUE_GOT=$(cat todo)
 read line
-[[ $VALUE_GOT == $RANDOM_NUMBER ]] && echo $line || echo Invalid link
+[[ "$VALUE_GOT" != "$RANDOM_NUMBER" ]] && echo $line || echo Invalid link
 ```
 
 ### Test cases
@@ -385,7 +385,7 @@ adiff() {
 
 ```bash
 diff=$(($1-$2))
-adiff=${diff/-}
+echo ${diff/-}
 ```
 
 ### Suffix
@@ -704,9 +704,10 @@ c
 ## Problem 6 [20 marks]
 
 Extract and print the parent to parent directory of the given file in the variable `MYFILE`. Example: If `MYFILE` had the value `/home/raheem/c-project/main.c` then the parent to parent directory is `/home/raheem/`
+
 Note:
 
-1. The given value is always a file and it have a parent to parent directory.
+1. The given value is always a file, and it has a parent to parent directory.
 
 ### Prefix
 
@@ -905,7 +906,7 @@ script 2>&1
 **Output 1**
 
 ```
-0
+1
 ```
 
 **Input 2**
@@ -956,10 +957,7 @@ script() {
 ### Solution
 
 ```bash
-grep '<a.*>' index.html |
-    grep 'href=".*"' -o |
-    grep '".*"' -o |
-    cut -d'"' -f2
+grep '<a.*>' index.html | grep -o 'href="[^"]\+"' | cut -d '"' -f2
 ```
 
 ### Suffix
