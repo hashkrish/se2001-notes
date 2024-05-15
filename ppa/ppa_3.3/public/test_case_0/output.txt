@@ -1,0 +1,8 @@
+test execution started
+test executed successfully
+test -e execution started
+test -e execution have some error
+test -n execution started
+test -n executed successfully
+1
+

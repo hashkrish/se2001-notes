@@ -5,8 +5,8 @@ err(){
   exit 1
 }
 
-executable="filetypes.sh"
-req=( "diff" "basename" "pushd" "popd" "col")
+req=( "diff" "basename" "col" "find" )
+executable="errorlog.sh"
 for i in "${req[@]}"; do
   command -v "$i" > /dev/null 2>&1 || err "$i is not installed"
 done
@@ -16,23 +16,42 @@ ppa_path="/opt/se2001/$ppa"
 
 [[ -d "$ppa_path" ]] || err "PPA not found at $ppa_path"
 
+test_type="$1"
+test_type=${test_type:-"public"}
+test_type=${test_type%/}
+
 cat >script.sh <<EOF
 #!/bin/bash
+test() {
+  echo test \$1 execution started
+  if [[ \$1 != "" ]]; then
+    case \$1 in
+    "-e")
+      undeclaredfunction
+      echo test \$1 execution have some error
+      ;;
+    "-n")
+      echo test \$1 executed successfully
+      ;;
+    *)
+      echo Invalid option \$1
+      ;;
+    esac
+  else
+    echo test executed successfully
+  fi
+}
 
 rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
-echo "some text" > abc.txt
-xargs touch
-mkdir -p level1
-bash "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1
+source "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1
+
+grep "undeclaredfunction: command not found" errorlog -c
+cat
 popd > /dev/null || exit 1
 [[ -d "\$rand_dir" ]] && rm "\${rand_dir?}" -rf
 EOF
 chmod u+x script.sh
-
-test_type="$1"
-test_type=${test_type:-"public"}
-test_type=${test_type%/}
 
 if [[ $test_type == "private" ]]; then
   redir="/dev/null"
@@ -55,7 +74,7 @@ for test_path in $(find "$ppa_path/$test_type" -type d -name "test_case_*" | sor
     echo "Output file for $input_path not found at $output_path"
     continue
   fi
-  if diff --color=always <(./script.sh < "$input_path" | col) <( col < "$output_path" ) &>"$redir"; then
+  if diff --color=always <( ./script.sh < "$input_path" | col) <( col < "$output_path" ) &>$redir ; then
     echo "Passed!"
     ((passed++))
   else

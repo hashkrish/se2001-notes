@@ -5,7 +5,7 @@ err(){
   exit 1
 }
 
-req=( "diff" "basename" "col" "find" "cal" )
+req=( "diff" "basename" "col" "find" "cal" "pushd" "popd" )
 executable="calendar.sh"
 for i in "${req[@]}"; do
   command -v "$i" > /dev/null 2>&1 || err "$i is not installed"
@@ -22,7 +22,7 @@ cat >script.sh <<EOF
 rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
 read month
-month=\$month bash "\$(dirname "../\${BASH_SOURCE[0]}")/$executable" 2>&1
+month=\$month bash "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1
 if [[ ! -e "\$month".txt ]]; then
   echo "Error: \$month.txt not found"
 else
