@@ -112,6 +112,7 @@ for input in *.in; do
 done
 EOF
 
+chmod u+x "$ppa"/{public,private}/generate.sh
 touch "$ppa"/{script.sh,.gitignore}
 
 ln -s "$(realpath "$ppa")" /opt/se2001/"$ppa"
