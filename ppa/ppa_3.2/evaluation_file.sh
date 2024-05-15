@@ -5,8 +5,8 @@ err(){
   exit 1
 }
 
-executable="filetypes.sh"
-req=( "diff" "basename" "pushd" "popd" "col")
+req=( "diff" "basename" "col" "find" "cal" )
+executable="calendar.sh"
 for i in "${req[@]}"; do
   command -v "$i" > /dev/null 2>&1 || err "$i is not installed"
 done
@@ -21,10 +21,25 @@ cat >script.sh <<EOF
 
 rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
-echo "some text" > abc.txt
-xargs touch
-mkdir -p level1
-bash "\$(dirname "../\${BASH_SOURCE[0]}")/$executable" 2>&1
+read month
+month=\$month bash "\$(dirname "../\${BASH_SOURCE[0]}")/$executable" 2>&1
+if [[ ! -e "\$month".txt ]]; then
+  echo "Error: \$month.txt not found"
+else
+  echo "---\$month.txt---"
+  cat "\$month".txt
+fi
+if [[ ! -e error.txt ]]; then
+  echo "Error: error.txt not found"
+else
+  echo "---error.txt---"
+  if [[ \$(wc -c < "\$month.txt") -ne 0 && \$(wc -c < error.txt ) -eq 0 ]] || grep -qFw "\$month" error.txt; then
+    echo "error.txt is correct"
+  else
+    echo "error.txt is not correct"
+  fi
+fi
+
 popd > /dev/null || exit 1
 [[ -d "\$rand_dir" ]] && rm "\${rand_dir?}" -rf
 EOF
@@ -55,7 +70,7 @@ for test_path in $(find "$ppa_path/$test_type" -type d -name "test_case_*" | sor
     echo "Output file for $input_path not found at $output_path"
     continue
   fi
-  if diff --color=always <(./script.sh < "$input_path" | col) <( col < "$output_path" ) &>"$redir"; then
+  if diff --color=always <( ./script.sh < "$input_path" | col) <( col < "$output_path" ) &>$redir ; then
     echo "Passed!"
     ((passed++))
   else

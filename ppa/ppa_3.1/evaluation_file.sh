@@ -22,7 +22,7 @@ cat >script.sh <<EOF
 rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
 xargs touch
-bash "\$(dirname "\${BASH_SOURCE[0]}")/../$executable" 2>&1
+bash "\$(dirname "../\${BASH_SOURCE[0]}")/$executable" 2>&1
 if [[ -e "textFiles.txt" ]]; then
   cat "textFiles.txt"
 else
