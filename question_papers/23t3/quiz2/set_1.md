@@ -217,7 +217,7 @@ Hints:
 ### Explanation
 
 - `seq 100` will generate numbers from 1 to 100.
-- `sed 's/\([[:digit:]]\)\1/\1/g'` will find numbers that have the same digit repeated and replace it with the digit present only once. Example 11 -> 1, 22 -> 2, ... 100 -> 10
+- `sed 's/\([[:digit:]]\)\1/\1/g'` will find numbers that have the same digit repeated and replace it with the digit present only once. Example 11 → 1, 22 → 2, ... 100 → 10
 - There are 10 such numbers (11, 22, 33, 44, 55, 66, 77, 88, 99, 100) which have the same digit repeated.
 - These numbers are changed to 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, which are already present in the sequence.
 - Sorting and removing duplicates will remove those numbers altogether.
@@ -299,6 +299,8 @@ What will be the output from the above script?
 - `[[ "a" == "a" && 1 -ne 2 ]]` will evaluate to true and return exit code 0.
 - `==` and `=` are equivalent in bash.
 - `$?` will contain the exit code of the last command.
+- `v1` will be 0 and `v2` will be 0.
+- `echo $((v1 + v2))` will print 0.
 
 <div style="page-break-after: always;"></div>
 
