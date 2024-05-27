@@ -66,7 +66,7 @@ Maybe? maybe not
 **Input-2**
 
 ```
-This is field1:And now field2:and now3 
+This is field1:And now field2:and now3
 Is it field1?:Maybe this is field2:is this field3?
 this is not field2:is this not field1?: field3 :field4
 and?
@@ -75,7 +75,7 @@ and?
 **Output-2**
 
 ```
-And now field2:This is field1:and now3 
+And now field2:This is field1:and now3
 Maybe this is field2:Is it field1?:is this field3!
 is this not field1?:this is not field2: field3 :field4
 and!
@@ -142,7 +142,7 @@ This is field1:And now field2:and now3
 Is it field1?:Maybe this is field2:is this field3?
 this is not field2:is this not field1?: field3 :field4
 and?
-This is field1:And now field2:and now3 
+This is field1:And now field2:and now3
 Is it field1?:Maybe this is field2:is this field3?
 this is not field2:is this not field1?: field3 :field4
 Is it field1?:Maybe this is field2:is this field3?
@@ -158,7 +158,7 @@ And now field2:This is field1:and now3
 Maybe this is field2:Is it field1?:is this field3!
 is this not field1?:this is not field2: field3 :field4
 and!
-And now field2:This is field1:and now3 
+And now field2:This is field1:and now3
 Maybe this is field2:Is it field1?:is this field3!
 is this not field1?:this is not field2: field3 :field4
 Maybe this is field2:Is it field1?:is this field3!
@@ -174,7 +174,7 @@ no:no:yes
 Write a **sed script** to
 
 - Replace every three letter abbreviation of day of week to the respective number as given in the table. The abbreviation can be in any case or mixed case
-  
+
   | Abbreviation(case insensitive match) | Replace with |
   | ------------------------------------ | ------------ |
   | sun                                  | 1            |
@@ -393,15 +393,20 @@ done 5rsday
 
 ## Problem 1 [20 marks]
 
-Given a file that contains current years board exam scores of students in all the schools in an area. Each line in the file contains four **comma-separated** fields: school code, roll number of the student, name of the student, and marks in the below format.
+Given a file that contains current years board exam scores of students in all the schools in an area.
+Each line in the file contains four **comma-separated** fields: school code, roll number of the student, name of the student, and marks in the below format.
 
 `School_code,Student_Roll_no,Name,Marks`
 
 All the fields could be alphanumeric values except the last field `Marks` which is a number less than 500, as the maximum marks of the exam is out of 500.
 
-Write an **AWK script** to print the roll numbers of the toppers of each school. For example if there is marks details of students of 11 schools of an area in the file, then your output should contain 11 roll numbers in any order, one for each school.
+Write an **AWK script** to print the roll numbers of the toppers of each school.
+For example if there is marks details of students of 11 schools of an area in the file, then your output should contain 11 roll numbers in any order, one for each school.
 
-**Test case description:** Input is the contents of the input file. Your script does not need to read any input. Output is the expected output from your script. Your script may print expected roll numbers in any order, evaluation script sorts the input before printing.
+**Test case description:** Input is the contents of the input file.
+Your script does not need to read any input.
+Output is the expected output from your script.
+Your script may print expected roll numbers in any order, evaluation script sorts the input before printing.
 
 ### Prefix
 
@@ -414,15 +419,15 @@ echo '
 
 ```bash
 BEGIN {
-  FS="," 
+  FS=","
 }
 {
   if ($4 > max[$1]) {
     max[$1] = $4
     max_student[$1] = $2
   }
-} 
-END { 
+}
+END {
   for (i in max_student) {
     print max_student[i]
   }
@@ -738,41 +743,43 @@ The output consists of two parts
 
 - First line of the output is a number that is the number of user defined functions in the input file.
 
-- Followed by one line for each user defined function counted above, print the number of calls to each function in the format `<function_name>:<number_of_times_called>`. Just print the function name, not the arguments or brackets, and in the same order they appear in the input file.
+- Followed by one line for each user defined function counted above, print the number of calls to each function in the format `<function_name>:<number_of_times_called>`.
+Just print the function name, not the arguments or brackets, and in the same order they appear in the input file.
 
 E.g. consider the below function definitions in the input file.
 
 ```
-def function_1(argument1="default"):  
- print("something");  
-   
-def function_2():  
- print("This is function_2");
+def function_1(argument1="default"):
+ print("something");
+
+def function_2():
+ print("This is function_2");
 ```
 
 If `function_1` is called 3 times and `function_2` is called 4 times and these are the only two user defined functions in the input file then the output from your script should be.
 
 ```
-2  
-function_1:3  
+2
+function_1:3
 function_2:4
 ```
 
-In Python a function is defined using the `def` keyword. And is called by using the function name followed by parenthesis. As shown below
+In Python a function is defined using the `def` keyword and is called by using the function name followed by parenthesis. As shown below
 
 **Examples**
 
 ```
 # This is a comment
 # function definition of function_1()
-def function_1():  
- print("this is a function")
+def function_1():
+ print("this is a function")
 
 # function call
 function_1()
 ```
 
-**Note**: Assume that there are no recursive calls, and no user defined function will call other user defined functions. But some test cases may contain string similar to function call in comments that should be ignored for full score.
+**Note**: Assume that there are no recursive calls, and no user defined function will call other user defined functions.
+But some test cases may contain string similar to function call in comments that should be ignored for full score.
 
 **Test case description**: Input is the contents of the input file on which your AWK script will be run. Your script does not need to read any input. Output is the output printed by your script.
 
@@ -786,7 +793,7 @@ echo '
 ### Solution
 
 ```bash
-/^[^#]/{   
+/^[^#]/{
   if ($0 ~ /^def [[:alnum:]_]+\(.*\):$/) {
     split($0, t1)
     split(t1[2], t2, "(")
@@ -797,7 +804,6 @@ echo '
     for (f in fn) {
       if ($0 ~ f"\\(.*\\)") {
         fn[f]++
-        #print $0":"f"->"fn[f]
       }
     }
   }
@@ -1003,15 +1009,20 @@ f:0
 
 ## Problem 1 [15 marks]
 
-A confidential and long text file has to be shared with others. Before sharing the ownership of the file wants to hide some sensitive text.
+A confidential and long text file has to be shared with others.
+Before sharing the file, the owner of the file wants to hide some sensitive text.
 
 Write a **sed script** that will print the file after making the below changes.
 
 - If any line contains any of the strings `Password`, `password`, `Address`, `address`, or the line consists of only digits then the entire line should be replaced with the string `##REDACTED##`. Note that the word `REDACTED` is in capitals with two `#` characters on each side in the replaced string.
 
-- Add the line `##CONFIDENTIAL##` before the first and after the last line of the file. Note that the word `CONFIDENTIAL` is in capitals with two `#` characters on each side, there should be no other characters(including spaces) on this line.
+- Add the line `##CONFIDENTIAL##` before the first and after the last line of the file.
+Note that the word `CONFIDENTIAL` is in capitals with two `#` characters on each side, there should be no other characters(including spaces) on this line.
 
-Note: complete partial tasks for partial marking. Hint: use command like `/pattern/ c string` to replace complete line containing the `pattern` with `string`. Test case description: The input is the input file. And output is the output of running your sed script.
+Note: complete partial tasks for partial marking.
+Hint: use command like `/pattern/ c string` to replace complete line containing the `pattern` with `string`.
+Test case description: The input is the input file.
+And output is the output of running your sed script.
 
 ### Prefix
 
@@ -1028,11 +1039,11 @@ sed '
 ### Solution
 
 ```bash
-1 i\##CONFIDENTIAL##
-/[Pp]assword/ c ##REDACTED##
-/[Aa]ddress/ c ##REDACTED##
-s/^[0-9][0-9]*$/##REDACTED##/
-$ a\##CONFIDENTIAL##
+1i##CONFIDENTIAL##
+/[Pp]assword/c##REDACTED##
+/[Aa]ddress/c##REDACTED##
+s/^[0-9]\+$/##REDACTED##/
+$a##CONFIDENTIAL##
 ```
 
 ### Suffix
@@ -1062,7 +1073,7 @@ This is a protected file
 **Input-2**
 
 ```
-This is another proctected file 
+This is another proctected file
 this contain one protected info
 as below
 9897623637
@@ -1073,7 +1084,7 @@ and it needs to be redacted.
 
 ```
 ##CONFIDENTIAL##
-This is another proctected file 
+This is another proctected file
 this contain one protected info
 as below
 ##REDACTED##
@@ -1085,7 +1096,7 @@ and it needs to be redacted.
 
 ```
 This is random file
-which may contain some password 
+which may contain some password
 or Passwords
 or a lot of information
 or some ADDRESSES of people
@@ -1146,7 +1157,7 @@ This is a protected file
 **Input-2**
 
 ```
-This is another proctected file 
+This is another proctected file
 this contain one protected info
 as below
 9897623637
@@ -1159,7 +1170,7 @@ another phone number
 
 ```
 ##CONFIDENTIAL##
-This is another proctected file 
+This is another proctected file
 this contain one protected info
 as below
 ##REDACTED##
@@ -1172,7 +1183,7 @@ another phone number
 **Input-3**
 
 ```
-This is another proctected file 
+This is another proctected file
 this contain one protected info
 as below
 9897623637
@@ -1188,7 +1199,7 @@ but not below ones
 
 ```
 ##CONFIDENTIAL##
-This is another proctected file 
+This is another proctected file
 this contain one protected info
 as below
 ##REDACTED##
@@ -1290,26 +1301,28 @@ The above contains a space along with digits
 A student has to submit his data in a text file containing keys on the odd-numbered lines and the corresponding values on the next even-numbered lines, as shown below.
 
 ```
-key1  
-value1  
-key2  
-value2  
-key3  
+key1
+value1
+key2
+value2
+key3
 value3
 ```
 
 But the student made a mistake and his file `data.txt` looks like below,
 
 ```
-value1  
-key1  
-value2  
-key2  
-value3  
+value1
+key1
+value2
+key2
+value3
 key3
 ```
 
-Write an **AWK script** to print the file `data.txt` after correcting the mistake. Basically, your AWK script should swap every two consecutive lines in the file. Assume that the file will always contain even number of lines.
+Write an **AWK script** to print the file `data.txt` after correcting the mistake.
+Basically, your AWK script should swap every two consecutive lines in the file.
+Assume that the file will always contain even number of lines.
 
 ### Prefix
 
@@ -1514,25 +1527,35 @@ b
 
 ## Problem 3 [15 marks]
 
-You run a bash utility that regularly creates a lot of files in the directory named `outfiles`. One file is duplicated many times among these files. You want to eliminate duplicates and keep only one copy. We do not know which file is duplicated, but only one file is duplicated that we know. Except for these duplicates all others are distinct. Write a **Bash script** that finds all the duplicate files directly under the directory `outfiles` and removes the duplicate files. Among the duplicate files keep the file whose name appears first in lexicographically sorted order. i.e. if files `de`, `dgt`, `we` and `bb` are duplicates, keep the file `bb` and remove the files `de`, `dgt` and `we`.  
+You run a bash utility that regularly creates a lot of files in the directory named `outfiles`.
+One file is duplicated many times among these files.
+You want to eliminate duplicates and keep only one copy.
+We do not know which file is duplicated, but only one file is duplicated that we know.
+Except for these duplicates all others are distinct.
+Write a **Bash script** that finds all the duplicate files directly under the directory `outfiles` and removes the duplicate files.
+Among the duplicate files keep the file whose name appears first in lexicographically sorted order.
+i.e. if files `de`, `dgt`, `we` and `bb` are duplicates, keep the file `bb` and remove the files `de`, `dgt` and `we`.
 
-If required use the bash script named `printdup.sh` in your script, which is located in the current working directory. Run the command `bash printdup.sh outfiles` to print all the duplicate files in the directory `outfiles`. The output of this command will contain file paths of duplicate files with respect to the current working directory.
+If required use the bash script named `printdup.sh` in your script, which is located in the current working directory.
+Run the command `bash printdup.sh outfiles` to print all the duplicate files in the directory `outfiles`.
+The output of this command will contain file paths of duplicate files with respect to the current working directory.
 
-E.g. if the files `de`, `dgt`, `we` and `bb` present in the directory `outfiles` are duplicates, then the following will be the output if run under the current working directory. Note that the files may or may not be sorted lexicographically in the output of `printdup`.
+E.g. if the files `de`, `dgt`, `we` and `bb` present in the directory `outfiles` are duplicates, then the following will be the output if run under the current working directory.
+Note that the files may or may not be sorted lexicographically in the output of `printdup`.
 
 ```bash
-$ bash printdup.sh outfiles  
-outfiles/de  
-outfiles/dgt  
-outfiles/we  
+$ bash printdup.sh outfiles
+outfiles/de
+outfiles/dgt
+outfiles/we
 outfiles/bb
 ```
 
-Note: Do not add/remove/edit any files other than the ones specified in the problem. 
+Note: Do not add/remove/edit any files other than the ones specified in the problem.
 Hint:
 
 - To read a file/input line by line in bash use one of the below ways.
-  
+
   Below will read the file `input.txt` line by line.
 
 ```bash
@@ -1544,15 +1567,18 @@ done <input.txt
 Below will read output from `command1` line by line.
 
 ```bash
-command1 |  
-while read line; do  
- # commands..  
+command1 |
+while read line; do
+ # commands..
 done
 ```
 
 - Alternatively `xargs` can be used.
 
-**Test case description:** Input is read by the evaluation script, your script does not need to read any input. First line of input is the list of all duplicate files in the directory `outfiles` and second line of input is the list of all remaining files in the directory `outfiles`. Your script does not need to print anything. Expected output is the list of files in the directory `outfiles`, printed by evaluation script after running your script.
+**Test case description:** Input is read by the evaluation script, your script does not need to read any input.
+First line of input is the list of all duplicate files in the directory `outfiles` and second line of input is the list of all remaining files in the directory `outfiles`.
+Your script does not need to print anything.
+Expected output is the list of files in the directory `outfiles`, printed by evaluation script after running your script.
 
 ### Prefix
 
@@ -1575,7 +1601,7 @@ while read line; do
 done <files.dup
 
 # Alternate solution
-# bash printdup.sh outfiles | sort | sed -n '1!p' | xargs rm
+# bash printdup.sh outfiles | sort | sed '1d' | xargs rm
 ```
 
 ### Suffix
@@ -1627,12 +1653,12 @@ len=${#files[@]}
 for ((i=1;i<$len;i++)); do
   cp $file ${files[$i]}
 done
- 
+
 # unset variables
 unset files
 unset file
 unset var
-unset c 
+unset c
 
 cd /$dir
 
@@ -1741,31 +1767,40 @@ prices1
 
 ## Problem 4 [20 marks]
 
-Consider the network log file named `network.log.0` located in the current working directory, in which all the incoming logs will be appended. This file can grow in size easily so we want to rotate these log files if the size of the files increases beyond a limit. Write a **Bash script** that rotates the log file `network.log.0` if its size is greater than 200 bytes as described below.
+Consider the network log file named `network.log.0` located in the current working directory, in which all the incoming logs will be appended.
+This file can grow in size easily so we want to rotate these log files if the size of the files increases beyond a limit.
+Write a **Bash script** that rotates the log file `network.log.0` if its size is greater than 200 bytes as described below.
 
 - If the size is greater than 200 bytes, then
-  
+
   - Rename the file to `network.log.1`, if `network.log.1` already exists in the current working directory then rename the file to `network.log.2`, if `network.log.2` also exists then rename the file to `network.log.3` and so on.
-  
+
   - Create a new empty file named `network.log.0` to be used for new incoming logs.
-  
+
   - And print `ROTATED` on stdin.
 
 - If the size is less than or equal to 200 bytes print the size of the log file `network.log.0` to stdout.
   E.g. if the size of file in bytes is '124' then output should just be a number `124'.
 
-Note: The log files are always rotated using your Bash script, so the rotation will always be in sequence. i.e. `network.log.3` exists, then `network.log.1`. `network.log.2` and `network.log.3` will always exist in the current working directory. You need to find the highest numbered log file and rotate the log based on that.
+Note: The log files are always rotated using your Bash script, so the rotation will always be in sequence.
+i.e. if `network.log.3` exists, then `network.log.1`. `network.log.2` and `network.log.3` will always exist in the current working directory.
+You need to find the highest numbered log file and rotate the log based on that.
 
-Hint 1: Bash command `du -b <fileName>` will give the size of the file `<fileName>` in bytes. The output will contain tab-separated values, the first value will be size in bytes second value will be a filename. Also, note that the `cut` command's default delimiter is tab character. Hint 2: If required use the command `sort -n` for numerical sorting.
+Hint 1: Bash command `du -b <fileName>` will give the size of the file `<fileName>` in bytes.
+The output will contain tab-separated values, the first value will be size in bytes second value will be a filename.
+Also, note that the `cut` command's default delimiter is tab character.
+
+Hint 2: If required use the command `sort -n` for numerical sorting.
 
 Example `du` output
 
-```
-$ du -b network_log  
-167 network_log
+```bash
+$ du -b network_log
+167 network_log
 ```
 
-**Test case description:** First line of the input contains numbers used by evaluation script. Your script does not need to read any input.
+**Test case description:** First line of the input contains numbers used by evaluation script.
+Your script does not need to read any input.
 Output is the output printed by your script if the task is accomplished successfully.
 
 ### Prefix
@@ -1784,7 +1819,7 @@ if [ $size -gt $MAX ]
 then
     # The below logic will work only if log files are less than 10
     # count=`ls $filename* | tail -1 | cut -d'.' -f3`
-    
+
     # So.
     count=`ls $filename* | cut -d'.' -f3 | sort -n | tail -1`
 
@@ -1800,7 +1835,7 @@ fi
 ### Suffix
 
 ```bash
-} 
+}
 ```
 
 ### Invisible Code
@@ -1831,7 +1866,7 @@ do
   touch network.log.$i
 done
 
-# Check if rotation required or not 
+# Check if rotation required or not
 MAX=200
 size=`du -b network.log.0 | tr -s '\t' ' ' | cut -d' ' -f1`
 if [ $size -gt $MAX ]; then
@@ -1839,14 +1874,14 @@ if [ $size -gt $MAX ]; then
 fi
 
 # Run script
-script 2>&1 
+script 2>&1
 
 if [[ $rotate -eq 1 ]]; then
   # Check if new log file is created and is empty
   if [[ ! -f network.log.0 ]];then
     echo "1: network.log.0 does not exist."
   fi
-  
+
   if [[ `wc -c <network.log.0` -gt 0 ]]; then
     echo "2: network.log.0 is not empty."
   fi
