@@ -7,15 +7,15 @@ Create a file structure as shown below and the commands should not output anythi
 ```
 /potato_recipes/
 ├── french_fries
-│   ├── ingredients.txt
-│   └── procedure.txt
+│   ├── ingredients.txt
+│   └── procedure.txt
 ├── frites -> french_fries/
 └── potato_wedges
     ├── ingredients.txt
     └── procedure.txt
 ```
 
-- `potato_recipes` is a directory present in the root directory `/`. 
+- `potato_recipes` is a directory present in the root directory `/`.
 
 - `french_fries` and `potato_wedges` are the directories present inside the directory `potato_recipes`.
 
@@ -82,14 +82,14 @@ procedure.txt
 | test "-d /potato_recipes/potato_wedges" && echo 0                                                        | 0      |
 | test "-f /potato_recipes/french_fries/procedure.txt" && echo 0                                           | 0      |
 | test "-f /potato_recipes/potato_wedges/procedure.txt" && echo 0                                          | 0      |
-| touch /potato_recipes/french_fries/sample.txt;  test "-a /potato_recipes/frites/sample.txt" && echo 0    | 0      |
-| echo 0 > /potato_recipes/french_fries/ingredients.txt; cat /potato_recipes/potato_wedges/ingredients.txt | 0      |
+| touch /potato_recipes/french_fries/sample.txt;  test "-a /potato_recipes/frites/sample.txt" && echo 0    | 0      |
+| echo 0 > /potato_recipes/french_fries/ingredients.txt; cat /potato_recipes/potato_wedges/ingredients.txt | 0      |
 
 ---
 
 ## Problem 2
 
-Create a link `/data` to the file `mydata` present in the current directory such that the file `mydata` will be often deleted and recreated with the same name and in the same location. 
+Create a link `/data` to the file `mydata` present in the current directory such that the file `mydata` will be often deleted and recreated with the same name and in the same location.
 
 ### Solution
 
@@ -108,7 +108,7 @@ mkdir $DIR; cd $DIR
 
 
 echo mysecretdata > mydata
-script 
+script
 rm mydata
 echo Passed > mydata
 cat /data
@@ -125,7 +125,7 @@ cat /data
 
 ## Problem 3 A
 
-The file `dpkg.log` present in the current directory contains the log of installed packages. Find and print the day (YYYY-MM-DD) in which the zsh is installed. 
+The file `dpkg.log` present in the current directory contains the log of installed packages. Find and print the day (YYYY-MM-DD) in which the zsh is installed.
 
 **Hint:**
 
@@ -138,7 +138,7 @@ script() {
     grep zsh-common dpkg.log \
     | grep installed \
     | tail -1 \
-    | cut -d " " -f 1
+    | cut -d " " -f 1
 }
 ```
 
@@ -1352,7 +1352,7 @@ The file `dpkg.log` present in the current directory contains the log of package
 script() {
     egrep "status (not-)?installed $pkg" dpkg.log \
     | tail -1 \
-    | cut -d " " -f 4 
+    | cut -d " " -f 4
 }
 ```
 
@@ -1633,13 +1633,11 @@ not-installed
 
 ## Problem  4 A
 
-Write a script that reads two numbers `a` and `b` from first and second line respectively and print `special` if  
+Write a script that reads two numbers `a` and `b` from first and second line respectively and print `special` if
 
-- `a` and `b` are divided by 3
-
+- `a` and `b` are divisible by 3
 - `a` is greater than `b`
-
-- The remainder of `a` divided by `b` is divided by 3
+- The remainder of `a` divided by `b` is divisible by 3
 
 If any of the above condition is not satisfied then print `not-special`
 
@@ -1647,8 +1645,8 @@ If any of the above condition is not satisfied then print `not-special`
 
 ```bash
 script() {
-    read a
-    read b
+    read a
+    read b
     [[ $a -gt $b \
     && $((a%3)) -eq 0 \
     && $((b%3)) -eq 0 \
@@ -1671,11 +1669,9 @@ script() {
 
 Write a script that reads two numbers `a` and `b` from first and second line respectively and print `special` if
 
-- `a` and `b` are divided by 3
-
+- `a` and `b` are divisible by 3
 - `a` is lesser than `b`
-
-- The remainder of `b` divided by `a` is divided by 3
+- The remainder of `b` divided by `a` is divisible by 3
 
 If any of the above condition is not satisfied then print `not-special`
 
@@ -1705,9 +1701,9 @@ script() {
 
 ## Problem 5 A
 
-Write a script to print numbers that are divided by both 7 and 11 between `a` and `b` (ends inclusive) where `a` and `b` are the variables holds an integer that `a` is lesser than `b`.
+Write a script to print numbers that are divisible by both 7 and 11 between `a` and `b` (ends inclusive) where `a` and `b` are integer variables and `a` is lesser than `b`.
 
-**Hint:**Use seq command to generate a sequence of values. 
+**Hint:**Use seq command to generate a sequence of values.
 
 Ex: `seq 0 4` will give
 
@@ -1726,9 +1722,7 @@ script() {
     read a
     read b
     for i in $(seq $a $b); do
-        [[ $((i%7)) -eq 0 \
-        && $((i%11)) -eq 0 ]] \
-        && echo $i
+        [[ $((i%77)) -eq 0 ]] && echo $i
     done
 }
 ```
@@ -1746,9 +1740,12 @@ script() {
 
 ## Problem 6
 
-Write a function named `touchmod` takes multiple arguments. It creates empty files with the names of from second to the last argument if the file is not present in the current directory and the permission of each file in the file arguments is the first octet argument.
+Write a function named `touchmod` which takes multiple arguments.
 
-Example: `touchmod 755 abc def ghi` will create three empty files `abc`, `def` and `ghi` if these are not present in the current working directory else change the modified time, and permissions of the files `abc`, `def` and `ghi` are `rwxr-xr-x` (755). 
+The script should create files for all the filenames provided as the arguments.
+The first argument is the permission in octal form (e.g., 755, 644, 777, etc.) and the rest of the arguments are the filenames.
+
+Example: `touchmod 755 abc def ghi` will create three empty files `abc`, `def` and `ghi` if these are not present in the current working directory else change the modified time, and permissions of the files `abc`, `def` and `ghi` to `rwxr-xr-x` (755).
 
 ### Solution
 
@@ -1781,7 +1778,8 @@ touchmod $line | sed -n '1! p' | awk '{print $1,$9}'
 
 ## Problem 7
 
-The current directory contains different types of files. Write a script to move all files in the current directory to the respective directory in the current folder.
+The current directory contains different types of files.
+Write a script to move all files in the current directory to the respective directory in the current folder.
 
 | Directory | Extensions                                                      |
 | --------- | --------------------------------------------------------------- |
@@ -1808,7 +1806,7 @@ script() {
                 ;;
             *)
                 mv $file Other
-                ;;   
+                ;;
         esac
     done
 }
@@ -1845,9 +1843,8 @@ ls -R
 
 Write a script that reads two inputs from the stdin.
 
-- The first line is a directory name present in the current directory
-
-- The second line is a filename
+- The first line is a directory name present in the current directory.
+- The second line is a filename.
 
 Print `present` if the file is present in the directory else print `absent`
 
@@ -1857,7 +1854,11 @@ Print `present` if the file is present in the directory else print `absent`
 script() {
     read dir
     read file
-    [[ -a "$dir/$file" ]] && echo present || echo absent
+    if [[ -f "$dir/$file" ]] ; then
+        echo present
+    else
+        echo absent
+    fi
 }
 ```
 
@@ -1892,11 +1893,10 @@ touch season/summer season/winter season/monsoon \
 
 Write a script that reads two inputs from the stdin.
 
-- The first line is a directory name present in the current directory
+- The first line is a directory name present in the current directory.
+- The second line is the number of files present in the directory given in the first line.
 
-- The second line is a number of files present in the directory given in the first line
-
-Print `true` if the directory on second line is present in the directory given on the first line else print `false`
+Print `true` if the number of files in the directory is equal to the number given in the second line else print `false`
 
 ### Solution
 
@@ -1904,7 +1904,11 @@ Print `true` if the directory on second line is present in the directory given o
 script() {
     read dir
     read num
-    [[ $num -eq `ls $dir | wc -l` ]] && echo true || echo false
+    if [[ $num -eq `ls $dir | wc -l` ]] ; then
+        echo true
+    else
+        echo false
+    fi
 }
 ```
 
