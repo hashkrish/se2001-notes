@@ -17,7 +17,7 @@ Total: 100 marks, 6 problems
 Write a **SED script**,
 
 - To insert a line `# FUNCTION DEFINITION` when the word `def` is found and that line should be shifted down.
-- To remove the line that starts with `# TODO`
+- To remove the line that has `# TODO`
 
 ### Problem
 
@@ -49,7 +49,7 @@ while [[ -a $DIR ]]; do DIR=$RANDOM; done
 mkdir $DIR; cd $DIR
 
 script > script.sed
-cat | sed -f script.sed 2>&1
+sed -f script.sed 2>&1
 ```
 
 ### Test cases
