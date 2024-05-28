@@ -44,7 +44,7 @@ test() {
 
 rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
-source "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1
+source "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1 < /dev/null
 
 grep "undeclaredfunction: command not found" errorlog -c
 cat

@@ -22,7 +22,7 @@ cat >script.sh <<EOF
 rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
 read month
-month=\$month bash "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1
+month=\$month bash "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1 </dev/null
 if [[ ! -e "\$month".txt ]]; then
   echo "Error: \$month.txt not found"
 else
