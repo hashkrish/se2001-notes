@@ -5,7 +5,7 @@ err(){
   exit 1
 }
 
-req=( "diff" "basename" "col" "find" )
+req=( "diff" "basename" "col" "find" "pushd" "popd" )
 executable="errorlog.sh"
 for i in "${req[@]}"; do
   command -v "$i" > /dev/null 2>&1 || err "$i is not installed"
