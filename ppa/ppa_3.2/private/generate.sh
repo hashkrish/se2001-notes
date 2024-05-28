@@ -30,3 +30,5 @@ for input in *.in; do
   mv "$input" "$test_case/input.txt" -f
   ../script.sh < "$test_case/input.txt" > "$test_case/output.txt"
 done
+
+find . -type d -name 'test_case_*' | sort | sed "s/^\./$(basename "$PWD")/" > ../private_test_cases.txt
