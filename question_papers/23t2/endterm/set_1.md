@@ -636,7 +636,7 @@ April 21,2002
 
 ## Question 15 [MCQ] [6]
 
-Following entry is made to a crontab to run a script which generate system and process logs at designated time. When is the script `/home/Tisha/monitor_management.sh`  scheduled to get executed. [MCQ]
+Following entry is made to a crontab to run a script which generate system and process logs at designated time. When is the script `/home/Tisha/monitor_management.sh`  scheduled to get executed. [MCQ]
 
 ```bash
 
@@ -647,19 +647,19 @@ Following entry is made to a crontab to run a script which generate system and p
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
 
 ```
-*   *   *   *   *   <Command(s) with argument>
-|   |   |   |   |              |
-|   |   |   |   |      Command or Script to Execute        
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   | Day of the Week(0-6)
-|   |   |   |
-|   |   | Month of the Year(1-12)
-|   |   |
-|   | Day of the Month(1-31)  
-|   |
-| Hour(0-23)  
+*   *   *   *   *   <Command(s) with argument>
+|   |   |   |   |              |
+|   |   |   |   |      Command or Script to Execute        
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   | Day of the Week(0-6)
+|   |   |   |
+|   |   | Month of the Year(1-12)
+|   |   |
+|   | Day of the Month(1-31)  
+|   |
+| Hour(0-23)  
 |
 Min(0-59)
 ```

@@ -87,8 +87,8 @@ Create a file structure as shown below; the commands should not output anything.
 ```
 /potato_recipes/
 ├── french_fries
-│   ├── ingredients.txt
-│   └── procedure.txt
+│   ├── ingredients.txt
+│   └── procedure.txt
 ├── frites -> french_fries/
 └── potato_wedges
     ├── ingredients.txt

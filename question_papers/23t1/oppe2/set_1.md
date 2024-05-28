@@ -229,15 +229,15 @@ Assume there is at least on file in the directory `./data` and only file is loca
 $ tree -F
 ./
 └── data/
-    ├── a/
-    │   ├── c/
-    │   │   └── h
-    │   ├── d/
-    │   └── g
-    ├── b/
-    │   ├── c/
-    │   └── d/
-    └── f
+    ├── a/
+    │   ├── c/
+    │   │   └── h
+    │   ├── d/
+    │   └── g
+    ├── b/
+    │   ├── c/
+    │   └── d/
+    └── f
 
 $ cat ./data/f
 This is f

@@ -403,20 +403,20 @@ Below is the file hierarchy structure provided to answer the question.
 ```
 .
 ├── classA
-│   └── attendance
-│       ├── feb.csv
-│       ├── jan.csv
-│       └── mar.csv
+│   └── attendance
+│       ├── feb.csv
+│       ├── jan.csv
+│       └── mar.csv
 ├── classB
-│   └── attendance
-│       ├── feb.csv
-│       ├── jan.csv
-│       └── mar.csv
+│   └── attendance
+│       ├── feb.csv
+│       ├── jan.csv
+│       └── mar.csv
 ├── classC
-│   └── attendance
-│       ├── feb.csv
-│       ├── jan.csv
-│       └── mar.csv
+│   └── attendance
+│       ├── feb.csv
+│       ├── jan.csv
+│       └── mar.csv
 └── script.sh
 
 6 directories, 10 files
@@ -512,8 +512,8 @@ For the following `while` loop, select the standard input(s) from the following 
 
 ```bash
 while read line; do
-    $pat = '[0-3][a-g][123][xyz]'
-    [[ $line =~ $pat ]] && break
+    $pat = '[0-3][a-g][123][xyz]'
+    [[ $line =~ $pat ]] && break
 done
 ```
 
@@ -551,7 +551,7 @@ done
 
 ```
 
-(a) Prints the file names of all the '.txt'  files in the current directory non recursively.
+(a) Prints the file names of all the '.txt'  files in the current directory non recursively.
 
 (b) Prints the file names of all the '.txt' files in the current directory recursively.
 
