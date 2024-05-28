@@ -30,7 +30,7 @@ while read directory perm; do
   mkdir \$directory
   chmod \$perm \$directory
 done
-source "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1 < /dev/null
+bash "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1 < /dev/null
 
 popd > /dev/null || exit 1
 [[ -d "\$rand_dir" ]] && rm "\${rand_dir?}" -rf
