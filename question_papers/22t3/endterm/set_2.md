@@ -1,6 +1,6 @@
-# System Commands, End Term Set-1
+# System Commands, End Term Set-2
 
-## Question 1 (echo) [6]
+## Question 1 (echo) [-e removed in second echo] [6]
 
 ```shell
 $ help echo
@@ -25,7 +25,7 @@ What will be the output of the below script?
 
 ```bash
 echo -n '* ' # There is a space after *
-echo -ne '*\n*\n* '  # There is a space after the last *
+echo -n '*\n*\n* '  # There is a space after the last *
 echo -n '* ' # There is a space after *
 ```
 
@@ -59,19 +59,17 @@ echo -n '* ' # There is a space after *
 
 ### Answer
 
-(d)
+(c)
 
 ### Explanation
 
-- `-n` in `echo` means a newline at the end won't be printed automatically.
-- `-e` in `echo` means the backslash escapes will be interpreted.
-- `\n` in the string will be interpreted as a newline character.
+- Without `-e` flag in `echo`, the `\n` will be treated as a normal character and not as a newline character.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 2 (link) [6]
+## Question 2 (link) [Same as set-1] [6]
 
 A college student uses a pen drive to store files. The pen drive is always mounted on his system at `/mount` as a separate file system. His pen drive contains lots of files and directories. He wants to create a link to the directory `/mount/bio/phase-2/project-312` inside his home directory. What link can the student use?
 
@@ -81,7 +79,7 @@ A college student uses a pen drive to store files. The pen drive is always mount
 
 (c) either soft link or hard link
 
-(d) links will not work for this requirement
+(d) links will not work this requirement
 
 ### Answer
 
@@ -99,16 +97,15 @@ A college student uses a pen drive to store files. The pen drive is always mount
 
 <div style="page-break-after: always;"></div>
 
-## Question 3 (shell variable) [7]
+## Question 3 (shell variable) [Same as set-1] [7]
 
 Complete the script to rename all the files in the current directory to include the time of creation in the name itself as given in the example below. Assume all the files have creation times.
-
 Example: The filename `myfile` should be renamed to `myfile_2022-10-20T14:52:58`
 
 ```bash
 for file in *; do
     creation_time=$(stat -c '%w' $file)
-    # Sample output from `stat -c %w FILE`
+    # Sample output from `stat -c %w`
     # "2022-10-20 14:52:58.738413991 +0530"
     # ***********************
     # * COMPLETE THE SCRIPT *
@@ -158,9 +155,9 @@ mv "$file" "$temp"
 
 <div style="page-break-after: always;"></div>
 
-## Question 4 (cron) [7]
+## Question 4 (cron) [9pm & 10pm swapped] [7]
 
-Which of the following command will run the script `/home/bill/autoscript/backup.sh` at 10:00 pm every day-of-week from Monday through Friday in every month from January through June and at 9:00 pm every day-of-week from Monday through Friday in every month from July through December. [MCQ]
+Which of the following command will run the script `/home/bill/autoscript/backup.sh` at 9:00 pm every day-of-week from Monday through Friday in every month from January through June and at 10:00 pm every day-of-week from Monday through Friday in every month from July through December. [MCQ]
 
 **Hint**: Below is the description of the sequence in the cron job command.
 
@@ -212,17 +209,17 @@ Min(0-59)
 
 ### Answer
 
-(a)
+(d)
 
 ### Explanation
 
-- Cron uses 24-hour format for time. so 10pm is 22 hours, and 9pm is 21 hours.
+- Cron uses 24-hour format for time. So 10pm is 22 hours, and 9pm is 21 hours.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 5 (vi/emacs)[6]
+## Question 5 (vi/emacs) [Same as set-1] [6]
 
 What does the key sequence `G$vgg0yGp` do in vi editor?
 Hint:
@@ -268,13 +265,10 @@ Hint:
 
 <div style="page-break-after: always;"></div>
 
-## Question 6 (shell script) [MSQ] [8]
+## Question 6 (shell script) [MSQ] [Same as set-1] [8]
 
-A student named Varsha has a lot of configuration files in her Linux system. Somehow she lost all the data,
-but fortunately she backed up her configuration files in a specific way such that the backup directory named `backup_config` contains all the configuration files along with one file named `files`.
-The file `files` contains the absolute paths to the config files, one path per line for each config file.
-Choose the script that restores all the files to their location.
-Assume the backup directory contains only files not directories.
+A student named Varsha has a lot of configuration files in her Linux system. Somehow she lost all the data but fortunately she backed up her configuration files in a specific way such that the back up directory named `backup_config` contains all the configuration files along with one file named `files`.
+The file `files` contains the absolute paths to the config files, one path per line for each config file. Choose the script that restores all the files to their location. Assume the backup directory contains only files not directories.
 The current working directory where the scripts are run is `backup_config` directory.
 
 (a)
@@ -325,15 +319,15 @@ done
 
 <div style="page-break-after: always;"></div>
 
-## Question 7 (shell script) [NAT] [6]
+## Question 7 (shell script) [NAT] [second if will execute f is always 1] [6]
 
 How many lines will be printed after executing the below script?
 
 ```bash
 for i in {1..10}; do
-    f=0
+    f=1
     if ((i%3==0)); then
-        f=1
+        f=0
         continue
     fi
     if [[ $f -eq 1 &&  $i -gt 5 ]]; then
@@ -345,57 +339,60 @@ done
 
 ### Answer (exact)
 
-7
+4
 
 ### Explanation
 
-- We set the value of `f=0` in every iteration.
-- The only time `f=1` is done, is directly followed by a `continue` statement, which resets it back to `0`.
-- Thus, the second `if` condition will never be true and can be removed.
-- We only skip over the iteration when `i` is a multiple of 3.
-- Out of the 10 iterations, 3, 6, and 9 are multiples of 3, so they are skipped.
-- Rest 7 numbers will print `***`.
+- The variable `f=1` is set for every iteration.
+- The assignment `f=0` is done only when `i` is divisible by 3, but followed by `continue` statement, thus the value of `f` again resets to `1`.
+- Thus, the first part of the second `if` condition will always be true, and the second part will be true only when `i` is greater than 5.
+- Thus, the first part of the second `if` can be dropped from the script, as it is redundant.
+- The second `if` will be true for all values of `i` greater than 5.
+- Thus for values which are greater than 5, or multiples of 3 the loop will not print the pattern.
+- Only numbers lesser than or equal to 5 and not divisible by 3 (1,2,4,5) will print the pattern.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 8 (shell script)[6]
+## Question 8 (shell script) [redirected to stderr] [6]
 
 Select the correct statement(s) based on the below script. Assume that `file1` is not empty.
 Hint: `tee` command takes the stdin and prints it to the terminal and also writes to the file given as argument.
 
 ```bash
 while read line; do
-    echo $line
+    echo $line 1>&2
 done < file1 > file2 | tee file3
 ```
 
-(a) _file2_ will be empty at the end of execution
+(a) **file2** will **NOT** be empty at the end of execution
 
-(b) _file3_ will be empty at the end of execution
+(b) **file3** will **NOT** be empty at the end of execution
 
-(c) The contents of _file1_ will be displayed in the terminal
+(c) The contents of **file1** will be displayed in the terminal
 
-(d) _file3_ will contains the contents of _file1_
+(d) **file3** contains the contents of **file1**
 
 ### Answer
 
-(b)
+(c)
 
 ### Explanation
 
-- The `while` loop reads the contents of `file1` and prints it to the stdout.
-- That is redirected to the file `file2`.
-- The `tee` command gets nothing in stdin, thus prints nothing to terminal, and writes nothing to `file3`.
+- The script reads the contents of `file1` and prints it to the stderr.
+- The stdout (which is empty) is redirected to `file2`, so `file2` will be empty.
+- The empty stdout is piped to `tee` which writes the empty content to `file3`.
+- The un-redirected stderr will be displayed in the terminal.
+- We can redirect `stderr` to tee using `|&` instead of `|`.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 9 (grep/regex) [6]
+## Question 9 (grep/regex) [Repeated consecutively] [6]
 
-Choose the regular expression to match with a string that contains at least a character repeated three times anywhere in the same line. Assume that the regular expression is using Extended Regular Expression Engine (ERE).
+Choose the regular expression to match with a string that contains at least a character repeated three times consecutively. Assume the regular expression is using Extended Regular Expression Engine (ERE).
 
 (a) `...`
 
@@ -409,23 +406,22 @@ Choose the regular expression to match with a string that contains at least a ch
 
 ### Answer
 
-(d)
+(c)
 
 ### Explanation
 
-- `.` matches any character.
-- `.*` matches zero or more occurrences of any character.
-- `(.).*\1.*\1` matches any character followed by zero or more occurrences of any character followed by the same character followed by zero or more occurrences of any character followed by the same character.
-- `(.)\1\1` matches any character present thrice _consecutively_ in the line, this is not asked.
-- (e) requires the character to be at the starting and end of the line, this is not asked.
+- `(.)` captures any character.
+- `\1` matches the same character as captured by the first group.
+- `(.)\1\1` matches any character repeated three times consecutively.
+- (d) will match any character repeated thrice but not consecutively.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 10 (grep/regex) [8]
+## Question 10 (grep/regex) [Same as set-1] [8]
 
-Choose the matching line(s) for any of the following regular expressions. Assume the regular expression is using Extended Regular Expression Engine (ERE). [MSQ]
+Choose the matching line(s) for any of the following regular expressions. Assume that the regular expression is using Extended Regular Expression Engine (ERE). [MSQ]
 
 ```
 ^$
@@ -459,11 +455,10 @@ Choose the matching line(s) for any of the following regular expressions. Assume
 
 ## Question 11 (sed) [6]
 
-What does the given sed script do?
-
-_Hint_: `N` command in sed appends the next line to the pattern space(current line) with a newline character `\n` being the separator.
+What does the given sed script do? `N` command in sed appends the next line to the pattern space(current line) with a newline character `\n` being the separator.
 
 ```sed
+N
 N
 N
 s/\n//g
@@ -479,36 +474,42 @@ s/\n//g
 
 ### Answer
 
-(b)
+(c)
+
+### Explanation
+
+- Each `N` reads the next line into pattern space, thus 3 `N` reads 3 next lines into pattern space, having a total of 4 lines in the pattern space.
+- The `s/\n//g` command removes all the newline characters from the pattern space, thus merging all the 4 lines into a single line.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 12 (sed)[6] [NAT]
+## Question 12 (sed) [NAT] [second command does nothing] [6]
 
 The input file to the below sed script named `data` contains 100 characters, among them 47 are numbers `[0-9]`. How many characters will be in the output after executing the below script? Assume that sed is using Extended Regular Expression Engine (ERE). [MSQ]
 
 ```sed
 s/([0-9])/\1\1/g
-s/([0-9])\1/\1/g
+s/([0-9])\1/\1\1/g
 ```
 
 ### Answer
 
-100
+147
 
 ### Explanation
 
-- The first `s` command replaces every number with two occurrences of the same number.
-- The second `s` command replaces every number with two occurrences of the same number with a single occurrence of the number.
-- The sed script is an identity transformation, it does not change the input.
+- The first `s/([0-9])/\1\1/g` command replaces every number with the number repeated twice.
+- The second command is an identity command, as it is trying to replace the number repeated twice with the same number repeated twice, it does nothing.
+- The file has 47 numbers, and each number is replaced with the number repeated twice, thus the output will have $47 \times 2=94$ numbers.
+- The output will have 100+47=147 characters.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 13 (sed) [8]
+## Question 13 (sed) [Same as set-1] [8]
 
 Consider a file named `data` containing some text located in the current working directory. Select the correct statement(s) for the output printed by the below script.
 
@@ -556,7 +557,7 @@ done
 
 <div style="page-break-after: always;"></div>
 
-## Question 14 (awk) [6]
+## Question 14 (awk) [twice to thrice] [6]
 
 What will the output from the below command represent?
 
@@ -565,7 +566,7 @@ awk '
 {
     arr[$0]++
 }
-arr[$0] == 2 {
+arr[$0] == 3 {
     print
 }
 ' data
@@ -573,11 +574,11 @@ arr[$0] == 2 {
 
 (a) The lines that are distinct
 
-(b) The lines that are repeated exactly twice
+(b) The lines that are repeated exactly thrice
 
-(c) The lines that are repeated twice or more
+(c) The lines that are repeated thrice or more
 
-(d) The lines that are repeated more than twice
+(d) The lines that are repeated more than thrice
 
 ### Answer
 
@@ -587,15 +588,15 @@ arr[$0] == 2 {
 
 - The script reads the file line by line.
 - It maintains a count of each line in the array `arr`.
-- If the count of the line is 2, it prints the line.
-- Lines present more than twice will also have its count as 2 at some point when the line is read for the second time.
-- The lines that are repeated twice or more are printed.
+- If the count of the line is 3, it prints the line.
+- Lines present more than thrice will also have its count as 3 at some point when the line is read for the third time.
+- The lines that are repeated thrice or more are printed.
 
 ---
 
 <div style="page-break-after: always;"></div>
 
-## Question 15 (awk)[8] [NAT]
+## Question 15 (awk) [NAT] [shuffling the data points] [8]
 
 What will be the output from the below script?
 
@@ -616,9 +617,9 @@ END {
     print num/(denx_2^0.5 * deny_2^0.5)
 }
 ' << EOF
-1 2
-3 4
 5 6
+3 4
+1 2
 7 8
 EOF
 ```

@@ -1,6 +1,6 @@
-# System Command Quiz-1 Set-1
+# System Command Quiz-1 Set-2
 
-## Question 1 [6]
+## Question 1 [6] Same as set-1
 
 Choose the command to print the below text in the terminal. [MSQ]
 
@@ -47,21 +47,21 @@ Select the output from the below script [MCQ]
 Note: `rev` command will reverse
 
 ```bash
-A="HA"
+A="AH"
 echo "${A}NN$(echo $A | rev)"
 ```
 
-(a) HANNA
+(a) AHNNA
 
-(b) HANNHA
+(b) AHNNAH
 
-(c) HAHA
+(c) AHHA
 
-(d) HANN
+(d) AHNN
 
 (e) NN
 
-(f) HANNAH
+(f) AHNNHA
 
 (g) \${A}NN\$(echo \$A | rev)
 
@@ -71,38 +71,38 @@ echo "${A}NN$(echo $A | rev)"
 
 ### Explanation
 
-- `echo $A` → `HA`
-- `echo $A | rev` → `AH`
-- `${A}NN$(echo $A | rev)` → `HA` + `NN` + `AH` → `HANNAH`
+- `echo $A` → `AH`
+- `echo $A | rev` → `HA`
+- `${A}NN$(echo $A | rev)` → `AH` + `NN` + `HA` → `AHNNHA`
 
 ---
 
-Common data for Question 3 to 5
+**Common data for Question 3 to 5**
 **Case 1**
 
 ```bash
-echo Hello
+echo Welcome
 read line
-echo World
+echo Home
 ```
 
 **Case 2**
 
 ```bash
-echo Hello
+echo Welcome
 read line &
-echo World
+echo Home
 ```
 
 ## Question 3 [5]
 
-When will the text `World` be printed if no input is given to stdin in case 1? [MCQ]
+When will the text `Home` be printed if no input is given to stdin in case 1? [MCQ]
 
 (a) Immediately
 
 (b) After a minute
 
-(c) The text `World` will not be printed
+(c) The text `Home` will not be printed
 
 (d) Not enough information
 
@@ -118,13 +118,13 @@ When will the text `World` be printed if no input is given to stdin in case 1? [
 
 ## Question 4 [5]
 
-When will the text `World` be printed if no input is given to stdin in case 2? [MCQ]
+When will the text `Home` will be printed if no input is given to stdin in case 2? [MCQ]
 
 (a) Immediately
 
 (b) After a minute
 
-(c) The text `World` will not be printed
+(c) The text `Home` will not be printed
 
 (d) Not enough information
 
@@ -161,7 +161,7 @@ Select the correct statement with respect to Case 2? [MSQ]
 Select the output from the below script. [MCQ]
 
 ```bash
-var="Water"
+var="Wind"
 echo "-var-"
 echo "-${var2:=Air}-"
 echo "-${var2:-Fire}-"
@@ -171,7 +171,7 @@ echo "-${var2:+Earth}-"
 (a)
 
 ```
--Water-
+-Wind-
 -Air-
 -Fire-
 -Earth-
@@ -189,7 +189,7 @@ echo "-${var2:+Earth}-"
 (c)
 
 ```
--var-
+-Wind-
 -Air-
 -Air-
 -Earth-
@@ -220,9 +220,9 @@ echo "-${var2:+Earth}-"
 
 ---
 
-## Question 7 [7]
+## Question 7 [7] Same as set-1
 
-In an organization a particular software requires a key file. The key file will change at 6 am and 6 pm. The command `generate-key` will generate the key file with either of the option `--day` or `--night` with respect to the time at which the command is executed.
+In an organization a particular software requires a key file while the keys will change at 6 am and 6 pm. The command `generate-key` will generate the key file with either of the option `--day` or `--night` with respect to the time at which the command is executed.
 Choose the command that does the above job. [MCQ]
 
 Hint:
@@ -283,7 +283,7 @@ Monday 19 September 2022 03:06:44 PM IST
 
 ## Question 8 [5]
 
-Which of the following command will run the script `/home/reena/scripts/monday-greetings.sh` on every Monday at 10:00 AM in the month of October. [MCQ]
+Which of the following command will run the script `/home/reena/scripts/monday-greetings.sh` on every Monday at 10:10 AM in the month of October. [MCQ]
 
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
 
@@ -311,7 +311,7 @@ Min(0-59)
 
 (c) `* 0 10 * 0  /home/reena/scripts/monday-greetings.sh`
 
-(d) `0 10 * 10 1 /home/reena/scripts/monday-greetings.sh`
+(d) `10 10 * 10 1 /home/reena/scripts/monday-greetings.sh`
 
 ### Answer
 
@@ -319,7 +319,7 @@ Min(0-59)
 
 ---
 
-## Question 9 [6]
+## Question 9 [6] Same as set-1
 
 Below is the output of `ls -li` command. Select the number of hardlinks and softlinks `todo.md` is having respectively. [MCQ]
 
@@ -342,7 +342,7 @@ total 0
 
 (d) 4,cannot be determined with above data
 
-(e) cannot be determined with above data, cannot be determined with above data
+(e) cannot be determined with above data,cannot be determined with above data
 
 ### Answer
 
@@ -356,10 +356,9 @@ total 0
 ---
 
 **Consider the below command outputs for question 10 and 11**
-
 Note that in the output of the command `ls -li` the first field is the inode number. Also that /home/ram is the home directory of the user.
 
-```shell
+```text
 $ pwd
 /home/ram/tmp/6177
 
@@ -370,7 +369,7 @@ total 0
 28320713 -rw-rw-r-- 4 ram ram 0 Sep 20 13:24 todo.md
 ```
 
-```shell
+```text
 $ cd /home/ram/tmp/28041
 
 $ pwd
@@ -386,7 +385,7 @@ total 0
 28320713 -rw-rw-r-- 4 ram ram  0 Sep 20 13:24 todo.md
 ```
 
-## Question 10 [5]
+## Question 10 [5] Same as Set-1
 
 With respect to the above given data, how many files in `~/tmp/28041` is referring (hardlink + softlink) to the file `~/tmp/6177/todo.md` ? [NAT]
 
@@ -402,7 +401,7 @@ With respect to the above given data, how many files in `~/tmp/28041` is referri
 
 ---
 
-## Question 11 [6]
+## Question 11 [6] Same as Set-1
 
 With respect to the above given data, if the directory name `~/tmp/6177` is changed to `~/tmp/6178`, then which of the files in `~/tmp/28041` will be broken? [MSQ]
 
@@ -429,7 +428,7 @@ With respect to the above given data, if the directory name `~/tmp/6177` is chan
 
 ---
 
-## Question 12 [6]
+## Question 12 [6] Same as Set-1
 
 What will be the result of the keystrokes `$jddk0dw` on vi editor or `<C-e><C-k><C-k><C-a><M-d><C-d>` on emacs editor from first line first character on the text given below. `<C-x>` and `<M-x>` refers to Control + x and Meta/Alt + x respectively. [MCQ]
 
@@ -503,9 +502,9 @@ Choose the command that matches a sequence of one or more digits at the end of t
 
 (b) `grep '[0-9][0-9]*' data.txt`
 
-(c) `grep '[0-9]*[0-9]$' data.txt`
+(c) `grep '[0-9][0-9]*$' data.txt`
 
-(d) `grep '^[0-9]*[0-9]$' data.txt`
+(d) `grep '^[0-9][0-9]*$' data.txt`
 
 ### Answer
 
@@ -534,7 +533,7 @@ And live like it's heaven on earth.
 ― William W. Purkey
 ```
 
-Select the command that prints the output same as the contents of file.txt [MSQ]
+Select the command that will _not_ print the entire contents of `file.txt` [MSQ]
 
 (a) `grep . file.txt`
 
@@ -546,7 +545,7 @@ Select the command that prints the output same as the contents of file.txt [MSQ]
 
 ### Answer
 
-(a), (b)
+(c), (d)
 
 ### Explanation
 
@@ -557,7 +556,7 @@ Select the command that prints the output same as the contents of file.txt [MSQ]
 
 ---
 
-## Question 15 [5]
+## Question 15 [5] Same as Set-1
 
 What will be the output from the script when the value of variable `status` is 200? [MCQ]
 
@@ -583,7 +582,7 @@ fi
 
 ---
 
-## Question 16 [8]
+## Question 16 [8] Same as Set-1
 
 ```bash
 while read line; do
@@ -630,9 +629,9 @@ Note that `stat` command is used to get the file status and with option `-c %s` 
 ```bash
 for i in *; do
 	if ! [[ $(stat -c %s "$i") -eq 0 ]]; then
-		cp $i ~/anotherdir/$i
-	else
 		mv $i ~/anotherdir/$i
+	else
+		cp $i ~/anotherdir/$i
 	fi
 done
 ```
@@ -646,7 +645,7 @@ $ ls -l
 -rwxrw-r--   1 ahmed ahmed       0 Aug 21 01:49  temp.py
 -rwxr-xr-x   1 ahmed ahmed       0 Aug  6 17:39  temp.sh
 
-$ stat -c %s temp.hs #
+$ stat -c %s temp.hs
 12233
 ```
 
@@ -664,9 +663,9 @@ $ stat -c %s temp.hs #
 
 ### Answer
 
-(a), (c), (d)
+(b), (e), (f)
 
 ### Explanation
 
-- All files that have non-zero size will be copied to `~/anotherdir`.
-- The files `temp.awk`, `temp.hs`, and `temp.o` have non-zero size, so they will be copied to `~/anotherdir`.
+- All files that have zero size will be copied to `~/anotherdir`.
+- The files `temp.hi`, `temp.py`, and `temp.sh` have zero size, so they will be copied to `~/anotherdir`.
