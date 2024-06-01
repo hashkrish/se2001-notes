@@ -1365,7 +1365,7 @@ customer_id,token_number,counter,token_number,counter
 ## Problem 7 (bash)
 
 Write a bash script to print the number of background processes running after terminating the running sleep processes.
-Hint: use killall command
+Hint: use killall command
 
 ### Prefix
 
