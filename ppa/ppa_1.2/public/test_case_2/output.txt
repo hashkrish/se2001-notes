@@ -1,0 +1,5 @@
+abc.txt:         ASCII text
+eyw8Fgfe1y.txt:  empty
+level1:          directory
+OtjawVbXz8.py:   empty
+U60bauWYqs.html: empty
