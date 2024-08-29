@@ -542,7 +542,7 @@ done
 
 ### Answer
 
-(c)
+(c), (d)
 
 ### Explanation
 
