@@ -9,50 +9,8 @@ if [[ ! -x ../script.sh ]]; then
   exit 1
 fi
 
-cat > x00.in <<EOF
-This is a sample file
-this is not end justsay start
-that contains say
-some number
-say like 10
-or
-20
-or
-233
-444
-or say 3444
-and now it ends.
-EOF
-
-cat > x01.in << EOF
-This is a sample file
-this is not end justsay start
-that contains say
-some number
-say like 10
-or
-20
-or
-233
-444
-or say 3444
-and now it ends.
-that contains say
-some number
-say like 10
-or
-20
-or
-233
-444
-sudo command
-as dhti
-32
-555 sdf
-23ddsf
-23sd
-sdf4
-EOF
+seq 1 18 > x00.in
+seq 1 9 > x01.in
 
 rm test_case_* -rf
 

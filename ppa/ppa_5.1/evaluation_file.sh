@@ -5,8 +5,7 @@ err(){
   exit 1
 }
 
-req=( "mktemp" "diff" "basename" "col" "find" )
-executable="oddargs.sh"
+req=( "diff" "basename" "find" )
 for i in "${req[@]}"; do
   command -v "$i" > /dev/null 2>&1 || err "$i is not installed"
 done
@@ -16,24 +15,22 @@ ppa_path="/opt/se2001/$ppa"
 
 [[ -d "$ppa_path" ]] || err "PPA not found at $ppa_path"
 
+cat >script.sh <<EOF
+#!/bin/bash
+tr -d '\n' < documents.txt | tr ' ' '\n' | sort
+EOF
+chmod u+x script.sh
+
 test_type="$1"
 test_type=${test_type:-"public"}
 test_type=${test_type%/}
-
-cat >script.sh <<EOF
-#!/bin/bash
-
-readarray -t args
-bash "\$(dirname "\${BASH_SOURCE[0]}")/$executable" "\${args[@]}" 2>&1 < /dev/null
-
-EOF
-chmod u+x script.sh
 
 if [[ $test_type == "private" ]]; then
   redir="/dev/null"
 else
   redir="/dev/stdout"
 fi
+
 echo "${test_type^} Test Cases:"
 if [[ ! -d "$ppa_path/$test_type" ]]; then
   err "No $test_type test cases found"
@@ -50,7 +47,7 @@ for test_path in $(find "$ppa_path/$test_type" -type d -name "test_case_*" | sor
     echo "Output file for $input_path not found at $output_path"
     continue
   fi
-  if diff --color=always <( ./script.sh < "$input_path" | col) <( col < "$output_path" ) &>$redir ; then
+  if diff --color=always <(./script.sh < "$input_path" | col) <( col < "$output_path" ) &> "$redir"; then
     echo "Passed!"
     ((passed++))
   else

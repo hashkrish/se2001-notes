@@ -6,7 +6,7 @@ err(){
 }
 
 req=( "mktemp" "diff" "basename" "col" "find" "pushd" "popd" )
-executable="long.sh"
+executable="fail.sh"
 for i in "${req[@]}"; do
   command -v "$i" > /dev/null 2>&1 || err "$i is not installed"
 done
@@ -26,7 +26,7 @@ cat >script.sh <<EOF
 rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
 
-cat > data.txt
+cat > myauth.log
 bash "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1 < /dev/null
 
 popd > /dev/null || exit 1

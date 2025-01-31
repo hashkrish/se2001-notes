@@ -5,8 +5,8 @@ err(){
   exit 1
 }
 
-req=( "mktemp" "diff" "basename" "col" "find" "pushd" "popd" )
-executable="investment.sh"
+req=( "diff" "basename" "col" "find" "cal" "pushd" "popd" )
+executable="calendar.sh"
 for i in "${req[@]}"; do
   command -v "$i" > /dev/null 2>&1 || err "$i is not installed"
 done
@@ -16,44 +16,38 @@ ppa_path="/opt/se2001/$ppa"
 
 [[ -d "$ppa_path" ]] || err "PPA not found at $ppa_path"
 
-test_type="$1"
-test_type=${test_type:-"public"}
-test_type=${test_type%/}
-
 cat >script.sh <<EOF
 #!/bin/bash
 
 rand_dir=\$(mktemp -d XXXXXX)
 pushd "\$rand_dir" > /dev/null || exit 1
-
-mkdir data || exit 1
-
-read fnos
-for (( i=0; i<fnos; i++ )); do
-  read line
-  cut -d ":" -f 2- <<< "\$line" | tr '#' '\n' > ./data/\${line%%:*}
-done
-
-> map
-read mnos
-for (( i=0; i<mnos; i++ )); do
-  read line
-  echo "\$line"  >> map
-done
-
-> result
-read rnos
-for (( i=0; i<rnos; i++ )); do
-  read line
-  echo "\$line"  >> result
-done
-
-bash "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1 < /dev/null
+read month
+month=\$month bash "../\$(dirname "\${BASH_SOURCE[0]}")/$executable" 2>&1 </dev/null
+if [[ ! -e "\$month".txt ]]; then
+  echo "Error: \$month.txt not found"
+else
+  echo "---\$month.txt---"
+  cat "\$month".txt
+fi
+if [[ ! -e error.txt ]]; then
+  echo "Error: error.txt not found"
+else
+  echo "---error.txt---"
+  if [[ \$(wc -c < "\$month.txt") -ne 0 && \$(wc -c < error.txt ) -eq 0 ]] || grep -qFw "\$month" error.txt; then
+    echo "error.txt is correct"
+  else
+    echo "error.txt is not correct"
+  fi
+fi
 
 popd > /dev/null || exit 1
 [[ -d "\$rand_dir" ]] && rm "\${rand_dir?}" -rf
 EOF
 chmod u+x script.sh
+
+test_type="$1"
+test_type=${test_type:-"public"}
+test_type=${test_type%/}
 
 if [[ $test_type == "private" ]]; then
   redir="/dev/null"

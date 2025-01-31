@@ -9,20 +9,8 @@ if [[ ! -x ../script.sh ]]; then
   exit 1
 fi
 
+# store the input files as x00.in, x01.in, then run this script
 
-grep -xE '[a-z]{5}' /usr/share/dict/words > words
-for _ in {1..100}; do
-  for __ in {1..10}; do
-    word=$(shuf -n 1 words)
-    if [ -n "$prev" ] && ((RANDOM%2==0)); then
-        word="$prev"
-    fi
-    prev="$word"
-    echo -n "$word "
-  done | col
-done | split -n l/10 --additional-suffix=.in -d
-
-rm words -f
 rm test_case_* -rf
 
 for input in *.in; do
