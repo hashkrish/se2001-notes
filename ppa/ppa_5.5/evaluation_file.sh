@@ -6,7 +6,7 @@ err(){
 }
 
 req=( "mktemp" "diff" "basename" "col" "find" "pushd" "popd" )
-executable="fail.sh"
+executable="login.sh"
 for i in "${req[@]}"; do
   command -v "$i" > /dev/null 2>&1 || err "$i is not installed"
 done

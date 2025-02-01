@@ -1,0 +1,12 @@
+This is a sample file
+this is not end justsay start
+that contains say
+some number
+say like 10
+or
+20
+or
+233
+444
+or say 3444
+and now it ends.

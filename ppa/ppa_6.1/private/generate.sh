@@ -9,14 +9,12 @@ if [[ ! -x ../script.sh ]]; then
   exit 1
 fi
 
-for _ in {1..100}; do # template
-  ran1=$((RANDOM%10+1))
-  ran2=$((RANDOM%10+1))
-  tr -dc 'A-Z' < /dev/urandom | head -c "$ran1"
-  printf "_"
-  tr -dc 'a-z' < /dev/urandom | head -c "$ran2"
-  echo
-done | shuf | split -n l/10 --additional-suffix=.in -d
+# find source/ -mindepth 1 -exec ls -dF {} \; | xsel -ib
+
+echo "Copy the test case into clipboard then press enter"
+read -n1 -r _
+
+xsel -ob >x00.in
 
 rm test_case_* -rf
 

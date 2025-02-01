@@ -9,25 +9,12 @@ if [[ ! -x ../script.sh ]]; then
   exit 1
 fi
 
-for _ in {1..100}; do
-  words=$((RANDOM%5+1))
-  for __ in $(seq "$words"); do
-    digonly=$((RANDOM%2))
-    issay=$((RANDOM%4))
-    if ((issay==0)); then
-      printf "say "
-      continue
-    fi
-    if ((digonly==0)); then
-      tr -dc '0-9' < /dev/urandom | head -c 5
-      printf " "
-      continue
-    fi
-    tr -dc 'a-zA-Z' < /dev/urandom | head -c 5
-    printf " "
-  done
-  echo
-done | col | shuf | split -n l/10 --additional-suffix=.in -d
+i=0
+for _ in {1..10}; do
+  num=$((RANDOM%10 + 12))
+  seq 1 "$num" > "x0$i.in"
+  ((i++))
+done
 
 rm test_case_* -rf
 

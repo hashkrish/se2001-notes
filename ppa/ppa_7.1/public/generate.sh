@@ -9,8 +9,42 @@ if [[ ! -x ../script.sh ]]; then
   exit 1
 fi
 
-echo 10 > x00.in
-echo 15 > x01.in
+cat > x00.in <<EOF
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+EOF
+
+cat > x01.in <<EOF
+23
+54
+7
+2
+67
+132
+87
+hi
+hello
+bye
+EOF
+
+cat > x02.in <<EOF
+this
+is
+text
+block.
+is
+it
+black
+?
+EOF
 
 rm test_case_* -rf
 
