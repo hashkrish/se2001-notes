@@ -1,4 +1,4 @@
-# Programming Practice Assignment - Week 6 - Question 3
+# Programming Practice Assignment - Week 6 - Question 1
 
 ## Problem Statement
 

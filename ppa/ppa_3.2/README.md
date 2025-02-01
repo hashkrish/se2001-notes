@@ -1,4 +1,4 @@
-# Programming Practice Assignment - Week 3 - Question 3
+# Programming Practice Assignment - Week 3 - Question 2
 
 ## Problem Statement
 
