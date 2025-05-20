@@ -51,9 +51,9 @@ What will be the output of the following command? [MCQ]
 echo {1..3}-file_{A..C}
 ```
 
-(a) 1-file_A 1-file_B 1-file_C 2-file_A 2-file_B 2-file_C 3-file_A 3-file_B 3-file_C
+(a) `1-file_A 1-file_B 1-file_C 2-file_A 2-file_B 2-file_C 3-file_A 3-file_B 3-file_C`
 
-(b) 1 2 3 - file A B C
+(b) `1 2 3 - file A B C`
 
 (c) `{1..3}-file_{A..C}`
 
@@ -361,7 +361,7 @@ What are the possible reasons for this error? [MSQ]
 
 You try to SSH into a remote VM using the command `ssh user@remote-vm` and receive the following error:
 
-```
+```text
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
