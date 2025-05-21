@@ -220,9 +220,9 @@ What will be output of the above command?
 
 ## Question 6 A
 
-Below is the file hirerarchy structure provided to answer the question.
+Below is the file hierarchy structure provided to answer the question.
 
-```
+```text
 .
 ├── classA
 │   └── attendance
@@ -248,7 +248,7 @@ What will be the output of `for i in */*/*; do echo $i; done`
 
 (a)
 
-```
+```text
 classA/attendance/feb.csv
 classA/attendance/jan.csv
 classA/attendance/mar.csv
@@ -262,7 +262,7 @@ classC/attendance/mar.csv
 
 (b)
 
-```
+```text
 classA
 classB
 classC
@@ -271,7 +271,7 @@ script.sh
 
 (c)
 
-```
+```text
 classA/attendance
 classB/attendance
 classC/attendance
@@ -279,7 +279,7 @@ classC/attendance
 
 (d)
 
-```
+```text
 attendance
 attendance
 attendance
@@ -305,9 +305,9 @@ attendance
 
 ## Question 6 B
 
-Below is the file hirerarchy structure provided to answer the question.
+Below is the file hierarchy structure provided to answer the question.
 
-```
+```text
 .
 ├── classA
 │   └── attendance
@@ -333,7 +333,7 @@ What will be the output of `for i in */*; do echo $i; done`
 
 (a)
 
-```
+```text
 classA/attendance/feb.csv
 classA/attendance/jan.csv
 classA/attendance/mar.csv
@@ -347,7 +347,7 @@ classC/attendance/mar.csv
 
 (b)
 
-```
+```text
 classA
 classB
 classC
@@ -356,7 +356,7 @@ script.sh
 
 (c)
 
-```
+```text
 classA/attendance
 classB/attendance
 classC/attendance
@@ -364,7 +364,7 @@ classC/attendance
 
 (d)
 
-```
+```text
 attendance
 attendance
 attendance
@@ -413,15 +413,15 @@ Select the extended regular expression that only matches with all of the above d
 
 - The hyphen `-` is optional in the date format.
 - It can either be present once or not present at all.
-- `*` will match zero or more occurences of the previous character.
-- `+` will match one or more occurences of the previous character.
-- `?` will match zero or one occurence of the previous character.
+- `*` will match zero or more occurrences of the previous character.
+- `+` will match one or more occurrences of the previous character.
+- `?` will match zero or one occurrence of the previous character.
 
 ---
 
 ## Question 8
 
-```
+```bash
 $ ps
     PID TTY          TIME CMD
   64754 pts/3    00:00:00 bash
@@ -546,7 +546,7 @@ Select the command(s) that return an error given that file `a` is the only file 
 
 ## Question 12
 
-Select the command(s) that find the file/directory names that starts with `a` and ends with `e` (case-sensistive). [MSQ]
+Select the command(s) that find the file/directory names that starts with `a` and ends with `e` (case-sensitive). [MSQ]
 
 (a) `ls | grep '^a.*e$'`
 
@@ -570,7 +570,7 @@ Select the command(s) that find the file/directory names that starts with `a` an
 - `ls | grep '^a.*e$'` prints out the names of the files and directories in the current directory that starts with `a` and ends with an `e`.
 - `echo a*e` prints out the names of the files and directories in the current directory that starts with `a` and ends with an `e`.
 - This is done using shell globbing instead of regex.
-- We dont need to use `.*` here, `*` itself means any character any number of times.
+- We don't need to use `.*` here, `*` itself means any character any number of times.
 - The `^` and `$` is automatically implied in globbing.
 
 ---
@@ -644,7 +644,6 @@ Select the command(s) that append the contents of `file2` into `file1`. [MSQ]
   - but since we are redirecting it to `file1`, first the shell will truncate the file,
   - and only then call the `cat` command, thus the output of `cat` will be only the contents of `file2`
 - Thus `cat file1 file2 > file1` will overwrite the contents of `file1` with the contents of `file2`.
-
 
 ---
 

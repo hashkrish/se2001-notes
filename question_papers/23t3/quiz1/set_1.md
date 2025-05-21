@@ -51,8 +51,6 @@ vidya   96921  0.0  0.0  13716  3328 pts/21   R+   16:05   0:00 ps aux
 - If we simply grep for `daily-backup` then it will also match the `daily-backuper.sh` script which is not required.
 - Using `\b` or `-w` option in grep will match the exact word `daily-backup` and not `daily-backuper.sh`.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 2 [grep, pipe] [9] [MSQ]
 
 Select command(s)/script(s) from the options which will extract the inner rectangle made of 'x' from the pattern shown below which is stored in file `bounded_rectangle.txt`.
@@ -61,7 +59,7 @@ Note: Boundary spaces are not considered but the proportionality, scale, and num
 
 **Hint:**
 
-```
+```bash
 $ echo -e '123\n12'
 123
 12
@@ -74,7 +72,7 @@ $ echo -e '123\n12' | rev
 
 **Sample Input: bounded_rectangle.txt**
 
-```
+```text
 ***************************
 *                         *
 *                         *
@@ -91,7 +89,7 @@ $ echo -e '123\n12' | rev
 
 **Sample Output**
 
-```
+```text
 xxxxxxxxxxxxxxxxxxxxxxx
 x                     x
 x                     x
@@ -126,8 +124,6 @@ xxxxxxxxxxxxxxxxxxxxxxx
 - (a) will contains spaces to left and right of the rectangle.
 - (b) will not contain any extra spaces.
 - (e) will contain spaces before and after the rectangle.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 3 [grep] [6] [MCQ]
 
@@ -187,8 +183,6 @@ PATTERNS can contain multiple patterns separated by newlines.
 - (c) will print the correct line, but it will print the entire line.
 - (d) will print the correct line, but it will print only the number.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 4 [Shell variables, positional parameters] [6] [NAT]
 
 At the end of the execution of the following script what will be the last value of `val1`.
@@ -226,8 +220,6 @@ $ ./myscript.sh 11 22 33
 - The for loop will run only once, with the entire string.
 - If `$@` is used without double quotes then it will treat each positional parameter as a separate argument, and it will be quoted correctly, so that even if an argument is multi-word, it will not be split into separate iterations.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 5 [Links] [6] [MSQ]
 
 Which of the following are **TRUE** statements for hardlinks and softlinks?
@@ -248,17 +240,15 @@ Which of the following are **TRUE** statements for hardlinks and softlinks?
 
 (a), (d), (f)
 
-<div style="page-break-after: always;"></div>
-
 ## Question 6 [Subshells] [6] [NAT]
 
 The following commands are executed in the given order. Enter the duration ( in number of seconds) after which the echo command will be executed.
 
 ```bash
-$ sleep 1
-$ $(sleep 10)
-$ sleep 100 &
-$ echo "Done"
+sleep 1
+$(sleep 10)
+sleep 100 &
+echo "Done"
 ```
 
 ### Answer
@@ -272,14 +262,12 @@ $ echo "Done"
 - `sleep 100 &` will sleep for 100 seconds and will be executed in the background, thus not blocking the terminal.
 - Total time before echo is printed is 11 seconds.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 7 [Shell arithmetics] [6] [NAT]
 
 What is the output of the following command?
 
 ```bash
-$ echo $(( 10 * 10 - 5 * 4 ))
+echo $(( 10 * 10 - 5 * 4 ))
 ```
 
 ### Answer
@@ -289,8 +277,6 @@ $ echo $(( 10 * 10 - 5 * 4 ))
 ### Explanation
 
 Simple PEMDAS rule is followed, so the multiplication and division is done first and then the addition and subtraction.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 8 [brace expansion] [8] [MSQ]
 
@@ -317,8 +303,6 @@ Which of the following options contains command(s) which will output calendar fo
 - (c) will work as the output of the echo command will be piped to bash and executed.
 - (d) is same as (b) inside another `$()`, inner one itself will throw error, so outer will do nothing.
 - (e) will work as the output of the echo command will be evaluated by `eval` and executed.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 9 [Links] [7] [NAT]
 
@@ -350,8 +334,6 @@ total 68
 
 - The `testdir` directory has 5 subdirectories (`2021Aug`, `folder1`, `folder2`, `folder3`, `test_directory`).
 - Thus it has 5 + 2 = 7 hardlinks.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 10 [Pipes] [8] [NAT]
 
@@ -394,13 +376,11 @@ systemcommands:x:1000:1000:,,,:/home/systemcommands:/bin/bash
   - `cut -d, -f3` will cut the 3rd field based on the delimiter `,`.
   - `head -1` will print the first line.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 11 [Test and Bash] [7] [NAT]
 
 Below is the file hierarchy structure provided to answer the question.
 
-```
+```text
 .
 ├── classA
 │   └── attendance
@@ -439,8 +419,6 @@ num=$2
 
 The question asks how many lines are there in output of `ls classA`. As it has only one folder `attendance`, so the output will be 1.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 12 [regex] [6] [MCQ]
 
 ISO 8601 date-time formats in UTC are shown below. From the options select the correct extended regular expression that will match with all of the given formats.
@@ -469,8 +447,6 @@ ISO 8601 date-time formats in UTC are shown below. From the options select the c
 ### Explanation
 
 - The hyphen should be present zero or once, not more.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 13 [process control] [6] [MCQ]
 
@@ -504,8 +480,6 @@ $ ps | grep "$$"
 
 - `$$` is the PID of the current shell.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 14 [bash] [7] [MSQ]
 
 For the following `while` loop, select the standard input(s) from the following options that breaks the loop.
@@ -517,17 +491,17 @@ while read line; do
 done
 ```
 
-(a) 8iadaz
+(a) `8iadaz`
 
-(b) 3g2z
+(b) `3g2z`
 
-(c) jkjkjkjk2j2yjkjk
+(c) `jkjkjkjk2j2yjkjk`
 
-(d) .a.a.a.2.2.1.
+(d) `.a.a.a.2.2.1.`
 
-(e) 00210132a1z01231
+(e) `00210132a1z01231`
 
-(f) 1a2w01231
+(f) `1a2w01231`
 
 ### Answer
 
@@ -537,8 +511,6 @@ done
 
 - `3g2z` of (b) will break the loop as it matches the pattern.
 - `2a1z` of (e) will break the loop as it matches the pattern.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 15 [find] [6] [MCQ]
 
@@ -551,7 +523,7 @@ done
 
 ```
 
-(a) Prints the file names of all the '.txt'  files in the current directory non recursively.
+(a) Prints the file names of all the '.txt' files in the current directory non recursively.
 
 (b) Prints the file names of all the '.txt' files in the current directory recursively.
 

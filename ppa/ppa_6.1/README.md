@@ -66,4 +66,3 @@ destination
 
 1 directory, 15 files
 ```
-

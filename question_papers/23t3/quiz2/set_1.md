@@ -28,8 +28,6 @@ Hint: `cd -` will change the current working directory to the previous current w
 - For any odd number of runs of `cd -`, the current working directory becomes the previous working directory.
 - In the given script, `cd -` is run 11 times. So, the current working directory will be the previous working directory (`/home/pinky`)
 
-<div style="page-break-after: always;"></div>
-
 **Common data for question 2 to 6**
 
 ```bash
@@ -61,8 +59,6 @@ What will be the output of `cat ./dir1/file1` after the execution of the given s
 
 2
 
-<div style="page-break-after: always;"></div>
-
 ## Question 3 [3]
 
 What will be the output of `echo 3 > file1_h1; cat ./file1` after the execution of the given script? [NAT]
@@ -70,8 +66,6 @@ What will be the output of `echo 3 > file1_h1; cat ./file1` after the execution 
 ### Answer
 
 1
-
-<div style="page-break-after: always;"></div>
 
 ## Question 4 [3]
 
@@ -81,8 +75,6 @@ What will be the output of `echo 4 > ./dir1/file1_s1; cat ./file1` after the exe
 
 1
 
-<div style="page-break-after: always;"></div>
-
 ## Question 5 [3]
 
 What will be the output of `echo 5 > ./dir1/file1_s3; cat ./dir1/file1` after the execution of the given script? [NAT]
@@ -90,8 +82,6 @@ What will be the output of `echo 5 > ./dir1/file1_s3; cat ./dir1/file1` after th
 ### Answer (ignore white space, number)
 
 2
-
-<div style="page-break-after: always;"></div>
 
 ## Question 6 [3]
 
@@ -108,8 +98,6 @@ What will be the output of `echo 6 > ./dir1/file1_s3; cat ./file1` after the exe
 - Relative path if stored in a symbolic link, it will be resolved based on the path of the symbolic link, and not the current working directory.
 - Changing parent of a symbolic link will change the content of the symbolic link, and vice-versa.
 - Hard links, once created, do not care about the path of the source file.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 7 [6]
 
@@ -142,35 +130,35 @@ Which of the following option contains the output of the awk command given if th
 
 (a)
 
-```
+```text
 0 1
 0 0
 ```
 
 (b)
 
-```
+```text
 0 1
 1 0
 ```
 
 (c)
 
-```
+```text
 0 0
 1 1
 ```
 
 (d)
 
-```
+```text
 0 1
 1 1
 ```
 
 (e)
 
-```
+```text
 0 0
 1 0
 ```
@@ -189,8 +177,6 @@ Which of the following option contains the output of the awk command given if th
 - Output of `seq` has same line number as the line content.
 - `arr1[i] - arr2[i]` will be 0 always.
 - The keys will be 0 and 1, and the values will be 0 for both keys.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 8 [8]
 
@@ -223,8 +209,6 @@ Hints:
 - Sorting and removing duplicates will remove those numbers altogether.
 - `wc -l` will count the number of lines
 - 100 - 10 = 90 unique numbers
-
-<div style="page-break-after: always;"></div>
 
 ## Question 9 [8]
 
@@ -266,8 +250,6 @@ Hint: FILENAME is a default variable have the value of filename
 - `/$/` is the end of the line.
 - `/^[^0-9].*[0-9]*$/` will match lines that are non-empty and may have numbers in it but not as the first character.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 10 [6]
 
 ```bash
@@ -302,8 +284,6 @@ What will be the output from the above script?
 - `v1` will be 0 and `v2` will be 0.
 - `echo $((v1 + v2))` will print 0.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 11 [6]
 
 Which of the following sed commands will show only the 6th and 8th line of a file 'index.txt'.
@@ -326,8 +306,6 @@ Which of the following sed commands will show only the 6th and 8th line of a fil
 - `6p` will print the 6th line.
 - `8p` will print the 8th line.
 - `6,8p` will print lines from 6 to 8. Including line 7.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 12 [7]
 
@@ -353,8 +331,6 @@ What will the following command do upon execution.
 - `xargs -I{} mv {} /home/Documents/OfficeFiles` will move the files to `/home/Documents/OfficeFiles`.
 - The grep happens on the file names, not the content of the files.
 - `-v` option in `grep` will exclude lines that contain the pattern.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 13 [8]
 
@@ -394,7 +370,7 @@ END_REGION7
 
 **Content of index.html file**
 
-```
+```html
 <!-- Case 1 -->
 <html>
   <head>
@@ -402,9 +378,7 @@ END_REGION7
   </head>
 
   <body>
-    <p>
-        abcd
-    </p>
+    <p>abcd</p>
   </body>
 </html>
 ```
@@ -427,8 +401,6 @@ END_REGION7
 - `sed -n "/<p>/,/<\/p>/{/<p>/! {/<\/p>/! p}}"` will print the lines between `<p>` and `</p>`, excluding the lines with the tags. This is a compound statement, where we first check if the line is between `/<p>/` and `/</p>/`, then check if it is not `/<p>/`, then check if it is not `/</p>/` and only then print the line.
 - (c) is not a correct option as the inner statement matches any two lines between `<p>` and `</p>`, and only print the lines between them.
 - `awk '/<p>/,/<\/p>/' index.html|grep -v "<"` will print the lines between `<p>` and `</p>`, including the lines with the tags, and then remove the lines with the tags using grep. This only works if the expected lines itself do not contain `<`.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 14 [8]
 
@@ -468,7 +440,7 @@ END_REGION7
 
 **Content of index.html file**
 
-```
+```html
 <!-- Case 2 -->
 <html>
   <head>
@@ -476,10 +448,8 @@ END_REGION7
   </head>
 
   <body>
-    <p>efgh
-    </p>
-    <p>
-    ijkl</p>
+    <p>efgh</p>
+    <p>ijkl</p>
   </body>
 </html>
 ```
@@ -502,8 +472,6 @@ END_REGION7
 - `sed 's#</?p>##g'` will remove the `<p>` and `</p>` tags.
 - The `#` is used as a delimiter in the `s` command to avoid escaping the `/` in the tags.
 - Here the lines containing the tag also contain the data, hence the tags need to be removed, not the entire line.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 15 [8]
 
@@ -574,8 +542,6 @@ END_REGION7
 - We have to extract the content between the tags.
 - (a) and (d) print only lines having starting and ending tags, then use `sed` to remove the tags.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 16 [6]
 
 How many background processes will be running at the end of 5 seconds after the execution of the following script? [NAT]
@@ -599,13 +565,11 @@ sleep 12 &
 - All the commands are executed in the background except for the `echo three && echo four || echo five && echo six` command. So they do not block each other.
 - They run independently, and after 5 seconds only commands that have time more than 5 seconds will still be running, that is 6, 7, and 12.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 17 [7]
 
 The following text is the content of the file `mycpuinfo`
 
-```
+```text
 processor    : 0
 vendor_id    : GenuineIntel
 cpu family    : 6
@@ -657,5 +621,3 @@ Select the command(s) that retrieves only the model name of the cpu. The output 
 - (b) there is no `model_name` in the file.
 - (c) will print the line containing `model name`, then print the part with and after `:`, then remove the `:`. This will print the model name.
 - (d) will print the line containing `model name`, then print the part after `:`. This will print the model name.
-
-<div style="page-break-after: always;"></div>

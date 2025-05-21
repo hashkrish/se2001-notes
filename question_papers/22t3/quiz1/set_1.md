@@ -4,34 +4,34 @@
 
 Choose the command to print the below text in the terminal. [MSQ]
 
-```
+```text
 Welcome to the Summer Camp
 Pichavaram
 ```
 
 (a)
 
-```
+```text
 echo 'Welcome to the Summer Camp
 Pichavaram'
 ```
 
 (b)
 
-```
+```text
 echo 'Welcome to the Summer Camp\nPichavaram'
 ```
 
 (c)
 
-```
+```text
 echo 'Welcome to the Summer Camp'
 echo 'Pichavaram'
 ```
 
 (d)
 
-```
+```text
 echo 'Welcome to the Summer Camp' echo 'Pichavaram'
 ```
 
@@ -170,7 +170,7 @@ echo "-${var2:+Earth}-"
 
 (a)
 
-```
+```text
 -Water-
 -Air-
 -Fire-
@@ -179,7 +179,7 @@ echo "-${var2:+Earth}-"
 
 (b)
 
-```
+```text
 -var-
 -Air-
 -Fire-
@@ -188,7 +188,7 @@ echo "-${var2:+Earth}-"
 
 (c)
 
-```
+```text
 -var-
 -Air-
 -Air-
@@ -197,7 +197,7 @@ echo "-${var2:+Earth}-"
 
 (d)
 
-```
+```text
 --
 -Air-
 -Air-
@@ -240,32 +240,32 @@ Monday 19 September 2022 03:06:44 PM IST
 
 ```bash
 [[ $(date +%H:%M) > 06:00 && $(date +%H:%M) < 18:00 ]] &&
-	generate-key --day ||
-	generate-key --night
+  generate-key --day ||
+  generate-key --night
 ```
 
 (b)
 
 ```bash
 [[ $(date) > 06:00 || $(date) < 18:00 ]] &&
-	generate-key --day ||
-	generate-key --night
+  generate-key --day ||
+  generate-key --night
 ```
 
 (c)
 
 ```bash
 [[ $(date +%H:%M) > 06:00 && $(date +%H:%M) < 18:00 ]] &&
-	generate-key --night ||
-	generate-key --day
+  generate-key --night ||
+  generate-key --day
 ```
 
 (d)
 
 ```bash
 [[ $(date +%H:%M) -gt 06:00 && $(date +%H:%M) -lt 18:00 ]] &&
-	generate-key --day ||
-	generate-key --night
+  generate-key --day ||
+  generate-key --night
 ```
 
 ### Answer
@@ -287,7 +287,7 @@ Which of the following command will run the script `/home/reena/scripts/monday-g
 
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
 
-```
+```text
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
 |   |   |   |   |      Command or Script to Execute
@@ -563,9 +563,9 @@ What will be the output from the script when the value of variable `status` is 2
 
 ```bash
 if [[ $status -eq 200 ]]; then
-	print "Success"
+  print "Success"
 else
-	print "Something went wrong"
+  print "Something went wrong"
 fi
 ```
 
@@ -587,8 +587,8 @@ fi
 
 ```bash
 while read line; do
-	pat='[0-3][a-g][123][xyz]'
-	[[ "$line" =~ $pat ]] && break
+  pat='[0-3][a-g][123][xyz]'
+  [[ "$line" =~ $pat ]] && break
 done
 ```
 
@@ -629,11 +629,11 @@ Note that `stat` command is used to get the file status and with option `-c %s` 
 
 ```bash
 for i in *; do
-	if ! [[ $(stat -c %s "$i") -eq 0 ]]; then
-		cp $i ~/anotherdir/$i
-	else
-		mv $i ~/anotherdir/$i
-	fi
+  if ! [[ $(stat -c %s "$i") -eq 0 ]]; then
+    cp $i ~/anotherdir/$i
+  else
+    mv $i ~/anotherdir/$i
+  fi
 done
 ```
 
@@ -650,17 +650,17 @@ $ stat -c %s temp.hs #
 12233
 ```
 
-(a) temp.awk
+(a) `temp.awk`
 
-(b) temp.hi
+(b) `temp.hi`
 
-(c) temp.hs
+(c) `temp.hs`
 
-(d) temp.o
+(d) `temp.o`
 
-(e) temp.py
+(e) `temp.py`
 
-(f) temp.sh
+(f) `temp.sh`
 
 ### Answer
 

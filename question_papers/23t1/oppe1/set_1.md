@@ -59,7 +59,7 @@ ln -s "$DIR_PATH" storage
 
 ##### Input 1
 
-```
+```text
 file
 info
 dir
@@ -67,7 +67,7 @@ dir
 
 ##### Output 1
 
-```
+```text
 info
 ```
 
@@ -75,7 +75,7 @@ info
 
 ##### Input 1
 
-```
+```text
 file
 info2
 /newdir
@@ -83,13 +83,13 @@ info2
 
 ##### Output 1
 
-```
+```text
 info2
 ```
 
 ##### Input 2
 
-```
+```text
 file3
 info3
 newdir
@@ -97,13 +97,11 @@ newdir
 
 ##### Output 2
 
-```
+```text
 info3
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 2
 
@@ -152,25 +150,25 @@ function parent-of-parent() {
 
 ##### Input 1
 
-```
+```text
 /a/b/c/d
 ```
 
 ##### Output 1
 
-```
+```text
 a/b
 ```
 
 ##### Input 2
 
-```
+```text
 /tmp/1/2/3
 ```
 
 ##### Output 2
 
-```
+```text
 /tmp/1
 ```
 
@@ -178,79 +176,77 @@ a/b
 
 ##### Input 1
 
-```
+```text
 /tmp/a_jungle/tiger_cave/cubs
 ```
 
 ##### Output 1
 
-```
+```text
 /tmp/a_jungle
 ```
 
 ##### Input 2
 
-```
+```text
 p/q/r/s/t/u/v/w/x/y/z
 ```
 
 ##### Output 2
 
-```
+```text
 p/q/r/s/t/u/v/w/x
 ```
 
 ##### Input 3
 
-```
+```text
 /p/q/r/s/t/u/v/w/x/y/z
 ```
 
 ##### Output 3
 
-```
+```text
 /p/q/r/s/t/u/v/w/x
 ```
 
 ##### Input 4
 
-```
+```text
 /
 ```
 
 ##### Output 4
 
-```
+```text
 /
 ```
 
 ##### Input 5
 
-```
+```text
 /tmp/a
 ```
 
 ##### Output 5
 
-```
+```text
 /
 ```
 
 ##### Input 6
 
-```
+```text
 /tmp
 ```
 
 ##### Output 6
 
-```
+```text
 /
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 3
 
@@ -301,7 +297,7 @@ grep -E "^(.)[^,]+,.+,\1[^,]" data.csv
 
 ##### Input 1
 
-```
+```csv
 Kelley McGarrell,1955-08-15,Kotabumi
 Lillis Inglesant,1993-08-20,Padre Las Casas
 Megen Coles,1977-06-30,Tampa
@@ -311,13 +307,13 @@ Darcie Rowbury,1985-09-14,Pocos de Caldas
 
 ##### Output 1
 
-```
+```csv
 Kelley McGarrell,1955-08-15,Kotabumi
 ```
 
 ##### Input 2
 
-```
+```csv
 Bran McClelland,2003-09-19,Bongor
 Salome Chasles,1997-03-08,Santarem
 Lillis Inglesant,1993-08-20,Padre Las Casas
@@ -328,7 +324,7 @@ Darcie Rowbury,1985-09-14,Pocos de Caldas
 
 ##### Output 2
 
-```
+```csv
 Bran McClelland,2003-09-19,Bongor
 Salome Chasles,1997-03-08,Santarem
 ```
@@ -337,7 +333,7 @@ Salome Chasles,1997-03-08,Santarem
 
 ##### Input 1
 
-```
+```csv
 Salome Chasles,1997-03-08,Santarem
 Lillis Inglesant,1993-08-20,Padre Las Casas
 Megen Coles,1977-06-30,Tampa
@@ -347,14 +343,14 @@ Darcie Rowbury,1985-09-14,Pocos de Caldas
 
 ##### Output 1
 
-```
+```csv
 Salome Chasles,1997-03-08,Santarem
 
 ```
 
 ##### Input 2
 
-```
+```csv
 Giorgi Banister,2001-12-09,Qiaozhen
 Camala Woolner,1986-12-25,Krajan Karangwage
 Gilberta Judson,1998-04-12,Jarvakandi
@@ -1296,7 +1292,7 @@ Ambrosi Parkman,2005-03-27,Fort Worth
 
 ##### Output 2
 
-```
+```csv
 Phineas Linden,1977-08-04,Przodkowo
 Erin Overil,1959-02-28,Eci
 Thomasin Wickardt,2001-10-08,Turgun
@@ -1346,7 +1342,7 @@ Salome Chasles,1997-03-08,Santarem
 
 ##### Input 3
 
-```
+```csv
 Giorgi Banister,2001-12-09,Qiaozhen
 Camala Woolner,1986-12-25,Krajan Karangwage
 Gilberta Judson,1998-04-12,Jarvakandi
@@ -1452,7 +1448,7 @@ Elvis Carwardine,1968-06-25,Velky Tynec
 
 ##### Output 3
 
-```
+```csv
 Phineas Linden,1977-08-04,Przodkowo
 Erin Overil,1959-02-28,Eci
 Thomasin Wickardt,2001-10-08,Turgun
@@ -1463,20 +1459,18 @@ Adriana McCurtin,2000-10-02,Apeldoorn
 
 ##### Input 4
 
-```
+```csv
 Truman Rawet,1972-05-03,Great Neck
 Paulette Stabler,1974-06-12,Xingou
 ```
 
 ##### Output 4
 
-```
+```csv
 
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 4
 
@@ -1522,25 +1516,25 @@ bash run.sh &> /dev/null && echo SUCCESS || echo FAIL
 
 ##### Input 1
 
-```
+```bash
 echo 1
 ```
 
 ##### Output 1
 
-```
+```text
 SUCCESS
 ```
 
 ##### Input 2
 
-```
+```bash
 mkdir
 ```
 
 ##### Output 2
 
-```
+```text
 FAIL
 ```
 
@@ -1548,31 +1542,29 @@ FAIL
 
 ##### Input 1
 
-```
+```bash
 date
 ```
 
 ##### Output 1
 
-```
+```text
 SUCCESS
 ```
 
 ##### Input 2
 
-```
+```bash
 data
 ```
 
 ##### Output 2
 
-```
+```text
 FAIL
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 1
 
@@ -1619,51 +1611,51 @@ echo $?
 
 ##### Input 1
 
-```
+```text
 System
 Commands
 ```
 
 ##### Output 1
 
-```
+```text
 0
 ```
 
 ##### Input 2
 
-```
+```text
 system
 
 ```
 
 ##### Output 2
 
-```
+```text
 1
 ```
 
 ##### Input 3
 
-```
+```text
 commands
 ```
 
 ##### Output 3
 
-```
+```text
 1
 ```
 
 ##### Input 4
 
-```
+```text
 System Commands
 ```
 
 ##### Output 4
 
-```
+```text
 0
 ```
 
@@ -1671,55 +1663,53 @@ System Commands
 
 ##### Input 1
 
-```
+```text
 System Commands
 ```
 
 ##### Output 1
 
-```
+```text
 0
 ```
 
 ##### Input 2
 
-```
+```text
 Basic Commands
 ```
 
 ##### Output 2
 
-```
+```text
 0
 ```
 
 ##### Input 3
 
-```
+```text
 Systemd
 ```
 
 ##### Output 3
 
-```
+```text
 1
 ```
 
 ##### Input 4
 
-```
+```text
 Commandspack
 ```
 
 ##### Output 4
 
-```
+```text
 1
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 2
 
@@ -1769,7 +1759,7 @@ ls -l ./data | grep "^-" -c
 
 ##### Input 1
 
-```
+```text
 file_1
 file_2
 file_3
@@ -1780,13 +1770,13 @@ directory_2
 
 ##### Output 1
 
-```
+```text
 3
 ```
 
 ##### Input 2
 
-```
+```text
 file_1
 file_2
 directory_1
@@ -1795,7 +1785,7 @@ directory_1
 
 ##### Output 2
 
-```
+```text
 2
 ```
 
@@ -1803,7 +1793,7 @@ directory_1
 
 ##### Input 1
 
-```
+```text
 file_1
 file_2
 File3
@@ -1814,13 +1804,13 @@ directory_2
 
 ##### Output 1
 
-```
+```text
 2
 ```
 
 ##### Input 2
 
-```
+```text
 a
 b
 c
@@ -1830,13 +1820,13 @@ d
 
 ##### Output 2
 
-```
+```text
 0
 ```
 
 ##### Input 3
 
-```
+```text
 1
 2
 3
@@ -1848,14 +1838,14 @@ file
 
 ##### Output 3
 
-```
+```text
 1
 
 ```
 
 ##### Input 4
 
-```
+```text
 file
 file
 file
@@ -1865,13 +1855,11 @@ file3
 
 ##### Output 4
 
-```
+```text
 2
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 3
 
@@ -1935,26 +1923,26 @@ hardlink_count="${temp%% *}"
 
 ##### Input 1
 
-```
+```text
 0
 
 ```
 
 ##### Output 1
 
-```
+```text
 SOFTLINK
 ```
 
 ##### Input 2
 
-```
+```text
 1
 ```
 
 ##### Output 2
 
-```
+```text
 HARDLINK
 ```
 
@@ -1962,33 +1950,31 @@ HARDLINK
 
 ##### Input 1
 
-```
+```text
 17
 
 ```
 
 ##### Output 1
 
-```
+```text
 SOFTLINK
 ```
 
 ##### Input 2
 
-```
+```text
 24
 
 ```
 
 ##### Output 2
 
-```
+```text
 HARDLINK
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 4
 
@@ -1996,7 +1982,7 @@ Write a script to find the largest file by size in the current directory.
 
 Hint:
 
-```
+```bash
 $ sort --help
 Usage: sort [OPTION]... [FILE]...
   or:  sort [OPTION]... --files0-from=F
@@ -2076,7 +2062,7 @@ ls -l | awk '$5 > mx { mx=$5; mv=$9 } END { print mv }'
 
 ##### Input 1
 
-```
+```text
 YQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
 MAAwMDAxNzUwADAwMDAwMDAxNTI3ADE0NDAxMzY3MTM0ADAxMTQ0NwAgMAAAAAAAAAAAAAAAAAAA
@@ -2801,13 +2787,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 
 ##### Output 1
 
-```
+```text
 a
 ```
 
 ##### Input 2
 
-```
+```text
 YgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
 MAAwMDAxNzUwADAwMDAwMDAwNDU0ADE0NDAxMzY3MTM0ADAxMTQ0NgAgMAAAAAAAAAAAAAAAAAAA
@@ -2993,7 +2979,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 
 ##### Output 2
 
-```
+```text
 c
 ```
 
@@ -3001,7 +2987,7 @@ c
 
 ##### Input 1
 
-```
+```text
 YgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
 MAAwMDAxNzUwADAwMDAwMDAwNDU0ADE0NDAxMzY3MTM0ADAxMTQ0NgAgMAAAAAAAAAAAAAAAAAAA
@@ -3726,13 +3712,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 
 ##### Output 1
 
-```
+```text
 z
 ```
 
 ##### Input 2
 
-```
+```text
 ZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
 MAAwMDAxNzUwADAwMDAwMDAwMzEwADE0NDAxMzY3MTM0ADAxMTQ0MQAgMAAAAAAAAAAAAAAAAAAA
@@ -3918,13 +3904,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 
 ##### Output 2
 
-```
+```text
 g
 ```
 
 ##### Input 3
 
-```
+```text
 aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMDA2NjQAMDAwMTc1
 MAAwMDAxNzUwADAwMDAwMDAwMTE0ADE0NDAxMzY3MTM0ADAxMTQ0NQAgMAAAAAAAAAAAAAAAAAAA
@@ -4110,7 +4096,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 
 ##### Output 3
 
-```
+```text
 j
 ```
 

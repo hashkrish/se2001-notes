@@ -26,7 +26,7 @@ For options,
   - if `-l` and `-w` are both supplied together in the sequence print count of lines and count of words each on separate lines.
   - If `-l`, `-n` and `-l` options are supplied in the sequence then print number of lines, number of lines containing only digits and finally again number of lines in the file each on separate line.
 
-Note: Your bash script should not even contain any variable or comment that contians the string wc or awk.
+Note: Your bash script should not even contain any variable or comment that contains the string `wc` or `awk`.
 
 **Hints**:
 
@@ -38,7 +38,6 @@ Note: Your bash script should not even contain any variable or comment that cont
 Suppose your bash script is named as `myCount.sh`.
 In the below sample the argument to `-s` option is "say" so this should count all the lines containing the string "say".
 For the public test case all the commands given in the below sample are executed one by one on the input file.
-
 
 ```bash
 $ cat somefile.txt

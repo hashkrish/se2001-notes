@@ -1,8 +1,10 @@
+# System Commands January 2023 OPPE-2 Set-2
+
 ## Problem 1 (SED) (Filter)
 
 Write a SED script to print the domain names of email from the standard input.
 
-Note: Domain name in an email address is anything which comes after '@'. e.g. in ashok@somemail.com the @somemail.com is the domain name.
+Note: Domain name in an email address is anything which comes after `@`. e.g. in `ashok@somemail.com` the `@somemail.com` is the domain name.
 
 **Sample input**
 
@@ -68,7 +70,7 @@ s/,.*//
 
 ##### Input 1
 
-```
+```csv
 Mehta,1-322-248-9102,mehta@yahoo.net,Daman and Diu
 Malik,1-335-746-5592,malik@hotmail.com,Andhra Pradesh
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
@@ -80,7 +82,7 @@ Sehgal,647-1701,sehgal@outlook.co.uk,DD
 
 ##### Output 1
 
-```
+```csv
 yahoo.net
 hotmail.com
 protonmail.org
@@ -94,7 +96,7 @@ outlook.co.uk
 
 ##### Input 1
 
-```
+```csv
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
 Persaud,268-1152,persaud302@aol.co.uk,Dadra and Nagar Haveli
 Joshi,1-869-326-6582,joshi4288@hotmail.com,OR
@@ -103,7 +105,7 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 
 ##### Output 1
 
-```
+```csv
 protonmail.org
 aol.co.uk
 hotmail.com
@@ -112,41 +114,39 @@ hotmail.edu
 
 ##### Input 2
 
-```
+```csv
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
 ```
 
 ##### Output 2
 
-```
+```csv
 protonmail.org
 ```
 
 ##### Input 3
 
-```
+```csv
 
 ```
 
 ##### Output 3
 
-```
+```csv
 
 ```
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 2 (SED) (logical and)
 
 Write a SED script which will print line with all the lines have the `hotmail` domain except the domain `hotmail.com`
 
-Note: Domain name in an email address is anything which comes after '@'. e.g. in ashok@somemail.com the @somemail.com is the domain name.
+Note: Domain name in an email address is anything which comes after '@'. e.g. in `ashok@somemail.com` the `@somemail.com` is the domain name.
 
 **Sample input**
 
-```bash
+```csv
 name,phone,email,region
 Sahni,151-8534,sahni@hotmail.ca,KA
 Mehta,1-322-248-9102,mehta@yahoo.net,Daman and Diu
@@ -159,7 +159,7 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 
 **Sample output**
 
-```bash
+```csv
 Sahni,151-8534,sahni@hotmail.ca,KA
 Subram,1-172-433-4318,subram@hotmail.edu,MH
 ```
@@ -204,7 +204,7 @@ cat | sed -f script.sed 2>&1
 
 ##### Input 1
 
-```
+```csv
 name,phone,email,region
 Sahni,151-8534,sahni@hotmail.ca,KA
 Mehta,1-322-248-9102,mehta@yahoo.net,Daman and Diu
@@ -217,7 +217,7 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 
 ##### Output 1
 
-```
+```csv
 Sahni,151-8534,sahni@hotmail.ca,KA
 Subram,1-172-433-4318,subram@hotmail.edu,MH
 ```
@@ -226,7 +226,7 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 
 ##### Input 1
 
-```
+```csv
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
 Persaud,268-1152,persaud302@aol.co.uk,Dadra and Nagar Haveli
 Joshi,1-869-326-6582,joshi4288@hotmail.com,OR
@@ -235,26 +235,26 @@ Subram,1-172-433-4318,subram@hotmail.edu,MH
 
 ##### Output 1
 
-```
+```csv
 Subram,1-172-433-4318,subram@hotmail.edu,MH
 ```
 
 ##### Input 2
 
-```
+```csv
 Suri,1-134-516-1754,suri@protonmail.org,Lakshadweep
 Persaud,268-1152,persaud302@aol.co.uk,Dadra and Nagar Haveli
 ```
 
 ##### Output 2
 
-```
+```csv
 
 ```
 
 ##### Input 3
 
-```
+```csv
 name,phone,email,region
 Madan,1-158-662-4996,madan@outlook.ca,GA
 Persaud,1-877-704-5869,persaud@google.edu,Meghalaya
@@ -360,7 +360,7 @@ Neel,762-4746,neel@google.couk,OR
 
 ##### Output 3
 
-```
+```csv
 Sahni,151-8534,sahni@hotmail.ca,KA
 Sara,1-448-731-6473,sara8036@hotmail.ca,Chandigarh
 Nagpal,886-2975,nagpal@hotmail.edu,Uttar Pradesh
@@ -377,7 +377,7 @@ Chandrasekar,1-240-661-3326,chandrasekar8623@hotmail.ca,MH
 
 ##### Input 4
 
-```
+```csv
 name,phone,email,region
 Chandrasekar,1-240-661-3326,chandrasekar8623@hotmail.ca,MH
 Madan,1-158-662-4996,madan@outlook.ca,GA
@@ -483,7 +483,7 @@ Neel,762-4746,neel@google.couk,OR
 
 ##### Output 4
 
-```
+```csv
 Chandrasekar,1-240-661-3326,chandrasekar8623@hotmail.ca,MH
 Sahni,151-8534,sahni@hotmail.ca,KA
 Sara,1-448-731-6473,sara8036@hotmail.ca,Chandigarh
@@ -500,21 +500,19 @@ Chauhan,758-5516,chauhan@hotmail.org,Punjab
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 3 (SED)
 
 Write a SED script to mask the first 6 digits of the phone numbers with asterisks, such that only last four digits of phone number of ten digits are visible. The phone number could be present anywhere in the text but it will be in the format of continuous ten digits starting with either of 9, 8, 7 and 6.
 
 **Sample Input**
 
-```
+```text
 Yesterday I received a message from 9876543210, it has numerical sequence 1234567890 in it. then soon after I received the same message from 9876543211 as well. Then I called 9876543212 to inquire about it, they gave a reference id AHDISJ12354 and a fallback code 3245112341 as well.
 ```
 
 **Sample Output**
 
-```
+```text
 Yesterday I received a message from ******3210, it has numerical sequence 1234567890 in it. then soon after I received the same message from ******3211 as well. Then I called ******3212 to inquire about it, they gave a reference id AHDISJ12354 and a fallback code 3245112341 as well.
 ```
 
@@ -557,13 +555,13 @@ s/\b[6789][0-9]\{5\}\([0-9]\{4\}\)\b/******\1/g
 
 ##### Input 1
 
-```
+```text
 Yesterday I received a message from 9876543210, it has numerical sequence 1234567890 in it. then soon after I received the same message from 9876543211 as well. Then I called 9876543212 to inquire about it, they gave a reference id AHDISJ12354 and a fallback code 3245112341 as well.
 ```
 
 ##### Output 1
 
-```
+```text
 Yesterday I received a message from ******3210, it has numerical sequence 1234567890 in it. then soon after I received the same message from ******3211 as well. Then I called ******3212 to inquire about it, they gave a reference id AHDISJ12354 and a fallback code 3245112341 as well.
 ```
 
@@ -571,7 +569,7 @@ Yesterday I received a message from ******3210, it has numerical sequence 123456
 
 ##### Input 1
 
-```
+```text
 9876543216 9876543216
 9876543216 9876543216
 9876543216 9876543216
@@ -580,7 +578,7 @@ Yesterday I received a message from ******3210, it has numerical sequence 123456
 
 ##### Output 1
 
-```
+```text
 ******3216 ******3216
 ******3216 ******3216
 ******3216 ******3216
@@ -589,43 +587,41 @@ Yesterday I received a message from ******3210, it has numerical sequence 123456
 
 ##### Input 2
 
-```
+```text
 9876543216
 ```
 
 ##### Output 2
 
-```
+```text
 ******3216
 ```
 
 ##### Input 3
 
-```
+```text
 1234567898
 ```
 
 ##### Output 3
 
-```
+```text
 1234567898
 ```
 
 ##### Input 4
 
-```
+```text
 fhgiuawohrf eiwjlakhf gviueowahrfoiqwaeyfrhiwqeao ft
 ```
 
 ##### Output 4
 
-```
+```text
 fhgiuawohrf eiwjlakhf gviueowahrfoiqwaeyfrhiwqeao ft
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Problem 4 (AWK)
 
@@ -634,7 +630,7 @@ Write a AWK script to clean up the data by removing the rows with incomplete dat
 
 **Sample Input**
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
 2012-10-14 12.00,303.2,29.68,78
@@ -644,7 +640,7 @@ time,temperature,pressure,humidity
 
 **Sample Output**
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
 2012-10-14 12.00,303.2,29.68,78
@@ -704,7 +700,7 @@ END {
 
 ##### Input 1
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
 2012-10-14 12.00,303.2,29.68,78
@@ -715,7 +711,7 @@ time,temperature,pressure,humidity
 
 ##### Output 1
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
 2012-10-14 12.00,303.2,29.68,78
@@ -726,7 +722,7 @@ time,temperature,pressure,humidity
 
 ##### Input 1
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
 2012-10-14 12.00,303.2,29.68,78
@@ -735,7 +731,7 @@ time,temperature,pressure,humidity
 
 ##### Output 1
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
 2012-10-14 12.00,303.2,29.68,78
@@ -744,21 +740,21 @@ time,temperature,pressure,humidity
 
 ##### Input 2
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-15 12.00,Err,29.68,80
 ```
 
 ##### Output 2
 
-```
+```csv
 time,temperature,pressure,humidity
 1
 ```
 
 ##### Input 3
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
 2012-10-14 12.00,303.2,29.68,78
@@ -769,7 +765,7 @@ time,temperature,pressure,humidity
 
 ##### Output 3
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,80
 2012-10-14 12.00,303.2,29.68,78
@@ -780,21 +776,21 @@ time,temperature,pressure,humidity
 
 ##### Input 4
 
-```
+```csv
 time,temperature,pressure,humidity
 
 ```
 
 ##### Output 4
 
-```
+```csv
 time,temperature,pressure,humidity
 0
 ```
 
 ##### Input 5
 
-```
+```csv
 time,temperature,pressure,humidity
 2012-10-13 12.00,304.5,29.71,Err
 2012-10-14 12.00,303.2,29.68,Err
@@ -803,14 +799,12 @@ time,temperature,pressure,humidity
 
 ##### Output 5
 
-```
+```csv
 time,temperature,pressure,humidity
 3
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Problem 5 (AWK)
 
@@ -819,7 +813,7 @@ Write a AWK script which will count number of present days for each student and 
 
 **Sample Input**
 
-```
+```csv
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,0,1,0,1
 21/04/2023,1,1,1,1,1,1
@@ -829,7 +823,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 
 **Sample Output**
 
-```
+```text
 Ajay 75
 Neha 75
 Mayuri 50
@@ -874,22 +868,22 @@ BEGIN {
 
 NR == 1 {
     COLUMN_COUNT = NF
-	for (i = 2; i <= NF; i++) {
-		header[i] = $i
-	}
-	next
+ for (i = 2; i <= NF; i++) {
+  header[i] = $i
+ }
+ next
 }
 
 NR > 1 {
-	for (i = 2; i <= NF; i++) {
-		sum[i] += $i
-	}
+ for (i = 2; i <= NF; i++) {
+  sum[i] += $i
+ }
 }
 
 END {
-	for (i = 2; i <= COLUMN_COUNT; i++) {
-		print header[i],(sum[i] * 100 / (NR - 1))
-	}
+ for (i = 2; i <= COLUMN_COUNT; i++) {
+  print header[i],(sum[i] * 100 / (NR - 1))
+ }
 }
 ```
 
@@ -899,7 +893,7 @@ END {
 
 ##### Input 1
 
-```
+```csv
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,0,1,0,1
 21/04/2023,1,1,1,1,1,1
@@ -910,7 +904,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 
 ##### Output 1
 
-```
+```text
 Ajay 75
 Neha 75
 Mayuri 50
@@ -921,7 +915,7 @@ Minami 100
 
 ##### Input 2
 
-```
+```csv
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,0,1,0,1
 21/04/2023,1,1,1,1,1,1
@@ -935,7 +929,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 
 ##### Output 2
 
-```
+```text
 Ajay 85.7143
 Neha 42.8571
 Mayuri 71.4286
@@ -946,7 +940,7 @@ Minami 100
 
 ##### Input 3
 
-```
+```csv
 Date,Ajay,Neha,Mayuri
 20/04/2023,1,1,0
 21/04/2023,1,1,1
@@ -960,7 +954,7 @@ Date,Ajay,Neha,Mayuri
 
 ##### Output 3
 
-```
+```text
 Ajay 85.7143
 Neha 42.8571
 Mayuri 71.4286
@@ -970,7 +964,7 @@ Mayuri 71.4286
 
 ##### Input 1
 
-```
+```csv
 Date,Ajay,Krish,Mayuri
 20/04/2023,1,1,0
 21/04/2023,1,1,1
@@ -984,7 +978,7 @@ Date,Ajay,Krish,Mayuri
 
 ##### Output 1
 
-```
+```text
 Ajay 85.7143
 Krish 42.8571
 Mayuri 71.4286
@@ -992,7 +986,7 @@ Mayuri 71.4286
 
 ##### Input 2
 
-```
+```csv
 Date,Ajay,Neha,Mayuri
 20/04/2023,1,1,0
 
@@ -1000,7 +994,7 @@ Date,Ajay,Neha,Mayuri
 
 ##### Output 2
 
-```
+```text
 Ajay 100
 Neha 100
 Mayuri 0
@@ -1008,7 +1002,7 @@ Mayuri 0
 
 ##### Input 3
 
-```
+```csv
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,0,1,0,1
 21/04/2023,1,1,1,1,1,1
@@ -1023,7 +1017,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 
 ##### Output 3
 
-```
+```text
 Ajay 87.5
 Neha 50
 Mayuri 75
@@ -1034,7 +1028,7 @@ Minami 100
 
 ##### Input 4
 
-```
+```csv
 Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 20/04/2023,1,1,1,1,1,1
 21/04/2023,1,1,1,1,1,1
@@ -1049,7 +1043,7 @@ Date,Ajay,Neha,Mayuri,Gaurav,Nitish,Minami
 
 ##### Output 4
 
-```
+```text
 Ajay 100
 Neha 100
 Mayuri 100
@@ -1060,8 +1054,6 @@ Minami 100
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 6 (AWK)
 
 In a large bank they keep track of a file for customer interaction every day. The files `day1.csv` and `day2.csv` holds the data of customer id, token number and counter for two days.
@@ -1069,7 +1061,7 @@ Write an **AWK script** to find all the customers who visited the bank on both t
 
 **day1.csv**
 
-```
+```csv
 customer_id,token_number,counter
 1,3473,1a
 2,3480,1b
@@ -1095,7 +1087,7 @@ customer_id,token_number,counter
 
 **day2.csv**
 
-```
+```csv
 customer_id,token_number,counter
 1,1254218,10z
 3,1245114,11x
@@ -1111,7 +1103,7 @@ customer_id,token_number,counter
 
 **Expected output**
 
-```
+```csv
 customer_id,token_number,counter,token_number,counter
 1,3473,1a,1254218,10z
 3,5034,1c,1245114,11x
@@ -1180,7 +1172,7 @@ a[$1] {
 
 ##### Input 1
 
-```
+```csv
 customer_id,token_number,counter
 1,3473,1a
 2,3480,1b
@@ -1219,7 +1211,7 @@ customer_id,token_number,counter
 
 ##### Output 1
 
-```
+```csv
 customer_id,token_number,counter,token_number,counter
 1,3473,1a,1254218,10z
 3,5034,1c,1245114,11x
@@ -1237,7 +1229,7 @@ customer_id,token_number,counter,token_number,counter
 
 ##### Input 1
 
-```
+```csv
 customer_id,token_number,counter
 1,3473,1a
 EOF
@@ -1248,14 +1240,14 @@ customer_id,token_number,counter
 
 ##### Output 1
 
-```
+```csv
 customer_id,token_number,counter,token_number,counter
 1,3473,1a,34173,1z
 ```
 
 ##### Input 2
 
-```
+```csv
 customer_id,token_number,counter
 1,3473,1a
 EOF
@@ -1266,14 +1258,14 @@ customer_id,token_number,counter
 
 ##### Output 2
 
-```
+```csv
 customer_id,token_number,counter,token_number,counter
 
 ```
 
 ##### Input 3
 
-```
+```csv
 customer_id,token_number,counter
 1,3473,1a
 EOF
@@ -1283,14 +1275,14 @@ customer_id,token_number,counter
 
 ##### Output 3
 
-```
+```csv
 customer_id,token_number,counter,token_number,counter
 
 ```
 
 ##### Input 4
 
-```
+```csv
 customer_id,token_number,counter
 EOF
 customer_id,token_number,counter
@@ -1300,14 +1292,14 @@ customer_id,token_number,counter
 
 ##### Output 4
 
-```
+```csv
 customer_id,token_number,counter,token_number,counter
 
 ```
 
 ##### Input 5
 
-```
+```csv
 customer_id,token_number,counter
 1,3473,1a
 2,3480,1b
@@ -1344,7 +1336,7 @@ customer_id,token_number,counter
 
 ##### Output 5
 
-```
+```csv
 customer_id,token_number,counter,token_number,counter
 1,3473,1a,1254218,10z
 3,5034,1c,1245114,11x
@@ -1359,8 +1351,6 @@ customer_id,token_number,counter,token_number,counter
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Problem 7 (bash)
 
@@ -1418,7 +1408,7 @@ jobs | wc -l
 
 ##### Input 1
 
-```
+```text
 a
 c
 d
@@ -1427,7 +1417,7 @@ e
 
 ##### Output 1
 
-```
+```text
 4
 ```
 
@@ -1435,20 +1425,20 @@ e
 
 ##### Input 1
 
-```
+```text
 a
 
 ```
 
 ##### Output 1
 
-```
+```text
 1
 ```
 
 ##### Input 2
 
-```
+```text
 a2
 a1
 b7
@@ -1459,13 +1449,13 @@ u872
 
 ##### Output 2
 
-```
+```text
 5
 ```
 
 ##### Input 3
 
-```
+```text
 a1
 a2
 a3
@@ -1489,13 +1479,13 @@ a18
 
 ##### Output 3
 
-```
+```text
 18
 ```
 
 ##### Input 4
 
-```
+```text
 a6
 a7
 a8
@@ -1513,13 +1503,11 @@ a18
 
 ##### Output 4
 
-```
+```text
 13
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Problem 8 (bash)
 
@@ -1573,7 +1561,7 @@ ps aux | grep "\.local/bin" | sed 's/.*\///' grep -Fxf <(ls ~/.local/bin) | sort
 
 ##### Input 1
 
-```
+```text
 a
 b
 c
@@ -1583,7 +1571,7 @@ d
 
 ##### Output 1
 
-```
+```text
 4
 ```
 
@@ -1591,7 +1579,7 @@ d
 
 ##### Input 1
 
-```
+```text
 a1
 a2
 a3
@@ -1697,6 +1685,6 @@ a100
 
 ##### Output 1
 
-```
+```text
 100
 ```

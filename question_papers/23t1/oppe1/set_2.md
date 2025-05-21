@@ -58,7 +58,7 @@ ln "$FILE_PATH" storage
 
 ##### Input 1
 
-```
+```text
 file
 info
 dir
@@ -66,7 +66,7 @@ dir
 
 ##### Output 1
 
-```
+```text
 info
 ```
 
@@ -74,7 +74,7 @@ info
 
 ##### Input 1
 
-```
+```text
 file
 info2
 /newdir
@@ -82,13 +82,13 @@ info2
 
 ##### Output 1
 
-```
+```text
 info2
 ```
 
 ##### Input 2
 
-```
+```text
 file3
 info3
 newdir
@@ -96,13 +96,11 @@ newdir
 
 ##### Output 2
 
-```
+```text
 info3
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 2
 
@@ -155,13 +153,13 @@ rm {1,6}{A..E}/{33..40}
 
 ##### Input 1
 
-```
+```text
 213123
 ```
 
 ##### Output 1
 
-```
+```text
 .
 ./10A
 ./10A/1
@@ -2550,13 +2548,13 @@ rm {1,6}{A..E}/{33..40}
 
 ##### Input 1
 
-```
+```text
 12434
 ```
 
 ##### Output 1
 
-```
+```text
 .
 ./10A
 ./10A/1
@@ -4943,8 +4941,6 @@ rm {1,6}{A..E}/{33..40}
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Section-1 Problem 3
 
 A company collected some data from the user and stored it in a CSV file `data.txt` in the current working directory. It contains the fields name, date of birth (YYYY-MM-DD) and location respectively.
@@ -4995,7 +4991,7 @@ egrep "^[^,]+,[0-9]{4}-(..)-\1,[^,]+" data.csv
 
 ##### Input 1
 
-```
+```csv
 Giorgi Banister,2001-12-09,Qiaozhen
 Camala Woolner,1986-12-25,Krajan Karangwage
 Gilberta Judson,1998-04-12,Jarvakandi
@@ -5066,7 +5062,7 @@ Sauncho Pesic,1968-05-05,Malaba
 
 ##### Output 1
 
-```
+```csv
 Lyndsey Jelly,1985-02-02,Qibu
 Sauncho Pesic,1968-05-05,Malaba
 
@@ -5074,7 +5070,7 @@ Sauncho Pesic,1968-05-05,Malaba
 
 ##### Input 2
 
-```
+```csv
 Consuela Speakman,1973-07-15,Longchiqiao
 Lyndsey Jelly,1985-02-02,Qibu
 
@@ -5082,7 +5078,7 @@ Lyndsey Jelly,1985-02-02,Qibu
 
 ##### Output 2
 
-```
+```csv
 Lyndsey Jelly,1985-02-02,Qibu
 
 ```
@@ -5091,7 +5087,7 @@ Lyndsey Jelly,1985-02-02,Qibu
 
 ##### Input 1
 
-```
+```csv
 Aldrich Batchan,1995-11-14,Koltubanovskiy
 Delcina Froome,1967-05-01,Xingzhen
 Stefano Reany,1971-02-18,Kalaxilike
@@ -5152,7 +5148,7 @@ Cointon Tieman,1989-05-06,Frantiskovy Lazne
 
 ##### Output 1
 
-```
+```csv
 Helsa Schnieder,1963-08-08,Beruniy
 Aksel Cockell,1972-03-03,Skaryszew
 
@@ -5160,7 +5156,7 @@ Aksel Cockell,1972-03-03,Skaryszew
 
 ##### Input 2
 
-```
+```csv
 Zed Spera,1983-07-26,Simpang
 Fawne Kordova,1984-11-04,Castro
 Perceval Seelbach,1989-10-06,Boa Esperanca
@@ -5357,7 +5353,7 @@ Dari Gregorace,1997-08-28,Olafulihaa
 
 ##### Output 2
 
-```
+```csv
 Ruby Avramow,1995-04-04,Visnjevac
 Anton Schohier,1955-08-08,Jemielno
 Nona Wagen,1956-11-11,Lubasz
@@ -5366,7 +5362,7 @@ Nona Wagen,1956-11-11,Lubasz
 
 ##### Input 3
 
-```
+```csv
 Lyndsey Jelly,1985-02-02,Qibu
 Sauncho Pesic,1968-05-05,Malaba
 Adina Comello,1963-09-09,Shufeng
@@ -5400,7 +5396,7 @@ Lind Blagdon,1957-08-08,Oum Hadjer
 
 ##### Output 3
 
-```
+```csv
 Lyndsey Jelly,1985-02-02,Qibu
 Sauncho Pesic,1968-05-05,Malaba
 Adina Comello,1963-09-09,Shufeng
@@ -5432,8 +5428,6 @@ Lind Blagdon,1957-08-08,Oum Hadjer
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-1 Problem 4
 
@@ -5478,25 +5472,25 @@ script 2>&1
 
 ##### Input 1
 
-```
+```bash
 echo SUCC${E}SS
 ```
 
 ##### Output 1
 
-```
+```text
 FAIL
 ```
 
 ##### Input 2
 
-```
+```bash
 echo NOT OK | sed 's/NOT //'
 ```
 
 ##### Output 2
 
-```
+```text
 SUCCESS
 ```
 
@@ -5504,67 +5498,65 @@ SUCCESS
 
 ##### Input 1
 
-```
+```bash
 
 ```
 
 ##### Output 1
 
-```
+```text
 FAIL
 ```
 
 ##### Input 2
 
-```
+```bash
 echo OK 1>&2
 ```
 
 ##### Output 2
 
-```
+```text
 FAIL
 ```
 
 ##### Input 3
 
-```
+```bash
 echo NOT OK
 ```
 
 ##### Output 3
 
-```
+```text
 FAIL
 ```
 
 ##### Input 4
 
-```
+```bash
 echo O${K}K
 ```
 
 ##### Output 4
 
-```
+```text
 SUCCESS
 ```
 
 ##### Input 5
 
-```
+```bash
 echo OK
 ```
 
 ##### Output 5
 
-```
+```text
 SUCCESS
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 1
 
@@ -5608,20 +5600,20 @@ ls -l ./data | grep "^d" -c
 
 ##### Input 1
 
-```
+```bash
 mkdir -p data/{1..10}
 
 ```
 
 ##### Output 1
 
-```
+```text
 10
 ```
 
 ##### Input 2
 
-```
+```bash
 mkdir -p data/{1..10}
 touch data/{1..5}
 
@@ -5629,7 +5621,7 @@ touch data/{1..5}
 
 ##### Output 2
 
-```
+```text
 10
 ```
 
@@ -5637,20 +5629,20 @@ touch data/{1..5}
 
 ##### Input 1
 
-```
+```bash
 mdkir {1..10}
 
 ```
 
 ##### Output 1
 
-```
+```text
 0
 ```
 
 ##### Input 2
 
-```
+```bash
 touch a b c
 mkdir -p data/{1..10}{1..10}
 
@@ -5658,13 +5650,13 @@ mkdir -p data/{1..10}{1..10}
 
 ##### Output 2
 
-```
+```text
 100
 ```
 
 ##### Input 3
 
-```
+```bash
 mkdir -p data/{a..z}{1..10}
 touch data/1
 touch data/2
@@ -5674,13 +5666,13 @@ touch data/2
 
 ##### Output 3
 
-```
+```text
 260
 ```
 
 ##### Input 4
 
-```
+```bash
 mkdir -p data/{a..z}{1..3}
 touch data/1
 touch data/2
@@ -5690,32 +5682,32 @@ touch data/2
 
 ##### Output 4
 
-```
+```text
 78
 ```
 
 ##### Input 5
 
-```
+```bash
 mkdir -p data/data
 
 ```
 
 ##### Output 5
 
-```
+```text
 1
 ```
 
 ##### Input 6
 
-```
+```bash
 mkdir -p data/{gui,tui}
 ```
 
 ##### Output 6
 
-```
+```text
 2
 ```
 
@@ -5764,7 +5756,7 @@ echo $?
 
 ##### Input 1
 
-```
+```text
 System
 Commands
 
@@ -5772,13 +5764,13 @@ Commands
 
 ##### Output 1
 
-```
+```text
 0
 ```
 
 ##### Input 2
 
-```
+```text
 system
 command
 
@@ -5786,20 +5778,20 @@ command
 
 ##### Output 2
 
-```
+```text
 1
 ```
 
 ##### Input 3
 
-```
+```text
 commands
 
 ```
 
 ##### Output 3
 
-```
+```text
 1
 ```
 
@@ -5807,60 +5799,56 @@ commands
 
 ##### Input 1
 
-```
+```text
 1
 ```
 
 ##### Output 1
 
-```
+```text
 0
 ```
 
 ##### Input 2
 
-```
+```text
 Basic Commands
 System Introduction
 ```
 
 ##### Output 2
 
-```
+```text
 0
 ```
 
 ##### Input 3
 
-```
+```text
 Systemd
 
 ```
 
 ##### Output 3
 
-```
+```text
 1
 ```
 
 ##### Input 4
 
-```
+```text
 Commandspack
 
 ```
 
 ##### Output 4
 
-```
+```text
 1
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
-
-<div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 3
 
@@ -5921,27 +5909,27 @@ hardlink_count="${temp%% *}"
 
 ##### Input 1
 
-```
+```text
 red
 
 ```
 
 ##### Output 1
 
-```
+```text
 SOFTLINK
 ```
 
 ##### Input 2
 
-```
+```text
 orange
 
 ```
 
 ##### Output 2
 
-```
+```text
 HARDLINK
 ```
 
@@ -5949,31 +5937,29 @@ HARDLINK
 
 ##### Input 1
 
-```
+```text
 yellow
 ```
 
 ##### Output 1
 
-```
+```text
 SOFTLINK
 ```
 
 ##### Input 2
 
-```
+```text
 magenta
 ```
 
 ##### Output 2
 
-```
+```text
 HARDLINK
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Section-2 Problem 4
 
@@ -5983,7 +5969,7 @@ Hint:
 
 - Use `find` command to print the all files and directories in the current directory.
 
-```
+```bash
 $ sort --help
 Usage: sort [OPTION]... [FILE]...
   or:  sort [OPTION]... --files0-from=F
@@ -6059,20 +6045,20 @@ find -exec ls -l {} \; | awk '$5 > mx { mx=$5; mv=$9 } END { print mv }'
 
 ##### Input 1
 
-```
+```bash
 touch a b c
 echo 1234 > b
 ```
 
 ##### Output 1
 
-```
+```text
 ./b
 ```
 
 ##### Input 2
 
-```
+```bash
 touch {1..100}
 echo 123456789 > 9
 echo 12345678 > 8
@@ -6084,13 +6070,13 @@ echo 12345 > 5
 
 ##### Output 2
 
-```
+```text
 ./9
 ```
 
 ##### Input 3
 
-```
+```bash
 mkdir {a..c}
 touch {a..c}/0
 echo 1234 > b/0
@@ -6098,7 +6084,7 @@ echo 1234 > b/0
 
 ##### Output 3
 
-```
+```text
 ./b/0
 ```
 
@@ -6106,7 +6092,7 @@ echo 1234 > b/0
 
 ##### Input 1
 
-```
+```bash
 touch {1..100}
 echo 123456789 > 9
 echo 12345678 > 8
@@ -6118,26 +6104,26 @@ echo 12345 > 5
 
 ##### Output 1
 
-```
+```text
 ./8
 ```
 
 ##### Input 2
 
-```
+```bash
 touch {1..100}
 echo > 15
 ```
 
 ##### Output 2
 
-```
+```text
 ./15
 ```
 
 ##### Input 3
 
-```
+```bash
 mkdir {a..c}
 touch {a..c}/0
 echo 1234 > b/0
@@ -6147,13 +6133,13 @@ echo 12345678 >> a/0
 
 ##### Output 3
 
-```
+```text
 ./a/0
 ```
 
 ##### Input 4
 
-```
+```bash
 mkdir -p {a..c}/{a..c}/{a..c}/{a..c}
 touch {a..c}/{a..c}/{a..c}/{a..c}/0
 echo 1234 > a/b/c/c/0
@@ -6163,7 +6149,7 @@ echo 2 > a/b/b/c/0
 
 ##### Output 4
 
-```
+```text
 ./a/b/c/c/0
 ```
 

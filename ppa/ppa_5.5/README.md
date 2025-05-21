@@ -8,9 +8,9 @@ The output should contain usernames only and should be unique.
 
 Hint: Use uniq command to get all distinct lines of the output.
 
-Contents of myauth.log is given below
+Contents of `myauth.log` is given below
 
-```
+```text
 Jan 20 20:11:34 IITMBSC systemd-logind[897]: Session 27 logged out. Waiting for processes to exit.
 Jan 20 20:11:34 IITMBSC systemd-logind[897]: Removed session 27.
 Jan 20 20:17:01 IITMBSC CRON[70999]: pam_unix(cron:session): session opened for user root by (uid=0)

@@ -8,13 +8,13 @@ Hint: One of the possible approaches is to use while loop along with IFS. This a
 
 **Sample case**
 
-```
+```text
 The plains are as flat as the proverbial pancake—a dead monotony of cultivated alluvium, square mile upon square mile of wheat, rice, vetch, sugar-cane, and other crops, amidst which mango groves, bamboo clumps, palms, and hamlets are scattered promiscuously. In some places the hills rise sheer from this, in others they are separated from the alluvial plains by belts of country known as the Tarai and Bhabar. The Tarai is low-lying, marshy land covered with tall, feathery grass, beautifully monotonous. This is succeeded by a stretch of gently-rising ground, 10 or 20 miles in breadth, known as the Bhabar—a strip of forest composed mainly of tall evergreen sal trees (Shorea robusta). These trees grow so close together that the forest is difficult to penetrate, especially after the rains, when the undergrowth is dense and rank. Very beautiful is the Bhabar, and very stimulating to the imagination. One writer speaks of it as "a jungle rhapsody, an extravagant, impossible botanical tour de force, intensely modern in its Titanic, incoherent magnificence." It is the home of the elephant, the tiger, the panther, the wild boar, several species of deer, and of many strange and beautiful birds.
 ```
 
 **Desired output**
 
-```
+```text
 Paragraph 1, Statement 1:
 The plains are as flat as the proverbial pancake—a dead monotony of cultivated alluvium, square mile upon square mile of wheat, rice, vetch, sugar-cane, and other crops, amidst which mango groves, bamboo clumps, palms, and hamlets are scattered promiscuously.
 
@@ -67,7 +67,7 @@ A file `mydata.csv` is present in the current working directory. Use sed to swap
 
 **Sample input**
 
-```
+```text
 grep,219,10.95,47961
 ls,208,10.4,43264
 echo,195,9.75,38025
@@ -82,7 +82,7 @@ man,67,3.35,4489
 
 **Sample output**
 
-```
+```text
 47961,219,10.95,grep
 43264,208,10.4,ls
 38025,195,9.75,echo
@@ -107,14 +107,14 @@ A file sample.txt contains multiple paragraphs. As it is a text file, discerning
 
 **Sample Input**
 
-```
+```text
 The plains are as flat as the proverbial pancake—a dead monotony of cultivated alluvium, square mile upon square mile of wheat, rice, vetch, sugar-cane, and other crops, amidst which mango groves, bamboo clumps, palms, and hamlets are scattered promiscuously. In some places the hills rise sheer from this, in others they are separated from the alluvial plains by belts of country known as the Tarai and Bhabar. The Tarai is low-lying, marshy land covered with tall, feathery grass, beautifully monotonous.
 This is succeeded by a stretch of gently-rising ground, 10 or 20 miles in breadth, known as the Bhabar—a strip of forest composed mainly of tall evergreen sal trees (Shorea robusta). These trees grow so close together that the forest is difficult to penetrate, especially after the rains, when the undergrowth is dense and rank. Very beautiful is the Bhabar, and very stimulating to the imagination. One writer speaks of it as "a jungle rhapsody, an extravagant, impossible botanical tour de force, intensely modern in its Titanic, incoherent magnificence." It is the home of the elephant, the tiger, the panther, the wild boar, several species of deer, and of many strange and beautiful birds.
 ```
 
 **Sample Output**
 
-```
+```text
 ---
 The plains are as flat as the proverbial pancake—a dead monotony of cultivated alluvium, square mile upon square mile of wheat, rice, vetch, sugar-cane, and other crops, amidst which mango groves, bamboo clumps, palms, and hamlets are scattered promiscuously. In some places the hills rise sheer from this, in others they are separated from the alluvial plains by belts of country known as the Tarai and Bhabar. The Tarai is low-lying, marshy land covered with tall, feathery grass, beautifully monotonous.
 ---
@@ -149,28 +149,28 @@ Consider the dataset {2, 3, 4, 4, 5, 5, 5, 6, 7}. In this case, the mode is 5 be
 
 **Sample Input**
 
-```
-SNO	L1	L2	MATHS	SCIENCE	SOCIAL	RESULT	TOTAL
-1	86	92	78	90	85	PASS	431
-2	70	80	95	88	78	PASS	425
-3	92	88	35	88	78	FAIL	375
-4	65	20	20	85	90	FAIL	280
-5	88	90	92	78	85	PASS	433
+```text
+SNO L1 L2 MATHS SCIENCE SOCIAL RESULT TOTAL
+1 86 92 78 90 85 PASS 431
+2 70 80 95 88 78 PASS 425
+3 92 88 35 88 78 FAIL 375
+4 65 20 20 85 90 FAIL 280
+5 88 90 92 78 85 PASS 433
 ```
 
 **Sample Output**
 
-```
-SNO	L1	L2	MATHS	SCIENCE	SOCIAL	RESULT	TOTAL
-1	86	92	78	90	85	PASS	431
-2	70	80	95	88	78	PASS	425
-3	92	88	35	88	78	FAIL	375
-4	65	20	20	85	90	FAIL	280
-5	88	90	92	78	85	PASS	433
-MODE	-	-	-	88	-	PASS	-
+```text
+SNO L1 L2 MATHS SCIENCE SOCIAL RESULT TOTAL
+1 86 92 78 90 85 PASS 431
+2 70 80 95 88 78 PASS 425
+3 92 88 35 88 78 FAIL 375
+4 65 20 20 85 90 FAIL 280
+5 88 90 92 78 85 PASS 433
+MODE - - - 88 - PASS -
 ```
 
-#### Solution
+### Solution
 
 ```bash
 #!/bin/gawk -f
@@ -237,13 +237,13 @@ END {
 
 ## Problem 5 (awk) [15 marks]
 
-Write an AWK script that will print the count of each word appearing in a paragraph. Note that the paragraph may contain punctuation. Use gsub function to remove the punctuations and tolower function to convert a word to lowercase.
+Write an AWK script that will print the count of each word appearing in a paragraph. Note that the paragraph may contain punctuation. Use `gsub` function to remove the punctuations and `tolower` function to convert a word to lowercase.
 
 **NOTE**: The words should be in ascending order.
 
-**man page of gsub in AWK**
+**man page of `gsub` in AWK**
 
-```
+```text
  gsub(r, s [, t])        For each substring matching the  regular
                                expression r in the string t, substitute
                                the string s, and return the  number  of
@@ -266,13 +266,13 @@ Write an AWK script that will print the count of each word appearing in a paragr
 
 For example: for a paragraph as follows
 
-```
+```text
 If you must cross a coarse, cross cow across a crowded cow crossing, cross the cross, coarse cow across the crowded cow crossing carefully.
 ```
 
-** Desired output **
+**Desired output**
 
-```
+```text
 a: 2
 across: 2
 carefully: 1
@@ -326,7 +326,7 @@ It is often required to run some basic statistics on a file. Write a **bash scri
 
 **Sample Input**
 
-```
+```csv
 Company,Date,Amount
 CompanyA,2020-04-29,31211.18
 CompanyA,2021-09-20,2366.91
@@ -341,7 +341,7 @@ CompanyA,2020-08-22,30383.23
 
 **Sample output**
 
-```
+```bash
 $ ./script.sh -u1 financial_records.csv
 the unique entries in column 1 is CompanyA CompanyB
 $ ./script.sh -t financial_records.csv
@@ -357,11 +357,11 @@ filename=${@: -1}
 while getopts "tu:" options; do
   case "${options}" in
     t)
-	 # enter your command to print in the correct format here
+  # enter your command to print in the correct format here
      ;;
     u)
       arg=${OPTARG} # argument obtained for option -u
-	 # enter your command to print in the correct format here
+  # enter your command to print in the correct format here
       ;;
   esac
 done

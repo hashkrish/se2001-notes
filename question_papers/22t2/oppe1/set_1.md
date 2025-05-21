@@ -4,7 +4,7 @@
 
 Create a file structure as shown below and the commands should not output anything.
 
-```
+```text
 /potato_recipes/
 ├── french_fries
 │   ├── ingredients.txt
@@ -58,7 +58,7 @@ ls -R /potato_recipes
 
 **Output**
 
-```
+```text
 /potato_recipes:
 french_fries
 frites
@@ -82,7 +82,7 @@ procedure.txt
 | test "-d /potato_recipes/potato_wedges" && echo 0                                                        | 0      |
 | test "-f /potato_recipes/french_fries/procedure.txt" && echo 0                                           | 0      |
 | test "-f /potato_recipes/potato_wedges/procedure.txt" && echo 0                                          | 0      |
-| touch /potato_recipes/french_fries/sample.txt;  test "-a /potato_recipes/frites/sample.txt" && echo 0    | 0      |
+| touch /potato_recipes/french_fries/sample.txt; test "-a /potato_recipes/frites/sample.txt" && echo 0     | 0      |
 | echo 0 > /potato_recipes/french_fries/ingredients.txt; cat /potato_recipes/potato_wedges/ingredients.txt | 0      |
 
 ---
@@ -158,7 +158,7 @@ script
 
 **Input**
 
-```
+```text
 2022-05-26 10:23:44 upgrade gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1 22.07.5-2ubuntu1.3
 2022-05-26 10:23:44 status half-configured gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1
 2022-05-26 10:23:44 status unpacked gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1
@@ -437,7 +437,7 @@ script
 
 **Output**
 
-```
+```text
 2022-05-26
 ```
 
@@ -445,7 +445,7 @@ script
 
 **Input**
 
-```
+```text
 2022-05-26 10:23:44 upgrade gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1 22.07.5-2ubuntu1.3
 2022-05-26 10:23:44 status half-configured gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1
 2022-05-26 10:23:44 status unpacked gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1
@@ -724,7 +724,7 @@ script
 
 **Output**
 
-```
+```text
 2022-05-27
 ```
 
@@ -764,7 +764,7 @@ script
 
 **Input**
 
-```
+```text
 2022-05-26 10:23:44 upgrade gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1 22.07.5-2ubuntu1.3
 2022-05-26 10:23:44 status half-configured gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1
 2022-05-26 10:23:44 status unpacked gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1
@@ -1043,7 +1043,7 @@ script
 
 **Output**
 
-```
+```text
 2022-05-26
 ```
 
@@ -1051,7 +1051,7 @@ script
 
 **Input**
 
-```
+```text
 2022-05-26 10:23:44 upgrade gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1 22.07.5-2ubuntu1.3
 2022-05-26 10:23:44 status half-configured gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1
 2022-05-26 10:23:44 status unpacked gir1.2-accountsservice-1.0:amd64 22.07.5-2ubuntu1
@@ -1330,7 +1330,7 @@ script
 
 **Output**
 
-```
+```text
 2022-05-27
 ```
 
@@ -1338,7 +1338,7 @@ script
 
 ## Problem 3 C
 
-The file `dpkg.log` present in the current directory contains the log of package install/update/remove information. `pkg` is the variable that stores the package name. Write a script to  print `"installed"` if the package stored in the variable `pkg` is installed else print `"not-installed"`.
+The file `dpkg.log` present in the current directory contains the log of package install/update/remove information. `pkg` is the variable that stores the package name. Write a script to print `"installed"` if the package stored in the variable `pkg` is installed else print `"not-installed"`.
 
 **Hint:**
 
@@ -1375,7 +1375,7 @@ script
 
 ##### Input
 
-```
+```text
 cmatrix
 2022-05-27 11:13:31 status unpacked libdpkg-perl:all 1.21.1ubuntu2
 2022-05-27 11:13:31 status half-installed libdpkg-perl:all 1.21.1ubuntu2
@@ -1481,7 +1481,7 @@ cmatrix
 
 ##### Output
 
-```
+```text
 not-installed
 ```
 
@@ -1489,13 +1489,13 @@ not-installed
 
 ##### Input
 
-```
+```text
 gnome-menus
 ```
 
 ##### Output
 
-```
+```text
 not-installed
 ```
 
@@ -1505,7 +1505,7 @@ not-installed
 
 ##### Input
 
-```
+```text
 gnome-menus
 2022-05-27 11:13:31 status unpacked libdpkg-perl:all 1.21.1ubuntu2
 2022-05-27 11:13:31 status half-installed libdpkg-perl:all 1.21.1ubuntu2
@@ -1611,7 +1611,7 @@ gnome-menus
 
 ##### Output
 
-```
+```text
 installed
 ```
 
@@ -1619,19 +1619,19 @@ installed
 
 ##### Input
 
-```
+```text
 cmatrix
 ```
 
 ##### Output
 
-```
+```text
 not-installed
 ```
 
 ---
 
-## Problem  4 A
+## Problem 4 A
 
 Write a script that reads two numbers `a` and `b` from first and second line respectively and print `special` if
 
@@ -1656,12 +1656,61 @@ script() {
 
 ### Test cases
 
-|         | Input    | Output      |
-| ------- | -------- | ----------- |
-| Public  | 15<br>7  | not-special |
-| Public  | 15<br>6  | special     |
-| Private | 30<br>12 | special     |
-| Private | 60<br>41 | not-special |
+### Public Test Cases
+
+#### Input 1
+
+```text
+15
+7
+```
+
+#### Output 1
+
+```text
+not-special
+```
+
+#### Input 2
+
+```text
+15
+6
+```
+
+#### Output 2
+
+```text
+special
+```
+
+### Private Test Cases
+
+#### Input 1
+
+```text
+30
+12
+```
+
+#### Output 1
+
+```text
+special
+```
+
+#### Input 2
+
+```text
+60
+41
+```
+
+#### Output 2
+
+```text
+not-special
+```
 
 ---
 
@@ -1688,14 +1737,61 @@ script() {
 }
 ```
 
-### Test cases
+### Public Test Cases
 
-|         | Input    | Output      |
-| ------- | -------- | ----------- |
-| Public  | 7<br>15  | not-special |
-| Public  | 6<br>15  | special     |
-| Private | 12<br>30 | special     |
-| Private | 41<br>60 | not-special |
+#### Input 1
+
+```text
+7
+15
+```
+
+#### Output 1
+
+```text
+not-special
+```
+
+#### Input 2
+
+```text
+6
+15
+```
+
+#### Output 2
+
+```text
+special
+```
+
+### Private Test Cases
+
+#### Input 1
+
+```text
+12
+30
+```
+
+#### Output 1
+
+```text
+special
+```
+
+#### Input 2
+
+```text
+41
+60
+```
+
+#### Output 2
+
+```text
+not-special
+```
 
 ---
 
@@ -1703,11 +1799,11 @@ script() {
 
 Write a script to print numbers that are divisible by both 7 and 11 between `a` and `b` (ends inclusive) where `a` and `b` are integer variables and `a` is lesser than `b`.
 
-**Hint:**Use seq command to generate a sequence of values.
+**Hint:**Use `seq` command to generate a sequence of values.
 
 Ex: `seq 0 4` will give
 
-```
+```text
 0
 1
 2
@@ -1727,14 +1823,157 @@ script() {
 }
 ```
 
-### Test cases
+### Public Test Cases
 
-|         | Input        | Output                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Public  | 1<br>100     | 77                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Public  | 1<br>770     | 77<br/>154<br/>231<br/>308<br/>385<br/>462<br/>539<br/>616<br/>693<br/>770                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Private | 1200<br>3000 | 1232<br/>1309<br/>1386<br/>1463<br/>1540<br/>1617<br/>1694<br/>1771<br/>1848<br/>1925<br/>2002<br/>2079<br/>2156<br/>2233<br/>2310<br/>2387<br/>2464<br/>2541<br/>2618<br/>2695<br/>2772<br/>2849<br/>2926                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Private | 924<br>5929  | 924<br/>1001<br/>1078<br/>1155<br/>1232<br/>1309<br/>1386<br/>1463<br/>1540<br/>1617<br/>1694<br/>1771<br/>1848<br/>1925<br/>2002<br/>2079<br/>2156<br/>2233<br/>2310<br/>2387<br/>2464<br/>2541<br/>2618<br/>2695<br/>2772<br/>2849<br/>2926<br/>3003<br/>3080<br/>3157<br/>3234<br/>3311<br/>3388<br/>3465<br/>3542<br/>3619<br/>3696<br/>3773<br/>3850<br/>3927<br/>4004<br/>4081<br/>4158<br/>4235<br/>4312<br/>4389<br/>4466<br/>4543<br/>4620<br/>4697<br/>4774<br/>4851<br/>4928<br/>5005<br/>5082<br/>5159<br/>5236<br/>5313<br/>5390<br/>5467<br/>5544<br/>5621<br/>5698<br/>5775<br/>5852<br/>5929 |
+#### Input 1
+
+```text
+1
+100
+```
+
+#### Output 1
+
+```text
+77
+```
+
+#### Input 2
+
+```text
+1
+770
+```
+
+#### Output 2
+
+```text
+77
+154
+231
+308
+385
+462
+539
+616
+693
+770
+```
+
+### Private Test Cases
+
+#### Input 1
+
+```text
+1200
+3000
+```
+
+#### Output 1
+
+```text
+1232
+1309
+1386
+1463
+1540
+1617
+1694
+1771
+1848
+1925
+2002
+2079
+2156
+2233
+2310
+2387
+2464
+2541
+2618
+2695
+2772
+2849
+2926
+```
+
+#### Input 2
+
+```text
+924
+5929
+```
+
+#### Output 2
+
+```text
+924
+1001
+1078
+1155
+1232
+1309
+1386
+1463
+1540
+1617
+1694
+1771
+1848
+1925
+2002
+2079
+2156
+2233
+2310
+2387
+2464
+2541
+2618
+2695
+2772
+2849
+2926
+3003
+3080
+3157
+3234
+3311
+3388
+3465
+3542
+3619
+3696
+3773
+3850
+3927
+4004
+4081
+4158
+4235
+4312
+4389
+4466
+4543
+4620
+4697
+4774
+4851
+4928
+5005
+5082
+5159
+5236
+5313
+5390
+5467
+5544
+5621
+5698
+5775
+5852
+5929
+```
 
 ---
 
@@ -1765,14 +2004,81 @@ read line
 touchmod $line | sed -n '1! p' | awk '{print $1,$9}'
 ```
 
-### Test cases
+### Public Test Cases
 
-|         | Input                          | Output                                                                                                                                               |
-| ------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Public  | touchmod 755 abc def ghi       | -rwxr-xr-x abc<br/>-rwxr-xr-x def<br/>-rwxr-xr-x ghi                                                                                                 |
-| Public  | touchmod 777 a b c d e f g h i | -rwxrwxrwx a<br/>-rwxrwxrwx b<br/>-rwxrwxrwx c<br/>-rwxrwxrwx d<br/>-rwxrwxrwx e<br/>-rwxrwxrwx f<br/>-rwxrwxrwx g<br/>-rwxrwxrwx h<br/>-rwxrwxrwx i |
-| Private | touchmod 444 a b c d e f g h i | -r--r--r-- a<br/>-r--r--r-- b<br/>-r--r--r-- c<br/>-r--r--r-- d<br/>-r--r--r-- e<br/>-r--r--r-- f<br/>-r--r--r-- g<br/>-r--r--r-- h<br/>-r--r--r-- i |
-| Private | touchmod 644 a b c d 1 2 3     | -rw-r--r-- a<br/>-rw-r--r-- b<br/>-rw-r--r-- c<br/>-rw-r--r-- d<br/>-rw-r--r-- e<br/>-rw-r--r-- f<br/>-rw-r--r-- g<br/>-rw-r--r-- h<br/>-rw-r--r-- i |
+#### Input 1
+
+```text
+touchmod 755 abc def ghi
+```
+
+#### Output 1
+
+```text
+-rwxr-xr-x abc
+-rwxr-xr-x def
+-rwxr-xr-x ghi
+```
+
+#### Input 2
+
+```text
+touchmod 777 a b c d e f g h i
+```
+
+#### Output 2
+
+```text
+-rwxrwxrwx a
+-rwxrwxrwx b
+-rwxrwxrwx c
+-rwxrwxrwx d
+-rwxrwxrwx e
+-rwxrwxrwx f
+-rwxrwxrwx g
+-rwxrwxrwx h
+-rwxrwxrwx i
+```
+
+### Private Test Cases
+
+#### Input 1
+
+```text
+touchmod 444 a b c d e f g h i
+```
+
+#### Output 1
+
+```text
+-r--r--r-- a
+-r--r--r-- b
+-r--r--r-- c
+-r--r--r-- d
+-r--r--r-- e
+-r--r--r-- f
+-r--r--r-- g
+-r--r--r-- h
+-r--r--r-- i
+```
+
+#### Input 2
+
+```text
+touchmod 644 a b c d 1 2 3
+```
+
+#### Output 2
+
+```text
+-rw-r--r-- a
+-rw-r--r-- b
+-rw-r--r-- c
+-rw-r--r-- d
+-rw-r--r-- 1
+-rw-r--r-- 2
+-rw-r--r-- 3
+```
 
 ---
 
@@ -1783,9 +2089,9 @@ Write a script to move all files in the current directory to the respective dire
 
 | Directory | Extensions                                                      |
 | --------- | --------------------------------------------------------------- |
-| Image     | jpg, png, gif, tiff                                             |
-| Video     | mov, mp4, mkv, avi                                              |
-| Program   | sh, fish, py, c, cpp, java, perl, js                            |
+| Image     | `jpg`, `png`, `gif`, `tiff`                                     |
+| Video     | `mov`, `mp4`, `mkv`, `avi`                                      |
+| Program   | `sh`, `fish`, `py`, `c`, `cpp`, `java`, `perl`, `js`            |
 | Other     | No extension or any other extension that is not specified above |
 
 ### Solution
@@ -1828,14 +2134,170 @@ script
 ls -R
 ```
 
-### Test cases
+### Public Test Cases
 
-|         | Input                                                                                                                                                                                                                                                      | Output                                                                                                                                                                                                                                                                                                                                |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Public  | 1.jpg<br/>2.gif<br/>3.mov<br/>4.py<br/>5.ui                                                                                                                                                                                                                | .:<br/>Image  Other  Program  Video<br/><br/>./Image:<br/>1.jpg  2.gif<br/><br/>./Other:<br/>5.ui<br/><br/>./Program:<br/>4.py<br/><br/>./Video:<br/>3.mov                                                                                                                                                                            |
-| Public  | 10064.jpg<br/>1236.gif<br/>30389.png<br/>649.tiff<br/>30198.ts<br/>32314.ui<br/>6265.xorg<br/>14656.fish<br/>18918.perl<br/>23645.js<br/>27576.sh<br/>3605.java<br/>481.py<br/>5148.c<br/>8890.cpp<br/>12893.mov<br/>21804.mp4<br/>30998.mkv<br/>31277.avi | .:<br/>Image  Other  Program  Video<br/><br/>./Image:<br/>10064.jpg  1236.gif  30389.png  649.tiff<br/><br/>./Other:<br/>30198.ts  32314.ui  6265.xorg<br/><br/>./Program:<br/>14656.fish  23645.js  3605.java  5148.c<br/>18918.perl  27576.sh  481.py     8890.cpp<br/><br/>./Video:<br/>12893.mov  21804.mp4  30998.mkv  31277.avi |
-| Private | 10064.jpg<br/>1236.gif<br/>30389.png<br/>649.tiff<br/>30198.ts<br/>32314.ui<br/>6265.xorg<br/>14656.fish<br/>18918.perl<br/>23645.js<br/>27576.sh<br/>3605.java<br/>481.py<br/>5148.c<br/>8890.cpp<br/>12893.mov<br/>21804.mp4<br/>30998.mkv<br/>31277.avi | .:<br/>Image Other Program Video<br/><br/>./Image:<br/>10064.jpg 1236.gif 30389.png 649.tiff<br/><br/>./Other:<br/>30198.ts 32314.ui 6265.xorg<br/><br/>./Program:<br/>14656.fish 23645.js 3605.java 5148.c<br/>18918.perl 27576.sh 481.py 8890.cpp<br/><br/>./Video:<br/>12893.mov 21804.mp4 30998.mkv 31277.avi                     |
-| Private | 10064.jpg<br/>1236.gif<br/>30389.png<br/>649.tiff<br/>30198.ts<br/>32314.ui<br/>6265.xorg<br/>14656.fish<br/>18918.perl<br/>23645.js<br/>27576.sh<br/>3605.java<br/>481.py<br/>5148.c<br/>8890.cpp<br/>12893.mov<br/>21804.mp4<br/>30998.mkv<br/>31207.avi | .:<br/>Image Other Program Video<br/><br/>./Image:<br/>10064.jpg 1236.gif 30389.png 649.tiff<br/><br/>./Other:<br/>30198.ts 32314.ui 6265.xorg<br/><br/>./Program:<br/>14656.fish 23645.js 3605.java 5148.c<br/>18918.perl 27576.sh 481.py 8890.cpp<br/><br/>./Video:<br/>12893.mov 21804.mp4 30998.mkv 31207.avi                     |
+#### Input 1
+
+```text
+1.jpg
+2.gif
+3.mov
+4.py
+5.ui
+```
+
+#### Output 1
+
+```text
+.:
+Image Other Program Video
+
+./Image:
+1.jpg 2.gif
+
+./Other:
+5.ui
+
+./Program:
+4.py
+
+./Video:
+3.mov
+```
+
+#### Input 2
+
+```text
+10064.jpg
+1236.gif
+30389.png
+649.tiff
+30198.ts
+32314.ui
+6265.xorg
+14656.fish
+18918.perl
+23645.js
+27576.sh
+3605.java
+481.py
+5148.c
+8890.cpp
+12893.mov
+21804.mp4
+30998.mkv
+31277.avi
+```
+
+#### Output 2
+
+```text
+.:
+Image Other Program Video
+
+./Image:
+10064.jpg 1236.gif 30389.png 649.tiff
+
+./Other:
+30198.ts 32314.ui 6265.xorg
+
+./Program:
+14656.fish 23645.js 3605.java 5148.c
+18918.perl 27576.sh 481.py 8890.cpp
+
+./Video:
+12893.mov 21804.mp4 30998.mkv 31277.avi
+```
+
+### Private Test Cases
+
+#### Input 1
+
+```text
+10064.jpg
+1236.gif
+30389.png
+649.tiff
+30198.ts
+32314.ui
+6265.xorg
+14656.fish
+18918.perl
+23645.js
+27576.sh
+3605.java
+481.py
+5148.c
+8890.cpp
+12893.mov
+21804.mp4
+30998.mkv
+31277.avi
+```
+
+#### Output 1
+
+```text
+.:
+Image Other Program Video
+
+./Image:
+10064.jpg 1236.gif 30389.png 649.tiff
+
+./Other:
+30198.ts 32314.ui 6265.xorg
+
+./Program:
+14656.fish 23645.js 3605.java 5148.c
+18918.perl 27576.sh 481.py 8890.cpp
+
+./Video:
+12893.mov 21804.mp4 30998.mkv 31277.avi
+```
+
+#### Input 2
+
+```text
+10064.jpg
+1236.gif
+30389.png
+649.tiff
+30198.ts
+32314.ui
+6265.xorg
+14656.fish
+18918.perl
+23645.js
+27576.sh
+3605.java
+481.py
+5148.c
+8890.cpp
+12893.mov
+21804.mp4
+30998.mkv
+31207.avi
+```
+
+#### Output 2
+
+```text
+.:
+Image Other Program Video
+
+./Image:
+10064.jpg 1236.gif 30389.png 649.tiff
+
+./Other:
+30198.ts 32314.ui 6265.xorg
+
+./Program:
+14656.fish 23645.js 3605.java 5148.c
+18918.perl 27576.sh 481.py 8890.cpp
+
+./Video:
+12893.mov 21804.mp4 30998.mkv 31207.avi
+```
 
 ---
 
@@ -1876,18 +2338,89 @@ touch season/summer season/winter season/monsoon \
       flower/lily flower/lotus flower/hibiscus
 ```
 
-### Test cases
+### Public Test Cases
 
-|         | Input                | Output  |
-| ------- | -------------------- | ------- |
-| Public  | season<br/>summer    | present |
-| Public  | tree<br/>banyan      | absent  |
-| Private | season<br/>winter    | present |
-| Private | tree<br/>oak         | present |
-| Private | flower<br/>waterlily | absent  |
-| Private | tree<br/>tamarind    | absent  |
+#### Input 1
 
-----
+```text
+season
+summer
+```
+
+#### Output 1
+
+```text
+present
+```
+
+#### Input 2
+
+```text
+tree
+banyan
+```
+
+#### Output 2
+
+```text
+absent
+```
+
+### Private Test Cases
+
+#### Input 1
+
+```text
+season
+winter
+```
+
+#### Output 1
+
+```text
+present
+```
+
+#### Input 2
+
+```text
+tree
+oak
+```
+
+#### Output 2
+
+```text
+present
+```
+
+#### Input 3
+
+```text
+flower
+waterlily
+```
+
+#### Output 3
+
+```text
+absent
+```
+
+#### Input 4
+
+```text
+tree
+tamarind
+```
+
+#### Output 4
+
+```text
+absent
+```
+
+---
 
 ## Problem 8 B
 
@@ -1926,15 +2459,86 @@ touch season/summer season/winter season/monsoon \
       flower/lily flower/lotus flower/hibiscus
 ```
 
-### Test cases
+### Public Test Cases
 
-|         | Input       | Output |
-| ------- | ----------- | ------ |
-| Public  | season<br>5 | true   |
-| Public  | tree<br>1   | false  |
-| Private | season<br>5 | true   |
-| Private | tree<br>1   | false  |
-| Private | flower<br>3 | true   |
-| Private | tree<br>4   | false  |
+#### Input 1
+
+```text
+season
+5
+```
+
+#### Output 1
+
+```text
+true
+```
+
+#### Input 2
+
+```text
+tree
+1
+```
+
+#### Output 2
+
+```text
+false
+```
+
+### Private Test Cases
+
+#### Input 1
+
+```text
+season
+5
+```
+
+#### Output 1
+
+```text
+true
+```
+
+#### Input 2
+
+```text
+tree
+1
+```
+
+#### Output 2
+
+```text
+false
+```
+
+#### Input 3
+
+```text
+flower
+3
+```
+
+#### Output 3
+
+```text
+true
+```
+
+#### Input 4
+
+```text
+tree
+4
+```
+
+#### Output 4
+
+```text
+false
+```
 
 ---

@@ -15,7 +15,7 @@ Write your code in a file called `calendar.sh`. The variable `month` will be pre
 
 ## Sample Input
 
-```
+```text
 sep
 ```
 
@@ -23,7 +23,7 @@ sep
 
 `sep.txt`:
 
-```
+```text
    September 2023
 Su Mo Tu We Th Fr Sa
                 1  2

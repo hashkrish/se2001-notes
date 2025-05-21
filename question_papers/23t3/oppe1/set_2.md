@@ -11,7 +11,7 @@ Total: 6 problems, 105 marks
 
 Define a bash function `Determinant2x2` which calculates the determinant of a 2x2 matrix. An example usage of the function is shown below. Assume that the arguments are only integers.
 
-#### Example
+### Example
 
 ```bash
 #for following Determinant
@@ -71,12 +71,12 @@ done
 
 Write a **shell script** which will
 
-- Read usernames.txt text file with usernames and generate passwords for each username using a hash value generated using shasum command.
+- Read usernames.txt text file with usernames and generate passwords for each username using a hash value generated using `shasum` command.
 - Stores the first ten characters from the output as a password and saves it into a new file `user_passwords.txt`.
 
 Hint:
 
-```
+```bash
 $ shasum --help
 Usage: shasum [OPTION]... [FILE]...
 Print or check SHA checksums.
@@ -95,7 +95,7 @@ avyan
 navya
 ```
 
-#### Desired Output
+### Desired Output
 
 ```shell
 tisha:c0840f4321
@@ -142,7 +142,7 @@ Note:
 
 **Sample Input**
 
-```
+```text
 ********************************
 *                              *
 *  xxxxxxxxxxxxxxxxxxxxxxxxxx  *
@@ -155,7 +155,7 @@ Note:
 
 **Sample Output**
 
-```
+```text
 **************************
 *000000000000000000000000*
 *000000000000000000000000*
@@ -177,7 +177,7 @@ done |
 
 ## Section 2 - Problem 2 (pipes, redirections)
 
-A text file usually contains puctuations, upper case letters. Write a shell script/command which will remove punctuations, convert uppercase letters to lower case and finally convert the space character to newline character in that order. Finally use concepts of sort and uniq commands to print top 5 most frequent words with its count. The content are in file called `text.txt` in current working directory.
+A text file usually contains punctuations, upper case letters. Write a shell script/command which will remove punctuations, convert uppercase letters to lower case and finally convert the space character to newline character in that order. Finally use concepts of sort and uniq commands to print top 5 most frequent words with its count. The content are in file called `text.txt` in current working directory.
 
 Hint:
 
@@ -290,13 +290,13 @@ Write a grep command which will extract the product name and its price from the 
 
 **Sample Input**
 
-```
+```html
 <span class="token punctuation">{</span> <span class="token string">"_id"</span> <span class="token operator">:</span> <span class="token function" <span class="token maybe-class-name">ObjectId</span></span <span class="token punctuation">(</span <span class="token string">"5968dd23fc13ae04d9000002"</span <span class="token punctuation">)</span <span class="token punctuation">,</span> <span class="token string">"product_name"</span> <span class="token operator">:</span> <span class="token string">"Mountain Juniperus ashei"</span <span class="token punctuation">,</span> <span class="token string">"supplier"</span> <span class="token operator">:</span> <span class="token string">"Keebler-Hilpert"</span <span class="token punctuation">,</span> <span class="token string">"quantity"</span> <span class="token operator">:</span> <span class="token number">292</span <span class="token punctuation">,</span> <span class="token string">"unit_cost"</span> <span class="token operator">:</span> <span class="token string">"$8.74"</span> <span class="token punctuation">}</span>
 ```
 
 **Sample Output**
 
-```
+```text
 Mountain Juniperus ashei:$8.74
 ```
 

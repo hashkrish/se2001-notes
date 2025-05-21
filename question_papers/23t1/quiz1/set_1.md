@@ -28,8 +28,6 @@ The variable `BETA` is not defined in the script. So, the value of `BETA` will b
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 2 (shell variables) [6]
 
 ```bash
@@ -52,8 +50,6 @@ What will be the value of `d` at the end of execution? [NAT]
 - The value of `d` will be `12 + 68 = 80`.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ``
 
@@ -92,8 +88,6 @@ apples
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ``
 
 ## Question 4 (cron) [7]
@@ -106,7 +100,7 @@ When will the script `/home/rohit/premodel.sh` get executed. [MCQ]
 
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
 
-```
+```text
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
 |   |   |   |   |      Command or Script to Execute
@@ -137,8 +131,6 @@ Min(0-59)
 (a)
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ``
 
@@ -192,8 +184,6 @@ button
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 6 (regex) [7]
 
 Choose the regular expression that match with **ONLY** the five _digit_ palindrome. Basic Regular Expression (BRE) is used.
@@ -227,13 +217,11 @@ Choose the regular expression that match with **ONLY** the five _digit_ palindro
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ``
 
 ## Question 7 (regex) [8]
 
-```
+```text
 (+91|0)?[6-9][[:digit:]]{9}
 ```
 
@@ -261,8 +249,6 @@ What will be the matched case(s) from the above regular expression. Assume that 
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ``
 
 ## Question 8 (file) [6]
@@ -289,13 +275,11 @@ echo $RANDOM >> b
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 9 (file permission) [8]
 
 Choose the type of user(s) who can write to the file traceback.txt using the console output given below. [MSQ]
 
-```
+```bash
 $ ls -l
 -rw-rw-r--  1 abdul student     6977 Aug  8 19:14  traceback.txt
 ```
@@ -321,8 +305,6 @@ $ ls -l
 - So, the owner `abdul` and the group `student` can write to the file.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 10 (redirection) [6]
 
@@ -356,8 +338,6 @@ cp backup.sh backup.2023.sh
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 11 (link) [6]
 
 A college student uses a pen drive to store files. The pen drive is always mounted on his system at `/mount` as a separate file system. His pen drive contains lots of files and directories. He wants to create a link to the directory `/mount/bio/phase-2/project-312` inside his home directory. What link can the student use?
@@ -384,8 +364,6 @@ A college student uses a pen drive to store files. The pen drive is always mount
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ``
 
 ## Question 12 (conditional &&) [5]
@@ -406,8 +384,6 @@ Enter the number `A` that will print the output "SUCCESS"
 - Only the number `12` satisfies all the conditions.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ``
 
@@ -446,13 +422,11 @@ fi
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 14 (for) [9]
 
 The files inside the directory is given below.
 
-```
+```text
 -rw-rw-r--  1 meena meena        2 Nov 30 09:53  docker_notes.txt
 -rwxrwxr-x  1 meena meena     2901 Nov 18 13:47  emacs_notes.txt
 drwxrwxr-x 11 meena meena     4096 Jul 27 17:24  vim
@@ -494,8 +468,6 @@ done
 - The files `docker_notes.txt`, `emacs_notes.txt`, and `vim_notes.txt` are regular files and will be printed in the output.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 15 (while) [6]
 

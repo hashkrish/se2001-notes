@@ -8,7 +8,7 @@ Write the SED script for the above task.
 
 **Sample Input**
 
-```
+```python
 ...
         if self.propagate_exceptions:
             # if we want to repropagate the exception, we can attempt to
@@ -34,7 +34,7 @@ Write the SED script for the above task.
 
 **Sample Output**
 
-```
+```text
 pass as param when Werkzeug>=1.0.0 is required
 also remove note about this from docstring and docs
 ```
@@ -50,13 +50,13 @@ s/ *# TODO: //
 
 ## Problem 2 (sed) [15 marks]
 
-Raj is a lazy student, he is in his bachelor's degree programme. He has decided to apply for a masters in data science program in various universities, so he wrote a general letter template and populated the respective values such as university name, experience and current position.
+Raj is a lazy student, he is in his bachelor's degree program. He has decided to apply for a masters in data science program in various universities, so he wrote a general letter template and populated the respective values such as university name, experience and current position.
 
 Write a script to achieve the same and get the university name, experience, and current_position from the standard input respectively and print the populated text.
 
 **Template: template.txt**
 
-```
+```text
 Dear Members of the Admission Committee,
 
 I am writing to apply for the Master's in Data Science program at [University Name]. With a strong background in data analysis and a passion for innovation, I am eager to join your esteemed institution to further refine my skills and contribute to the field.
@@ -94,7 +94,7 @@ Note: The output should be tab separated values.
 
 **Sample Input**
 
-```
+```csv
 L1,L2,MATHS,SCIENCE,SOCIAL
 86,92,78,90,85
 70,80,95,88,92
@@ -105,13 +105,13 @@ L1,L2,MATHS,SCIENCE,SOCIAL
 
 **Sample Output**
 
-```
-SNO	L1	L2	MATHS	SCIENCE	SOCIAL	RESULT	TOTAL
-1	86	92	78	90	85	PASS	431
-2	70	80	95	88	92	PASS	425
-3	92	88	35	82	78	FAIL	375
-4	65	20	20	85	90	FAIL	280
-5	88	90	92	78	85	PASS	433
+```tsv
+SNO L1 L2 MATHS SCIENCE SOCIAL RESULT TOTAL
+1 86 92 78 90 85 PASS 431
+2 70 80 95 88 92 PASS 425
+3 92 88 35 82 78 FAIL 375
+4 65 20 20 85 90 FAIL 280
+5 88 90 92 78 85 PASS 433
 ```
 
 ### Solution
@@ -158,29 +158,29 @@ Note: The output should be tab separated values and hyphen (-) should be printed
 
 **Sample Input**
 
-```
-SNO	L1	L2	MATHS	SCIENCE	SOCIAL	RESULT	TOTAL
-1	86	92	78	90	85	PASS	431
-2	70	80	95	88	92	PASS	425
-3	92	88	35	82	78	FAIL	375
-4	65	20	20	85	90	FAIL	280
-5	88	90	92	78	85	PASS	433
+```tsv
+SNO L1 L2 MATHS SCIENCE SOCIAL RESULT TOTAL
+1 86 92 78 90 85 PASS 431
+2 70 80 95 88 92 PASS 425
+3 92 88 35 82 78 FAIL 375
+4 65 20 20 85 90 FAIL 280
+5 88 90 92 78 85 PASS 433
 ```
 
 **Sample Output**
 
-```
-SNO	L1	L2	MATHS	SCIENCE	SOCIAL	RESULT	TOTAL
-1	86	92	78	90	85	PASS	431
-2	70	80	95	88	92	PASS	425
-3	92	88	35	82	78	FAIL	375
-4	65	20	20	85	90	FAIL	280
-5	88	90	92	78	85	PASS	433
-MEAN	80.2	74	64	84.6	86	-	388.8
-MEDIAN	86	88	78	85	85	-	425
+```tsv
+SNO L1 L2 MATHS SCIENCE SOCIAL RESULT TOTAL
+1 86 92 78 90 85 PASS 431
+2 70 80 95 88 92 PASS 425
+3 92 88 35 82 78 FAIL 375
+4 65 20 20 85 90 FAIL 280
+5 88 90 92 78 85 PASS 433
+MEAN 80.2 74 64 84.6 86 - 388.8
+MEDIAN 86 88 78 85 85 - 425
 ```
 
-#### Solution
+### Solution
 
 ```bash
 #!/bin/gawk -f
@@ -252,9 +252,9 @@ The history of the commands used in the terminal are saved in ~/.bash_history. A
 
 Hint: In one of the solution strategies, a shell variable which stores the total count of all commands from the file should be declared and then subsequently used in the script. For successful test cases, ensure that the output format should be the same as the one shown in the **Desired output** section of the question.
 
-**Relevent man pages**
+**Relevant man pages**
 
-```
+```text
 SORT(1)                              User Commands                              SORT(1)
        sort - sort lines of text files
        sort [OPTION]... [FILE]...
@@ -379,7 +379,7 @@ DESCRIPTION
 
 **Sample input**
 
-```
+```text
 exit --help
 $$
 ps
@@ -404,7 +404,7 @@ exit
 
 **Sample output**
 
-```
+```text
 $$: 3: 15%
 echo: 3: 15%
 exit: 2: 10%
@@ -418,12 +418,12 @@ ps: 4: 20%
 #!/bin/bash
 total=$(wc -l < bash_history.txt)
 cut -d' ' -f1 bash_history.txt |
-	sort|
-	uniq -c|
-	sort -nr|
-	sed -e 's/^ *//'|
-	awk -v total=$total 'BEGIN{OFS=": "}{print $2, $1, ($1 / total) * 100 "%"}'|
-	head -n5 | sort
+ sort|
+ uniq -c|
+ sort -nr|
+ sed -e 's/^ *//'|
+ awk -v total=$total 'BEGIN{OFS=": "}{print $2, $1, ($1 / total) * 100 "%"}'|
+ head -n5 | sort
 ```
 
 ## Problem 6 (bash) [20 marks]
@@ -435,7 +435,7 @@ It is often required to run some basic statistics on a file. Write a **bash scri
 
 **Sample Input**
 
-```
+```text
 Company,Date,Amount
 CompanyA,2020-04-29,31211.18
 CompanyA,2021-09-20,2366.91
@@ -450,7 +450,7 @@ CompanyA,2020-08-22,30383.23
 
 **Sample output**
 
-```
+```text
 $ ./script.sh -l financial_records.csv
 Total lines in financial_records.csv is 50
 $ ./script.sh -s2 financial_records_short.csv
@@ -476,11 +476,11 @@ filename=${@: -1}
 while getopts "ls:" options; do
   case "${options}" in
     l)
-	 # enter your command to print in the correct format here
+  # enter your command to print in the correct format here
      ;;
     s)
       arg=${OPTARG} # argument obtained for option -s
-	 # enter your command to print in the correct format here
+  # enter your command to print in the correct format here
       ;;
   esac
 done

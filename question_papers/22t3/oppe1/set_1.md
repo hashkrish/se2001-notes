@@ -50,13 +50,13 @@ read line
 
 **Input 1**
 
-```
+```text
 12947
 ```
 
 **Output 1**
 
-```
+```text
 12947
 ```
 
@@ -64,13 +64,13 @@ read line
 
 **Input 1**
 
-```
+```text
 8914292
 ```
 
 **Output 1**
 
-```
+```text
 8914292
 ```
 
@@ -120,7 +120,7 @@ ls photos 2>&1
 
 **Input 1**
 
-```
+```text
 a.jpg
 b.jpg
 c.jpg
@@ -133,7 +133,7 @@ h.mp3
 
 **Output 1**
 
-```
+```text
 a.jpg
 b.jpg
 c.jpg
@@ -143,7 +143,7 @@ e.jpeg
 
 **Input 2**
 
-```
+```text
 a.jpg
 b.jpgg
 c.jppg
@@ -157,7 +157,7 @@ i.jkl
 
 **Output 2**
 
-```
+```text
 a.jpg
 d.jpeg
 e.jpeg
@@ -167,7 +167,7 @@ e.jpeg
 
 **Input 1**
 
-```
+```text
 1.jpg
 2.jpg
 3.jpg
@@ -180,7 +180,7 @@ e.jpeg
 
 **Output 1**
 
-```
+```text
 1.jpg
 2.jpg
 3.jpg
@@ -190,7 +190,7 @@ e.jpeg
 
 **Input 2**
 
-```
+```text
 1.jpg
 2.jpgg
 3.jppg
@@ -204,7 +204,7 @@ e.jpeg
 
 **Output 2**
 
-```
+```text
 1.jpg
 4.jpeg
 5.jpeg
@@ -212,7 +212,7 @@ e.jpeg
 
 **Input 3**
 
-```
+```text
 a.jpg
 b.jpgg
 c.jppg
@@ -223,7 +223,7 @@ g.j
 
 **Output 3**
 
-```
+```text
 a.jpg
 e.jpeg
 ```
@@ -273,25 +273,25 @@ script 2>&1
 
 **Input 1**
 
-```
+```text
 77
 ```
 
 **Output 1**
 
-```
+```text
 YES 77 0
 ```
 
 **Input 2**
 
-```
+```text
 32
 ```
 
 **Output 2**
 
-```
+```text
 NO 32 4
 ```
 
@@ -299,73 +299,73 @@ NO 32 4
 
 **Input 1**
 
-```
+```text
 1
 ```
 
 **Output 1**
 
-```
+```text
 NO 1 1
 ```
 
 **Input 2**
 
-```
+```text
 9
 ```
 
 **Output 2**
 
-```
+```text
 NO 9 2
 ```
 
 **Input 3**
 
-```
+```text
 10
 ```
 
 **Output 3**
 
-```
+```text
 NO 10 3
 ```
 
 **Input 4**
 
-```
+```text
 42
 ```
 
 **Output 4**
 
-```
+```text
 YES 42 0
 ```
 
 **Input 5**
 
-```
+```text
 41
 ```
 
 **Output 5**
 
-```
+```text
 NO 41 6
 ```
 
 **Input 6**
 
-```
+```text
 140
 ```
 
 **Output 6**
 
-```
+```text
 YES 140 0
 ```
 
@@ -412,27 +412,27 @@ adiff $a $b 2>&1
 
 **Input 1**
 
-```
+```text
 2
 1
 ```
 
 **Output 1**
 
-```
+```text
 1
 ```
 
 **Input 2**
 
-```
+```text
 1
 9
 ```
 
 **Output 2**
 
-```
+```text
 8
 ```
 
@@ -440,53 +440,53 @@ adiff $a $b 2>&1
 
 **Input 1**
 
-```
+```text
 0
 1
 ```
 
 **Output 1**
 
-```
+```text
 1
 ```
 
 **Input 2**
 
-```
+```text
 0
 0
 ```
 
 **Output 2**
 
-```
+```text
 0
 ```
 
 **Input 3**
 
-```
+```text
 -1
 -1
 ```
 
 **Output 3**
 
-```
+```text
 0
 ```
 
 **Input 4**
 
-```
+```text
 -89
 +89
 ```
 
 **Output 4**
 
-```
+```text
 178
 ```
 
@@ -547,7 +547,7 @@ ls b
 
 **Input 1**
 
-```
+```text
 a
 b
 c
@@ -562,7 +562,7 @@ b
 
 **Output 1**
 
-```
+```text
 --files in a--
 a
 b
@@ -577,7 +577,7 @@ d
 
 **Input 2**
 
-```
+```text
 file1
 file2
 
@@ -587,7 +587,7 @@ file3
 
 **Output 2**
 
-```
+```text
 --files in a--
 --files in b--
 file1
@@ -599,7 +599,7 @@ file3
 
 **Input 1**
 
-```
+```text
 1
 2
 
@@ -610,7 +610,7 @@ file3
 
 **Output 1**
 
-```
+```text
 --files in a--
 1
 --files in b--
@@ -621,7 +621,7 @@ file3
 
 **Input 2**
 
-```
+```text
 a
 b
 
@@ -633,7 +633,7 @@ h
 
 **Output 2**
 
-```
+```text
 --files in a--
 --files in b--
 a
@@ -645,7 +645,7 @@ h
 
 **Input 3**
 
-```
+```text
 1
 2
 
@@ -657,7 +657,7 @@ h
 
 **Output 3**
 
-```
+```text
 --files in a--
 1
 2
@@ -669,7 +669,7 @@ h
 
 **Input 4**
 
-```
+```text
 1
 2
 3
@@ -685,7 +685,7 @@ c
 
 **Output 4**
 
-```
+```text
 --files in a--
 1
 2
@@ -748,25 +748,25 @@ script
 
 **Input 1**
 
-```
+```text
 /home/raheem/c-project/main.c
 ```
 
 **Output 1**
 
-```
+```text
 /home/raheem/
 ```
 
 **Input 2**
 
-```
+```text
 /etc/passwd
 ```
 
 **Output 2**
 
-```
+```text
 /
 ```
 
@@ -774,49 +774,49 @@ script
 
 **Input 1**
 
-```
+```text
 /a/b/c/d/e/f/g/h
 ```
 
 **Output 1**
 
-```
+```text
 /a/b/c/d/e/f
 ```
 
 **Input 2**
 
-```
+```text
 /a/b/c/d/e/f/g
 ```
 
 **Output 2**
 
-```
+```text
 /a/b/c/d/e
 ```
 
 **Input 3**
 
-```
+```text
 /etc/ssh/ssh_config
 ```
 
 **Output 3**
 
-```
+```text
 /etc
 ```
 
 **Input 4**
 
-```
+```text
 /dev/null
 ```
 
 **Output 4**
 
-```
+```text
 /
 ```
 
@@ -873,25 +873,25 @@ script 2>&1
 
 **Input 1**
 
-```
+```text
 12921
 ```
 
 **Output 1**
 
-```
+```text
 0
 ```
 
 **Input 2**
 
-```
+```text
 1237814923750237568923465783245923434567899767564532567897665432567789978654356789921351823718293618273512787361298372819754281678497921947821674872180946127841294821947127462184126409876543212345678908754212345678908712345678901234567890123456789012345678902345678901234567890103825761230580123561203571238956123890507132805800321085907312058732186578239157012935782105738256392857803257320856312785917230571203571238057230189753281573102895732805713205713208572813075831205712038570213573128056321085731257
 ```
 
 **Output 2**
 
-```
+```text
 1
 ```
 
@@ -899,37 +899,37 @@ script 2>&1
 
 **Input 1**
 
-```
+```text
 4
 ```
 
 **Output 1**
 
-```
+```text
 1
 ```
 
 **Input 2**
 
-```
+```text
 1237814923750237568923465783245923434567899767564532567897665432567789978654356789921351823718293618273512787361298372819754281678497921947821674872180946127841294821947127462184126409876543212345678908754212345678908712345678901234567890123456789012345678902345678901234567890103825761230580123561203571238956123890507132805800321085907312058732186578239157012935782105738256392857803257320856312785917230571203571238057230189753281573102895732805713205713208572813075831205712038570213573128056321085731256
 ```
 
 **Output 2**
 
-```
+```text
 0
 ```
 
 **Input 3**
 
-```
+```text
 1237814923750237568923465783245923434567899767564532567897665432567789978654356789921351823718293618273512787361298372819754281678497921947821674872180946127841294821947127462184126409876543212345678908754212345678908712345678901234567890123456789012345678902345678901234567890103825761230580123561203571238956123890507132805800321085907312058732186578239157012935782105738256392857803257320856312785917230571203571238057230189753281573102895732805713205713208572813075831205712038570213573128056321085731256345677
 ```
 
 **Output 3**
 
-```
+```text
 2
 ```
 
@@ -937,11 +937,11 @@ script 2>&1
 
 ## Problem 8 [20 marks]
 
-Write a script to extract and print the link of all anchor tag present in the file index.html
+Write a script to extract and print the link of all anchor tag present in the file `index.html`
 Assume all `a` tags start and end in the same line.
 Example: In the text
 
-```
+```html
 <a href="https://onlinedegree.iitm.ac.in/">IITM BS Degree Programme</a>
 ```
 
@@ -986,7 +986,7 @@ script 2>&1
 
 **Input 1**
 
-```
+```html
 <h1>Welcome</h1>
 <a href="https://diploma.iitm.ac.in/">IITM Diploma Programme</a>
 <a href="https://onlinedegree.iitm.ac.in/">IITM BS Degree Programme</a>
@@ -994,45 +994,63 @@ script 2>&1
 
 **Output 1**
 
-```
+```text
 https://diploma.iitm.ac.in/
 https://onlinedegree.iitm.ac.in/
 ```
 
 **Input 2**
 
-```
+```html
 <div>
-    <p class="text-primary font-weight-600 pt-0 pb-0 mb-0">
-        DEGREE PROGRAM
-    </p>
-    <h5 class="text-dark mt-0 pt-0">BS in Data Science and Applications</h5>
-    <p>Content taught by experienced IIT Madras faculty and industry experts that can be accessed by learners from anywhere with options to exit earlier.</p>
+  <p class="text-primary font-weight-600 pt-0 pb-0 mb-0">DEGREE PROGRAM</p>
+  <h5 class="text-dark mt-0 pt-0">BS in Data Science and Applications</h5>
+  <p>
+    Content taught by experienced IIT Madras faculty and industry experts that
+    can be accessed by learners from anywhere with options to exit earlier.
+  </p>
 
-    <a href="https://app.onlinedegree.iitm.ac.in/auth/login?apply_qualifier=true" target="_blank">
-        <button class="btn btn-outline-dark p-1" style="font-size: 12px;letter-spacing: 0px;">
-            APPLY NOW
-        </button>
-    </a>
+  <a
+    href="https://app.onlinedegree.iitm.ac.in/auth/login?apply_qualifier=true"
+    target="_blank"
+  >
+    <button
+      class="btn btn-outline-dark p-1"
+      style="font-size: 12px;letter-spacing: 0px;"
+    >
+      APPLY NOW
+    </button>
+  </a>
 
-    <hr style="margin-top: 25px;">
-    <p class="font-weight-600 pb-0 mb-0" style="color: rgb(15, 108, 164); margin-top: -12px; --darkreader-inline-color:#34a7ec;" data-darkreader-inline-color="">
-        DIPLOMA PROGRAM
-    </p>
-    <h5 class="text-dark mt-0 pt-0">Diploma in Programming / Diploma in Data Science</h5>
-    <p>Open to anyone who has completed any UG or at least two years of any UG education.</p>
-    <a href="https://diploma.iitm.ac.in/" target="_blank">
-        <button class="btn btn-outline-dark p-1" style="font-size: 12px;letter-spacing: 0px;">
-            GO TO DIPLOMA WEBSITE
-        </button>
-    </a>
-
+  <hr style="margin-top: 25px;" />
+  <p
+    class="font-weight-600 pb-0 mb-0"
+    style="color: rgb(15, 108, 164); margin-top: -12px; --darkreader-inline-color:#34a7ec;"
+    data-darkreader-inline-color=""
+  >
+    DIPLOMA PROGRAM
+  </p>
+  <h5 class="text-dark mt-0 pt-0">
+    Diploma in Programming / Diploma in Data Science
+  </h5>
+  <p>
+    Open to anyone who has completed any UG or at least two years of any UG
+    education.
+  </p>
+  <a href="https://diploma.iitm.ac.in/" target="_blank">
+    <button
+      class="btn btn-outline-dark p-1"
+      style="font-size: 12px;letter-spacing: 0px;"
+    >
+      GO TO DIPLOMA WEBSITE
+    </button>
+  </a>
 </div>
 ```
 
 **Output 2**
 
-```
+```text
 https://app.onlinedegree.iitm.ac.in/auth/login?apply_qualifier=true
 https://diploma.iitm.ac.in/
 ```
@@ -1041,64 +1059,69 @@ https://diploma.iitm.ac.in/
 
 **Input 1**
 
-```
+```html
 <a href="https://www.gnu.org/">GNU</a>
-
 ```
 
 **Output 1**
 
-```
+```text
 https://www.gnu.org/
 ```
 
 **Input 2**
 
-```
+```html
 <a href="https://en.wikipedia.org/wiki/GNU_Project">GNU Wiki</a>
 ```
 
 **Output 2**
 
-```
+```text
 https://en.wikipedia.org/wiki/GNU_Project
 ```
 
 **Input 3**
 
-```
+```html
 <footer id="footer" class="bg-primary py-3">
-      <div class="container-fluid container-sm">
-        <div class="h5 text-lighter">Contact Us</div>
-        <div class="row pt-2 pb-2">
-          <div class="col-sm-12 col-md-5 text-lighter">
-            <div class="d-flex footer-text">
-              <div style="flex-basis: 8%">
-                <img style="width: 1rem" src="assets/img/homepage/Footer%20icon-location.svg">
-              </div>
-              <div style="flex-basis: 90%">
-                IITM BS Degree Office, 3rd Floor, ICSR Building,<br>
-                IIT Madras, Chennai - 600036
-              </div>
-            </div>
+  <div class="container-fluid container-sm">
+    <div class="h5 text-lighter">Contact Us</div>
+    <div class="row pt-2 pb-2">
+      <div class="col-sm-12 col-md-5 text-lighter">
+        <div class="d-flex footer-text">
+          <div style="flex-basis: 8%">
+            <img
+              style="width: 1rem"
+              src="assets/img/homepage/Footer%20icon-location.svg"
+            />
+          </div>
+          <div style="flex-basis: 90%">
+            IITM BS Degree Office, 3rd Floor, ICSR Building,<br />
+            IIT Madras, Chennai - 600036
           </div>
         </div>
-        <div class="row pt-2 pb-2">
-          <div class="col-sm-12 col-md-5 text-lighter">
-            <div class="d-flex footer-text">
-              <div style="flex-basis: 8%">
-                <img style="width: 1rem" src="assets/img/homepage/Footer%20icon-phone.svg">
-              </div>
-              <div style="flex-basis: 90%">
-                8447748230 (Mon-Fri 9am-6pm)<br>
-                support@onlinedegree.iitm.ac.in
-              </div>
-            </div>
+      </div>
+    </div>
+    <div class="row pt-2 pb-2">
+      <div class="col-sm-12 col-md-5 text-lighter">
+        <div class="d-flex footer-text">
+          <div style="flex-basis: 8%">
+            <img
+              style="width: 1rem"
+              src="assets/img/homepage/Footer%20icon-phone.svg"
+            />
+          </div>
+          <div style="flex-basis: 90%">
+            8447748230 (Mon-Fri 9am-6pm)<br />
+            support@onlinedegree.iitm.ac.in
           </div>
         </div>
-        <div class="row pt-2 pb-4 border-bottom justify-content-between">
-          <div class="col-sm-12 col-md-5 text-lighter">
-            <!-- <div class="d-flex footer-text mt-3">
+      </div>
+    </div>
+    <div class="row pt-2 pb-4 border-bottom justify-content-between">
+      <div class="col-sm-12 col-md-5 text-lighter">
+        <!-- <div class="d-flex footer-text mt-3">
                         <div class="qr-image mr-3" style="height: 100px;width:100px;">
                             <img src="assets/img/homepage/whatsappQR.jpeg" style="height: auto;width:100%;" alt="">
                         </div>
@@ -1108,76 +1131,175 @@ https://en.wikipedia.org/wiki/GNU_Project
                             +91 9840776800
                         </div>
                     </div> -->
-          </div>
-          <div class="d-none d-md-block col-md-6 text-lighter align-self-end">
-            <div class="d-flex justify-content-end footer-text">
-              View Site Map
-            </div>
-            <div class="d-flex justify-content-end">
-              <small>© IIT Madras. All rights reserved.</small>
-            </div>
-          </div>
-          <div class="d-md-none footer-hidden col-md-12 pt-4">
-            <a class="text-decoration-none" href="https://www.facebook.com/iitmadrasbscdegree/" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer%20icon-facebook.svg" alt="fb" style="width: 2rem">
-            </a>
-            <a class="text-decoration-none" href="https://instagram.com/iitmadras_bsc?utm_medium=copy_link" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer%20icon-instagram.svg" alt="ig" style="width: 2rem">
-            </a>
-            <a class="text-decoration-none" href="https://twitter.com/iitm_bsc" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer%20icon-twitter.svg" alt="tw" style="width: 2rem">
-            </a>
-            <a class="text-decoration-none" href="https://www.linkedin.com/company/iit-madras-online-degree-programme" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer%20icon-linkedin.svg" alt="tw" style="width: 2rem">
-            </a>
-
-            <a class="text-decoration-none" href="https://wa.me/message/IVROM2UN7XIJL1" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer icon-whatsapp.svg" alt="tw" style="width: 2rem">
-            </a>
-          </div>
-        </div>
-        <div class="py-1 py-md-3 row justify-content-between">
-          <div class="d-none d-md-block col-md-6 pt-2">
-            <a class="text-decoration-none" href="https://www.facebook.com/iitmadrasbscdegree/" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer%20icon-facebook.svg" alt="fb" style="width: 2rem">
-            </a>
-            <a class="text-decoration-none" href="https://instagram.com/iitmadras_bsc?utm_medium=copy_link" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer%20icon-instagram.svg" alt="ig" style="width: 2rem">
-            </a>
-            <a class="text-decoration-none" href="https://twitter.com/iitm_bsc" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer%20icon-twitter.svg" alt="tw" style="width: 2rem">
-            </a>
-            <a class="text-decoration-none" href="https://www.linkedin.com/company/iit-madras-online-degree-programme" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer%20icon-linkedin.svg" alt="tw" style="width: 2rem">
-            </a>
-            <a class="text-decoration-none" href="https://wa.me/message/IVROM2UN7XIJL1" target="_blank">
-              <img class="mr-1" src="assets/img/homepage/Footer icon-whatsapp.svg" alt="tw" style="width: 2rem">
-            </a>
-          </div>
-          <div class="col-sm-12 col-md-6 d-md-none footer-hidden footer-text-small text-lighter">
-            <div class="d-flex justify-content-md-end footer-text">
-              View Site Map
-            </div>
-            <div class="d-flex justify-content-md-end">
-              <small>© IIT Madras. All rights reserved.</small>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6 d-flex justify-content-md-end">
-            <div class="text-lighter">
-              <span class="footerLinks footer-text" url="privacy_policy.html" style="cursor: pointer">Privacy Policy</span>
-              |
-              <span class="footerLinks footer-text" url="tos.html" style="cursor: pointer">Terms of Service</span>
-            </div>
-          </div>
+      </div>
+      <div class="d-none d-md-block col-md-6 text-lighter align-self-end">
+        <div class="d-flex justify-content-end footer-text">View Site Map</div>
+        <div class="d-flex justify-content-end">
+          <small>© IIT Madras. All rights reserved.</small>
         </div>
       </div>
-    </footer>
+      <div class="d-md-none footer-hidden col-md-12 pt-4">
+        <a
+          class="text-decoration-none"
+          href="https://www.facebook.com/iitmadrasbscdegree/"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer%20icon-facebook.svg"
+            alt="fb"
+            style="width: 2rem"
+          />
+        </a>
+        <a
+          class="text-decoration-none"
+          href="https://instagram.com/iitmadras_bsc?utm_medium=copy_link"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer%20icon-instagram.svg"
+            alt="ig"
+            style="width: 2rem"
+          />
+        </a>
+        <a
+          class="text-decoration-none"
+          href="https://twitter.com/iitm_bsc"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer%20icon-twitter.svg"
+            alt="tw"
+            style="width: 2rem"
+          />
+        </a>
+        <a
+          class="text-decoration-none"
+          href="https://www.linkedin.com/company/iit-madras-online-degree-programme"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer%20icon-linkedin.svg"
+            alt="tw"
+            style="width: 2rem"
+          />
+        </a>
 
+        <a
+          class="text-decoration-none"
+          href="https://wa.me/message/IVROM2UN7XIJL1"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer icon-whatsapp.svg"
+            alt="tw"
+            style="width: 2rem"
+          />
+        </a>
+      </div>
+    </div>
+    <div class="py-1 py-md-3 row justify-content-between">
+      <div class="d-none d-md-block col-md-6 pt-2">
+        <a
+          class="text-decoration-none"
+          href="https://www.facebook.com/iitmadrasbscdegree/"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer%20icon-facebook.svg"
+            alt="fb"
+            style="width: 2rem"
+          />
+        </a>
+        <a
+          class="text-decoration-none"
+          href="https://instagram.com/iitmadras_bsc?utm_medium=copy_link"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer%20icon-instagram.svg"
+            alt="ig"
+            style="width: 2rem"
+          />
+        </a>
+        <a
+          class="text-decoration-none"
+          href="https://twitter.com/iitm_bsc"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer%20icon-twitter.svg"
+            alt="tw"
+            style="width: 2rem"
+          />
+        </a>
+        <a
+          class="text-decoration-none"
+          href="https://www.linkedin.com/company/iit-madras-online-degree-programme"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer%20icon-linkedin.svg"
+            alt="tw"
+            style="width: 2rem"
+          />
+        </a>
+        <a
+          class="text-decoration-none"
+          href="https://wa.me/message/IVROM2UN7XIJL1"
+          target="_blank"
+        >
+          <img
+            class="mr-1"
+            src="assets/img/homepage/Footer icon-whatsapp.svg"
+            alt="tw"
+            style="width: 2rem"
+          />
+        </a>
+      </div>
+      <div
+        class="col-sm-12 col-md-6 d-md-none footer-hidden footer-text-small text-lighter"
+      >
+        <div class="d-flex justify-content-md-end footer-text">
+          View Site Map
+        </div>
+        <div class="d-flex justify-content-md-end">
+          <small>© IIT Madras. All rights reserved.</small>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 d-flex justify-content-md-end">
+        <div class="text-lighter">
+          <span
+            class="footerLinks footer-text"
+            url="privacy_policy.html"
+            style="cursor: pointer"
+            >Privacy Policy</span
+          >
+          |
+          <span
+            class="footerLinks footer-text"
+            url="tos.html"
+            style="cursor: pointer"
+            >Terms of Service</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 ```
 
 **Output 3**
 
-```
+```text
 https://www.facebook.com/iitmadrasbscdegree/
 https://instagram.com/iitmadras_bsc?utm_medium=copy_link
 https://twitter.com/iitm_bsc
@@ -1192,80 +1314,107 @@ https://wa.me/message/IVROM2UN7XIJL1
 
 **Input 4**
 
-```
+```html
 <div class="container-fluid container-md mt-3 mb-5 pt-4">
-        <h2 class="display-4 text-dark">Learn More Details</h2>
-        <div class="row justify-content-lg-around justify-content-md-start">
-            <div class="col-sm-12 col-md-6 col-lg-4 pt-1 pb-1">
-                <a href="academics.html" class="text-decoration-none" style="cursor: pointer">
-                    <div class="bg-light pt-2 pb-2 pr-2 pl-2">
-                        <div class="d-flex flex-column justify-content-around">
-                            <div class="d-flex justify-content-between mb-1 mt-1">
-                                <div class="h4 mb-0 text-secondary font-weight-600">Academics</div>
-                                <div class="expand" style="width: 1rem;">
-                                    <img src="assets/img/homepage/arrows-right-gold.svg">
-                                </div>
-                            </div>
-                            <div class="text-gray mb-1 mt-1 font-weight-500">
-                                <small>Programs, Terms, Course Structure, Syllabus, Instructors, Exam Cities</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+  <h2 class="display-4 text-dark">Learn More Details</h2>
+  <div class="row justify-content-lg-around justify-content-md-start">
+    <div class="col-sm-12 col-md-6 col-lg-4 pt-1 pb-1">
+      <a
+        href="academics.html"
+        class="text-decoration-none"
+        style="cursor: pointer"
+      >
+        <div class="bg-light pt-2 pb-2 pr-2 pl-2">
+          <div class="d-flex flex-column justify-content-around">
+            <div class="d-flex justify-content-between mb-1 mt-1">
+              <div class="h4 mb-0 text-secondary font-weight-600">
+                Academics
+              </div>
+              <div class="expand" style="width: 1rem;">
+                <img src="assets/img/homepage/arrows-right-gold.svg" />
+              </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-4 pt-1 pb-1">
-                <a href="admissions.html" class="text-decoration-none" style="cursor: pointer">
-                    <div class="bg-light pt-2 pb-2 pr-2 pl-2">
-                        <div class="d-flex flex-column justify-content-around">
-                            <div class="d-flex justify-content-between mb-1 mt-1">
-                                <div class="h4 font-weight-600 mb-0 text-secondary">Admissions</div>
-                                <div class="expand" style="width: 1rem;">
-                                    <img src="assets/img/homepage/arrows-right-gold.svg">
-                                </div>
-                            </div>
-                            <div class="text-gray mb-1 mt-1 font-weight-500">
-                                <small>Eligibility, Qualification Process, Fees, Important Dates</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+            <div class="text-gray mb-1 mt-1 font-weight-500">
+              <small
+                >Programs, Terms, Course Structure, Syllabus, Instructors, Exam
+                Cities</small
+              >
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-4 pt-1 pb-1">
-                <div class="h-100 d-flex flex-column justify-content-between">
-                    <div class="pb-1">
-                        <a href="faq.html" class="text-decoration-none" style="cursor: pointer">
-                            <div class="bg-light pt-1 pb-1 pr-2 pl-2">
-                                <div class="d-flex justify-content-between mb-1 mt-1">
-                                    <div class="h4 mb-0 text-secondary font-weight-600">FAQ</div>
-                                    <div class="expand" style="width: 1rem;">
-                                        <img src="assets/img/homepage/arrows-right-gold.svg">
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="pt-1">
-                        <a href="aboutIITM.html" class="text-decoration-none" style="cursor: pointer">
-                            <div class="bg-light pt-1 pb-1 pr-2 pl-2">
-                                <div class="d-flex justify-content-between mb-1 mt-1">
-                                    <div class="h4 mb-0 text-secondary font-weight-600">About IITM
-                                    </div>
-                                    <div class="expand" style="width: 1rem;">
-                                        <img src="assets/img/homepage/arrows-right-gold.svg">
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </a>
     </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 pt-1 pb-1">
+      <a
+        href="admissions.html"
+        class="text-decoration-none"
+        style="cursor: pointer"
+      >
+        <div class="bg-light pt-2 pb-2 pr-2 pl-2">
+          <div class="d-flex flex-column justify-content-around">
+            <div class="d-flex justify-content-between mb-1 mt-1">
+              <div class="h4 font-weight-600 mb-0 text-secondary">
+                Admissions
+              </div>
+              <div class="expand" style="width: 1rem;">
+                <img src="assets/img/homepage/arrows-right-gold.svg" />
+              </div>
+            </div>
+            <div class="text-gray mb-1 mt-1 font-weight-500">
+              <small
+                >Eligibility, Qualification Process, Fees, Important
+                Dates</small
+              >
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 pt-1 pb-1">
+      <div class="h-100 d-flex flex-column justify-content-between">
+        <div class="pb-1">
+          <a
+            href="faq.html"
+            class="text-decoration-none"
+            style="cursor: pointer"
+          >
+            <div class="bg-light pt-1 pb-1 pr-2 pl-2">
+              <div class="d-flex justify-content-between mb-1 mt-1">
+                <div class="h4 mb-0 text-secondary font-weight-600">FAQ</div>
+                <div class="expand" style="width: 1rem;">
+                  <img src="assets/img/homepage/arrows-right-gold.svg" />
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="pt-1">
+          <a
+            href="aboutIITM.html"
+            class="text-decoration-none"
+            style="cursor: pointer"
+          >
+            <div class="bg-light pt-1 pb-1 pr-2 pl-2">
+              <div class="d-flex justify-content-between mb-1 mt-1">
+                <div class="h4 mb-0 text-secondary font-weight-600">
+                  About IITM
+                </div>
+                <div class="expand" style="width: 1rem;">
+                  <img src="assets/img/homepage/arrows-right-gold.svg" />
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 
 **Output 4**
 
-```
+```text
 academics.html
 admissions.html
 faq.html

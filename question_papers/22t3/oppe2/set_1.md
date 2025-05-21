@@ -58,14 +58,14 @@ sed -f script.sed 2>&1
 
 **Input-1**
 
-```
+```python
 def f():
     pass
 ```
 
 **Output-1**
 
-```
+```python
 # FUNCTION DEFINITION
 def f():
     pass
@@ -73,7 +73,7 @@ def f():
 
 **Input-2**
 
-```
+```python
 # TODO: complete fibonacci
 l=[0,1]
 n=int(input)
@@ -85,7 +85,7 @@ if n==1:
 
 **Output-2**
 
-```
+```python
 l=[0,1]
 n=int(input)
 for i in range(2, n):
@@ -98,7 +98,7 @@ if n==1:
 
 **Input-1**
 
-```
+```python
 def f():
     # TODO: SOMETHING
     pass
@@ -106,7 +106,7 @@ def f():
 
 **Output-1**
 
-```
+```python
 # FUNCTION DEFINITION
 def f():
     pass
@@ -114,26 +114,26 @@ def f():
 
 **Input-2**
 
-```
+```python
 print('hi')
 ```
 
 **Output-2**
 
-```
+```python
 print('hi')
 ```
 
 **Input-3**
 
-```
+```python
 def g():
     pass
 ```
 
 **Output-3**
 
-```
+```python
 # FUNCTION DEFINITION
 def g():
     pass
@@ -141,7 +141,7 @@ def g():
 
 **Input-4**
 
-```
+```python
 def a():
     def b():
         pass
@@ -154,7 +154,7 @@ def a():
 
 **Output-4**
 
-```
+```python
 # FUNCTION DEFINITION
 def a():
 # FUNCTION DEFINITION
@@ -216,25 +216,25 @@ sed -f script.sed 2>&1
 
 **Input-1**
 
-```
+```text
 a:b:c
 ```
 
 **Output-1**
 
-```
+```text
 a    b    c
 ```
 
 **Input-2**
 
-```
+```text
 a\:b:c
 ```
 
 **Output-2**
 
-```
+```text
 a:b    c
 ```
 
@@ -242,31 +242,31 @@ a:b    c
 
 **Input-1**
 
-```
+```text
 :
 ```
 
 **Output-1**
 
-```
+```text
 
 ```
 
 **Input-2**
 
-```
+```text
 \:
 ```
 
 **Output-2**
 
-```
+```text
 :
 ```
 
 **Input-3**
 
-```
+```text
 1:2:3:4:5
 1:2:3:4:5
 1:2:3:4:5
@@ -276,7 +276,7 @@ a:b    c
 
 **Output-3**
 
-```
+```text
 1   2   3   4   5
 1   2   3   4   5
 1   2   3   4   5
@@ -286,13 +286,13 @@ a:b    c
 
 **Input-4**
 
-```
+```text
 \::\::\:
 ```
 
 **Output-4**
 
-```
+```text
 :   :   :
 ```
 
@@ -300,7 +300,7 @@ a:b    c
 
 ## Section-1 Problem 3
 
-Write a script to print only the contents inside the multi-line strings from the python file named myscript.py
+Write a script to print only the contents inside the multi-line strings from the python file named `myscript.py`
 Note:
 
 1. The multi-line string will start with `"""` and ends with `"""`
@@ -345,7 +345,7 @@ script 2>&1
 
 **Input-1**
 
-```
+```text
 a = """
 abcd
 """
@@ -353,13 +353,13 @@ abcd
 
 **Output-1**
 
-```
+```text
 abcd
 ```
 
 **Input-2**
 
-```
+```text
 multi="""
 a
 b
@@ -370,7 +370,7 @@ d 5
 
 **Output-2**
 
-```
+```text
 a
 b
 c t
@@ -381,7 +381,7 @@ d 5
 
 **Input-1**
 
-```
+```text
 multi="""
 a
 b
@@ -393,7 +393,7 @@ d 5
 
 **Output-1**
 
-```
+```text
 a
 b
 
@@ -403,7 +403,7 @@ d 5
 
 **Input-2**
 
-```
+```text
 a = """
 0
 """
@@ -411,13 +411,13 @@ a = """
 
 **Output-2**
 
-```
+```text
 0
 ```
 
 **Input-3**
 
-```
+```text
 ui_2="""
 9876432345678
 """
@@ -425,13 +425,13 @@ ui_2="""
 
 **Output-3**
 
-```
+```text
 9876432345678
 ```
 
 **Input-4**
 
-```
+```text
 var= """
 
 -----
@@ -441,7 +441,7 @@ var= """
 
 **Output-4**
 
-```
+```text
 -----
 ```
 
@@ -493,7 +493,7 @@ cat | awk -f script.awk 2>&1
 
 **Input-1**
 
-```
+```text
 # REGION
 1a
 a long rain
@@ -503,13 +503,13 @@ a long rain
 
 **Output-1**
 
-```
+```text
 2
 ```
 
 **Input-2**
 
-```
+```text
 42
 y
 # REGION
@@ -523,7 +523,7 @@ b
 
 **Output-2**
 
-```
+```text
 1
 2
 ```
@@ -532,7 +532,7 @@ b
 
 **Input-1**
 
-```
+```text
 1
 a
 # REGION
@@ -546,14 +546,14 @@ a
 
 **Output-1**
 
-```
+```text
 1
 3
 ```
 
 **Input-2**
 
-```
+```text
 1
 a
 # REGION
@@ -568,13 +568,13 @@ b1234
 
 **Output-2**
 
-```
+```text
 1928374
 ```
 
 **Input-3**
 
-```
+```text
 1
 a
 # REGION
@@ -599,14 +599,14 @@ b1234
 
 **Output-3**
 
-```
+```text
 1928374
 1928374
 ```
 
 **Input-4**
 
-```
+```text
 # REGION
 # ENDREGION
 # REGION
@@ -619,7 +619,7 @@ b1234
 
 **Output-4**
 
-```
+```text
 
 ```
 
@@ -640,7 +640,7 @@ Note
 
 Hints: From `man awk`
 
-```
+```text
 gsub(r, s [, t])
     For  each  substring matching the regular expression r in the string t, substitute the string s, and return the number of substitutions.  If  t is not supplied, use $0.  An & in the replacement text is replaced with the text that was actually matched.  Use \& to get a literal &.   (This must  be  typed  as  "\\&";  see  GAWK: Effective AWK Programming for a fuller discussion of the rules for ampersands and  backslashes  in  the replacement text of sub(), gsub(), and gensub().)
 
@@ -706,7 +706,7 @@ cat | awk -f script.awk 2>&1
 
 **Input-1**
 
-```
+```text
 10.13%
 0.01
 
@@ -714,14 +714,14 @@ cat | awk -f script.awk 2>&1
 
 **Output-1**
 
-```
+```text
 0.1013
 0.01
 ```
 
 **Input-2**
 
-```
+```text
 0.48%
 7.46%
 
@@ -729,7 +729,7 @@ cat | awk -f script.awk 2>&1
 
 **Output-2**
 
-```
+```text
 0.0048
 0.0746
 ```
@@ -738,54 +738,54 @@ cat | awk -f script.awk 2>&1
 
 **Input-1**
 
-```
+```text
 99.98%
 99.88%
 ```
 
 **Output-1**
 
-```
+```text
 0.9998
 0.9988
 ```
 
 **Input-2**
 
-```
+```text
 99
 
 ```
 
 **Output-2**
 
-```
+```text
 99
 ```
 
 **Input-3**
 
-```
+```text
 100.00%
 
 ```
 
 **Output-3**
 
-```
+```text
 1.0000
 ```
 
 **Input-4**
 
-```
+```text
 0.00%
 
 ```
 
 **Output-4**
 
-```
+```text
 0.0000
 ```
 
@@ -797,26 +797,26 @@ Write a script to find the UIDs of the users belonging to the largest group. Ass
 
 The file `group` in the current working directory stores the group information of the system in the format given below
 
-```
+```text
 groupname:x:GID:members(separated by comma)
 ```
 
 An example line from `group` file is given below
 
-```
+```text
 student:x:214:ram,ahmed,robert,seema
 ```
 
 The file `passwd` in the current working directory contains the user information. The format of the file is given below
 
-```
+```text
 username:x:UID:GID:description:home_directory:full_path_to_shell
 ```
 
 Note: sort the output before printing
 From `man awk`,
 
-```
+```text
 split(s, a [, r [, seps] ])
   Split  the string s into the array a and the separators array
   seps on the regular expression r, and return  the  number  of
@@ -883,7 +883,7 @@ script 2>&1
 
 **Input 1**
 
-```
+```text
 student:x:214:ram,ahmed,robert,seema
 teacher:x:311:raja,narayan
 EOF
@@ -898,7 +898,7 @@ narayan:x:1006:1006::/home/narayan:/usr/bin/bash
 
 **Output 1**
 
-```
+```text
 1001
 1002
 1003
@@ -907,7 +907,7 @@ narayan:x:1006:1006::/home/narayan:/usr/bin/bash
 
 **Input 2**
 
-```
+```text
 student:x:214:ram,ahmed
 teacher:x:311:raja,narayan,robert,seema
 EOF
@@ -922,7 +922,7 @@ narayan:x:1006:1006::/home/narayan:/usr/bin/bash
 
 **Output 2**
 
-```
+```text
 1003
 1004
 1005
@@ -933,7 +933,7 @@ narayan:x:1006:1006::/home/narayan:/usr/bin/bash
 
 **Input 1**
 
-```
+```text
 student:x:214:ram,ahmed,robert,seema,arivu
 teacher:x:311:raja,narayan
 EOF
@@ -949,7 +949,7 @@ arivu:x:1007:1007::/home/arivu:/usr/bin/bash
 
 **Output 1**
 
-```
+```text
 1001
 1002
 1003
@@ -959,7 +959,7 @@ arivu:x:1007:1007::/home/arivu:/usr/bin/bash
 
 **Input 2**
 
-```
+```text
 student:x:214:ram,ahmed
 teacher:x:311:raja,narayan,robert,seema,arivu
 study_group:x:122:ram,seema,arivu
@@ -977,7 +977,7 @@ arivu:x:1007:1007::/home/arivu:/usr/bin/bash
 
 **Output 2**
 
-```
+```text
 1003
 1004
 1005
@@ -987,7 +987,7 @@ arivu:x:1007:1007::/home/arivu:/usr/bin/bash
 
 **Input 3**
 
-```
+```text
 teacher:x:311:raja,narayan,robert,arivu
 EOF
 ram:x:1001:1001::/home/ram:/usr/bin/bash
@@ -1002,7 +1002,7 @@ arivu:x:1007:1007::/home/arivu:/usr/bin/bash
 
 **Output 3**
 
-```
+```text
 1003
 1005
 1006
@@ -1011,7 +1011,7 @@ arivu:x:1007:1007::/home/arivu:/usr/bin/bash
 
 **Input 4**
 
-```
+```text
 study_group:x:122:ram,seema,arivu
 study_group_5:x:133:ram,seema
 teacher:x:311:raja,narayan
@@ -1028,7 +1028,7 @@ arivu:x:1007:1007::/home/arivu:/usr/bin/bash
 
 **Output 4**
 
-```
+```text
 1001
 1004
 1007
@@ -1040,12 +1040,14 @@ arivu:x:1007:1007::/home/arivu:/usr/bin/bash
 
 Write a script to rename all the files present in the current working directory with extension based on the file type.
 
+```text
 | File Type                 | Extension    |
 | ------------------------- | ------------ |
 | Bourne-Again shell script | .sh          |
 | Python script             | .py          |
 | C source                  | .c           |
 | other type                | No extension |
+```
 
 Hint: Get the file type using `file` command.
 
@@ -1099,7 +1101,7 @@ ls
 
 **Input-1**
 
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -1110,13 +1112,13 @@ int main() {
 
 **Output-1**
 
-```
+```text
 myfile.c
 ```
 
 **Input-2**
 
-```
+```python
 #!/usr/bin/python3
 
 print("Hello World")
@@ -1124,13 +1126,13 @@ print("Hello World")
 
 **Output-2**
 
-```
+```text
 myfile.py
 ```
 
 **Input-3**
 
-```
+```bash
 #!/usr/bin/bash
 
 echo "Hello World"
@@ -1138,19 +1140,19 @@ echo "Hello World"
 
 **Output-3**
 
-```
+```text
 myfile.sh
 ```
 
 **Input-4**
 
-```
+```text
 Hello World
 ```
 
 **Output-4**
 
-```
+```text
 myfile
 ```
 
@@ -1158,7 +1160,7 @@ myfile
 
 **Input-1**
 
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -1169,13 +1171,13 @@ int main() {
 
 **Output-1**
 
-```
+```text
 myfile.c
 ```
 
 **Input-2**
 
-```
+```python
 #!/usr/bin/python3
 
 print("Hello World")
@@ -1183,13 +1185,13 @@ print("Hello World")
 
 **Output-2**
 
-```
+```text
 myfile.py
 ```
 
 **Input-3**
 
-```
+```bash
 #!/usr/bin/bash
 
 echo "Hello World"
@@ -1197,19 +1199,19 @@ echo "Hello World"
 
 **Output-3**
 
-```
+```text
 myfile.sh
 ```
 
 **Input-4**
 
-```
+```text
 Hello World
 ```
 
 **Output-4**
 
-```
+```text
 myfile
 ```
 
@@ -1222,7 +1224,7 @@ In a computer science project, there is a bash script written to validate the pr
 - The project was structured such that `main.sh` in the project's root directory takes standard input and provides the standard output that is used for validation.
 - The project files are present in the directory `project` that is located in the current working directory.
 
-  ```
+  ```text
   ./project/
   ├── main.sh
   ├── ...
@@ -1234,7 +1236,7 @@ In a computer science project, there is a bash script written to validate the pr
 - The test cases are located in the directory `testcases` that is located in the current working directory.
 - The structure of `testcases` directory is given below
 
-  ```
+  ```text
   ./testcases/
   ├── 1/
   │   ├── input.txt
@@ -1312,7 +1314,7 @@ script | sort 2>&1
 
 **Input-1**
 
-```
+```text
 1
 1
 2
@@ -1323,14 +1325,14 @@ read n; echo $((n%2))
 
 **Output-1**
 
-```
+```csv
 1,PASS
 2,PASS
 ```
 
 **Input-2**
 
-```
+```text
 1
 1
 2
@@ -1341,7 +1343,7 @@ read n; echo $((n%2))
 
 **Output-2**
 
-```
+```csv
 1,PASS
 2,FAIL
 ```
@@ -1350,7 +1352,7 @@ read n; echo $((n%2))
 
 **Input-1**
 
-```
+```text
 1
 1
 5
@@ -1361,14 +1363,14 @@ read n; echo $((n%3))
 
 **Output-1**
 
-```
+```csv
 1,PASS
 2,FAIL
 ```
 
 **Input-2**
 
-```
+```text
 100
 0
 55
@@ -1379,14 +1381,14 @@ read n; echo $((n%10))
 
 **Output-2**
 
-```
+```csv
 1,PASS
 2,PASS
 ```
 
 **Input-3**
 
-```
+```text
 100
 0
 55
@@ -1399,7 +1401,7 @@ read n; echo $((n%5))
 
 **Output-3**
 
-```
+```csv
 1,PASS
 2,FAIL
 3,PASS

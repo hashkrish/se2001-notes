@@ -14,7 +14,7 @@ What will be output of the given command?
 awk '/^[a-zA-Z]/ { c++ } END{ print c }' myfile.txt
 ```
 
-The contents of **_myfile.txt_** are
+The contents of `myfile.txt` are
 
 ```text
 Lorem ipsum dolor sit amet,
@@ -45,8 +45,6 @@ mollit anim id est laborum.
 - The Regex `/^[a-zA-Z]/` will match the lines starting with an alphabet.
 - The awk script will count the number of lines starting with an alphabet and print the count.
 - In the given input there are 14 lines starting with an alphabet, and 3 empty lines. So the output is 14.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 2 [6]
 
@@ -137,8 +135,6 @@ done
 - For the fifth line, both the inner loops do not print anything, thus the fifth line is empty.
 - `5-i` is a decreasing function, and `i-5` is an increasing function, so first half out output will be decreasing stars and the second half will be increasing stars.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 3 [MSQ] [6]
 
 Select the command(s) that prints only the lines containing the string `TODO` in any part of the line in the file `todo.txt`
@@ -163,11 +159,9 @@ Select the command(s) that prints only the lines containing the string `TODO` in
 - (d) checks if the whole line matches the regex `/TODO/` and prints the line if it matches.
 - Both (b) and (d) will print the lines containing the string `TODO` in any part of the line.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 4 [8]
 
-Which command will print only the multi-line strings from the python file named **_myscript.py_**?
+Which command will print only the multi-line strings from the python file named `myscript.py`?
 _Example_:
 
 ```text
@@ -220,11 +214,9 @@ sed -n '/=*"""/,/"""/ p' myscript.py | grep """"
 - The `sed` command will print the lines between the lines containing `= """` and `"""`.
 - The `grep -v '"""'` will print only the non-matched lines, so the starting and ending `"""` are omitted.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 5 [6]
 
-How many lines will be printed if the following command is executed? Assume that **_myfile.txt_** contains more than 3 lines.
+How many lines will be printed if the following command is executed? Assume that `myfile.txt` contains more than 3 lines.
 
 ```bash
 sed '
@@ -234,13 +226,13 @@ $ a ---END---
 ' myfile.txt
 ```
 
-(a) Same as the number of lines in _myfile.txt_
+(a) Same as the number of lines in `myfile.txt`
 
-(b) Number of lines in _myfile.txt_ + 1
+(b) Number of lines in `myfile.txt` + 1
 
-(c) Number of lines in _myfile.txt_ + 2
+(c) Number of lines in `myfile.txt` + 2
 
-(d) Number of lines in _myfile.txt_ + 3
+(d) Number of lines in `myfile.txt` + 3
 
 ### Answer
 
@@ -251,13 +243,11 @@ $ a ---END---
 - The `1 i ---START---` will insert the text `---START---` before the first line. This increases the total count of lines by one.
 - The `3 c ---THREE---` will replace the third line with `---THREE---`. This does not change the total count of lines.
 - The `$ a ---END---` will append the text `---END---` after the last line. This increases the total count of lines by one.
-- So the total number of lines printed will be the number of lines in _myfile.txt_ + 2.
-
-<div style="page-break-after: always;"></div>
+- So the total number of lines printed will be the number of lines in `myfile.txt` + 2.
 
 ## Question 6 [6]
 
-Choose the command that converts comma separated file named _data.csv_ to a tab separated file named _data.tsv_. Assume there is no comma in the field values.
+Choose the command that converts comma separated file named _data.csv_ to a tab separated file named `data.tsv`. Assume there is no comma in the field values.
 
 (a) `mv data.csv data.tsv`
 
@@ -276,8 +266,6 @@ Choose the command that converts comma separated file named _data.csv_ to a tab 
 - The `sed 's/,/\t/g'` command will replace all the commas with tabs in the file.
 - Renaming a file does not automatically change the file type.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 7 [MSQ] [8]
 
 Select the command(s) that list all regular users in the system. UID of regular users is greater than $999$ and their default shell is bash `/usr/bin/bash`.
@@ -285,7 +273,7 @@ Note: The option `-E` enables the Extended Regular Expression (ERE) in sed.
 
 The file `/etc/passwd` contains the user information. The format of the file is specified below
 
-```
+```text
 username:x:UID:GID:Description:Home Directory:Full Path to Shell
 ```
 
@@ -307,8 +295,6 @@ username:x:UID:GID:Description:Home Directory:Full Path to Shell
 - (b) will print the lines that have UID which is exactly $3$ digits. So it will not print the users with UID greater than $999$.
 - (c) does not mention the field separator, so it will not work as expected.
 - (d) will print the lines that have UID greater than $999$ and the shell is bash. The field separator is set to `:`.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 8 [MSQ] [8]
 
@@ -356,30 +342,28 @@ done
 - Here file `file1` will match the file `file10` because regex matches any substring of a string.
 - Thus, the files `file0`, `file3`, `file4`, will remain in folder `a` and the files `file0`, `file2` will be moved to folder `b`.
 
-<div style="page-break-after: always;"></div>
-
 **Common data for question 9, 10 and 11**
 The file `/etc/group` stores the group information of the system in the format given below
 
-```
+```text
 GroupName:x:GID:Members(separated by comma)
 ```
 
 An example line from `/etc/group` file is given below
 
-```
+```text
 student:x:214:ram,ahmed,robert,seema
 ```
 
 The file `/etc/passwd` contains the user information. The format of the file is given below
 
-```
+```text
 username:x:UID:GID:Description:Home Directory:Full Path to Shell
 ```
 
 From `man awk`,
 
-```
+```text
 split(s, a [, r [, seps] ])
   Split  the string s into the array a and the separators array
   seps on the regular expression r, and return  the  number  of
@@ -394,8 +378,6 @@ split(s, a [, r [, seps] ])
   character  string, that string acts as the separator, even if
   it happens to be a regular expression metacharacter.
 ```
-
-<div style="page-break-after: always;"></div>
 
 **_script_1_**
 
@@ -444,8 +426,6 @@ What will be the value of `A` when the print statement in line `17` of the given
 - The script compares the number of fields with the variable `A` and updates the variable `A` if the number of fields is greater than `A`.
 - The variable `A` will store the maximum number of users in any group.
 - The fourth field is the list of users of that group.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 10 [6]
 
@@ -511,8 +491,6 @@ awk '
 - The script iterates over each of the users in the group with most users.
 - For each user, their username is `grep`-ed in the `/etc/passwd` file and the 3rd field is printed.
 - The 3rd field is the UID of the user.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 12 [MSQ] [8]
 
@@ -584,7 +562,7 @@ killall sleep
 
 ```bash
 while (ps ax | grep sleep); do
-	kill sleep
+ kill sleep
 done
 ```
 
@@ -592,7 +570,7 @@ done
 
 ```bash
 while (ps ax | grep sleep); do
-	kill $(ps ax | grep sleep | head -1 | awk '{print $1}')
+ kill $(ps ax | grep sleep | head -1 | awk '{print $1}')
 done
 ```
 
@@ -600,7 +578,7 @@ done
 
 ```bash
 while (ps ax | grep sleep); do
-	kill $(ps ax | head -1 | awk '{print $1}')
+ kill $(ps ax | head -1 | awk '{print $1}')
 done
 ```
 
@@ -615,8 +593,6 @@ done
 - (c) The script will kill the first process with the name `sleep`, and keep on looping, thus killing all the processes with the name `sleep`.
 - (d) The `grep` is missing, so it will try to kill the first process in the list of processes.
 
-<div style="page-break-after: always;"></div>
-
 **Common data for questions 13 to 15**
 
 In a computer science project, the students are asked to provide their remote git repository URLs. The URLs are then stored in the file named `data.csv`. There is a bash script written to validate the programs(which they submitted as git repository) written by the students. The project was structured such that `main.sh` in the project's root directory takes standard input and provides the standard output that is used for validation.
@@ -624,10 +600,11 @@ In a computer science project, the students are asked to provide their remote gi
 Note:
 
 1. The fields of `data.csv` are roll number and repository URL respectively.
-2. The test cases are located in the directory `testcases` which is located in home directory.
-3. The structure of `testcases` directory is given below
+1. The test cases are located in the directory `testcases` which is located in home directory.
+1. All the required packages (git, diff, ...) are already installed in the system.
+1. The structure of `testcases` directory is given below
 
-```
+```text
 ~/testcases/
 ├── 1/
 │   ├── input.txt
@@ -640,10 +617,6 @@ Note:
 │   └── output.txt
 ..
 ```
-
-4. All the required packages (git, diff, ...) are already installed in the system.
-
-<div style="page-break-after: always;"></div>
 
 ```bash
 #!/bin/bash
@@ -686,8 +659,6 @@ while read rollno url; do # Line 3-c
     echo "$rollno $passed_tc/$TOTAL_TESTCASES" # Line 3-e
 done < data.csv
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Question 13 [MSQ] [6]
 
@@ -767,8 +738,6 @@ done < data.csv
 - Here we do not create a temporary file to store the output of the main.sh script, we directly feed the output to diff.
 - We do not need to use `$?` to check the exit status of the diff command, we can directly use the exit status of the command in `if`.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 15 [6]
 
 Read the description given in the comments and identify all the mistakes in the PART-3 of the script. [MCQ]
@@ -795,5 +764,3 @@ passed_tc=$(grep "^$rollno," $LOG_FILE | grep PASS | wc -l)
 - (b) The standard input is provided at the end of the while loop, so the script will read the data from the file.
 - (c) The calculation of the passed test cases is incorrect, it should be `passed_tc=$(grep "^$rollno," $LOG_FILE | grep PASS | wc -l)` so that only the lines with the roll number and PASS are counted, not all the PASS ones.
 - (d) The variables are defined in the script, so there is no issue with the variables.
-
-<div style="page-break-after: always;"></div>

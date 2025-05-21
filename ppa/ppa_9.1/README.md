@@ -16,13 +16,13 @@ Your script should output to the standard output.
 
 ## Sample Input
 
-```
+```text
 10
 ```
 
 ## Sample Output
 
-```
+```text
 25
 30
 ```

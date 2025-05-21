@@ -20,7 +20,7 @@ The command should be saved in the file `movetext.sh`
 
 Assume the following output of `tree` command in the current directory.
 
-```
+```text
 ./
 ├── abc.txt
 ├── level1/
@@ -35,7 +35,7 @@ Assume the following output of `tree` command in the current directory.
 
 After running your `movetext.sh`, the output of `tree` should be as follows.
 
-```
+```text
 ./
 ├── level1/
 │   ├── abc.txt

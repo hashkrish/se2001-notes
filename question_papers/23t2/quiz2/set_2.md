@@ -140,35 +140,35 @@ What will be output of last command in the given console command?
 
 (a)
 
-```
+```text
 0 1
 0 0
 ```
 
 (b)
 
-```
+```text
 0 1
 1 0
 ```
 
 (c)
 
-```
+```text
 0 0
 1 1
 ```
 
 (d)
 
-```
+```text
 0 1
 1 1
 ```
 
 (e)
 
-```
+```text
 0 0
 1 0
 ```
@@ -576,7 +576,7 @@ sleep 12 &
 
 ### Explanation
 
-- All the sleep processes are run in background, thus they dont block each other and are all started in parallel
+- All the sleep processes are run in background, thus they don't block each other and are all started in parallel
 - After 5 seconds the only sleep commands still running in background are those that have sleep values more than 5 seconds, which are `6`, `7`, and `12`.
 - Thus, 3 processes will keep running.
 

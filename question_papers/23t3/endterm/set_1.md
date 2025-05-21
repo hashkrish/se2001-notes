@@ -2,7 +2,7 @@
 
 ## Question 1 (bash) [6]
 
-```
+```text
 CUT(1)                       User Commands                       CUT(1)
 
 NAME
@@ -103,7 +103,7 @@ cat tongue_twisters.txt |tr ' ' '\n'|sort|uniq|head -1
 
 **Sample Input**
 
-```
+```text
 If you must cross a coarse, cross cow across a crowded cow crossing, cross the cross, coarse cow across the crowded cow crossing carefully.
 ```
 
@@ -134,7 +134,7 @@ The date is in YYYY-MM-DD format and the amount is in decimal format with two di
 
 **Sample Input**
 
-```
+```csv
 Company,Date,Amount
 CompanyA,2020-04-29,31211.18
 CompanyA,2021-09-20,2366.91
@@ -149,7 +149,7 @@ CompanyA,2020-08-22,30383.23
 
 **Sample Output**
 
-```
+```csv
 CompanyB,2021-04-04,14304.44
 CompanyA,2021-11-01,21679.58
 CompanyA,2022-09-06,16277.49
@@ -158,25 +158,25 @@ CompanyA,2021-12-14,29527.37
 
 (a)
 
-```
+```text
 .*,202[1-9]-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]),[0-9]{5,}\.[0-9]{2}
 ```
 
 (b)
 
-```
+```text
 .*,202[1-9]-[1-12]-[1-31],[1-9][0-9]{4,}\.[0-9]{2}
 ```
 
 (c)
 
-```
+```text
 .*,202[1-9]-[1-12]-[1-31],[0-9]{5,}\.[0-9]{2}
 ```
 
 (d)
 
-```
+```text
 .*,202[1-9]-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]),[1-9][0-9]{4,}\.[0-9]{2}
 ```
 
@@ -199,7 +199,7 @@ Which of the following command can be used to select the package name and its ve
 
 **Sample log file**
 
-```bash
+```text
 2023-12-09 11:43:46 status installed nginx-common:all 1.18.0-6ubuntu14.4
 2023-12-09 11:43:46 configure libnginx-mod-http-xslt-filter:amd64 1.18.0-6ubuntu14.4 <none>
 2023-12-09 11:43:46 status unpacked libnginx-mod-http-xslt-filter:amd64 1.18.0-6ubuntu14.4
@@ -208,7 +208,7 @@ Which of the following command can be used to select the package name and its ve
 
 **Desired output**
 
-```
+```text
 nginx-common:all 1.18.0
 libnginx-mod-http-xslt-filter:amd64 1.18.0
 libnginx-mod-http-xslt-filter:amd64 1.18.0
@@ -308,7 +308,7 @@ Hint:
 - `-type f` option searches only for the files.
 - `-name x*` option searches for the filename with the pattern with wildcard characters (not regex)
 
-```
+```bash
 $ xargs --help
 Usage: xargs [OPTION]... COMMAND [INITIAL-ARGS]...
 Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.
@@ -399,7 +399,7 @@ $ seq 10 | sed 1d | sed 2d
 
 (a)
 
-```
+```text
 3
 4
 5
@@ -412,7 +412,7 @@ $ seq 10 | sed 1d | sed 2d
 
 (b)
 
-```
+```text
 1
 4
 5
@@ -425,7 +425,7 @@ $ seq 10 | sed 1d | sed 2d
 
 (c)
 
-```
+```text
 2
 4
 5
@@ -438,7 +438,7 @@ $ seq 10 | sed 1d | sed 2d
 
 (d)
 
-```
+```text
 2
 3
 4
@@ -478,7 +478,7 @@ Note:
 
 **Sample Input**
 
-```
+```text
 apple
 banana
 orange
@@ -486,12 +486,8 @@ orange
 
 **Sample Output**
 
-```
-[
-"apple",
-"banana",
-"orange"
-]
+```json
+["apple", "banana", "orange"]
 ```
 
 (a)
@@ -558,13 +554,13 @@ From the following option select the correct command which will remove all the h
 
 **Sample Input**
 
-```
+```text
 A <b>table</b> is an arrangement of <a href="/wiki/Information" title="Information">information</a> or <a href="/wiki/Data" title="Data">data</a>,
 ```
 
 **Sample Output**
 
-```
+```text
 A table is an arrangement of information or data,
 ```
 
@@ -598,7 +594,7 @@ Select the **AWK script** to find all the customers who visited the bank on both
 
 **day1.csv**
 
-```
+```csv
 customer_id,token_number,counter
 1,3473,1a
 2,3480,1b
@@ -610,7 +606,7 @@ customer_id,token_number,counter
 
 **day2.csv**
 
-```
+```csv
 customer_id,token_number,counter
 1,1254218,10z
 3,1245114,11x
@@ -620,7 +616,7 @@ customer_id,token_number,counter
 
 **Expected output**
 
-```
+```text
 customer_id
 1
 3
@@ -804,7 +800,7 @@ $ diff file1.txt file2.txt
 
 **Text**
 
-```
+```text
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Donec a diam lectus.
 Sed sit amet ipsum mauris.
@@ -817,7 +813,7 @@ The equivalent key sequence in emacs is `C-SPACE C-n C-w C-n C-y`, where `C-SPAC
 
 (a)
 
-```
+```text
 Donec a diam lectus.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Sed sit amet ipsum mauris.
@@ -827,7 +823,7 @@ Donec et mollis dolor.
 
 (b)
 
-```
+```text
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Donec a diam lectus.
 Sed sit amet ipsum mauris.
@@ -837,7 +833,7 @@ Donec et mollis dolor.
 
 (c)
 
-```
+```text
 ipsum Lorem dolor sit amet, consectetur adipiscing elit.
 Donec a diam lectus.
 Sed sit amet ipsum mauris.
@@ -847,7 +843,7 @@ Donec et mollis dolor.
 
 (d)
 
-```
+```text
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Donec a diam lectus.
@@ -864,7 +860,7 @@ Donec et mollis dolor.
 
 - `dd` deletes the current line.
 - `p` pastes the deleted line after the current line.
-- On deleting the first line, the second line becomes the first line and the cursor is at the beginning of the first line (Donec a diam lectus.)
+- On deleting the first line, the second line becomes the first line and the cursor is at the beginning of the first line (`Donec a diam lectus.`)
 - Pasting below it causes the first line to be pasted below the second line.
 
 ---

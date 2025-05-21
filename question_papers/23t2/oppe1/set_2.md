@@ -23,7 +23,7 @@ ls -l *.pdf | tr -s ' ' | cut -d ' ' -f 5 | paste -sd+ | bc
 
 ## Problem 2
 
-A dpkg.log file contains a record of applications installed, removed, upgrade and purge over a period of time. Write a shell script to report the total number of instances when packages are installed, removed, upgraded and purged. A sample of the log file is as follows.
+A `dpkg.log` file contains a record of applications installed, removed, upgrade and purge over a period of time. Write a shell script to report the total number of instances when packages are installed, removed, upgraded and purged. A sample of the log file is as follows.
 Note: Use Installed, update, remove and purge as the keywords for pattern matching.
 
 ```bash
@@ -84,7 +84,7 @@ echo "Updated packages: $updated_pkg"
 
 Create a file structure as shown below; the commands should not output anything.
 
-```
+```text
 /potato_recipes/
 ├── french_fries
 │   ├── ingredients.txt
@@ -133,7 +133,7 @@ ps u |tee output.log|awk '/ps u$/{print $2}'
 
 Define a bash function `file_type` which uses the `file` command to identify the file type and prints it for all the files present in the current working directory. It is important to note that the `file` command prints the actual file type which can be different from the extension provided. An example usage of the function is shown below.
 
-#### Example
+### Example
 
 ```bash
 #output of the file command
@@ -187,7 +187,7 @@ Hint: Decide a delimiting character(s) that helps extract desired fields
 </code></pre>
 ```
 
-#### Desired Output
+### Desired Output
 
 ```shell
 aliceblue:#f0f8ff

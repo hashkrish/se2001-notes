@@ -1,6 +1,6 @@
 # OPPE-2 Set 1
 
-# Section 1 Any 1
+## Section 1 Any 1
 
 ## Problem 1 [15 marks]
 
@@ -43,7 +43,7 @@ s/?$/!/
 
 **Input-1**
 
-```
+```text
 This is field 1
 There is no field 2 in this line?
 Is this field 2? I don't think so.
@@ -54,7 +54,7 @@ Maybe? maybe not
 
 **Output-1**
 
-```
+```text
 This is field 1
 There is no field 2 in this line!
 Is this field 2? I don't think so.
@@ -65,7 +65,7 @@ Maybe? maybe not
 
 **Input-2**
 
-```
+```text
 This is field1:And now field2:and now3
 Is it field1?:Maybe this is field2:is this field3?
 this is not field2:is this not field1?: field3 :field4
@@ -74,7 +74,7 @@ and?
 
 **Output-2**
 
-```
+```text
 And now field2:This is field1:and now3
 Maybe this is field2:Is it field1?:is this field3!
 is this not field1?:this is not field2: field3 :field4
@@ -85,7 +85,7 @@ and!
 
 **Input-1**
 
-```
+```text
 This is field 1
 Does it matter?
 There is no field 2 in this line?
@@ -99,7 +99,7 @@ Maybe? maybe not
 
 **Output-1**
 
-```
+```text
 This is field 1
 Does it matter!
 There is no field 2 in this line!
@@ -113,7 +113,7 @@ Maybe? maybe not
 
 **Input-2**
 
-```
+```text
 field1:field2
 1:2
 2:1
@@ -125,7 +125,7 @@ field1:field2:field3
 
 **Output-2**
 
-```
+```text
 field2:field1
 2:1
 1:2
@@ -137,7 +137,7 @@ field2:field1:field3
 
 **Input-3**
 
-```
+```text
 This is field1:And now field2:and now3
 Is it field1?:Maybe this is field2:is this field3?
 this is not field2:is this not field1?: field3 :field4
@@ -153,7 +153,7 @@ no:no:yes
 
 **Output-3**
 
-```
+```text
 And now field2:This is field1:and now3
 Maybe this is field2:Is it field1?:is this field3!
 is this not field1?:this is not field2: field3 :field4
@@ -167,7 +167,7 @@ why not? why yes!
 no:no:yes
 ```
 
-----
+---
 
 ## Problem 2 [15 marks]
 
@@ -227,7 +227,7 @@ s/!/./2
 
 **Input-1**
 
-```
+```text
 !!!
 !!!!
 first! second! third! fourth!
@@ -238,7 +238,7 @@ third fourth
 
 **Output-1**
 
-```
+```text
 .!.
 .!.!
 first. second! third. fourth!
@@ -249,7 +249,7 @@ third fourth
 
 **Input-2**
 
-```
+```text
 first exclamation! now second! now third! and now fourth!
 first! second! third! fourth!
 sun! mon! tue! wed! sat!
@@ -262,7 +262,7 @@ done thursday
 
 **Output-2**
 
-```
+```text
 first exclamation. now second! now third. and now fourth!
 first. second! third. fourth!
 1. 2! 3. 4! 7!
@@ -277,7 +277,7 @@ done 5rsday
 
 **Input-1**
 
-```
+```text
 first! second! third! fourth!
 first!
 first! second!
@@ -291,7 +291,7 @@ third fourth
 
 **Output-1**
 
-```
+```text
 first. second! third. fourth!
 first.
 first. second!
@@ -305,7 +305,7 @@ third fourth
 
 **Input-2**
 
-```
+```text
 sun
 this is monday
 this is tue sday
@@ -317,7 +317,7 @@ oops wednesday wed
 
 **Output-2**
 
-```
+```text
 1
 this is 2day
 this is 3 sday
@@ -329,7 +329,7 @@ oops 4nesday 4
 
 **Input-3**
 
-```
+```text
 sun
 this is monday
 this is tue sday
@@ -359,7 +359,7 @@ done thursday
 
 **Output-3**
 
-```
+```text
 1
 this is 2day
 this is 3 sday
@@ -387,9 +387,9 @@ all weeks. yes ! 1day
 done 5rsday
 ```
 
-----
+---
 
-# Section 2 Any 1
+## Section 2 Any 1
 
 ## Problem 1 [20 marks]
 
@@ -463,7 +463,7 @@ script 2>&1
 
 **Input-1**
 
-```
+```csv
 B,B48428261,Tanya,395
 A,A15469349,Ernie,124
 B,B15318389,Shon,242
@@ -472,14 +472,14 @@ A,A13879754,Alvaro,400
 
 **Output-1**
 
-```
+```text
 A13879754
 B48428261
 ```
 
 **Input-2**
 
-```
+```csv
 D,D33139341,Dwight,60
 A,A369253,Harrison,401
 D,D7779266,Hattie,491
@@ -494,7 +494,7 @@ B,B5350590,Kent,431
 
 **Output-2**
 
-```
+```text
 A369253
 B5350590
 D7779266
@@ -504,7 +504,7 @@ D7779266
 
 **Input-1**
 
-```
+```csv
 A,A562211,Dwight,226
 A,A4948836,Dionne,417
 A,A5545339,Tyson,388
@@ -519,7 +519,7 @@ E,E74147946,Brendon,389
 
 **Output-1**
 
-```
+```text
 A4948836
 B61295886
 D68737194
@@ -528,7 +528,7 @@ E74147946
 
 **Input-2**
 
-```
+```csv
 B,B8632595,Imelda,6
 E,E68299732,Milford,72
 C,C3149843,Deann,203
@@ -543,7 +543,7 @@ B,B18365625,Angelique,52
 
 **Output-2**
 
-```
+```text
 A53966679
 B30397662
 C50497734
@@ -553,7 +553,7 @@ E16876334
 
 **Input-3**
 
-```
+```csv
 A,A91875283,Rose,232
 D,D74353759,Kim,470
 A,A759412,Reba,442
@@ -568,7 +568,7 @@ A,A62234326,Keisha,195
 
 **Output-3**
 
-```
+```text
 A759412
 C4516214
 D74353759
@@ -576,7 +576,7 @@ D74353759
 
 **Input-4**
 
-```
+```csv
 B,B5739924,Monica,476
 A,A9565664,Laurel,44
 B,B0607372,Suzanne,164
@@ -591,7 +591,7 @@ D,D31894432,Ernie,210
 
 **Output-4**
 
-```
+```text
 A10401738
 B5739924
 C19168055
@@ -601,7 +601,7 @@ E5717272
 
 **Input-5**
 
-```
+```csv
 I,I53601184,Isaac,405
 H,H21335146,Hattie,273
 W,W11359870,Jacklyn,391
@@ -706,7 +706,7 @@ L,L33549020,Lauren,368
 
 **Output-5**
 
-```
+```text
 A064360
 B8529214
 C29928351
@@ -733,7 +733,7 @@ Y2398940
 Z38274681
 ```
 
-----
+---
 
 ## Problem 2 [20 marks]
 
@@ -744,11 +744,11 @@ The output consists of two parts
 - First line of the output is a number that is the number of user defined functions in the input file.
 
 - Followed by one line for each user defined function counted above, print the number of calls to each function in the format `<function_name>:<number_of_times_called>`.
-Just print the function name, not the arguments or brackets, and in the same order they appear in the input file.
+  Just print the function name, not the arguments or brackets, and in the same order they appear in the input file.
 
 E.g. consider the below function definitions in the input file.
 
-```
+```python
 def function_1(argument1="default"):
  print("something");
 
@@ -758,7 +758,7 @@ def function_2():
 
 If `function_1` is called 3 times and `function_2` is called 4 times and these are the only two user defined functions in the input file then the output from your script should be.
 
-```
+```text
 2
 function_1:3
 function_2:4
@@ -768,7 +768,7 @@ In Python a function is defined using the `def` keyword and is called by using t
 
 **Examples**
 
-```
+```python
 # This is a comment
 # function definition of function_1()
 def function_1():
@@ -843,7 +843,7 @@ script 2>&1
 
 **Input-1**
 
-```
+```python
 def function_1(argument1="default"):
   print("something")
 
@@ -859,7 +859,7 @@ function_1();function_2()
 
 **Output-1**
 
-```
+```text
 2
 function_1:3
 function_2:4
@@ -867,7 +867,7 @@ function_2:4
 
 **Input-2**
 
-```
+```python
 def foo(x):
   return x
 
@@ -880,7 +880,7 @@ print(foo(bar()))
 
 **Output-2**
 
-```
+```text
 2
 foo:1
 bar:2
@@ -890,7 +890,7 @@ bar:2
 
 **Input-1**
 
-```
+```python
 def a():
   pass
 
@@ -903,7 +903,7 @@ def c():
 
 **Output-1**
 
-```
+```text
 3
 a:0
 b:0
@@ -912,7 +912,7 @@ c:0
 
 **Input-2**
 
-```
+```python
 def a(x):
   pass
 
@@ -927,7 +927,7 @@ a(b(c()))
 
 **Output-2**
 
-```
+```python
 3
 a:1
 b:1
@@ -936,7 +936,7 @@ c:1
 
 **Input-3**
 
-```
+```python
 def a(x=0):
   pass
 
@@ -951,7 +951,7 @@ a(); b(); c()
 
 **Output-3**
 
-```
+```text
 3
 a:1
 b:1
@@ -960,7 +960,7 @@ c:1
 
 **Input-4**
 
-```
+```python
 def a(x=0):
   pass
 
@@ -981,7 +981,7 @@ c()
 
 **Output-4**
 
-```
+```text
 4
 a:1
 b:1
@@ -991,21 +991,21 @@ d:0
 
 **Input-5**
 
-```
+```python
 def f(a):
   print(a)
 ```
 
 **Output-5**
 
-```
+```text
 1
 f:0
 ```
 
-----
+---
 
-# Section 3 Attempt all
+## Section 3 Attempt all
 
 ## Problem 1 [15 marks]
 
@@ -1017,7 +1017,7 @@ Write a **sed script** that will print the file after making the below changes.
 - If any line contains any of the strings `Password`, `password`, `Address`, `address`, or the line consists of only digits then the entire line should be replaced with the string `##REDACTED##`. Note that the word `REDACTED` is in capitals with two `#` characters on each side in the replaced string.
 
 - Add the line `##CONFIDENTIAL##` before the first and after the last line of the file.
-Note that the word `CONFIDENTIAL` is in capitals with two `#` characters on each side, there should be no other characters(including spaces) on this line.
+  Note that the word `CONFIDENTIAL` is in capitals with two `#` characters on each side, there should be no other characters(including spaces) on this line.
 
 Note: complete partial tasks for partial marking.
 Hint: use command like `/pattern/ c string` to replace complete line containing the `pattern` with `string`.
@@ -1058,13 +1058,13 @@ $a##CONFIDENTIAL##
 
 **Input-1**
 
-```
+```text
 This is a protected file
 ```
 
 **Output-1**
 
-```
+```text
 ##CONFIDENTIAL##
 This is a protected file
 ##CONFIDENTIAL##
@@ -1072,7 +1072,7 @@ This is a protected file
 
 **Input-2**
 
-```
+```text
 This is another proctected file
 this contain one protected info
 as below
@@ -1082,7 +1082,7 @@ and it needs to be redacted.
 
 **Output-2**
 
-```
+```text
 ##CONFIDENTIAL##
 This is another proctected file
 this contain one protected info
@@ -1094,7 +1094,7 @@ and it needs to be redacted.
 
 **Input-3**
 
-```
+```text
 This is random file
 which may contain some password
 or Passwords
@@ -1114,7 +1114,7 @@ hence it is not to be replaced. As it is not all digits.
 
 **Output-3**
 
-```
+```text
 ##CONFIDENTIAL##
 This is random file
 ##REDACTED##
@@ -1138,7 +1138,7 @@ hence it is not to be replaced. As it is not all digits.
 
 **Input-1**
 
-```
+```text
 ##CONFIDENTIAL##
 This is a protected file
 ##CONFIDENTIAL##
@@ -1146,7 +1146,7 @@ This is a protected file
 
 **Output-1**
 
-```
+```text
 ##CONFIDENTIAL##
 ##CONFIDENTIAL##
 This is a protected file
@@ -1156,7 +1156,7 @@ This is a protected file
 
 **Input-2**
 
-```
+```text
 This is another proctected file
 this contain one protected info
 as below
@@ -1168,7 +1168,7 @@ another phone number
 
 **Output-2**
 
-```
+```text
 ##CONFIDENTIAL##
 This is another proctected file
 this contain one protected info
@@ -1182,7 +1182,7 @@ another phone number
 
 **Input-3**
 
-```
+```text
 This is another proctected file
 this contain one protected info
 as below
@@ -1197,7 +1197,7 @@ but not below ones
 
 **Output-3**
 
-```
+```text
 ##CONFIDENTIAL##
 This is another proctected file
 this contain one protected info
@@ -1214,7 +1214,7 @@ but not below ones
 
 **Input-4**
 
-```
+```text
 This is random file
 which may contain some password
 yes
@@ -1222,7 +1222,7 @@ yes
 
 **Output-4**
 
-```
+```text
 ##CONFIDENTIAL##
 This is random file
 ##REDACTED##
@@ -1232,7 +1232,7 @@ yes
 
 **Input-5**
 
-```
+```text
 This is random file
 Address with capital A is to be replaced
 last line
@@ -1241,7 +1241,7 @@ last line
 
 **Output-5**
 
-```
+```text
 ##CONFIDENTIAL##
 This is random file
 ##REDACTED##
@@ -1252,7 +1252,7 @@ last line
 
 **Input-6**
 
-```
+```text
 This is random file
 yes it is
 which may contain some password
@@ -1273,7 +1273,7 @@ The above contains a space along with digits
 
 **Output-6**
 
-```
+```text
 ##CONFIDENTIAL##
 This is random file
 yes it is
@@ -1294,13 +1294,13 @@ The above contains a space along with digits
 
 ```
 
-----
+---
 
 ## Problem 2 [15 marks]
 
 A student has to submit his data in a text file containing keys on the odd-numbered lines and the corresponding values on the next even-numbered lines, as shown below.
 
-```
+```text
 key1
 value1
 key2
@@ -1311,7 +1311,7 @@ value3
 
 But the student made a mistake and his file `data.txt` looks like below,
 
-```
+```text
 value1
 key1
 value2
@@ -1364,7 +1364,7 @@ script 2>&1
 
 **Input-1**
 
-```
+```text
 value1
 key1
 value2
@@ -1376,7 +1376,7 @@ key3
 
 **Output-1**
 
-```
+```text
 key1
 value1
 key2
@@ -1387,7 +1387,7 @@ value3
 
 **Input-2**
 
-```
+```text
 1
 brightness
 0.4
@@ -1401,7 +1401,7 @@ right
 
 **Output-2**
 
-```
+```text
 brightness
 1
 volume
@@ -1417,7 +1417,7 @@ right
 
 **Input-1**
 
-```
+```text
 1
 a
 
@@ -1425,14 +1425,14 @@ a
 
 **Output-1**
 
-```
+```text
 a
 1
 ```
 
 **Input-2**
 
-```
+```text
 abcdefghijklmnopqrstuvwxyz
 lowercase
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -1442,7 +1442,7 @@ UPPERCASE
 
 **Output-2**
 
-```
+```text
 lowercase
 abcdefghijklmnopqrstuvwxyz
 UPPERCASE
@@ -1452,7 +1452,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 **Input-3**
 
-```
+```text
 1
 1
 2
@@ -1466,7 +1466,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 **Output-3**
 
-```
+```text
 1
 1
 2
@@ -1479,7 +1479,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 **Input-4**
 
-```
+```text
 a
 a
 b
@@ -1493,7 +1493,7 @@ z
 
 **Output-4**
 
-```
+```text
 a
 a
 b
@@ -1506,7 +1506,7 @@ z
 
 **Input-5**
 
-```
+```text
 a
 A
 b
@@ -1516,14 +1516,14 @@ B
 
 **Output-5**
 
-```
+```text
 A
 a
 B
 b
 ```
 
-----
+---
 
 ## Problem 3 [15 marks]
 
@@ -1677,14 +1677,14 @@ ls | sort
 
 **Input-1**
 
-```
+```text
 meta.cfg dump1 dump4 log.13 log.net graph dim.s
 data.d g.data data.a data.y
 ```
 
 **Output-1**
 
-```
+```text
 data.a
 dim.s
 dump1
@@ -1698,14 +1698,14 @@ meta.cfg
 
 **Input-2**
 
-```
+```text
 meta.cfg dump1 dump4 log.13 log.net graph dim.s
 dz.dup dump.d
 ```
 
 **Output-2**
 
-```
+```text
 dim.s
 dump.d
 dump1
@@ -1721,14 +1721,14 @@ meta.cfg
 
 **Input-1**
 
-```
+```text
 meta.cfg dump log.13 log.net graph dim.s log.net.1 graph.43
 data.d g.data data.y data.aa
 ```
 
 **Output-1**
 
-```
+```text
 data.aa
 dim.s
 dump
@@ -1743,14 +1743,14 @@ meta.cfg
 
 **Input-2**
 
-```
+```text
 current input main.sh network.log.0  network.log.3 network.log.4 output_out prices1
 prices input.txt network.log.1 network.log.2
 ```
 
 **Output-2**
 
-```
+```text
 current
 input
 input.txt
@@ -1763,7 +1763,7 @@ prices1
 
 ```
 
-----
+---
 
 ## Problem 4 [20 marks]
 
@@ -1901,56 +1901,56 @@ fi
 
 **Input-1**
 
-```
+```text
 0 33 2 2 1
 
 ```
 
 **Output-1**
 
-```
+```text
 188
 
 ```
 
 **Input-2**
 
-```
+```text
 0 28 41 0 0
 
 ```
 
 **Output-2**
 
-```
+```text
 ROTATED
 
 ```
 
 **Input-3**
 
-```
+```text
 0 36 5 2 1
 
 ```
 
 **Output-3**
 
-```
+```text
 ROTATED
 
 ```
 
 **Input-4**
 
-```
+```text
 0 82 23 10 1
 
 ```
 
 **Output-4**
 
-```
+```text
 ROTATED
 
 ```
@@ -1959,58 +1959,58 @@ ROTATED
 
 **Input-1**
 
-```
+```text
 1 56 6 0 0
 
 ```
 
 **Output-1**
 
-```
+```text
 ROTATED
 
 ```
 
 **Input-2**
 
-```
+```text
 1 8 2 4 2
 
 ```
 
 **Output-2**
 
-```
+```text
 38
 
 ```
 
 **Input-3**
 
-```
+```text
 1 89 16 7 5
 
 ```
 
 **Output-3**
 
-```
+```text
 ROTATED
 
 ```
 
 **Input-4**
 
-```
+```text
 1 35 41 0 0
 
 ```
 
 **Output-4**
 
-```
+```text
 ROTATED
 
 ```
 
-----
+---

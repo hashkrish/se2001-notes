@@ -121,7 +121,6 @@ Write your script in the file `su.sh`.
 Your script will not receive any input from the standard input or command line arguments.
 Your script should output to the standard output.
 
-
 ## Sample Output
 
 ```bash

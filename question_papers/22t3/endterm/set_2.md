@@ -31,7 +31,7 @@ echo -n '* ' # There is a space after *
 
 (a)
 
-```
+```text
 *
 * * *
 *
@@ -39,19 +39,19 @@ echo -n '* ' # There is a space after *
 
 (b)
 
-```
+```text
 * * * * *
 ```
 
 (c)
 
-```
+```text
 * *\n*\n* *
 ```
 
 (d)
 
-```
+```text
 * *
 *
 * *
@@ -66,8 +66,6 @@ echo -n '* ' # There is a space after *
 - Without `-e` flag in `echo`, the `\n` will be treated as a normal character and not as a newline character.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 2 (link) [Same as set-1] [6]
 
@@ -94,8 +92,6 @@ A college student uses a pen drive to store files. The pen drive is always mount
 - Soft link will work for this requirement as it uses the path to the file or directory.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 3 (shell variable) [Same as set-1] [7]
 
@@ -153,15 +149,13 @@ mv "$file" "$temp"
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 4 (cron) [9pm & 10pm swapped] [7]
 
 Which of the following command will run the script `/home/bill/autoscript/backup.sh` at 9:00 pm every day-of-week from Monday through Friday in every month from January through June and at 10:00 pm every day-of-week from Monday through Friday in every month from July through December. [MCQ]
 
 **Hint**: Below is the description of the sequence in the cron job command.
 
-```
+```text
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
 |   |   |   |   |      Command or Script to Execute
@@ -181,28 +175,28 @@ Min(0-59)
 
 (a)
 
-```
+```text
 0 22 * 1-6 1-5 /home/bill/autoscript/backup.sh
 0 21 * 7-12 1-5 /home/bill/autoscript/backup.sh
 ```
 
 (b)
 
-```
+```text
 0 10 * 1-6 1-5 /home/bill/autoscript/backup.sh
 0 9 * 7-12 1-5 /home/bill/autoscript/backup.sh
 ```
 
 (c)
 
-```
+```text
 0 9 * 1-5 1-6 /home/bill/autoscript/backup.sh
 0 10 * 1-5 7-12 /home/bill/autoscript/backup.sh
 ```
 
 (d)
 
-```
+```text
 0 21 * 1-6 1-5 /home/bill/autoscript/backup.sh
 0 22 * 7-12 1-5 /home/bill/autoscript/backup.sh
 ```
@@ -216,8 +210,6 @@ Min(0-59)
 - Cron uses 24-hour format for time. So 10pm is 22 hours, and 9pm is 21 hours.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 5 (vi/emacs) [Same as set-1] [6]
 
@@ -262,8 +254,6 @@ Hint:
 - The pasted document is pasted after the first character of last line, not at the end of the document.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 6 (shell script) [MSQ] [Same as set-1] [8]
 
@@ -317,8 +307,6 @@ done
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 7 (shell script) [NAT] [second if will execute f is always 1] [6]
 
 How many lines will be printed after executing the below script?
@@ -353,8 +341,6 @@ done
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 8 (shell script) [redirected to stderr] [6]
 
 Select the correct statement(s) based on the below script. Assume that `file1` is not empty.
@@ -388,8 +374,6 @@ done < file1 > file2 | tee file3
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 9 (grep/regex) [Repeated consecutively] [6]
 
 Choose the regular expression to match with a string that contains at least a character repeated three times consecutively. Assume the regular expression is using Extended Regular Expression Engine (ERE).
@@ -417,13 +401,11 @@ Choose the regular expression to match with a string that contains at least a ch
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 10 (grep/regex) [Same as set-1] [8]
 
 Choose the matching line(s) for any of the following regular expressions. Assume that the regular expression is using Extended Regular Expression Engine (ERE). [MSQ]
 
-```
+```text
 ^$
 ^([[:digit:]]){3,}$
 ^[^.]+$
@@ -450,8 +432,6 @@ Choose the matching line(s) for any of the following regular expressions. Assume
 (a), (f), (g)
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 11 (sed) [6]
 
@@ -483,8 +463,6 @@ s/\n//g
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 12 (sed) [NAT] [second command does nothing] [6]
 
 The input file to the below sed script named `data` contains 100 characters, among them 47 are numbers `[0-9]`. How many characters will be in the output after executing the below script? Assume that sed is using Extended Regular Expression Engine (ERE). [MSQ]
@@ -506,8 +484,6 @@ s/([0-9])\1/\1\1/g
 - The output will have 100+47=147 characters.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 13 (sed) [Same as set-1] [8]
 
@@ -555,8 +531,6 @@ done
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 14 (awk) [twice to thrice] [6]
 
 What will the output from the below command represent?
@@ -593,8 +567,6 @@ arr[$0] == 3 {
 - The lines that are repeated thrice or more are printed.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 15 (awk) [NAT] [shuffling the data points] [8]
 

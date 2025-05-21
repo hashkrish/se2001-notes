@@ -11,7 +11,7 @@ rmdir mydir/subdir
 
 Select the output from the above script. [MCQ]
 
-(a) remove directory subdir
+(a) remove directory `subdir`
 
 (b) remove directory `dir` and `subdir`
 
@@ -29,8 +29,6 @@ Select the output from the above script. [MCQ]
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 2 (shell and subshells) [6]
 
 ```bash
@@ -40,16 +38,16 @@ my_var="Sunrise"
 echo "Var11 is: $MY_VAR"
 echo "Var12 is: $my_var"
 (
-	my_var="Sun_rise"
-	MY_VAR_var="Sun_set"
-	echo "Var21 is: $MY_VAR"
-	echo "Var22 is: $my_var"
-	(
-		MY_VAR="Sun@rise"
-		my_var="Sun@set"
-		echo "Var31 is: $MY_VAR"
-		echo "Var32 is:${my_var}"
-	) & disown
+ my_var="Sun_rise"
+ MY_VAR_var="Sun_set"
+ echo "Var21 is: $MY_VAR"
+ echo "Var22 is: $my_var"
+ (
+  MY_VAR="Sun@rise"
+  my_var="Sun@set"
+  echo "Var31 is: $MY_VAR"
+  echo "Var32 is:${my_var}"
+ ) & disown
 )
 wait
 echo "Var41 is: $MY_VAR"
@@ -74,8 +72,6 @@ What will be the value of `Var42` at the end of execution? [NAT]
 A subshell cannot change the value of parent shell, it can only create a new variable with the same name. The value of the variable in the parent shell remains the same.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 3 (shell variables) [6]
 
@@ -120,10 +116,6 @@ $ echo ${date_disp:1:8}the
 - `echo ${date_disp:1:8}the` will print the substring of the first element of the array starting from the 2nd character and 8 characters long, followed by `the`. But if the string ("Mon") does not have enough (9) characters, it will print as much as possible in that string. So, it will print `onthe`.
 
 ---
-
-<div style="page-break-after: always;"></div>
-
-``
 
 ## Question 4 (script comprehension) [7]
 
@@ -215,10 +207,6 @@ done
 
 ---
 
-<div style="page-break-after: always;"></div>
-
-``
-
 ## Question 5 (grep) [7]
 
 Select the regex to extract only the value of "email" from the below JSON file names as test.json. [MSQ]
@@ -280,27 +268,25 @@ name
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 6 (regex) [7]
 
 Following file contains the information on the websites visited on certain server. From the options identify the correct regular expression (ERE) which can capture the website domain names (https//www.something.something). [MCQ]
 
-|                                                                                              |                 |      |                 |
-| -------------------------------------------------------------------------------------------- | --------------- | ---- | --------------- |
-| Website                                                                                      | IP Address      | Hits | Server Location |
-| https://www.bechtelar.com/alias-similique-ratione-voluptates-aliquam-delectus-qui-cumque-aut | 204.83.121.207  | 0    | CK              |
-| http://www.okeefe.info/quis-repudiandae-nobis-repellendus-omnis-dolor                        | 78.86.32.75     | 6    | SE              |
-| http://macejkovic.com/aut-qui-nostrum-numquam.html                                           | 74.58.20.242    | 1    | MU              |
-| http://www.cummings.net/magnam-excepturi-eos-rerum-dolores                                   | 82.204.55.211   | 8    | PH              |
-| http://www.barton.biz/iure-iusto-explicabo-est-soluta-recusandae                             | 252.194.135.149 | 1    | SO              |
-| http://www.haag.com/et-exercitationem-id-sunt-sed-laboriosam                                 | 1.118.48.149    | 4    | PW              |
-| http://www.beer.com/voluptatem-quod-nesciunt-aut.html                                        | 71.88.92.193    | 9    | SJ              |
-| http://www.mann.org/omnis-ex-in-est-et.html                                                  | 249.210.50.146  | 9    | BZ              |
-| http://towne.com/                                                                            | 58.17.4.75      | 9    | WF              |
-| http://www.feeney.net/enim-animi-sapiente-porro-aut-velit-dicta                              | 201.58.189.12   | 3    | ML              |
-| http://heaney.com/aliquid-et-rerum-porro-nesciunt-voluptate-quo-sint                         | 9.24.3.149      | 7    | KM              |
-| http://bode.com/sint-ut-et-possimus-odit-debitis.html                                        | 210.73.162.76   | 6    | BQ              |
+|                                                                                                |                 |      |                 |
+| ---------------------------------------------------------------------------------------------- | --------------- | ---- | --------------- |
+| Website                                                                                        | IP Address      | Hits | Server Location |
+| <https://www.bechtelar.com/alias-similique-ratione-voluptates-aliquam-delectus-qui-cumque-aut> | 204.83.121.207  | 0    | CK              |
+| <http://www.okeefe.info/quis-repudiandae-nobis-repellendus-omnis-dolor>                        | 78.86.32.75     | 6    | SE              |
+| <http://macejkovic.com/aut-qui-nostrum-numquam.html>                                           | 74.58.20.242    | 1    | MU              |
+| <http://www.cummings.net/magnam-excepturi-eos-rerum-dolores>                                   | 82.204.55.211   | 8    | PH              |
+| <http://www.barton.biz/iure-iusto-explicabo-est-soluta-recusandae>                             | 252.194.135.149 | 1    | SO              |
+| <http://www.haag.com/et-exercitationem-id-sunt-sed-laboriosam>                                 | 1.118.48.149    | 4    | PW              |
+| <http://www.beer.com/voluptatem-quod-nesciunt-aut.html>                                        | 71.88.92.193    | 9    | SJ              |
+| <http://www.mann.org/omnis-ex-in-est-et.html>                                                  | 249.210.50.146  | 9    | BZ              |
+| <http://towne.com/>                                                                            | 58.17.4.75      | 9    | WF              |
+| <http://www.feeney.net/enim-animi-sapiente-porro-aut-velit-dicta>                              | 201.58.189.12   | 3    | ML              |
+| <http://heaney.com/aliquid-et-rerum-porro-nesciunt-voluptate-quo-sint>                         | 9.24.3.149      | 7    | KM              |
+| <http://bode.com/sint-ut-et-possimus-odit-debitis.html>                                        | 210.73.162.76   | 6    | BQ              |
 
 (a) `https?://[a-zA-Z]+\.[a-zA-Z]{2,}`
 
@@ -322,10 +308,6 @@ Following file contains the information on the websites visited on certain serve
 - The TLD cannot be single character, it can be 2–63 characters long.
 
 ---
-
-<div style="page-break-after: always;"></div>
-
-``
 
 ## Question 7 (redirections) [8]
 
@@ -352,10 +334,6 @@ Which of the following command will generate output for both `test.out` and `tes
 - `tee >test.out` will redirect the standard output to the file `test.out`.
 
 ---
-
-<div style="page-break-after: always;"></div>
-
-``
 
 ## Question 8 (pipes) [6]
 
@@ -450,7 +428,7 @@ DESCRIPTION
               natural sort of (version) numbers within text
 ```
 
-The following are the contents of a passwd file. What will be the first line of the output of the command `cat /etc/passwd|cut -d: -f3|sort -rn` ? [NAT]
+The following are the contents of a `passwd` file. What will be the first line of the output of the command `cat /etc/passwd|cut -d: -f3|sort -rn` ? [NAT]
 
 ```bash
 root:x:0:0:root:/root:/bin/bash
@@ -478,11 +456,9 @@ nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
 
 - `cut -d: -f3` will extract the 3rd field from each line of the input.
 - `sort -rn` will sort the input in reverse numerical order.
-- The first line of the output will be the highest number in the 3rd field of the passwd file.
+- The first line of the output will be the highest number in the 3rd field of the `passwd` file.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 9 (links) [8]
 
@@ -542,8 +518,6 @@ $ ls -li
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 10 (shell variable) [6]
 
 Following lines are the part of a shell script for job submission to a server. Assume that the PBS_JOBID stores `123456.pbs` value and $HOME stores `/user` value. What would be the value of `tempdir` variable.
@@ -569,19 +543,17 @@ cd $tempdir
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 11 (process) [NAT]
 
 How many background processes are running after the end of execution of the following script?
 
 ```bash
 for i in {1..11}; do
-	sleep 10 &
+ sleep 10 &
 done
 
 for i in {1..11..2}; do
-	kill % # kill the last background process created
+ kill % # kill the last background process created
 done
 ```
 
@@ -596,8 +568,6 @@ done
 - So, after the end of the script, 11 - 6 = 5 background processes will be running.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 12 (regex)
 
@@ -622,11 +592,9 @@ Choose the **most appropriate** regex to match an email address. The regex is pr
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 13 (bash)
 
-```
+```bash
 $ tr --help
 Usage: tr [OPTION]... SET1 [SET2]
 Translate, squeeze, and/or delete characters from standard input,
@@ -706,8 +674,6 @@ Using the above context, choose the command that deletes all occurrences of `a`.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 14 (bash) NAT
 
 What will be the output of the following script?
@@ -719,7 +685,7 @@ echo $line$line
 
 Hint:
 
-```
+```bash
 $ cat < <(echo 123456) # send the stdout from echo command to cat as stdin
 123456
 
@@ -737,31 +703,31 @@ read: read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars] [-p pr
     If no NAMEs are supplied, the line read is stored in the REPLY variable.
 
     Options:
-      -a array	assign the words read to sequential indices of the array
-    		variable ARRAY, starting at zero
-      -d delim	continue until the first character of DELIM is read, rather
-    		than newline
-      -e	use Readline to obtain the line
-      -i text	use TEXT as the initial text for Readline
-      -n nchars	return after reading NCHARS characters rather than waiting
-    		for a newline, but honor a delimiter if fewer than
-    		NCHARS characters are read before the delimiter
-      -N nchars	return only after reading exactly NCHARS characters, unless
-    		EOF is encountered or read times out, ignoring any
-    		delimiter
-      -p prompt	output the string PROMPT without a trailing newline before
-    		attempting to read
-      -r	do not allow backslashes to escape any characters
-      -s	do not echo input coming from a terminal
-      -t timeout	time out and return failure if a complete line of
-    		input is not read within TIMEOUT seconds.  The value of the
-    		TMOUT variable is the default timeout.  TIMEOUT may be a
-    		fractional number.  If TIMEOUT is 0, read returns
-    		immediately, without trying to read any data, returning
-    		success only if input is available on the specified
-    		file descriptor.  The exit status is greater than 128
-    		if the timeout is exceeded
-      -u fd	read from file descriptor FD instead of the standard input
+      -a array assign the words read to sequential indices of the array
+      variable ARRAY, starting at zero
+      -d delim continue until the first character of DELIM is read, rather
+      than newline
+      -e use Readline to obtain the line
+      -i text use TEXT as the initial text for Readline
+      -n nchars return after reading NCHARS characters rather than waiting
+      for a newline, but honor a delimiter if fewer than
+      NCHARS characters are read before the delimiter
+      -N nchars return only after reading exactly NCHARS characters, unless
+      EOF is encountered or read times out, ignoring any
+      delimiter
+      -p prompt output the string PROMPT without a trailing newline before
+      attempting to read
+      -r do not allow backslashes to escape any characters
+      -s do not echo input coming from a terminal
+      -t timeout time out and return failure if a complete line of
+      input is not read within TIMEOUT seconds.  The value of the
+      TMOUT variable is the default timeout.  TIMEOUT may be a
+      fractional number.  If TIMEOUT is 0, read returns
+      immediately, without trying to read any data, returning
+      success only if input is available on the specified
+      file descriptor.  The exit status is greater than 128
+      if the timeout is exceeded
+      -u fd read from file descriptor FD instead of the standard input
 
     Exit Status:
     The return code is zero, unless end-of-file is encountered, read times out
@@ -771,7 +737,7 @@ read: read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars] [-p pr
 
 ### Answer (Exact, ignore whitespace)
 
-abcdabcd
+`abcdabcd`
 
 ### Explanation
 
@@ -781,11 +747,9 @@ abcdabcd
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 15
 
-```
+```bash
 #!/bin/bash
 
 directory="mydirectory"
@@ -796,7 +760,7 @@ zip -r -P $password $zip_dest $directory
 
 Hint:
 
-```
+```bash
 $ man zip
 ZIP(1)                      General Commands Manual                     ZIP(1)
 
