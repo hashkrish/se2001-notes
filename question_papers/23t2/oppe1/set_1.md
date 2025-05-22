@@ -24,11 +24,11 @@ ls -l | sed 1d | tr -s ' ' | cut -d ' ' -f 5 | paste -s -d '+' | bc
 
 ## Problem 2
 
-An authlog is copied from the `/var/log/` directory to the current working directory. Generate a report from the authlog file which reports the failed logins, successful logins, invalid users and sudo access attempts.
+An `authlog` is copied from the `/var/log/` directory to the current working directory. Generate a report from the `authlog` file which reports the failed logins, successful logins, invalid users and sudo access attempts.
 
 **Sample data:**
 
-```
+```text
 Jul 16 14:13:13 vm212 sshd[444802]: Connection closed by authenticating user 2******* 194.***.***.*** port 59232 [preauth]
 Jul 16 14:13:19 vm212 sshd[445097]: Accepted password for 2******* from 194.***.***.*** port 33668 ssh2
 Jul 16 14:13:19 vm212 sshd[445097]: pam_unix(sshd:session): session opened for user 2*******(uid=3339) by (uid=0)
@@ -36,7 +36,7 @@ Jul 16 14:49:51 vm212 sshd[452702]: Invalid user  from 194.***.***.*** port 4880
 Jul 16 14:49:54 vm212 sshd[452702]: Connection closed by invalid user  194.***.***.*** port 48804 [preauth]
 Jul 16 14:58:00 vm212 sshd[454221]: Invalid user web from 194.***.***.*** port 44484
 Jul 16 14:58:00 vm212 sshd[454221]: pam_unix(sshd:auth): check pass; user unknown
-Jul 16 14:58:00 vm212 sshd[454221]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.***.***.*** 
+Jul 16 14:58:00 vm212 sshd[454221]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.***.***.***
 Jul 16 14:58:02 vm212 sshd[454221]: Failed password for invalid user web from 194.***.***.*** port 44484 ssh2
 Jul 16 14:58:02 vm212 sshd[454221]: Received disconnect from 194.***.***.*** port 44484:11: Bye Bye [preauth]
 Jul 19 11:12:52 vm212 sudo: pam_unix(sudo:auth): authentication failure; logname=ubuntu uid=3141 euid=0 tty=/dev/pts/3 ruser=ubuntu rhost=  user=ubuntu
@@ -59,7 +59,7 @@ echo "Sudo Access Attempts: $sudo_access"
 
 ## Problem 3
 
-The current directory contains multiple files(no directories) with different extensions like `.txt`, `.py`, `.m`, etc.,. Write a bash script to organize the files into folders according to their file extensions. The directory names should be same as the file extensions(case sensitive). Example:`file.C` will be moved to the directory named `C`.  Do not print anything from your script.
+The current directory contains multiple files(no directories) with different extensions like `.txt`, `.py`, `.m`, etc.,. Write a bash script to organize the files into folders according to their file extensions. The directory names should be same as the file extensions(case sensitive). Example:`file.C` will be moved to the directory named `C`. Do not print anything from your script.
 
 ### Solution
 
@@ -85,7 +85,7 @@ done
 
 Find and kill all the background sleep processes.
 
-#### Solution
+### Solution
 
 ```bash
 ps | grep 'sleep' | while read -r pid rest; do kill $pid; done
@@ -120,7 +120,7 @@ Hint: `sha256sum` can be used to get SHA256 checksum
 
 ```bash
 get-checksum() {
-	sha256sum $1 | cut -d' ' -f1
+ sha256sum $1 | cut -d' ' -f1
 }
 ```
 
@@ -153,7 +153,7 @@ The output should be formatted as the following.
 </code></pre>
 ```
 
-#### Desired Output
+### Desired Output
 
 ```shell
 aliceblue:#f0f8ff

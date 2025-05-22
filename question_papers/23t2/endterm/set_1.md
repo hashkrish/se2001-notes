@@ -28,13 +28,11 @@ cat $(cat)
 - The stdin given to inner cat is the output of the inner cat and the arguments of the outer act.
 - The outer cat then prints contents of the files whose path is given in stdin.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 2 [MCQ] [6]
 
 From `man bash`,
 
-```
+```text
 Process Substitution
     Process  substitution allows a process's input or output to be
     referred to using a filename.  It takes the form of <(list) or
@@ -69,7 +67,7 @@ $ diff <(seq 1 3) <(seq 2 5)
 > 5
 ```
 
-What does the command `echo <(seq 10) output represent?
+What does the command `echo <(seq 10)` output represent?
 
 (a) The standard output from the command `seq 10`
 
@@ -89,8 +87,6 @@ What does the command `echo <(seq 10) output represent?
 - `echo` simply prints what is given to it.
 - (a) would be true if the command was `echo $(seq 10)` or `cat <(seq 10)`.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 3 [MSQ] [7]
 
 Select the command(s) that retrieves the first ten lines of all the files that only end with `.md` in the current working directory and its subfolders.
@@ -102,7 +98,7 @@ Hint:
 - `-type f` option searches only for the files.
 - `-name x*` option searches for the filename with the pattern with wild card characters (not regex)
 
-```
+```bash
 $ xargs --help
 Usage: xargs [OPTION]... COMMAND [INITIAL-ARGS]...
 Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.
@@ -170,8 +166,6 @@ find . -type f -name '*.md' -exec head {} +        # this will pass multiple fil
 find . -type f | grep '\.md$' | xargs head          # this will filter files ending with .md
 ```
 
-<div style="page-break-after: always;"></div>
-
 ## Question 4 [MCQ] [6]
 
 Which of the option is the correct output of the following command? [MCQ]
@@ -190,7 +184,7 @@ nu' |
 
 (a)
 
-```
+```text
 alphabet
 alpha
 beta
@@ -202,7 +196,7 @@ nu
 
 (b)
 
-```
+```text
 alphabet
 alpha
 beta
@@ -211,7 +205,7 @@ gamma
 
 (c)
 
-```
+```text
 omega
 iota
 nu
@@ -219,7 +213,7 @@ nu
 
 (d)
 
-```
+```text
 alpha
 beta
 gamma
@@ -236,8 +230,6 @@ gamma
 - The `sed` command will delete the first and last lines.
 - So, the output will be the lines between `alphabet` and `omega` excluding the first and last lines.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 5 [NAT] [7]
 
 ```bash
@@ -248,7 +240,7 @@ tarball_name="$2"
 tar -cvf "$tarball_name.tar" "$directory"
 ```
 
-```
+```bash
 $ tar --help
 Usage: tar [OPTION...] [FILE]...
 GNU 'tar' saves many files together into a single tape or disk archive, and can
@@ -286,8 +278,6 @@ Note: Ensure no space before and after your answer
 
 .tar
 
-<div style="page-break-after: always;"></div>
-
 ## Question 6 [MSQ] [8]
 
 Choose the corner case(s) from stdin that makes this SED command fail to replace all the three-character month names with the corresponding numbers.
@@ -299,16 +289,16 @@ Choose the corner case(s) from stdin that makes this SED command fail to replace
 declare -A month_to_number
 
 month_to_number=(
-	["Jan"]=1 ["Feb"]=2 ["Mar"]=3 ["Apr"]=4
-	["May"]=5 ["Jun"]=6 ["Jul"]=7 ["Aug"]=8
-	["Sep"]=9 ["Oct"]=10 ["Nov"]=11 ["Dec"]=12
+ ["Jan"]=1 ["Feb"]=2 ["Mar"]=3 ["Apr"]=4
+ ["May"]=5 ["Jun"]=6 ["Jul"]=7 ["Aug"]=8
+ ["Sep"]=9 ["Oct"]=10 ["Nov"]=11 ["Dec"]=12
 ) # ([key]=value)
 
 read -r line
 for m in "${!month_to_number[@]}"; do
-	# get from stdin
-	[[ "$line" =~ $m ]] || continue
-	echo "$line" | sed "s/$m/${month_to_number[$m]}/"
+ # get from stdin
+ [[ "$line" =~ $m ]] || continue
+ echo "$line" | sed "s/$m/${month_to_number[$m]}/"
 done
 ```
 
@@ -330,8 +320,6 @@ done
 
 - (c) there are multiple months in the line, this will output two lines, one with `17/2/1888, 7/May/1999` and another with `17/Feb/1888, 7/5/1999`.
 - (d) the month is in lowercase, the sed command is case-sensitive, so it will not match `Jul` with `jul`.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 7 [MCQ] [6]
 
@@ -359,8 +347,6 @@ Numbers greater than or equal to 100 are numbers with 3 or more digits. So, the 
 - (b) and (c) will not work as `{}` is not a special character in BRE, so it will match the literal `{}`.
 - (d) will match any line that has 2 or more digits and delete it, which is not the requirement.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 8 [MSQ] [8]
 
 Complete the script to print the name in the order of the given name and family name from the file `name_country.csv`. In some countries, people keep their family name as their first name and their given name as their last name.
@@ -383,7 +369,7 @@ FILENAME == "family_name_first_countries.txt" {
 
 (a)
 
-```
+```awk
 FILENAME == "name_country.csv" && $3 in family_name_first_countries {
     if ($3 in family_name_first_countries) {
         print $2, $1
@@ -395,7 +381,7 @@ FILENAME == "name_country.csv" && $3 in family_name_first_countries {
 
 (b)
 
-```
+```awk
 FILENAME == "name_country.csv" {
     if ($3 in family_name_first_countries) {
         print $2, $1
@@ -407,7 +393,7 @@ FILENAME == "name_country.csv" {
 
 (c)
 
-```
+```awk
 FILENAME == "name_country.csv" && $3 in family_name_first_countries {
     print $2, $1
 }
@@ -418,7 +404,7 @@ FILENAME == "name_country.csv" && !($3 in family_name_first_countries) {
 
 (d)
 
-```
+```awk
 FILENAME == "name_country.csv" && !($3 in family_name_first_countries) {
     print $2, $1
 }
@@ -437,8 +423,6 @@ FILENAME == "name_country.csv" && $3 in family_name_first_countries {
 - Otherwise print normally ($1 $2)
 - `else` in (a) is always false as the block itself is executed if the condition is true.
 - (d) has opposite logic.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 9 [MSQ] [6]
 
@@ -466,8 +450,6 @@ Choose the incorrect answer to the question. If all the statements are correct, 
 ### Answer
 
 (e)
-
-<div style="page-break-after: always;"></div>
 
 ## Question 10 [NAT] [7]
 
@@ -501,8 +483,6 @@ What is the output of the **first loop** at the end of the execution of the give
 
 - The three executions are done one after another, so the three outputs are one after another.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 11 [NAT] [7]
 
 What will be the output of the **second loop** after the execution of the given script? [NAT]
@@ -514,8 +494,6 @@ What will be the output of the **second loop** after the execution of the given 
 ### Explanation
 
 - Here the command is run in background, so the terminal is not blocked and the next iterations are run in parallel, this will interleave the output of the three commands.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 12 [MCQ] [6]
 
@@ -542,8 +520,6 @@ sed '5~5{s/\b\([a-z]\)/\u\1/g}' sample.txt
 - `5~5` will match every fifth line starting from the fifth line.
 - `/\b\([a-z]\)/` will match the first character of each word.
 - `\u\1` will capitalize the first character of each word.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 13 [MSQ] [6]
 
@@ -580,8 +556,6 @@ Assume a Basic Regular Expression Engine (BRE)
 ### Explanation
 
 - We do not allow lowercase alphabets in the PAN card number. (Mentioned in first Note)
-
-<div style="page-break-after: always;"></div>
 
 ## Question 14 [MSQ] [8]
 
@@ -632,11 +606,9 @@ April 21,2002
 - (c) `date` does not accept literal month names in input.
 - (d) Instead of using `tr`, the brace expansion itself has `\n` in it. We use `{4..24..10}` instead of `{4,14,24}` which is same output.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 15 [MCQ] [6]
 
-Following entry is made to a crontab to run a script which generate system and process logs at designated time. When is the script `/home/Tisha/monitor_management.sh`  scheduled to get executed. [MCQ]
+Following entry is made to a crontab to run a script which generate system and process logs at designated time. When is the script `/home/Tisha/monitor_management.sh` scheduled to get executed. [MCQ]
 
 ```bash
 
@@ -646,10 +618,10 @@ Following entry is made to a crontab to run a script which generate system and p
 
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
 
-```
+```text
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
-|   |   |   |   |      Command or Script to Execute        
+|   |   |   |   |      Command or Script to Execute
 |   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
@@ -657,9 +629,9 @@ Following entry is made to a crontab to run a script which generate system and p
 |   |   |   |
 |   |   | Month of the Year(1-12)
 |   |   |
-|   | Day of the Month(1-31)  
+|   | Day of the Month(1-31)
 |   |
-| Hour(0-23)  
+| Hour(0-23)
 |
 Min(0-59)
 ```
@@ -675,5 +647,3 @@ Min(0-59)
 ### Answer
 
 (b)
-
-<div style="page-break-after: always;"></div>

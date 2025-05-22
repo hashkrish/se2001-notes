@@ -1,13 +1,17 @@
 # System Commands Sep 2023 OPPE 2
+
 ## Problem 1
+
 In a markdown file, the level of heading is decided by the number of `#` at the beginning of the line. For example, `#` at the beginning of the line indicates a level 1 heading, `##` indicates a level 2 heading and so on. There is a space between `#` and heading text. The sample input shown below conveys the simplicity of the test cases.
 
 Write a SED script 'script.sed'
+
 - To reduce the level of heading by 1, for example `#` to `##` and `##` to `###`
 - Add "# Text editors in Linux" as the first line
 
 **Sample Input**
-```
+
+```text
 # Line Editors
 ## Ed
 ---
@@ -22,7 +26,8 @@ Write a SED script 'script.sed'
 ```
 
 **Sample Output**
-```
+
+```text
 # Text editors in Linux
 ## Line Editors
 ### Ed
@@ -38,17 +43,20 @@ Write a SED script 'script.sed'
 ```
 
 ### Solution
+
 ```sed
 /^#/ s/^/#/
 1 i # Text editors in Linux
 ```
 
 ## Problem 2
+
 A student named Pankaj found the output of the `diff` command confusing. He found two lines that looked the same but were marked as different. He presumed that it could be due to the presence of tab spaces present in the file. He wants to see the line end and tab characters. He decided to replace the tab spaces with "^I" and mark the end of the line with "$" in the files.
 
 Write a **sed script** 'script.sed' to visualize the line end and tab characters by replacing them with `$` and `^I`, respectively.
 
 **Example:**
+
 ```bash
 $ cat file_a
 abcd
@@ -59,14 +67,14 @@ efgh
 ijkl
 
 $ diff -u file_a file_b
---- file_a	2023-11-27 14:29:47.230882094 +0530
-+++ file_b	2023-11-27 14:29:53.640882534 +0530
+--- file_a 2023-11-27 14:29:47.230882094 +0530
++++ file_b 2023-11-27 14:29:53.640882534 +0530
 @@ -1,3 +1,3 @@
  abcd
 -efgh
-+efgh 
++efgh
  ijkl
- 
+
 $ diff -u file_a file_b | ./script.sed
 --- file_a^I2023-11-27 14:29:47.230882094 +0530$
 +++ file_b^I2023-11-27 14:29:53.640882534 +0530$
@@ -78,18 +86,21 @@ $ diff -u file_a file_b | ./script.sed
 ```
 
 ### Prefix
-```
+
+```bash
 cat > script.sed << EOF
 ```
 
 ### Solution
+
 ```sed
 s/$/$/
 s/\t/^I/
 ```
 
 ### Suffix
-```
+
+```bash
 EOF
 sed -f script.sed
 ```
@@ -97,30 +108,37 @@ sed -f script.sed
 ### Test Cases
 
 #### Public
+
 ##### Test Case 1
+
 **Input**
-```
-ab	 
+
+```text
+ab
 ```
 
 **Output**
-```
-ab^I 
+
+```text
+ab^I
 ```
 
 ##### Test Case 2
+
 **Input**
+
 ```diff
---- file_a	2023-11-27 14:29:47.230882094 +0530
-+++ file_b	2023-11-27 14:29:53.640882534 +0530
+--- file_a 2023-11-27 14:29:47.230882094 +0530
++++ file_b 2023-11-27 14:29:53.640882534 +0530
 @@ -1,3 +1,3 @@
  abcd
 -efgh
-+efgh 
++efgh
  ijkl
 ```
 
 **Output**
+
 ```diff
 --- file_a^I2023-11-27 14:29:47.230882094 +0530$
 +++ file_b^I2023-11-27 14:29:53.640882534 +0530$
@@ -132,24 +150,26 @@ ab^I
 ```
 
 ### Private
-```
+
+```text
 
 ```
 
 ---
 
 ## Problem 3
-Programmers are used to tag comments in the code with TODO, REVIEW, NOTE, HACK, FIXME, and DEPRECATED keywords. 
 
-Write an **AWK script** 'script.awk' to find all the occurrences in files and print only the filename and line number in the format "<filename>:<line number>".
+Programmers are used to tag comments in the code with TODO, REVIEW, NOTE, HACK, FIXME, and DEPRECATED keywords.
+
+Write an **AWK script** 'script.awk' to find all the occurrences in files and print only the filename and line number in the format `<filename>:<line number>`.
 
 ### Solution
+
 ```awk
 /TODO|REVIEW|NOTE|HACK|FIXME|DEPRECATED/ {
     print FILENAME":"FNR
 }
 ```
-
 
 ## Problem 4
 
@@ -158,7 +178,8 @@ Docker is a containerization platform that is used to run applications in an iso
 Here is a sample output from `docker ps -a` command, which lists all the containers in the machine.
 
 **Sample Input**
-```
+
+```text
 CONTAINER ID   IMAGE                          COMMAND                  CREATED       STATUS                     PORTS                                       NAMES
 fa9130a84431   mongo-express                  "/sbin/tini -- /dock…"   5 days ago    Exited (143) 6 hours ago                                               stock-analyser-mongo-express-1
 830b9ccaa6c8   mongo                          "docker-entrypoint.s…"   5 days ago    Exited (0) 6 hours ago                                                 stock-analyser-mongo-1
@@ -174,26 +195,28 @@ Note:
 - The output from `docker ps -a` will be given as standard input
 
 **Sample Output**
-```
+
+```text
 CONTAINER ID,IMAGE,STATUS,NAMES
 fa9130a84431,mongo-express,STOPPED,stock-analyser-mongo-express-1
 830b9ccaa6c8,mongo,STOPPED,stock-analyser-mongo-1
 db00571f20eb,redis,RUNNING,jovial_pasteur
 ```
 
-
 ### Prefix
-```
+
+```bash
 script() {
 ```
 
 ### Solution
+
 ```bash
 sed 's/    */   /g' |
 awk '
     BEGIN {
         FS="[   ]{3}[ ]*"; OFS=","
-    } 
+    }
     NR == 1 {
         print "CONTAINER ID", "IMAGE", "STATUS", "NAMES"
     }
@@ -209,7 +232,7 @@ awk '
 awk '
     BEGIN {
         OFS=","
-    } 
+    }
     NR == 1 {
         print "CONTAINER ID", "IMAGE", "STATUS", "NAMES"
     }
@@ -223,38 +246,44 @@ awk '
 ```
 
 ### Suffix
-```
+
+```bash
 }
 ```
 
 ### Invisible Code
-```
+
+```bash
 
 ```
 
 ### Test Cases
-```
+
+```text
 
 ```
 
 #### Public
-```
+
+```text
 
 ```
 
 #### Private
 
-```
+```text
 
 ```
 
 ---
 
 ## Problem 5
-There are two files `file_a` and `file_b` which contain a list of hash values. 
+
+There are two files `file_a` and `file_b` which contain a list of hash values.
 Write a **bash script** 'script.sh' to find the hash values with the order of their occurrence that are present in either of the files but not in both (eXclusive OR).
 
 **Sample Input**
+
 ```bash
 $ cat file_a
 e5fa44f2
@@ -269,6 +298,7 @@ ccf271b7
 ```
 
 **Sample Output**
+
 ```bash
 e5fa44f2
 7448d879
@@ -277,12 +307,14 @@ ccf271b7
 ```
 
 ### Prefix
-```
+
+```bash
 script() {
 cat > script.awk << EOF
 ```
 
 ### Solution
+
 ```awk
 NR == FNR {
     a[$0] = 1
@@ -312,14 +344,16 @@ END {for (i in a) if (a[i] == 1) print i}
 ```
 
 ### Suffix
-```
+
+```bash
 EOF
 awk -f script.awk file_a file_b
 }
 ```
 
 ### Invisible Code
-``` bash
+
+```bash
 while read -r line; do
     [[ "$line" == EOF ]] && cat > file_2 && break
     echo "$line"
@@ -330,18 +364,20 @@ script 2>&1
 ```
 
 ### Test Cases
-```
+
+```text
 
 ```
 
 #### Public
-```
+
+```text
 
 ```
 
 #### Private
 
-```
+```text
 
 ```
 
@@ -349,16 +385,16 @@ script 2>&1
 
 ## Problem 6
 
-Write a script `script.sh` to analyse the logs given in the file auth.log provided as standard input to print all the usernames to which user student switched to using `su` command.
+Write a script `script.sh` to analyze the logs given in the file auth.log provided as standard input to print all the usernames to which user student switched to using `su` command.
 
 Note:
 
 - switching back to the previous user should not be accounted.
-- A sample auth.log file is provided /opt/se2001/oppe2.1_section_2_problem_2/auth.log
+- A sample `auth.log` file is provided `/opt/se2001/oppe2.1_section_2_problem_2/auth.log`
 
 The sample contents of auth.log (stdin) are given below.
 
-```
+```text
 Jan 21 20:32:17 IITMBSC polkitd(authority=local): Unregistered Authentication Agent for unix-session:c2 (system bus name :1.525, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
 Jan 21 20:32:32 IITMBSC login[119373]: pam_unix(login:session): session opened for user guest by LOGIN(uid=0)
 Jan 21 20:32:32 IITMBSC systemd-logind[966]: New session 31 of user guest.
@@ -460,12 +496,15 @@ Jan 21 21:49:23 IITMBSC PackageKit: uid 1000 obtained auth for org.freedesktop.p
 Jan 21 21:52:21 IITMBSC pkexec: pam_unix(polkit-1:session): session opened for user root by (uid=1000)
 Jan 21 21:52:21 IITMBSC pkexec[146922]: student: Executing command [USER=root] [TTY=unknown] [CWD=/home/student] [COMMAND=/usr/lib/update-notifier/package-system-locked]
 ```
+
 ### Prefix
-```
+
+```bash
 
 ```
 
 ### Solution
+
 ```bash
 egrep "\bsu\b" myauth.log |
     grep -v FAILED |
@@ -478,30 +517,33 @@ awk -F'[ )]' '/\bsu\b/ && $0 !~ /FAILED/ {print $7}'
 ```
 
 ### Suffix
-```
+
+```bash
 
 ```
 
 ### Invisible Code
-```
+
+```bash
 
 ```
 
 ### Test Cases
-```
+
+```text
 
 ```
 
 #### Public
-```
+
+```text
 
 ```
 
 ### Private
-```
+
+```text
 
 ```
 
---- 
-
-    
+---

@@ -60,7 +60,7 @@ address sizes    : 39 bits physical, 48 bits virtual
 power management:
 ```
 
- Select the command that retrieves only the number of cpu cores. The number of cpu cores is given in the text as value to the key "cpu cores". Thus, your output should be "4".
+Select the command that retrieves only the number of cpu cores. The number of cpu cores is given in the text as value to the key "cpu cores". Thus, your output should be "4".
 
 Note: The option -o will print only the matches not the entire line.
 
@@ -163,25 +163,20 @@ sed 's/cpu cores[[:blank:]]*:[[:blank:]]*//'
 
 ## Question 4
 
-Select the sed script to pretty print a regular list  from the file `mylist` in such a way that the first and last line have the brackets, and the elements should be indented by a tab.
+Select the sed script to pretty print a regular list from the file `mylist` in such a way that the first and last line have the brackets, and the elements should be indented by a tab.
 
 Note: The tab and newline characters are specified by \t and \n respectively.
 
 **Sample Input**
 
-```
-[1,2,3,4]
+```json
+[1, 2, 3, 4]
 ```
 
 **Sample Output**
 
-```
-[
-    1,
-    2,
-    3,
-    4
-]
+```json
+[1, 2, 3, 4]
 ```
 
 (a)
@@ -378,7 +373,7 @@ gsub(r, s [, t])  For each substring matching the regular  expres‐
 
 The contents in the file `myfile` are given below
 
-```
+```text
 Ram
 Laila
 Ahmed
@@ -397,7 +392,7 @@ awk '{
 
 (a)
 
-```
+```text
 1:Ram
 2:Laila
 3:Ahmed
@@ -407,7 +402,7 @@ awk '{
 
 (b)
 
-```
+```text
 NR:Ram
 NR:Laila
 NR:Ahmed
@@ -417,7 +412,7 @@ NR:Peter
 
 (c)
 
-```
+```text
 1:
 2:
 3:
@@ -427,7 +422,7 @@ NR:Peter
 
 (d)
 
-```
+```text
 1:&
 2:&
 3:&
@@ -525,7 +520,7 @@ BEGIN {
 
 Select the output to the above AWK script for the file given below. [MSQ]
 
-```
+```csv
 1,2,3
 1.1,2.1,3.1
 -1.1,2.1,3.1
@@ -536,13 +531,13 @@ a,b,2
 
 (a)
 
-```
+```text
 Invalid data
 ```
 
 (b)
 
-```
+```text
 6
 6.3
 4.1
@@ -552,7 +547,7 @@ Invalid data
 
 (c)
 
-```
+```text
 6
 6.3
 4.1
@@ -563,7 +558,7 @@ Invalid data
 
 (d)
 
-```
+```text
 6
 6.3
 4.1

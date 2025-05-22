@@ -28,11 +28,11 @@ fi
 
 ## Section 1 - Problem 2
 
-Sanjay is a professional photographer who capture photos of items for various clients. The photos database has thousands of photos collected each year. The photographs are stored in jpg format using YYYYMMDD_HHMMSS.jpg naming convention. For his backup purpose he wants to organise his data by moving the photos to a new directory created using monthYear (Ex: Jan2021) format (thus 12 directory for each year). Write a shell script which will create folders based on the image name and creates and moves it to the respective month directory.
+Sanjay is a professional photographer who capture photos of items for various clients. The photos database has thousands of photos collected each year. The photographs are stored in jpg format using `YYYYMMDD_HHMMSS.jpg` naming convention. For his backup purpose he wants to organize his data by moving the photos to a new directory created using monthYear (Ex: Jan2021) format (thus 12 directory for each year). Write a shell script which will create folders based on the image name and creates and moves it to the respective month directory.
 
 **Hint:**
 
-```
+```bash
 $ date --help
 Usage: date [OPTION]... [+FORMAT]
   or:  date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
@@ -114,7 +114,7 @@ Show the local time for 9AM next Friday on the west coast of the US
 for picture in $(ls *.jpg)
 do
         dateinfo=${picture%%_*}
-        newdir=`date -d $dateinfo +%b%Y`
+        newdir=$(date -d $dateinfo +%b%Y)
         mkdir -p $newdir
         mv $picture $newdir
 done
@@ -125,7 +125,7 @@ done
 - `for picture in $(ls *.jpg)`: This will loop through all the jpg files in the current directory.
 - `dateinfo=${picture%%_*}`: This will extract the date part from the file name.
   - `${picture%%_*}`: This will remove the part after the first `_` in the file name.
-- `newdir=`date -d $dateinfo +%b%Y``: This will convert the date to the format `MonYYYY`.
+- `newdir=$(date -d $dateinfo +%b%Y)`: This will convert the date to the format `MonYYYY`.
 - `mkdir -p $newdir`: This will create the directory if it does not exist, else not give any error.
 - `mv $picture $newdir`: This will move the picture to the new directory.
 
@@ -138,7 +138,7 @@ Write a bash script which works on output of `ls -li` to produce an output which
 Note: The final output should be sorted by ascending order of inode number.
 
 Hint: Output of the `ls -li` is given in a file sample.txt.
-** `sample.txt` File **
+**`sample.txt` File**
 
 ```bash
    12 -rwxr-xr-x 1 root root 1113504 Apr 18  2022 bash
@@ -195,7 +195,7 @@ Note:
 
 **Sample Input**
 
-```
+```text
 ********************************
 *                              *
 *  xxxxxxxxxxxxxxxxxxxxxxxxxx  *
@@ -208,7 +208,7 @@ Note:
 
 **Sample Output**
 
-```
+```text
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 x                              x
 x  00000000000000000000000000  x
@@ -256,7 +256,7 @@ The question asks us to replace the `x` with `0` and replace the `*` with `x` an
 
 ## Section 2 - Problem 2 (pipe)
 
-A text file usually contains puctuations, upper case letters. Write a shell script/command which will remove punctuations, convert uppercase letters to lower case and finally convert the space character to newline character in that order. Finally use concepts of sort and uniq commands to print top number 5 through 10 most frequent words with its count. The content are in file called `text.txt` in current working directory.
+A text file usually contains punctuations, upper case letters. Write a shell script/command which will remove punctuations, convert uppercase letters to lower case and finally convert the space character to newline character in that order. Finally use concepts of sort and uniq commands to print top number 5 through 10 most frequent words with its count. The content are in file called `text.txt` in current working directory.
 
 Hint:
 

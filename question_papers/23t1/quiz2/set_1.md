@@ -32,8 +32,6 @@ Choose the correct statement with respect to the above script.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 2 (for,grep) [7]
 
 ```bash
@@ -73,11 +71,9 @@ Hint: The option `-q` in grep will not print output only returns the exit status
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 3 (grep) [8]
 
-```
+```bash
 $ xargs --help | head -2
 Usage: xargs [OPTION]... COMMAND [INITIAL-ARGS]...
 Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.
@@ -117,8 +113,6 @@ Select the command(s) to move the files a, b and c to the directory d in the cur
 - (d) `*` is a glob pattern that matches all files in the current directory. The expansion also follows sorted order. It will expand to `a b c d`. This command will move all files in the current directory to the directory `d`.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 **Common data for question 4, 5 ,6 and 7**
 
@@ -229,8 +223,6 @@ What will be the output from the above command represent?
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 5 (bash) [7]
 
 ```bash
@@ -270,8 +262,6 @@ What will be the output from the above command represent?
 - The count is of lines of occurrences, not files or occurrences. (a) is correct and (b), (c), (d) are wrong.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 6 (awk) [6]
 
@@ -329,8 +319,6 @@ grep -ric "print" |
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 7 (sed) [6]
 
 ```bash
@@ -382,8 +370,6 @@ grep -ric "print" |
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 8 (sed) [6]
 
 Choose the command to find _all_ occurrences of `{{DATE}}` in the file `template` and replace with the value of shell variable `DATE` in the file. Note that there may be spaces between `{{` and `DATE` and `DATE` and `}}`. [MSQ]
@@ -410,8 +396,6 @@ Hint: The option `-i` in SED does the in-place replacement.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 9 (sed) [6]
 
 The file 'dates.txt' has a list of dates in MM/DD/YYYY format. Which of the following commands can be used to convert it to YYYY-MM-DD format?
@@ -437,13 +421,11 @@ Hint: SED uses Basic Regular Expression Engine (BRE) by default.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 10 (sed) [6]
 
 In a quoted CSV file, the fields are bound by double quotes. Given below is an example for quoted CSV file.
 
-```
+```csv
 "Nasrin","Guindy, Chennai","12389"
 "Ram Kumar","Daryaganj, Delhi","09890"
 ```
@@ -456,27 +438,27 @@ Assume that the field do not contain tabs or a single comma character. The tab c
 
 (a)
 
-```
+```text
 s/"/\t/g
 ```
 
 (b)
 
-```
+```text
 s/","/\t/g
 s/"//g
 ```
 
 (c)
 
-```
+```text
 s/"//g
 s/","/\t/g
 ```
 
 (d)
 
-```
+```text
 s/,/\t/g
 s/"//g
 ```
@@ -493,8 +475,6 @@ s/"//g
 - (d) replaces all commas with a tab character and then removes all double quotes. This will not work if the field contains a comma.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 11 (awk) [7]
 
@@ -530,8 +510,6 @@ What does the output from the above command represent? [MCQ]
 - Note: The `NR != FNR` is redundant, as the previous block already makes sure that if `NR == FNR` then the line is added to the array. So the second block can be simplified to `!arr[$0] { print $0 }`.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 12 (awk) [8]
 
@@ -570,8 +548,6 @@ The above command prints a line under which condition? [MSQ]
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 13 (awk) [8]
 
 The structure of AWK blocks are provided below
@@ -596,13 +572,11 @@ Which of the statement(s) are true regarding AWK. [MSQ]
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 14 (awk) [7]
 
 Here are the top five lines of access log of a server.
 
-```
+```text
 103.47.219.249 - - [27/Jan/2022:00:01:11 +0530] "GET / HTTP/1.1" 301 429 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7"
 54.209.123.136 - - [27/Jan/2022:00:01:18 +0530] "GET /AlloyOnto/AlloyOnto.owl HTTP/1.1" 301 494 "-" "Python-urllib/3.6"
 54.209.123.136 - - [27/Jan/2022:00:01:18 +0530] "GET /AlloyOnto/AlloyOnto.owl HTTP/1.1" 301 494 "-" "Python-urllib/3.6"
@@ -654,14 +628,12 @@ END {
 
 - The script is checking the time of the request and if it is before 6 am, it is counting the number of requests from each IP address.
 - The script then finds the IP address that made the most requests before 6 am and prints it.
-- The substring takes only the `HH:MM:SS` part of the datetime.
+- The substring takes only the `HH:MM:SS` part of the date-time.
 - The comparison is true only for times before 6 am. This is because string comparison is same as time comparison if using zero-padded 24-hour time format as it stores the data in a monotonically increasing fashion and contains MSB at left and LSB at right. String comparison compares letter by letter from left to right and decides on first mismatch.
 - The `if ( $1 in ip ) { ip[$1]++ } else { ip[$1]=1 }` is redundant, and can be replaced with `ip[$1]++` as the default value of an uninitialized array element is 0 in AWK.
 - The `END` block finds the IP address with the maximum number of requests before 6 am and prints it, not the minimum.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 15 (awk) [6]
 

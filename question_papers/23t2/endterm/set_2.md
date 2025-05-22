@@ -9,27 +9,27 @@ Note: The command line usage is `myproject-auth -u <username> -p <password>`
 (a)
 
 ```bash
-$ myproject-auth -u pankaj -p mysecretpassword
+myproject-auth -u pankaj -p mysecretpassword
 ```
 
 (b)
 
 ```bash
-$ PASSWORD=mysecretpassword
-$ myproject-auth -u pankaj -p $PASSWORD
+PASSWORD=mysecretpassword
+myproject-auth -u pankaj -p $PASSWORD
 ```
 
 (c)
 
 ```bash
-$ read -r PASSWORD
-$ myproject-auth -u pankaj -p $PASSWORD
+read -r PASSWORD
+myproject-auth -u pankaj -p $PASSWORD
 ```
 
 (d)
 
 ```bash
-$ myproject-auth -u pankaj -p $(cat)
+myproject-auth -u pankaj -p $(cat)
 ```
 
 ### Answer
@@ -43,13 +43,11 @@ $ myproject-auth -u pankaj -p $(cat)
 
 However, the password is still visible in both cases while typing, ideally one should use `read -s` to hide the password while typing.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 2 [MCQ] [6]
 
 From `man bash`,
 
-```
+```text
 Process Substitution
     Process  substitution allows a process's input or output to be
     referred to using a filename.  It takes the form of <(list) or
@@ -103,7 +101,6 @@ What does the command `echo <(seq 10)` output represent? [MCQ]
 - `<(command)` will give the path to a temporary FD file.
 - `echo` simply prints what is given to it.
 - (a) would be true if the command was `echo $(seq 10)` or `cat <(seq 10)`.
-<div style="page-break-after: always;"></div>
 
 ## Question 3 [NAT] [7]
 
@@ -115,7 +112,7 @@ tarball_name="$2"
 tar -cvf "$tarball_name.tar" "$directory"
 ```
 
-```
+```bash
 $ tar --help
 Usage: tar [OPTION...] [FILE]...
 GNU 'tar' saves many files together into a single tape or disk archive, and can
@@ -155,8 +152,6 @@ How many new files will be created from the above command for the valid director
 The code creates a tarball of the directory and saves it as `tarball_name.tar`.
 Only one file (the tarball) is created which contains all the files from the directory.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 4 [MCQ] [8]
 
 A file contains data collected starting from 4th April 2004. The data is collected on the 4th, 14th and 24th of April, May and June since then. The text file, however, does not contain the date information. Now it is necessary to add a column to this text file with the date format 4 April 2004. Identify which of the following command (using brace expansion) will create a column to an empty file with the desired format from 4 April, 2004 to 24 December, 2010 in sorted as per the years. [MCQ]
@@ -178,44 +173,44 @@ $ echo 10 20| tr ' ' '\n'
 
 (a)
 
-```
+```bash
 echo {April,May,June}";"{4..30..10}","{2004..2010}|
-		tr ' ' '\n'|
-		tr ',' ' '|
-		sort -s -k2|
-		tr ' ' ','|
-		tr ';' ' ' >date.txt
+  tr ' ' '\n'|
+  tr ',' ' '|
+  sort -s -k2|
+  tr ' ' ','|
+  tr ';' ' ' >date.txt
 ```
 
 (b)
 
-```
+```bash
 echo {April,May,June}","{4..30..10}","{2004..2010}|
-		tr ' ' '\n'|
-		tr ',' ' '|
-		sort -s -k3|
-		tr ' ' ',' >date.txt
+  tr ' ' '\n'|
+  tr ',' ' '|
+  sort -s -k3|
+  tr ' ' ',' >date.txt
 ```
 
 (c)
 
-```
+```bash
 echo {April,May,June}" "{4..30..10}","{2004..2010}|
-		tr ' ' '\n'|
-		tr ',' ' '|
-		sort -s -k2|
-		tr ' ' ',' >date.txt
+  tr ' ' '\n'|
+  tr ',' ' '|
+  sort -s -k2|
+  tr ' ' ',' >date.txt
 ```
 
 (d)
 
-```
+```bash
 echo {April,May,June}{4..30..10}","{2004..2010}|
-		tr ' ' '\n'|
-		tr ',' ' '|
-		sort -s -k2|
-		tr ' ' ','|
-		tr ';' ' ' >date.txt
+  tr ' ' '\n'|
+  tr ',' ' '|
+  sort -s -k2|
+  tr ' ' ','|
+  tr ';' ' ' >date.txt
 ```
 
 ### Answer
@@ -226,8 +221,6 @@ echo {April,May,June}{4..30..10}","{2004..2010}|
 
 - (b) has comma instead of space after month name. (d) has no space between month and date.
 - (c) starts with space after month name, so the `tr` will split one date in two lines.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 5 [MCQ] [6]
 
@@ -244,8 +237,6 @@ Which one of the following commands replaces only the second occurrence of patte
 ### Answer
 
 (a)
-
-<div style="page-break-after: always;"></div>
 
 ## Question 6 [MSQ] [6]
 
@@ -295,7 +286,7 @@ echo: echo [-neE] [arg ...]
 
 Echo examples:
 
-```
+```bash
 $echo "a\tb" #tab is eight character long
 a       b
 $echo -e "ii\bjj"
@@ -326,8 +317,6 @@ b
 - `\v` moves cursor directly one line below without going to the start of line.
 - `\t` is 8 characters wide, `\b\b` will move the cursor back 2 characters. So the line2 and line4 will start at 6th character, which is directly below previous lines' end.
 - We can either use `-n` with `\n` manually, or omit the `-n`.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 7 [MSQ] [6]
 
@@ -375,20 +364,18 @@ Assume a Basic Regular Expression Engine (BRE)
 
 Lowercase is not allowed, only uppercase characters `[A-Z]` or `[[:upper:]]` should be used.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 8 [MSQ] [7]
 
 Which of the following commands from the options will count the number of words starting with the letter 'c' from the following text? [MSQ]
 
 Hint:
-**Relevent `grep` help text**
+**Relevant `grep` help text**
 
 Usage: grep [OPTION]... PATTERN [FILE]...
 Search for PATTERN in each FILE.
 Example: grep -i 'hello world' menu.h main.c
 
-```
+```text
 ...
     -w, --word-regexp force PATTERN to match only whole words
 ...
@@ -423,8 +410,6 @@ $ wc -l tongue_twisters.txt
 - (c) uses `awk` to count the number of words starting with 'c'.
 - (d) will not work as `/p` will print the entire line when substitution is successful, and `wc -w` will count the number of words in the entire line.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 9 [MCQ] [7]
 
 The tab-separated data file `pdata.txt` provided for cleanup showed every fourth and fifth line is a part of one line (first merge is the first and the second line) (see the following examples in the hint). Choose the correct commands from the following options, which can be used to merge every fourth and fifth (1-2, 5-6, 9-10, 13-14, etc...) line into one line to clean up the data file. [MCQ]
@@ -433,7 +418,7 @@ Hint:
 
 Use the following information.
 
-```
+```bash
 $ cat pdata.txt
 Line1
 Line2
@@ -489,20 +474,18 @@ Line15
 - If we substitute only the first newline with a tab, we will merge the first and second line, whereas third and fourth will be unchanged, and will not be read in the next cycle as well, preserving the required pattern.
 - The file is a TSV, so we should merge lines with tab, and not space.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 10 [MSQ] [6]
 
 The following text shows a set of questions and their answers. Identify which question-answer pair among the following needs to be corrected. Use the "None of the above" option if all statements are correct.
 
-1. What is the purpose of the "kill" command in Linux?
-   - Answer: The "kill" command in Linux sends signals to processes. It can terminate a process, send specific signals for process control, or even request a process to reload its configuration.
+1. What is the purpose of the `kill` command in Linux?
+   - Answer: The `kill` command in Linux sends signals to processes. It can terminate a process, send specific signals for process control, or even request a process to reload its configuration.
 2. What is the significance of the process ID (PID) in Linux?
    - Answer: The process ID (PID) is a unique identifier assigned to each running process in Linux. It tracks and manages processes, allowing the operating system to interact with and control individual processes.
 3. How can you check the resource utilization of a specific process in Linux?
-   - Answer: You can check the resource utilization of a specific process in Linux using the "top" command. The "top" command provides real-time information about system processes, including CPU usage, memory consumption, and other resource statistics.
+   - Answer: You can check the resource utilization of a specific process in Linux using the `top` command. The `top` command provides real-time information about system processes, including CPU usage, memory consumption, and other resource statistics.
 4. How can you monitor the system performance and resource usage of all processes in Linux?
-   - Answer: You can monitor the system performance and resource usage of all processes in Linux using tools like "top", "htop", or "ps aux". These commands provide detailed information about CPU usage, memory consumption, and other system metrics for all running processes.
+   - Answer: You can monitor the system performance and resource usage of all processes in Linux using tools like `top`, `htop`, or `ps aux`. These commands provide detailed information about CPU usage, memory consumption, and other system metrics for all running processes.
 
 (a) 1
 
@@ -517,8 +500,6 @@ The following text shows a set of questions and their answers. Identify which qu
 ### Answer
 
 (e)
-
-<div style="page-break-after: always;"></div>
 
 ## Question 11 [MSQ] [7]
 
@@ -559,8 +540,6 @@ done
 - (c) is incorrect as the script prints the words in reverse order, not the sentences. To iterate over lines we would need to set `IFS=$'\n'` or `IFS='.'` for sentences.
 - (d) is correct as the script reads the words from the file and prints them in reverse order.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 12 [NAT] [7]
 
 **Common data for questions 11 and 12**
@@ -593,8 +572,6 @@ What is the output of the **first loop** at the end of the execution of the give
 
 - The first loop calls the function `prn_num` three times in foreground (synchronously), so their outputs are printed one after another.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 13 [NAT] [7]
 
 What is the output of the **second loop** after the execution of the given script? [NAT]
@@ -606,8 +583,6 @@ What is the output of the **second loop** after the execution of the given scrip
 ### Explanation
 
 - The second loop calls the function `prn_num` two times in the background (asynchronously), so their outputs are interleaved.
-
-<div style="page-break-after: always;"></div>
 
 ## Question 14 [MCQ] [8]
 
@@ -622,16 +597,16 @@ Note: Only the month should be changed
 declare -A month_to_number
 
 month_to_number=(
-	["Jan"]=1 ["Feb"]=2 ["Mar"]=3 ["Apr"]=4
-	["May"]=5 ["Jun"]=6 ["Jul"]=7 ["Aug"]=8
-	["Sep"]=9 ["Oct"]=10 ["Nov"]=11 ["Dec"]=12
+ ["Jan"]=1 ["Feb"]=2 ["Mar"]=3 ["Apr"]=4
+ ["May"]=5 ["Jun"]=6 ["Jul"]=7 ["Aug"]=8
+ ["Sep"]=9 ["Oct"]=10 ["Nov"]=11 ["Dec"]=12
 ) # ([key]=value)
 
 read -r line
 for m in "${!month_to_number[@]}"; do
-	# get from stdin
-	[[ "$line" =~ $m ]] || continue
-	echo "$line" | sed "s/$m/${month_to_number[$m]}/" # replacement this line
+ # get from stdin
+ [[ "$line" =~ $m ]] || continue
+ echo "$line" | sed "s/$m/${month_to_number[$m]}/" # replacement this line
 done
 ```
 
@@ -656,11 +631,9 @@ done
 
 Note: If a line has multiple dates of same month, then (c) works well, but if it is different months, then none of the options will correctly replace all the months of a line at one time, they will output multiple lines for each line, each line substituting one of the months.
 
-<div style="page-break-after: always;"></div>
-
 ## Question 15 [MCQ] [6]
 
-Following entry is made to a crontab to run a script that will perform the backup. When is the script `/home/Garima/PC_management.sh`  scheduled to get executed? [MCQ]
+Following entry is made to a crontab to run a script that will perform the backup. When is the script `/home/Garima/PC_management.sh` scheduled to get executed? [MCQ]
 
 ```bash
 
@@ -670,10 +643,10 @@ Following entry is made to a crontab to run a script that will perform the backu
 
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
 
-```
+```text
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
-|   |   |   |   |      Command or Script to Execute        
+|   |   |   |   |      Command or Script to Execute
 |   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
@@ -681,9 +654,9 @@ Following entry is made to a crontab to run a script that will perform the backu
 |   |   |   |
 |   |   | Month of the Year(1-12)
 |   |   |
-|   | Day of the Month(1-31)  
+|   | Day of the Month(1-31)
 |   |
-| Hour(0-23)  
+| Hour(0-23)
 |
 Min(0-59)
 ```
@@ -699,5 +672,3 @@ Min(0-59)
 ### Answer
 
 (a)
-
-<div style="page-break-after: always;"></div>

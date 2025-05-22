@@ -13,14 +13,14 @@ grep -xF -f <(sort file1.txt) file2.txt | sort | uniq
 -F treats the patterns as fixed strings.
 -f reads the patterns from the specified file (output of sort file1.txt).
 
-```
-$ seq 5
+```bash
+> seq 5
 1
 2
 3
 4
 5
-$ grep '[23]' <(seq 5) # the command output stored in temporary file, and that file path is substituted in place of <seq 5)
+> grep '[23]' <(seq 5) # the command output stored in temporary file, and that file path is substituted in place of <seq 5)
 2
 3
 ```
@@ -58,7 +58,7 @@ cat date.txt |sort |tail -1
 **Sample Input**
 
 ```bash
-$ cat date.txt
+> cat date.txt
 Jun 24,2009
 April 4,2010
 April 14,2009
@@ -114,7 +114,7 @@ Select the **regular expression** (ERE) that matches the date before 2022-01-01 
 
 **Sample Input**
 
-```
+```csv
 Company,Date,Amount
 CompanyA,2020-04-29,31211.18
 CompanyA,2021-09-20,2366.91
@@ -129,32 +129,32 @@ CompanyA,2020-08-22,30383.23
 
 **Sample Output**
 
-```
+```csv
 CompanyA,2021-09-20,2366.91
 CompanyA,2021-10-23,3491.17
 ```
 
 (a)
 
-```
+```text
 .*,20([01][0-9]|2[01])-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]),[1-9][0-9]{,3}\.[0-9]{2}
 ```
 
 (b)
 
-```
+```text
 .*,20[0-2][0-1]-[01][0-9]-[0-3][0-9],[0-9]{,4}\.[0-9]{2}
 ```
 
 (c)
 
-```
+```text
 .*,20[00-21]-[01-12]-[01-31],[1-9999]\.[0-9]{2}
 ```
 
 (d)
 
-```
+```text
 .*,20([01][0-9]|2[01])-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]),[0-9]{1,4}\.[0-9]{2}
 ```
 
@@ -180,7 +180,7 @@ Which commands can be used to select the package name and its version as shown i
 
 **Sample log file**
 
-```bash
+```text
 2023-12-09 status installed nginx-common:all 1.18.0-6ubuntu14.4
 2023-12-09 configure libnginx-mod-http-xslt-filter:amd64 1.18.0-6ubuntu14.4 <none>
 2023-12-09 status unpacked libnginx-mod-http-xslt-filter:amd64 1.18.0-6ubuntu14.4
@@ -189,7 +189,7 @@ Which commands can be used to select the package name and its version as shown i
 
 **Desired output**
 
-```
+```text
 nginx-common:all
 libnginx-mod-http-xslt-filter:amd64
 libnginx-mod-http-xslt-filter:amd64
@@ -241,7 +241,7 @@ libnginx-mod-http-xslt-filter:amd64
 - `:` matches the colon.
 - `[[:alnum:]]+` matches one or more alphanumeric characters.
 - `grep -o` prints only the matched part of the line.
-- Grouping makes no difference since we are not using the backreference.
+- Grouping makes no difference since we are not using the back reference.
 - `*` can match zero or more times, so it can match empty strings, which is not required.
 
 ---
@@ -252,7 +252,7 @@ Anish wanted to extract phone numbers from the following data. He knows that **g
 
 **Sample Input**
 
-```
+```csv
 name,phone,email,region
 Madan,1-158-662-4996,madan-raja@outlook.ca,GA
 Persaud,1-877-704-5869,persaud@google.edu,Meghalaya
@@ -267,7 +267,7 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 
 **Sample Output**
 
-```
+```text
 1-158-662-4996
 1-877-704-5869
 1-516-922-8416
@@ -314,8 +314,8 @@ Hint:
 - `-type f` option searches only for the files.
 - `-name x*` option searches for the filename with the pattern with wildcard characters (not regex)
 
-```
-$ xargs --help
+```bash
+> xargs --help
 Usage: xargs [OPTION]... COMMAND [INITIAL-ARGS]...
 Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.
 
@@ -341,7 +341,7 @@ mandatory or optional for the corresponding short option.
                                  command line
 ...
 
-$ head --help
+> head --help
 Usage: head [OPTION]... [FILE]...
 Print the first 10 lines of each FILE to standard output.
 With more than one FILE, precede each with a header giving the file name.
@@ -405,7 +405,7 @@ $ seq 10 | sed '1d;2d'
 
 (a)
 
-```
+```text
 3
 4
 5
@@ -418,7 +418,7 @@ $ seq 10 | sed '1d;2d'
 
 (b)
 
-```
+```text
 1
 4
 5
@@ -431,7 +431,7 @@ $ seq 10 | sed '1d;2d'
 
 (c)
 
-```
+```text
 2
 4
 5
@@ -444,7 +444,7 @@ $ seq 10 | sed '1d;2d'
 
 (d)
 
-```
+```text
 2
 3
 4
@@ -480,7 +480,7 @@ Note:
 
 **Sample Input**
 
-```
+```csv
 fruit1,apple
 fruit2,banana
 fruit3,orange
@@ -488,11 +488,11 @@ fruit3,orange
 
 **Sample Output**
 
-```
+```json
 {
-"fruit1":"apple",
-"fruit2":"banana",
-"fruit3":"orange"
+  "fruit1": "apple",
+  "fruit2": "banana",
+  "fruit3": "orange"
 }
 ```
 
@@ -567,8 +567,8 @@ The sample input data is provided as follows. The actual file is very long. Vini
 
 **Sample Input**
 
-```
-$ cat salarydata.txt
+```bash
+> cat salarydata.txt
 ID      Name        Department  Salary
 101     Alice       HR          55000
 102     Bob         Sales       60000
@@ -753,7 +753,7 @@ $ diff file1.txt file2.txt
 
 **Text**
 
-```
+```text
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Donec a diam lectus.
 Sed sit amet ipsum mauris.
@@ -766,7 +766,7 @@ The equivalent key sequence in emacs is `C-SPACE C-n C-w C-y`, where `C-SPACE` i
 
 (a)
 
-```
+```text
 Donec a diam lectus.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Sed sit amet ipsum mauris.
@@ -776,7 +776,7 @@ Donec et mollis dolor.
 
 (b)
 
-```
+```text
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Donec a diam lectus.
 Sed sit amet ipsum mauris.
@@ -786,7 +786,7 @@ Donec et mollis dolor.
 
 (c)
 
-```
+```text
 ipsum Lorem dolor sit amet, consectetur adipiscing elit.
 Donec a diam lectus.
 Sed sit amet ipsum mauris.
@@ -796,7 +796,7 @@ Donec et mollis dolor.
 
 (d)
 
-```
+```text
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Donec a diam lectus.

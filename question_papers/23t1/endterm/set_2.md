@@ -1,8 +1,8 @@
 # System Commands Jan 2023 End Term Set-2
 
-### Total Questions: 15 Max Marks: 100
+## Total Questions: 15 Max Marks: 100
 
-#### Marks for each question are given in square brackets
+Marks for each question are given in square brackets
 
 ## Question 1 (echo) [MCQ] [6]
 
@@ -38,31 +38,31 @@ echo -ne " \te\tf\n"
 
 (a)
 
-```
-a	b
-	c
- 	d
- 	e	f
+```text
+a b
+ c
+  d
+  e f
 ```
 
 (b)
 
-```
-a	b 	c 	d 	e	f
+```text
+a b  c  d  e f
 ```
 
 (c)
 
-```
-a	b
+```text
+a b
 c
 d
-e	f
+e f
 ```
 
 (d)
 
-```
+```text
 a\tb
  \tc
  \td
@@ -79,8 +79,6 @@ a\tb
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 2 (cron) [MCQ] [6]
 
 Following entry is made to a crontab. When is the script `/home/garima/premodel.sh` scheduled to get executed. [MCQ]
@@ -91,7 +89,7 @@ Following entry is made to a crontab. When is the script `/home/garima/premodel.
 
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
 
-```
+```text
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
 |   |   |   |   |      Command or Script to Execute
@@ -123,11 +121,9 @@ Min(0-59)
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 3 (shell variable) (Comprehension) [MCQ] [7]
 
-```
+```bash
 $ xargs --help
 Usage: xargs [OPTION]... COMMAND [INITIAL-ARGS]...
 Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.
@@ -291,8 +287,6 @@ cdlmf() {
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 4 (shell variable) [MCQ] [6]
 
 Which of the following command prints all the values present in a bash associative array.
@@ -310,8 +304,6 @@ Which of the following command prints all the values present in a bash associati
 (d)
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 5 (for) [MSQ] [8]
 
@@ -365,8 +357,6 @@ done
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 6 (while) [MCQ] [7]
 
 ```bash
@@ -404,8 +394,6 @@ Select a scenario from the following options such that upon execution of the abo
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 7 (grep) [MSQ] [6]
 
 Which all grep commands from the following option produces count of the paragraphs (i.e. total number of paragraphs) present in a text file `book.txt`.
@@ -415,7 +403,7 @@ Assume that a paragraph always ends with a full stop (.)
 
 (b) `grep '.' book.txt | wc -l`
 
-(c) `grep '.*\.$' book.txt | wc -l `
+(c) `grep '.*\.$' book.txt | wc -l`
 
 (d) `grep '\.$' book.txt | wc -l`
 
@@ -431,17 +419,15 @@ Assume that a paragraph always ends with a full stop (.)
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 8 (regex) [MSQ] [8]
 
 For the given regular expression (regex) identify the correct statement(s) from the following options. Note that the Extended Regular Expression (ERE) is used.
 
 **Hint:**
 The group number starts from the outer to inner and left to right respectively.
-**Note:** a word, phrase, or sequence that reads the same backwords as forwards e.g. Noon, Anna
+**Note:** a word, phrase, or sequence that reads the same backwards as forwards e.g. Noon, Anna
 
-```
+```text
 ^((.)|(.)\3|(.).\4)$
 ```
 
@@ -468,27 +454,25 @@ The group number starts from the outer to inner and left to right respectively.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 9 (shell command) (Comprehension) [MSQ] [8]
 
-A student named Meena wrote a shell script `exoc.sh` such that everytime `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps.
+A student named Meena wrote a shell script `exoc.sh` such that every time `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps.
 
-**Script: exoc.sh**
+**Script: `exoc.sh`**
 
-```
+```bash
 #!/usr/bin/bash
 
 while true; do
-	lmt=$(stat -c %W "$1")
-	if [[ "$lmt" -lt "$plmt" ]]; then
-		clear
-		echo "[$(date +"%H:%M:%S") STARTED]"
-		python3 "$2"
-		echo "[$(date +"%H:%M:%S") ENDED]"
-	fi
-	plmt="$lmt"
-	sleep 1
+ lmt=$(stat -c %W "$1")
+ if [[ "$lmt" -lt "$plmt" ]]; then
+  clear
+  echo "[$(date +"%H:%M:%S") STARTED]"
+  python3 "$2"
+  echo "[$(date +"%H:%M:%S") ENDED]"
+ fi
+ plmt="$lmt"
+ sleep 1
 done
 ```
 
@@ -506,7 +490,7 @@ $ ./exoc.sh main.py
 
 Hints
 
-```
+```bash
 $ stat --help
 Usage: stat [OPTION]... FILE...
 Display file or file system status.
@@ -614,15 +598,13 @@ for details about the options it supports.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 10 (sed) [MSQ] [6]
 
 Which of the following command(s) will print only the lines 4 to 6 (ends-inclusive) and 10 to 15 (ends-inclusive) lines of a text file `test.txt`?
 
 Hint:
 
-```
+```bash
 $ sed --help
 Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 
@@ -653,8 +635,6 @@ Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 - `sed -n '4,6p; 10,15p' test.txt` will print lines 4 to 6 and 10 to 15. `-n` suppresses the automatic printing of the pattern space, so we have to explicitly print the lines we want.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 11 (sed) [MCQ] [6]
 
@@ -720,27 +700,27 @@ Rana,15283857783,rana4716@yahoo.org,AN
 
 (a)
 
-```
+```text
 s/\([0-9]\)-\([0-9]\{3\}\)-\([0-9]\{3\}\)-\([0-9]\{4\}\)/\1\2\3\4/
 s/\([0-9]\{3\}\)-\([0-9]\{4\}\)/\2\1/
 ```
 
 (b)
 
-```
+```text
 s/-//g
 ```
 
 (c)
 
-```
+```text
 s/\([[:digit:]]\)-\([[:digit:]]\{3\}\)-\([[:digit:]]\{3\}\)-\([[:digit:]]\{4\}\)/\1\2\3\4/
 s/\([[:digit:]]\{3\}\)-\([[:digit:]]\{4\}\)/\1/2/
 ```
 
 (d)
 
-```
+```text
 s/\([[:digit:]]\)-\([[:digit:]]\)/\1\2/g
 ```
 
@@ -756,8 +736,6 @@ s/\([[:digit:]]\)-\([[:digit:]]\)/\1\2/g
 - (d) Will remove hyphens from the phone numbers only. This is a generic pattern matching any two digits separated by a hyphen. This can also remove hyphen from email ids if the email id has two digits separated by a hyphen, however that is not present in the given input.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 13 (AWK) [MCQ] [8]
 
@@ -799,8 +777,6 @@ END {
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 14 (AWK) [MSQ] [6]
 
 **Content file.csv**
@@ -826,7 +802,7 @@ Rana:1-528-385-7783:rana4716@yahoo.org
 
 Hint:
 
-```
+```bash
 $ man awk | cat
 ...
 FS   The input field separator,  a  space  by  default.
@@ -858,13 +834,11 @@ ORS  The output record separator, by default a newline.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 15 (AWK) [MCQ] [6]
 
 In a working directory number of text files are present with varying sizes (varying number of lines). For the following AWK script executed in the working directory, what is true for the output from the following options?
 
-```
+```awk
 #!/usr/bin/awk -f
 
 n < FNR {
@@ -878,7 +852,7 @@ END {
 
 Hint:
 
-```
+```bash
 $ man awk | cat
 ...
 FILENAME The  name  of the current input file.  If no files

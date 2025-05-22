@@ -1,8 +1,8 @@
 # System Commands Jan 2023 End Term Set-1
 
-### Total Questions: 15 Max Marks: 100
+## Total Questions: 15 Max Marks: 100
 
-#### Marks for each question are given in square brackets
+Marks for each question are given in square brackets
 
 ## Question 1 (echo) [MCQ] [6]
 
@@ -38,31 +38,31 @@ echo -ne " \te\tf"
 
 (a)
 
-```
-a	b
-	c
- 	d
- 	e	f
+```text
+a b
+ c
+  d
+  e f
 ```
 
 (b)
 
-```
-a	b 	c 	d 	e	f
+```text
+a b  c  d  e f
 ```
 
 (c)
 
-```
-a	b
+```text
+a b
 c
 d
-e	f
+e f
 ```
 
 (d)
 
-```
+```text
 a\tb
  \tc
  \td
@@ -79,8 +79,6 @@ a\tb
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 2 (cron) [MCQ] [6]
 
 Following entry is made to a crontab. When is the script `/home/garima/premodel.sh` scheduled to get executed. [MCQ]
@@ -91,7 +89,7 @@ Following entry is made to a crontab. When is the script `/home/garima/premodel.
 
 **Hint**: Below is the description of the sequence in the cron job command. It tells at what date/time periodically the job needs to be executed.
 
-```
+```text
 *   *   *   *   *   <Command(s) with argument>
 |   |   |   |   |              |
 |   |   |   |   |      Command or Script to Execute
@@ -123,11 +121,9 @@ Min(0-59)
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 3 (shell variable) (Comprehension) [MCQ] [7]
 
-```
+```bash
 $ xargs --help
 Usage: xargs [OPTION]... COMMAND [INITIAL-ARGS]...
 Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.
@@ -289,8 +285,6 @@ cdlmd() {
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 4 (shell variables) [MCQ] [6]
 
 Which of the following command prints all the keys present in an bash associative array.
@@ -308,8 +302,6 @@ Which of the following command prints all the keys present in an bash associativ
 (c)
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 5 (for) [MSQ] [8]
 
@@ -362,8 +354,6 @@ done
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 6 (while) [MCQ] [7]
 
 ```bash
@@ -399,8 +389,6 @@ Select a scenario before the execution of the script from the following options 
 - `file1` and `file2` will be identical if all lines in `file1` match the regex.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 7 (grep) [MSQ] [6]
 
@@ -446,17 +434,15 @@ Here `tee` writes to `/dev/tty` which is the terminal as well as to standard out
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 8 (regex) [MSQ] [8]
 
 For the given regular expression (regex) identify the correct statement(s) from the following options. Note that the Extended Regular Expression (ERE) is used.
 
 Hint:
 The group number starts from the outer to inner and left to right respectively.
-Note: a word, phrase, or sequence that reads the same backwords as forwards e.g. Noon, Anna
+Note: a word, phrase, or sequence that reads the same backwards as forwards e.g. Noon, Anna
 
-```
+```text
 ^((.)\2|(.).\3|(.)(.)\5\4)$
 ```
 
@@ -480,27 +466,25 @@ Note: a word, phrase, or sequence that reads the same backwords as forwards e.g.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 9 (shell command) (Comprehension) [MSQ] [8]
 
 A student named Meena wrote a shell script `exoc.sh` such that every time `main.py` is changed (change in modification time) the shell script is executed on python script file. Apparently, her code had some issues. Identify all the flaws from the following options to facilitate debugging the script and the execution steps.
 
-**Script: exoc.sh**
+**Script: `exoc.sh`**
 
-```
+```python
 #!/usr/bin/python3
 
 while true; do
-	lmt=$(stat -c %Y "$1")
-	if [[ "$lmt" == "$plmt" ]]; then
-		clear
-		echo "[$(date +"%H:%M:%S") STARTED]"
-		python3 "$1"
-		echo "[$(date +"%H:%M:%S") ENDED]"
-	fi
-	plmt="$lmt"
-	sleep 1
+ lmt=$(stat -c %Y "$1")
+ if [[ "$lmt" == "$plmt" ]]; then
+  clear
+  echo "[$(date +"%H:%M:%S") STARTED]"
+  python3 "$1"
+  echo "[$(date +"%H:%M:%S") ENDED]"
+ fi
+ plmt="$lmt"
+ sleep 1
 done
 ```
 
@@ -518,7 +502,7 @@ $ echo main.py | ./exoc.sh
 
 Hints
 
-```
+```bash
 $ stat --help
 Usage: stat [OPTION]... FILE...
 Display file or file system status.
@@ -626,8 +610,6 @@ for details about the options it supports.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 10 (sed) [MCQ] [6]
 
 What will be the outcome of the command `sed -i '/./,$!d' file.txt`?
@@ -653,8 +635,6 @@ What will be the outcome of the command `sed -i '/./,$!d' file.txt`?
 - So, it deletes all empty lines before the first non-empty line.
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Question 11 (sed) [MSQ] [6]
 
@@ -702,8 +682,6 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 12 (sed) [MSQ] [6]
 
 Which of the following SED command(s) would print lines with Alice or Rabbit from `alice.txt` file.
@@ -733,9 +711,7 @@ Hint:
 
 ---
 
-<div style="page-break-after: always;"></div>
-
-## Question 13 (AWK)[MCQ] [8]
+## Question 13 [AWK](MCQ) [8]
 
 What will be the output of the following command?
 
@@ -754,7 +730,7 @@ END {
 
 Hint:
 
-```
+```bash
 $ tr --help
 Usage: tr [OPTION]... SET1 [SET2]
 Translate, squeeze, and/or delete characters from standard input,
@@ -764,9 +740,9 @@ writing to standard output.
 $ awk --help
 Usage: awk [POSIX or GNU style options] -f progfile [--] file ...
 Usage: awk [POSIX or GNU style options] [--] 'program' file ...
-POSIX options:		GNU long options: (standard)
-	-f progfile		--file=progfile
-	-F fs			--field-separator=fs
+POSIX options:  GNU long options: (standard)
+ -f progfile  --file=progfile
+ -F fs   --field-separator=fs
 ...
 
 $ man awk | cat
@@ -802,8 +778,6 @@ length([s]) Return  the length of the string s, or
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 14 (AWK) [MCQ] [6]
 
 **file.csv**
@@ -829,7 +803,7 @@ Rana
 
 Hint:
 
-```
+```bash
 $ man awk | cat
 ...
 FS   The input field separator,  a  space  by  default.
@@ -862,8 +836,6 @@ ORS  The output record separator, by default a newline.
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Question 15 (AWK) [MCQ] [6]
 
 In a working directory number of text files are present with varying sizes (varying number of lines). For the following AWK script executed in the working directory, what is true for the output from the following options?
@@ -882,7 +854,7 @@ END {
 
 Hint:
 
-```
+```bash
 $ man awk | cat
 ...
 FILENAME The  name  of the current input file.  If no files

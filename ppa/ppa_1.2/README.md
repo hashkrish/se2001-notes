@@ -14,7 +14,7 @@ Your script `filetypes.sh` will not be provided any input as arguments or standa
 
 Assume the current working directory contains the following files and directories:
 
-```
+```text
 file.txt
 Notes/
 SysComm -> ../SysComm Dropbox
@@ -26,7 +26,7 @@ System Commands Sample Questions.pdf
 
 The output of your script should be as follows:
 
-```
+```text
 file.txt:                             empty
 Notes:                                directory
 SysComm:                              symbolic link to ../SysComm Dropbox

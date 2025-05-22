@@ -1,3 +1,5 @@
+# System Commands January 2023 OPPE-2 Set-1
+
 ## Problem 1 (sed)
 
 Write a SED script to add a new column in the beginning with entry "S1" or "S2". "S1" occurs periodically every 3rd line starting from first line, while rest is "S2"
@@ -45,8 +47,6 @@ S2,Sreni,Bangaluru,Sales,20
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 2 (sed)
 
 Write a bash script to add serial number as first column to the CSV file `data.csv` and do a in-place replacement (overwrite) the file `data.csv`. The serial number starts with 1 on the first line.
@@ -58,8 +58,6 @@ sed -i '=' data.csv ; sed -i 'N; s/\n/,/' data.csv
 ```
 
 ---
-
-<div style="page-break-after: always;"></div>
 
 ## Problem 3 (sed)
 
@@ -75,8 +73,6 @@ s/[[:digit:]]\{6\}\([[:digit:]]\{4\}\)/******\1/
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 4 (AWK)
 
 A folder contains multiple CSV files. Write an AWK script to concatenate these files into one while removing headers(first line) from each CSV file while keeping header from first file intact.
@@ -91,17 +87,15 @@ NR==1 || (FNR>1)
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 5 (AWK)
 
-A certain data is obtained from a simulation and is saved to a file. The data is a CSV file having three columns, for _time_, _energy1_ and _energy2_ respectively. The first line contains the header information.
+A certain data is obtained from a simulation and is saved to a file. The data is a CSV file having three columns, for `time`, `energy1` and `energy2` respectively. The first line contains the header information.
 
-Write an AWK script to print a new column _totalenergy_ with the sum of _energy1_ and _energy2_.
+Write an AWK script to print a new column `totalenergy` with the sum of `energy1` and `energy2`.
 
 **Sample Input**
 
-```
+```csv
 time,energy1,energy2
 0,1001,-1500
 10,1005,-1650
@@ -110,7 +104,7 @@ time,energy1,energy2
 
 **Sample Output**
 
-```
+```csv
 time,energy1,energy2,totalenergy
 0,1001,-1500,-499
 10,1005,-1650,-645
@@ -138,11 +132,9 @@ NR > 1 {
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 6 (AWK)
 
-Write an AWK script to print average and sample standard of deviation of the energy values for _energy1_, _energy2_ and _total energy_ respectively in the format `mean+/-SD` provided in the sample output.
+Write an AWK script to print average and sample standard of deviation of the energy values for `energy1`, `energy2` and `total energy` respectively in the format `mean+/-SD` provided in the sample output.
 
 Hint: The sample standard of deviation formula is,
 $$ s = \sqrt{\frac{1}{N-1} \sum\_{i=1}^N (x_i - \overline{x})^2} $$
@@ -150,7 +142,7 @@ Where, N is the total number of data points, $x_i$ is the $i^{th}$ data point an
 
 **Sample Input**
 
-```
+```csv
 time,energy1,energy2,totalenergy
 0,1001,-1500,-499
 10,1005,-1650,-6=45
@@ -159,7 +151,7 @@ time,energy1,energy2,totalenergy
 
 **Sample Output**
 
-```
+```csv
 1004.33+/-3.05505,-1628+/-118.541,-623.667+/-115.487
 ```
 
@@ -198,8 +190,6 @@ END{
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 7 (bash)
 
 Write a bash script to extract and print the content of the file `myfile` that is present somewhere in the file hierarchy of compressed tar file `data.tar.gz`
@@ -215,8 +205,6 @@ find out.d -name 'myfile' -exec cat {} \;
 
 ---
 
-<div style="page-break-after: always;"></div>
-
 ## Problem 8 (bash)
 
 Write a bash script to find the file that is located in the maximum depth in the directory `./data` and print its content.
@@ -225,7 +213,7 @@ Assume there is at least on file in the directory `./data` and only file is loca
 
 **Sample Input Structure**
 
-```
+```bash
 $ tree -F
 ./
 └── data/
@@ -249,7 +237,7 @@ This is h
 
 **Sample Output**
 
-```
+```text
 This is h
 ```
 
