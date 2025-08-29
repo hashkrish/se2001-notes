@@ -127,6 +127,7 @@ Which of the following `awk` commands will display the contents of `data.txt` wi
 length([s])
     Return the length of the string s, or the length of $0 if s is not supplied. As a non-standard extension, with an array argument, length() returns the number of elements in the array.
 `
+
 (a)
 
 ```bash
@@ -180,28 +181,24 @@ What will be the output of the script?
 
 ```text
 2 4 6 8 10 12
-
 ```
 
 (b)
 
 ```text
 2 6 8 10 12
-
 ```
 
 (c)
 
 ```text
 2 4 6 8 12
-
 ```
 
 (d)
 
 ```text
 2 6 8 10 
-
 ```
 
 ### Answer
@@ -230,6 +227,7 @@ $ echo "End of the script" >> output.log
 ```
 
 What will be the contents of the output.log file at the end of execution?
+
 Options:
 
 (a)
@@ -237,7 +235,6 @@ Options:
 ```text
 Start of the script
 End of the script
-
 ```
 
 (b)
@@ -246,21 +243,18 @@ End of the script
 Start of the script
 cat: itemC: No such file or directory
 End of the script
-
 ```
 
 (c)
 
 ```text
-
 Start of the script
 ```
 
 (d)
 
 ```text
-The output. log will be empty
-
+The output.log will be empty
 ```
 
 ### Answer
@@ -278,10 +272,11 @@ Using `>` the output of echo `Start of the script` the line is redirected to the
 Select the command that kills the process not owned by the user root and consumes the maximum CPU time. Assume you have the permission to kill any process.
 
 **Hint:**
-*The 10th column of the output of ps aux command (TIME) contains the total CPU time used by the process.
-*The ps aux command can list all the processes owned by all the users.
 
-**Sample Outout:**
+- The 10th column of the output of ps aux command (TIME) contains the total CPU time used by the process.
+- The ps aux command can list all the processes owned by all the users.
+
+**Sample Output:**
 
 ```bash
 $ ps aux | head -5   # get the first 5 lines
@@ -450,42 +445,36 @@ Options:
 (a)
 
 ```text
-
 itemA
 ```
 
 (b)
 
 ```text
-
 itemB
 ```
 
 (c)
 
 ```text
-
 itemC
 ```
 
 (d)
 
 ```text
-
 itemD
 ```
 
 (e)
 
 ```text
-
 itemE
 ```
 
 (f)
 
 ```text
-
 itemF
 ```
 
@@ -552,7 +541,7 @@ sed 's/apple/fruit/' input.txt
 
 ### Answer
 
-(a),(b),(c)
+(a), (b), (c)
 
 ### Explanation
 
@@ -571,7 +560,8 @@ the pattern selectively using Extended regular expression. Please help him choos
 regular expression to achieve that.
 
 **Sample Input**
-`
+
+```text
 name, phone, email, region
 Madan,1-158-662-4996,madan-raja@outlook.ca,GA
 Persaud, 1-877-704-5869,persaud@google.edu,Meghalaya
@@ -582,11 +572,11 @@ Nirmal, 474-7526,nirmal@icloud.org,Madhya Pradesh
 Sahni, 151-8534, sahni@hotmail.ca,KA
 Mahajan,1-548-689-8736,mahajan@icloud.couk,Bihar
 Rana,1-528-385-7783,rana4716@yahoo.org,AN
-`
+```
 
-**Sample Output:**
+**Sample Output**
 
-`
+```text
 1-158-662-4996
 1-877-704-5869
 1-516-922-8416
@@ -596,9 +586,9 @@ Rana,1-528-385-7783,rana4716@yahoo.org,AN
 151-8534
 1-548-689-8736
 1-528-385-7783
-`
+```
 
-Options :
+Options:
 
 (a)
 
@@ -632,11 +622,11 @@ None of these
 
 ### Answer
 
-(a),(b),(d)
+(a), (b), (d)
 
 ### Explanation
 
-- Option (a) – Matches both formats using alternation/or (|) between X-XXX-XXX-XXXX and XXX-XXXX patterns.
+- Option (a) – Matches both formats using alternation/or `|` between X-XXX-XXX-XXXX and XXX-XXXX patterns.
 - Option (b) – Uses [0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4} or [0-9]{3}-[0-9]{4} to match full and short phone numbers.
 - Option (c) – Uses \b word boundaries and matches only 1-XXX-XXX-XXXX, so it misses short number pattern XXX-XXXX.
 - Option (d) – Uses `.*` to match anything after first number and hyphen and before XXX-XXXX thereby capturing the 10 digit pattern and or part captures 7 digit number. It works for these inputs, but `.*` is greedy and could overmatch in other cases.
@@ -720,9 +710,9 @@ done
 
 mindepth & maxdepth 1 indicates the files should be located in /opt/se2001 directory only and not recursively any sub directories below it.  
 
-- (a) & (b) are correct as they both try to find the files which has an extension .md.
-- (c) tries to find a directory named *.md but the `find` command is searching for files with an extension of .md.
-- (d) `[[ "$file" == *.md ]]` is pattern matching `*.md` matches any string ending with `.md` so, it is correct.
+- (a) & (b) are correct as they both try to find the files which has an extension .md
+- (c) tries to find a directory named *.md but the `find` command is searching for files with an extension of .md
+- (d) `[[ "$file" == *.md ]]` is pattern matching `*.md` matches any string ending with `.md` so, it is correct
 
 ***Note:***
 While option (b) works in this context, using ls in scripts is discouraged because it breaks on filenames with spaces.
@@ -794,7 +784,7 @@ In a school, two different tests were conducted on two separate days. The files 
 
 day1.csv:
 
-`
+```text
 student_id,score
 101,85
 102,78
@@ -802,27 +792,27 @@ student_id,score
 104,88
 105,76
 106,90
-`
+```
 
 day2.csv:
 
-`
+```text
 student_id, score
 101,80
 103,89
 105,91
 107,83
 108,75
-`
+```
 
-**Expected Output:**
+**Expected Output**
 
-`
+```text
 student_id
 101
 103
 105
-`
+```
 
 Which of the following AWK scripts will correctly produce the expected output? (Select all that apply):
 
@@ -879,41 +869,39 @@ Which of the following commands can be used to extract only the package name and
 
 **Sample Log file:**
 
-`
+```text
 2023-12-09 status installed nginx-core:amd64 1.18.0-6ubuntu14.4
 2023-12-09 configure libnginx-mod-http-lua: amd64 1.18.0-6ubuntu14.4
 
 2023-12-09 status unpacked libnginx-mod-http-lua:amd64 1.18.0-6ubuntu14.4
 2023-12-09 status half-configured libnginx-mod-http-lua:amd64 1.18.0-6ubuntu14.4
-`
+```
 
-**Desired Output:**
-`
+**Desired Output**
+
+```text
 nginx-core:amd64
 libnginx-mod-http-lua:amd64
 libnginx-mod-http-lua:amd64
 libnginx-mod-http-lua:amd64
-`
+```
 
 (a)
 
 ```bash
 grep -oE '[[:alnum:]-]+:[[:alnum:]]+' log.txt
-
 ```
 
 (b)
 
 ```bash
 grep -oE '[[:alnum:]]+:[[:alnum:]]+' log.txt
-
 ```
 
 (c)
 
 ```bash
 grep -o '[a-zA-Z0-9]*:[a-zA-Z0-9]*' log.txt
-
 ```
 
 (d)
@@ -1012,4 +1000,4 @@ File is of type c
 
 ### Explanation
 
-The command searches for regular .txt files in /home/user/docs modified within the last 5 days. From the ls -l output (current date Aug 16), the files from Aug 12–16 (summary.txt, notes.txt, plan.txt, draft.txt, final.txt) qualify, so the count is 5.
+The command searches for regular .txt files in /home/user/docs modified within the last 5 days. From `ls -l` output (current date Aug 16), the files from Aug 12–16 (summary.txt, notes.txt, plan.txt, draft.txt, final.txt) qualify, so the count is 5.
