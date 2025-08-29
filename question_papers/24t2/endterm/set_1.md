@@ -123,10 +123,11 @@ file_check() {
 Which of the following `awk` commands will display the contents of `data.txt` with each line's length prepended at the start of the line?
 
 **Hint:**
-`
+
+```text
 length([s])
     Return the length of the string s, or the length of $0 if s is not supplied. As a non-standard extension, with an array argument, length() returns the number of elements in the array.
-`
+```
 
 (a)
 
@@ -159,8 +160,8 @@ awk '{print $0, length($0)}' data.txt
 ### Explanation
 
 - Option (a) prints the line and there is no parameter given for length
-- Option (b) prints the first word ($1) followed by the line length (length($0)), not the full line.
-- Option (c) awk `{print length($0), $0}' data.txt` prints the length of the line using `length()` command followed by the full line. So, this is the correct option.
+- Option (b) prints the first word ($1) followed by the line length (length($0)), not the full line
+- Option (c) awk `{print length($0), $0}' data.txt` prints the length of the line using `length()` command followed by the full line. So, this is the correct option
 - Option (d) prints line then length, not what was asked
 
 ## Question 3 (bash) [MCQ] [8]
@@ -359,7 +360,7 @@ kill $(
 - (b) - Same as option (c) but uses `-n` option. With `-n`, sort treats TIME as numeric but TIME contains `:` so using numeric sort will fail and processes will not be sorted correctly by TIME
 - (c) - This option is correct because -
   - `sed 1d` deletes the header
-  - sorted by TIME (-k10,10 -r, reverse)
+  - sorted by TIME (-k10,10 -r, reverse) -k10,10 indicates sort by 10th column
   - `grep -v '^root\b'` removes root-owned processes
   - `head -1` picks the top one
   - `awk '{print $2}'` extracts PID
@@ -916,10 +917,10 @@ grep -o '[a-zA-Z0-9-]*:[a-zA-Z0-9]*' log.txt
 
 ### Explanation
 
-- (a) - `[[:alnum:]-]+` matches alphabets, numbers and hyphen and *`:[[:alnum:]]+` → correctly matches architecture (like amd64)
-- (b) - does not allow dashes in package names, so it fails for names like libnginx-mod-http-lua
+- (a) - `[[:alnum:]-]+` matches alphabets, numbers and hyphen and `:[[:alnum:]]+` correctly matches architecture (like amd64)
+- (b) - does not allow hyphen in package names, so it fails for names like libnginx-mod-http-lua
 - (c) - flag o prints only the matched part, only matches continuous letters/numbers, but missing hyphen
-- (d) - Allows dashes in the package name, and matches architecture with alphanumeric. So, it is the correct option.
+- (d) - Allows hyphen in the package name, and matches architecture with alphanumeric. So, it is the correct option.
 
 ---
 
