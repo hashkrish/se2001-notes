@@ -41,7 +41,7 @@ MD009:
 # MD010/no-hard-tabs : Hard tabs : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md010.md
 MD010:
   # Include code blocks
-  code_blocks: true
+  code_blocks: false
   # Fenced code languages to ignore
   ignore_code_languages: []
   # Number of spaces for each hard tab
