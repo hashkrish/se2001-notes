@@ -1,0 +1,7 @@
+[critical] (12:14:00 15-03-2023) Security breach detected
+[warning] (12:12:00 15-03-2023) Deprecated API usage detected
+[critical] (12:19:00 15-03-2023) Application crashed unexpectedly
+[error] (12:08:00 15-03-2023) Unable to connect to the database
+[warning] (12:02:00 15-03-2023) this is a warning message
+[error] (12:13:00 15-03-2023) File not found in the specified path
+[critical] (12:09:00 15-03-2023) System has run out of memory

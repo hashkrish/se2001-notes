@@ -1,0 +1,10 @@
+[INFO] (2023-03-15 12:06:00) The application has started
+[WARNING] (2023-03-15 12:07:00) Low disk space remaining
+[WARNING] (2023-03-15 12:02:00) this is a warning message
+[INFO] (2023-03-15 12:11:00) User login successful
+[ERROR] (2023-03-15 12:08:00) Unable to connect to the database
+[CRITICAL] (2023-03-15 12:04:00) this is a critical message
+[ERROR] (2023-03-15 12:13:00) File not found in the specified path
+[ERROR] (2023-03-15 12:03:00) this is an error message
+[CRITICAL] (2023-03-15 12:19:00) Application crashed unexpectedly
+[CRITICAL] (2023-03-15 12:09:00) System has run out of memory

@@ -1,0 +1,10 @@
+[INFO] (2023-03-15 12:11:00) User login successful
+[WARNING] (2023-03-15 12:07:00) Low disk space remaining
+[WARNING] (2023-03-15 12:17:00) Network latency detected
+[CRITICAL] (2023-03-15 12:04:00) this is a critical message
+[WARNING] (2023-03-15 12:12:00) Deprecated API usage detected
+[INFO] (2023-03-15 12:01:00) this is an info message
+[DEBUG] (2023-03-15 12:10:00) Multiple requests received from the same IP
+[DEBUG] (2023-03-15 12:15:00) Cache cleared successfully
+[DEBUG] (2023-03-15 12:05:00) this is another debug message
+[ERROR] (2023-03-15 12:13:00) File not found in the specified path

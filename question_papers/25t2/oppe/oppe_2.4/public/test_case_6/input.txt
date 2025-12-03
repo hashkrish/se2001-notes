@@ -1,0 +1,10 @@
+[WARNING] (2023-03-15 12:02:00) this is a warning message
+[ERROR] (2023-03-15 12:18:00) Invalid user credentials
+[CRITICAL] (2023-03-15 12:04:00) this is a critical message
+[DEBUG] (2023-03-15 12:15:00) Cache cleared successfully
+[ERROR] (2023-03-15 12:03:00) this is an error message
+[CRITICAL] (2023-03-15 12:14:00) Security breach detected
+[WARNING] (2023-03-15 12:07:00) Low disk space remaining
+[INFO] (2023-03-15 12:16:00) Scheduled task completed
+[WARNING] (2023-03-15 12:12:00) Deprecated API usage detected
+[INFO] (2023-03-15 12:06:00) The application has started

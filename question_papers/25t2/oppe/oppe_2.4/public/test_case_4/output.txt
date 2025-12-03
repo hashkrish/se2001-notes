@@ -1,0 +1,5 @@
+[WARNING] (12:07:00 15-03-2023) Low disk space remaining
+[WARNING] (12:17:00 15-03-2023) Network latency detected
+[CRITICAL] (12:04:00 15-03-2023) This is a critical message
+[WARNING] (12:12:00 15-03-2023) Deprecated API usage detected
+[ERROR] (12:13:00 15-03-2023) File not found in the specified path

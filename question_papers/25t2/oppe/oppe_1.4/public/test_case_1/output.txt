@@ -1,0 +1,6 @@
+[critical] (12:09:00 15-03-2023) System has run out of memory
+[error] (12:13:00 15-03-2023) File not found in the specified path
+[warning] (12:12:00 15-03-2023) Deprecated API usage detected
+[error] (12:08:00 15-03-2023) Unable to connect to the database
+[critical] (12:14:00 15-03-2023) Security breach detected
+[error] (12:18:00 15-03-2023) Invalid user credentials

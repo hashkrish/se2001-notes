@@ -1,0 +1,10 @@
+[DEBUG] (2023-03-15 12:10:00) Multiple requests received from the same IP
+[CRITICAL] (2023-03-15 12:19:00) Application crashed unexpectedly
+[ERROR] (2023-03-15 12:13:00) File not found in the specified path
+[DEBUG] (2023-03-15 12:15:00) Cache cleared successfully
+[CRITICAL] (2023-03-15 12:14:00) Security breach detected
+[ERROR] (2023-03-15 12:18:00) Invalid user credentials
+[INFO] (2023-03-15 12:16:00) Scheduled task completed
+[INFO] (2023-03-15 12:11:00) User login successful
+[DEBUG] (2023-03-15 12:05:00) this is another debug message
+[CRITICAL] (2023-03-15 12:09:00) System has run out of memory

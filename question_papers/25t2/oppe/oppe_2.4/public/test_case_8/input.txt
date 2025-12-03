@@ -1,0 +1,10 @@
+[INFO] (2023-03-15 12:11:00) User login successful
+[CRITICAL] (2023-03-15 12:19:00) Application crashed unexpectedly
+[ERROR] (2023-03-15 12:08:00) Unable to connect to the database
+[DEBUG] (2023-03-15 12:10:00) Multiple requests received from the same IP
+[CRITICAL] (2023-03-15 12:14:00) Security breach detected
+[ERROR] (2023-03-15 12:13:00) File not found in the specified path
+[WARNING] (2023-03-15 12:17:00) Network latency detected
+[DEBUG] (2023-03-15 12:15:00) Cache cleared successfully
+[CRITICAL] (2023-03-15 12:09:00) System has run out of memory
+[ERROR] (2023-03-15 12:03:00) this is an error message

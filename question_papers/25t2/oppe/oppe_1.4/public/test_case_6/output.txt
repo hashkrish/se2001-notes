@@ -1,0 +1,7 @@
+[warning] (12:12:00 15-03-2023) Deprecated API usage detected
+[warning] (12:07:00 15-03-2023) Low disk space remaining
+[error] (12:13:00 15-03-2023) File not found in the specified path
+[critical] (12:09:00 15-03-2023) System has run out of memory
+[critical] (12:04:00 15-03-2023) this is a critical message
+[critical] (12:19:00 15-03-2023) Application crashed unexpectedly
+[error] (12:03:00 15-03-2023) this is an error message

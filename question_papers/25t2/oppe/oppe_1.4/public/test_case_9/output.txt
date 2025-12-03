@@ -1,0 +1,8 @@
+[warning] (12:07:00 15-03-2023) Low disk space remaining
+[warning] (12:02:00 15-03-2023) this is a warning message
+[error] (12:08:00 15-03-2023) Unable to connect to the database
+[critical] (12:04:00 15-03-2023) this is a critical message
+[error] (12:13:00 15-03-2023) File not found in the specified path
+[error] (12:03:00 15-03-2023) this is an error message
+[critical] (12:19:00 15-03-2023) Application crashed unexpectedly
+[critical] (12:09:00 15-03-2023) System has run out of memory

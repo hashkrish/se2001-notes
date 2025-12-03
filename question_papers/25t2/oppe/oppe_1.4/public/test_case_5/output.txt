@@ -1,0 +1,5 @@
+[critical] (12:19:00 15-03-2023) Application crashed unexpectedly
+[error] (12:13:00 15-03-2023) File not found in the specified path
+[critical] (12:14:00 15-03-2023) Security breach detected
+[error] (12:18:00 15-03-2023) Invalid user credentials
+[critical] (12:09:00 15-03-2023) System has run out of memory

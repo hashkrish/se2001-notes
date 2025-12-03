@@ -1,0 +1,10 @@
+[ERROR] (2023-03-15 12:13:00) File not found in the specified path
+[WARNING] (2023-03-15 12:07:00) Low disk space remaining
+[DEBUG] (2023-03-15 12:15:00) Cache cleared successfully
+[ERROR] (2023-03-15 12:08:00) Unable to connect to the database
+[DEBUG] (2023-03-15 12:05:00) this is another debug message
+[CRITICAL] (2023-03-15 12:09:00) System has run out of memory
+[ERROR] (2023-03-15 12:03:00) this is an error message
+[CRITICAL] (2023-03-15 12:19:00) Application crashed unexpectedly
+[INFO] (2023-03-15 12:11:00) User login successful
+[INFO] (2023-03-15 12:06:00) The application has started

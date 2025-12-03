@@ -1,0 +1,5 @@
+[CRITICAL] (12:04:00 15-03-2023) This is a critical message
+[ERROR] (12:18:00 15-03-2023) Invalid user credentials
+[ERROR] (12:03:00 15-03-2023) This is an error message
+[ERROR] (12:13:00 15-03-2023) File not found in the specified path
+[CRITICAL] (12:14:00 15-03-2023) Security breach detected

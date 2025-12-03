@@ -1,0 +1,7 @@
+[WARNING] (12:17:00 15-03-2023) Network latency detected
+[CRITICAL] (12:14:00 15-03-2023) Security breach detected
+[WARNING] (12:02:00 15-03-2023) This is a warning message
+[WARNING] (12:07:00 15-03-2023) Low disk space remaining
+[ERROR] (12:03:00 15-03-2023) This is an error message
+[WARNING] (12:12:00 15-03-2023) Deprecated API usage detected
+[CRITICAL] (12:19:00 15-03-2023) Application crashed unexpectedly

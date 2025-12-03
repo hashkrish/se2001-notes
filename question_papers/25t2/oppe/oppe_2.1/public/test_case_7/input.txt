@@ -1,0 +1,10 @@
+dave:x:1007:1007:Dave:/home/dave:/bin/zsh
+george:x:1010:1010:George:/home/george:/bin/csh
+user:x:1000:1000:User:/home/user:/bin/bash
+alice:x:1004:1004:Alice:/home/alice:/bin/csh
+Eve:x:1002:1002:Eve:/home/eve:/bin/bash
+Bob:x:1005:1005:Bob:/home/bob:/bin/fish
+Adam:x:1001:1001:Adam:/home/adam:/bin/zsh
+frank:x:1009:1009:Frank Sinatra:/home/frank:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+hannah:x:1011:1011:Hannah:/home/hannah:/bin/fish

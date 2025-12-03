@@ -1,0 +1,4 @@
+[ERROR] (12:08:00 15-03-2023) Unable to connect to the database
+[CRITICAL] (12:14:00 15-03-2023) Security breach detected
+[ERROR] (12:18:00 15-03-2023) Invalid user credentials
+[WARNING] (12:07:00 15-03-2023) Low disk space remaining

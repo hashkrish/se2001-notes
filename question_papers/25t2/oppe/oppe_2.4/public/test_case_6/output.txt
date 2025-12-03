@@ -1,0 +1,7 @@
+[WARNING] (12:02:00 15-03-2023) This is a warning message
+[ERROR] (12:18:00 15-03-2023) Invalid user credentials
+[CRITICAL] (12:04:00 15-03-2023) This is a critical message
+[ERROR] (12:03:00 15-03-2023) This is an error message
+[CRITICAL] (12:14:00 15-03-2023) Security breach detected
+[WARNING] (12:07:00 15-03-2023) Low disk space remaining
+[WARNING] (12:12:00 15-03-2023) Deprecated API usage detected

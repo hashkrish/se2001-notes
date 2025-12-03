@@ -1,0 +1,6 @@
+[ERROR] (12:13:00 15-03-2023) File not found in the specified path
+[ERROR] (12:18:00 15-03-2023) Invalid user credentials
+[WARNING] (12:07:00 15-03-2023) Low disk space remaining
+[CRITICAL] (12:14:00 15-03-2023) Security breach detected
+[CRITICAL] (12:04:00 15-03-2023) This is a critical message
+[WARNING] (12:17:00 15-03-2023) Network latency detected

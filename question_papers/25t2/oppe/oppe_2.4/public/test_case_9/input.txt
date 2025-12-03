@@ -1,0 +1,10 @@
+[CRITICAL] (2023-03-15 12:04:00) this is a critical message
+[INFO] (2023-03-15 12:16:00) Scheduled task completed
+[ERROR] (2023-03-15 12:18:00) Invalid user credentials
+[ERROR] (2023-03-15 12:03:00) this is an error message
+[INFO] (2023-03-15 12:11:00) User login successful
+[INFO] (2023-03-15 12:06:00) The application has started
+[ERROR] (2023-03-15 12:13:00) File not found in the specified path
+[DEBUG] (2023-03-15 12:05:00) this is another debug message
+[DEBUG] (2023-03-15 12:10:00) Multiple requests received from the same IP
+[CRITICAL] (2023-03-15 12:14:00) Security breach detected
