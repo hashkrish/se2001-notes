@@ -1,0 +1,10 @@
+[DEBUG] (2023-03-15 12:00:00) this is a debug message
+[ERROR] (2023-03-15 12:13:00) File not found in the specified path
+[ERROR] (2023-03-15 12:18:00) Invalid user credentials
+[DEBUG] (2023-03-15 12:15:00) Cache cleared successfully
+[WARNING] (2023-03-15 12:07:00) Low disk space remaining
+[CRITICAL] (2023-03-15 12:14:00) Security breach detected
+[INFO] (2023-03-15 12:16:00) Scheduled task completed
+[CRITICAL] (2023-03-15 12:04:00) this is a critical message
+[WARNING] (2023-03-15 12:17:00) Network latency detected
+[DEBUG] (2023-03-15 12:10:00) Multiple requests received from the same IP

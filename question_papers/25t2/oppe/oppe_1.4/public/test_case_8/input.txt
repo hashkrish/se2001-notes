@@ -1,0 +1,10 @@
+[INFO] (2023-03-15 12:16:00) Scheduled task completed
+[INFO] (2023-03-15 12:11:00) User login successful
+[CRITICAL] (2023-03-15 12:09:00) System has run out of memory
+[DEBUG] (2023-03-15 12:00:00) this is a debug message
+[INFO] (2023-03-15 12:01:00) this is an info message
+[CRITICAL] (2023-03-15 12:14:00) Security breach detected
+[INFO] (2023-03-15 12:06:00) The application has started
+[DEBUG] (2023-03-15 12:15:00) Cache cleared successfully
+[WARNING] (2023-03-15 12:07:00) Low disk space remaining
+[WARNING] (2023-03-15 12:02:00) this is a warning message

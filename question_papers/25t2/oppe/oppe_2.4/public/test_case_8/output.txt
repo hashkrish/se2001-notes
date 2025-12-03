@@ -1,0 +1,7 @@
+[CRITICAL] (12:19:00 15-03-2023) Application crashed unexpectedly
+[ERROR] (12:08:00 15-03-2023) Unable to connect to the database
+[CRITICAL] (12:14:00 15-03-2023) Security breach detected
+[ERROR] (12:13:00 15-03-2023) File not found in the specified path
+[WARNING] (12:17:00 15-03-2023) Network latency detected
+[CRITICAL] (12:09:00 15-03-2023) System has run out of memory
+[ERROR] (12:03:00 15-03-2023) This is an error message

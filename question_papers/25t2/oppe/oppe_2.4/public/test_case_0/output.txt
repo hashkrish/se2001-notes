@@ -1,0 +1,12 @@
+[WARNING] (12:02:00 15-03-2023) This is a warning message
+[ERROR] (12:03:00 15-03-2023) This is an error message
+[CRITICAL] (12:04:00 15-03-2023) This is a critical message
+[WARNING] (12:07:00 15-03-2023) Low disk space remaining
+[ERROR] (12:08:00 15-03-2023) Unable to connect to the database
+[CRITICAL] (12:09:00 15-03-2023) System has run out of memory
+[WARNING] (12:12:00 15-03-2023) Deprecated API usage detected
+[ERROR] (12:13:00 15-03-2023) File not found in the specified path
+[CRITICAL] (12:14:00 15-03-2023) Security breach detected
+[WARNING] (12:17:00 15-03-2023) Network latency detected
+[ERROR] (12:18:00 15-03-2023) Invalid user credentials
+[CRITICAL] (12:19:00 15-03-2023) Application crashed unexpectedly

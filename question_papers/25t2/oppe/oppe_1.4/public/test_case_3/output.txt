@@ -1,0 +1,6 @@
+[critical] (12:19:00 15-03-2023) Application crashed unexpectedly
+[critical] (12:09:00 15-03-2023) System has run out of memory
+[error] (12:03:00 15-03-2023) this is an error message
+[error] (12:18:00 15-03-2023) Invalid user credentials
+[error] (12:13:00 15-03-2023) File not found in the specified path
+[warning] (12:07:00 15-03-2023) Low disk space remaining

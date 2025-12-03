@@ -1,0 +1,10 @@
+ISABELLA:x:1012:1012:Isabella:/home/isabella:/bin/bash
+Bob:x:1005:1005:Bob:/home/bob:/bin/bash
+user:x:1000:1000:User:/home/user:/bin/bash
+Adam:x:1001:1001:Adam:/home/adam:/bin/bash
+hannah:x:1011:1011:Hannah:/home/hannah:/bin/bash
+george:x:1010:1010:George:/home/george:/bin/bash
+Eugene:x:1008:1008:Eugene:/home/eugene:/bin/bash
+john:x:1003:1003:John:/home/john:/bin/bash
+alice:x:1004:1004:Alice:/home/alice:/bin/bash
+root:x:0:0:root:/root:/bin/bash

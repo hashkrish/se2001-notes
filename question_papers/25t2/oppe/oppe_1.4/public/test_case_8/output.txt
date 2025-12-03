@@ -1,0 +1,4 @@
+[critical] (12:09:00 15-03-2023) System has run out of memory
+[critical] (12:14:00 15-03-2023) Security breach detected
+[warning] (12:07:00 15-03-2023) Low disk space remaining
+[warning] (12:02:00 15-03-2023) this is a warning message

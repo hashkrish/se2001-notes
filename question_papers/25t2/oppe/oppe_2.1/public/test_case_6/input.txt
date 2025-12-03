@@ -1,0 +1,10 @@
+frank:x:1009:1009:Frank Sinatra:/home/frank:/bin/bash
+charlie:x:1006:1006:Charlie:/home/charlie:/bin/bash
+user:x:1000:1000:User:/home/user:/bin/bash
+Adam:x:1001:1001:Adam:/home/adam:/bin/zsh
+Bob:x:1005:1005:Bob:/home/bob:/bin/fish
+hannah:x:1011:1011:Hannah:/home/hannah:/bin/fish
+john:x:1003:1003:John:/home/john:/bin/zsh
+alice:x:1004:1004:Alice:/home/alice:/bin/csh
+dave:x:1007:1007:Dave:/home/dave:/bin/zsh
+ISABELLA:x:1012:1012:Isabella:/home/isabella:/bin/bash

@@ -1,0 +1,10 @@
+[DEBUG] (2023-03-15 12:10:00) Multiple requests received from the same IP
+[INFO] (2023-03-15 12:16:00) Scheduled task completed
+[ERROR] (2023-03-15 12:08:00) Unable to connect to the database
+[DEBUG] (2023-03-15 12:15:00) Cache cleared successfully
+[WARNING] (2023-03-15 12:07:00) Low disk space remaining
+[INFO] (2023-03-15 12:01:00) this is an info message
+[CRITICAL] (2023-03-15 12:19:00) Application crashed unexpectedly
+[WARNING] (2023-03-15 12:02:00) this is a warning message
+[ERROR] (2023-03-15 12:13:00) File not found in the specified path
+[CRITICAL] (2023-03-15 12:04:00) this is a critical message
